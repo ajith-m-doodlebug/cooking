@@ -5,6 +5,8 @@ alwaysApply: true
 
 # CA Marketplace Backend — Project Rules
 
+Backend code lives under **`backend/`**. Root holds scripts, Docker Compose, env files, and docs.
+
 ## Tech Stack
 
 - **FastAPI** (async), **SQLAlchemy 2.x** (async), **Alembic**, **Pydantic v2**
@@ -14,7 +16,7 @@ alwaysApply: true
 
 ## Module Layout
 
-Each domain lives under `app/modules/<name>/` with:
+Each domain lives under `backend/app/modules/<name>/` with:
 
 - `models.py` — SQLAlchemy ORM (table names, relations)
 - `schemas.py` — Pydantic request/response
@@ -22,11 +24,11 @@ Each domain lives under `app/modules/<name>/` with:
 - `router.py` — FastAPI routes only; delegate to service
 - `tasks.py` — Celery tasks when the module has background jobs
 
-Routers are mounted in `app/main.py` with a clear prefix (e.g. `/auth`, `/ca`, `/bookings`).
+Routers are mounted in `backend/app/main.py` with a clear prefix (e.g. `/auth`, `/ca`, `/bookings`).
 
 ## Provider Abstraction (Plug & Play)
 
-Third-party integrations live under `app/providers/<payment|otp|meeting>/`:
+Third-party integrations live under `backend/app/providers/<payment|otp|meeting>/`:
 
 - `base.py` — Abstract base class (ABC) with a fixed method contract
 - `<provider>.py` — One concrete implementation per provider (e.g. `razorpay.py`, `msg91.py`)
@@ -37,5 +39,5 @@ Third-party integrations live under `app/providers/<payment|otp|meeting>/`:
 ## Conventions
 
 - All persisted data is in our DB; normalize provider responses before storing.
-- Use `app/core/exceptions.py` for HTTP errors; use `app.dependencies` for `DbSession`, `get_current_user`, `require_ca`, `require_user`.
-- Config via `app.config.settings` (pydantic-settings from `.env`).
+- Use `backend/app/core/exceptions.py` for HTTP errors; use `backend/app/dependencies` for `DbSession`, `get_current_user`, `require_ca`, `require_user`.
+- Config via `backend/app/config.settings` (pydantic-settings from root `.env`).

@@ -49,13 +49,13 @@ services:
 
   api:
     container_name: cooking-api
-    build: .
+    build: ./backend
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
     env_file: .env
     ports:
       - "8001:8000"   # host 8001 (8000 often used by other apps)
     volumes:
-      - .:/app
+      - ./backend:/app
     depends_on:
       db:
         condition: service_healthy
@@ -65,11 +65,11 @@ services:
 
   worker:
     container_name: cooking-worker
-    build: .
+    build: ./backend
     command: celery -A app.celery_app worker --loglevel=info --concurrency=4
     env_file: .env
     volumes:
-      - .:/app
+      - ./backend:/app
     depends_on:
       db:
         condition: service_healthy
@@ -79,11 +79,11 @@ services:
 
   beat:
     container_name: cooking-beat
-    build: .
+    build: ./backend
     command: celery -A app.celery_app beat --loglevel=info
     env_file: .env
     volumes:
-      - .:/app
+      - ./backend:/app
     depends_on:
       redis:
         condition: service_healthy

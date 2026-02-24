@@ -1,6 +1,6 @@
 ---
 description: Docker, Alembic migrations, and setup/start/stop scripts
-globs: docker-compose.yml,Dockerfile,alembic/**/*.py,alembic.ini,*.sh
+globs: docker-compose.yml,backend/Dockerfile,backend/alembic/**/*.py,backend/alembic.ini,*.sh
 alwaysApply: false
 ---
 
@@ -14,7 +14,7 @@ alwaysApply: false
 
 ## Alembic
 
-- **Migrations live in** `alembic/` (env.py, script.py.mako, versions/). `alembic.ini` has `script_location = alembic`.
+- **Migrations live in** `backend/alembic/` (env.py, script.py.mako, versions/). `backend/alembic.ini` has `script_location = alembic`.
 - **Engine URL:** Use the app DB URL from config (e.g. in env.py: `config.get_main_option("sqlalchemy.url")` set from `settings.DATABASE_URL`), not the placeholder in alembic.ini.
 - Run migrations: `docker compose -p cooking run --rm api alembic upgrade head` (same as in setup.sh).
 

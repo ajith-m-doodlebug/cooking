@@ -1,6 +1,15 @@
-# CA Marketplace — Backend
+# CA Marketplace
 
-FastAPI backend for the CA Marketplace platform. Two-sided marketplace where Chartered Accountants list services and clients find and book consultations.
+Two-sided marketplace where Chartered Accountants list services and clients find and book consultations.
+
+## Project layout
+
+| Path | Contents |
+|------|----------|
+| **`/backend`** | FastAPI app, Alembic, Celery, tests, `Dockerfile`, `requirements.txt` |
+| **`/frontend`** | Frontend application (add your UI here) |
+| **`/docs`** | Documentation and specs |
+| **Root** | Scripts (`setup.sh`, `start.sh`, `stop.sh`), `docker-compose.yml`, `.env`, `.env.example` |
 
 ## Quick Start
 
@@ -8,13 +17,16 @@ FastAPI backend for the CA Marketplace platform. Two-sided marketplace where Cha
 # 1. Copy and fill in environment variables
 cp .env.example .env
 
-# 2. Start all services
-docker-compose up --build
+# 2. Run setup (build images, start db/redis, run migrations)
+./setup.sh
 
-# 3. API is available at
+# 3. Start all services (or: docker compose -p cooking up -d)
+./start.sh
+
+# 4. API is available at
 http://localhost:8001
 
-# 4. Interactive docs (development only)
+# 5. Interactive API docs (development only)
 http://localhost:8001/docs
 ```
 
@@ -30,7 +42,7 @@ All third-party integrations are swappable by changing a single `.env` variable:
 | OTP/SMS | `OTP_PROVIDER` | `msg91` |
 | Meetings | `MEETING_PROVIDER` | `google_meet` |
 
-To switch — e.g. to Stripe — add `app/providers/payment/stripe.py` implementing `PaymentProvider` ABC, then set `PAYMENT_PROVIDER=stripe`. Nothing else changes.
+To switch — e.g. to Stripe — add `backend/app/providers/payment/stripe.py` implementing `PaymentProvider` ABC, then set `PAYMENT_PROVIDER=stripe`. Nothing else changes.
 
 ### Automated CA Verification
 
@@ -40,10 +52,10 @@ When a CA submits their ICAI membership number, a Celery background job automati
 - No record / mismatch → `FAILED` (CA can retry)
 - Network errors → retried up to 3 times with exponential backoff
 
-### Module Structure
+### Module Structure (backend)
 
 ```
-app/
+backend/app/
 ├── core/            — JWT, exceptions, utilities
 ├── providers/       — payment / OTP / meeting abstractions
 └── modules/
