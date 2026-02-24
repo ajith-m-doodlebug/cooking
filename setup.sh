@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR"
+
+# All commands use project name "cooking" so only this project is touched
+COMPOSE_PROJECT_NAME=cooking
+
+echo "=== CA Marketplace — Setup (project: cooking) ==="
+
+if [ ! -f .env ]; then
+  echo "Creating .env from .env.example..."
+  cp .env.example .env
+  echo "Please edit .env and set SECRET_KEY, Google OAuth, and provider credentials."
+else
+  echo ".env already exists."
+fi
+
+echo "Building Docker images..."
+docker compose -p cooking build
+
+echo "Starting database and Redis..."
+docker compose -p cooking up -d db redis
+
+echo "Waiting for PostgreSQL to be ready..."
+sleep 5
+for i in {1..30}; do
+  if docker compose -p cooking exec -T db pg_isready -U postgres >/dev/null 2>&1; then
+    echo "PostgreSQL is ready."
+    break
+  fi
+  if [ "$i" -eq 30 ]; then
+    echo "PostgreSQL did not become ready in time."
+    exit 1
+  fi
+  sleep 1
+done
+
+echo "Running database migrations..."
+docker compose -p cooking run --rm api alembic upgrade head
+
+echo ""
+echo "=== Setup complete ==="
+echo "Run ./start.sh to start all services (API, worker, beat, adminer)."
+echo "Or run: docker compose -p cooking up -d"

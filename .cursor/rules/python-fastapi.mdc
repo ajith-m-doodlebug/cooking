@@ -1,0 +1,34 @@
+---
+description: Python and FastAPI conventions for app and modules
+globs: app/**/*.py
+alwaysApply: false
+---
+
+# Python & FastAPI Conventions
+
+## Async and DB
+
+- Use **async** endpoints and **async** service methods when touching the DB.
+- Inject `DbSession` (async session) via FastAPI `Depends(get_db)`; do not create sessions inside services.
+- Prefer `select(Model).where(...)` and `result.scalar_one_or_none()` / `scalars().all()`.
+
+## Routers vs Services
+
+- **Routers**: Parse request, validate (Pydantic), call a single service method, return response. No business logic.
+- **Services**: All business logic, DB access, and calls to providers. Raise `AppException` subclasses from `app.core.exceptions` (e.g. `NotFoundError`, `ForbiddenError`, `ValidationError`).
+
+## Schemas
+
+- Use Pydantic v2: `model_config = {"from_attributes": True}` for ORM response schemas.
+- Request schemas: explicit fields and validators; no ORM types in request bodies.
+- Keep response schemas in `schemas.py`; do not expose internal or provider-specific fields.
+
+## Auth and Dependencies
+
+- Use `get_current_user` for any authenticated route; use `require_ca` or `require_user` when the route is role-specific.
+- JWT and tokens: use `app.core.security` (e.g. `create_access_token`, `verify_token`). Do not put secrets in code.
+
+## Errors
+
+- Prefer typed exceptions: `raise NotFoundError("Resource")` instead of generic `HTTPException`.
+- Handlers for `AppException` and generic `Exception` are registered in `main.py`; do not catch and re-raise as HTTPException in routers unless you need a different status for that route.

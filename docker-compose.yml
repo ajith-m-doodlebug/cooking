@@ -1,0 +1,93 @@
+# Project name: all containers and resources are under "cooking".
+# start.sh / stop.sh use -p cooking so only this project is started or stopped.
+name: cooking
+
+services:
+  db:
+    container_name: cooking-db
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ca_marketplace
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"   # host 5433 (avoid conflict with local postgres on 5432)
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    container_name: cooking-redis
+    image: redis:7-alpine
+    restart: unless-stopped
+    ports:
+      - "6380:6379"   # host 6380 (avoid conflict with local redis on 6379)
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Adminer: http://localhost:8081 — System: PostgreSQL, Server: db, User: postgres, Password: postgres
+  adminer:
+    container_name: cooking-adminer
+    image: adminer:latest
+    restart: unless-stopped
+    ports:
+      - "8081:8080"   # host 8081 (8080 often used by other apps)
+    environment:
+      ADMINER_DEFAULT_SERVER: db
+      ADMINER_DESIGN: pepa-linha
+    depends_on:
+      db:
+        condition: service_healthy
+
+  api:
+    container_name: cooking-api
+    build: .
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    env_file: .env
+    ports:
+      - "8001:8000"   # host 8001 (8000 often used by other apps)
+    volumes:
+      - .:/app
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  worker:
+    container_name: cooking-worker
+    build: .
+    command: celery -A app.celery_app worker --loglevel=info --concurrency=4
+    env_file: .env
+    volumes:
+      - .:/app
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  beat:
+    container_name: cooking-beat
+    build: .
+    command: celery -A app.celery_app beat --loglevel=info
+    env_file: .env
+    volumes:
+      - .:/app
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

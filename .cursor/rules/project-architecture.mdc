@@ -1,0 +1,41 @@
+---
+description: CA Marketplace backend — architecture, stack, and module layout
+alwaysApply: true
+---
+
+# CA Marketplace Backend — Project Rules
+
+## Tech Stack
+
+- **FastAPI** (async), **SQLAlchemy 2.x** (async), **Alembic**, **Pydantic v2**
+- **PostgreSQL** (asyncpg), **Redis** (OTP, slot locks, Celery broker)
+- **Celery** (worker + beat) for verification and subscription expiry
+- **Docker** (project name: `cooking`). Scripts: `./setup.sh`, `./start.sh`, `./stop.sh`
+
+## Module Layout
+
+Each domain lives under `app/modules/<name>/` with:
+
+- `models.py` — SQLAlchemy ORM (table names, relations)
+- `schemas.py` — Pydantic request/response
+- `service.py` — Business logic (calls providers, not third-party SDKs directly)
+- `router.py` — FastAPI routes only; delegate to service
+- `tasks.py` — Celery tasks when the module has background jobs
+
+Routers are mounted in `app/main.py` with a clear prefix (e.g. `/auth`, `/ca`, `/bookings`).
+
+## Provider Abstraction (Plug & Play)
+
+Third-party integrations live under `app/providers/<payment|otp|meeting>/`:
+
+- `base.py` — Abstract base class (ABC) with a fixed method contract
+- `<provider>.py` — One concrete implementation per provider (e.g. `razorpay.py`, `msg91.py`)
+- `factory.py` — Returns the active implementation from config (e.g. `PAYMENT_PROVIDER=razorpay`)
+
+**Rule:** Application and module code must use only the abstract interface (e.g. `get_payment_provider()`). To switch providers: add a new `<name>.py` and change the env var; do not change call sites.
+
+## Conventions
+
+- All persisted data is in our DB; normalize provider responses before storing.
+- Use `app/core/exceptions.py` for HTTP errors; use `app.dependencies` for `DbSession`, `get_current_user`, `require_ca`, `require_user`.
+- Config via `app.config.settings` (pydantic-settings from `.env`).
