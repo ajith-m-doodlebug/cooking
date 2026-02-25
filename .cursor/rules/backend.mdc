@@ -1,0 +1,47 @@
+---
+description: Backend (FastAPI, DB, providers, Docker, scripts) — architecture and conventions
+globs: backend/**/*.py,docker-compose.yml,**/alembic/**/*.py,*.sh
+alwaysApply: false
+---
+
+# Backend — CA Marketplace
+
+Backend lives under **`backend/`**. Root has scripts, Docker Compose, `.env`, and docs.
+
+## Stack
+
+- **FastAPI** (async), **SQLAlchemy 2.x** (async), **Alembic**, **Pydantic v2**
+- **PostgreSQL** (asyncpg), **Redis** (OTP, locks, Celery broker)
+- **Celery** (worker + beat). **Docker** project name: `cooking`. Scripts: `./setup.sh`, `./start.sh`, `./stop.sh`
+
+## Module layout (`backend/app/modules/<name>/`)
+
+| File       | Purpose |
+|-----------|---------|
+| `models.py`  | SQLAlchemy ORM, relations |
+| `schemas.py` | Pydantic request/response (v2; `from_attributes=True` for ORM) |
+| `service.py` | Business logic, DB, provider calls (no SDKs in modules) |
+| `router.py`  | FastAPI routes only; delegate to service |
+| `tasks.py`   | Celery tasks when needed |
+
+Routers mounted in `backend/app/main.py` with prefix (e.g. `/auth`, `/ca`, `/bookings`).
+
+## Conventions
+
+- **Async:** Use async endpoints and service methods when touching DB. Inject `DbSession` via `Depends(get_db)`.
+- **Routers:** Parse/validate → call one service method → return. No business logic.
+- **Services:** Raise `AppException` subclasses from `backend/app/core/exceptions` (`NotFoundError`, `ForbiddenError`, etc.). Use `select(Model).where(...)`, `scalar_one_or_none()` / `scalars().all()`.
+- **Auth:** `get_current_user`, `require_ca`, `require_user` from `backend/app/dependencies`. Tokens via `backend/app/core/security`.
+- **Config:** `backend/app/config.py` (pydantic-settings from root `.env`).
+
+## Providers (`backend/app/providers/<payment|otp|meeting>/`)
+
+- **base.py** — ABC with fixed method contract. **factory.py** — returns implementation from config (e.g. `PAYMENT_PROVIDER=razorpay`).
+- App/modules use only the abstract interface (e.g. `get_payment_provider()`). To add a provider: implement ABC in new file, add branch in factory; no call-site changes.
+- No secrets in code; use `app.config.settings`. Normalize errors to `ProviderError`; keep provider-specific types inside provider module.
+
+## Docker & scripts
+
+- **Project:** `docker compose -p cooking`. Ports: Postgres 5433, Redis 6380, API 8001, Frontend 3000, Adminer 8081.
+- **Migrations:** `backend/alembic/`. Run: `docker compose -p cooking run --rm api alembic upgrade head`. Engine URL from config in env.py.
+- **setup.sh:** .env, build images, up db+redis, wait for Postgres, run migrations, optional frontend npm install. **start.sh:** `up -d` then `logs -f`. **stop.sh:** `down`. Never start/stop outside this project.

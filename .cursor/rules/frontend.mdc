@@ -1,0 +1,40 @@
+---
+description: Frontend (Next.js, API client, auth, routing) — structure and conventions
+globs: frontend/**/*.ts,frontend/**/*.tsx
+alwaysApply: false
+---
+
+# Frontend — CA Marketplace
+
+Next.js 14 (App Router) in **`frontend/`**. TypeScript, Tailwind, React Query, Zustand, React Hook Form + Zod, Axios.
+
+## Structure
+
+| Path | Purpose |
+|------|---------|
+| `src/app/` | App Router: layout, (auth)/login, terms, (ca)/*, (client)/*, search, ca/public/[caId] |
+| `src/lib/api.ts` | Axios instance; baseURL from `NEXT_PUBLIC_API_BASE_URL`; Bearer + 401 refresh → retry once then redirect to /login |
+| `src/lib/auth-store.ts` | Zustand store: user, tokens, logout, refresh token in localStorage |
+| `src/lib/auth.ts` | setAuthFromLogin, loginWithGoogle, logout |
+| `src/lib/errors.ts` | getApiErrorMessage(error) — parse error.code, error.message, 422 detail |
+| `src/types/` | UserRole, VerificationStatus, BookingStatus, User, Tokens, ApiErrorBody, etc. |
+| `src/hooks/useAuth.ts` | useAuth, useRequireAuth, useRequireRole(allowedRoles) |
+| `src/app/providers.tsx` | QueryClientProvider, GoogleOAuthProvider |
+
+## Auth & API
+
+- Login: Google OAuth (`@react-oauth/google`) with role (CA | USER); `POST /auth/google` (id_token + role). If terms not accepted → `/terms?role=…`; else redirect by role.
+- Terms: `GET /terms/{role}`, `GET /terms/status`, `POST /terms/accept`. Wrap useSearchParams in Suspense.
+- API: All requests get `Authorization: Bearer <access_token>`. On 401: POST /auth/refresh with refresh_token, retry once; on failure clear storage and redirect to /login.
+
+## Routing & guards
+
+- **CA:** `/ca/*` — layout checks auth + role; redirect to /login or /client if not CA.
+- **USER:** `/client/*` — layout checks auth + role; redirect to /login or /ca/dashboard if not USER.
+- Public: `/`, `/search`, `/ca/public/[caId]`.
+
+## Conventions
+
+- Use `getApiErrorMessage(error)` for user-facing API errors (login, terms, search, dashboard, bookings, etc.).
+- Env: `NEXT_PUBLIC_API_BASE_URL` (e.g. http://localhost:8001), `NEXT_PUBLIC_GOOGLE_CLIENT_ID`, `NEXT_PUBLIC_RAZORPAY_KEY_ID`. See `frontend/.env.local.example`.
+- React Query for server state; Zustand for auth. Forms: react-hook-form + zod + @hookform/resolvers.

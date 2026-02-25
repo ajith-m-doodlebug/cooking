@@ -8,4 +8,4 @@ cd "$SCRIPT_DIR"
 echo "=== Stopping CA Marketplace (project: cooking) ==="
 docker compose -p cooking down
 
-echo "All cooking project containers stopped."
+echo "All services stopped (backend, frontend, db, redis, worker, beat, adminer)."
