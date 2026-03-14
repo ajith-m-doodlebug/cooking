@@ -5,6 +5,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 import api from "@/lib/api";
 import { getApiErrorMessage } from "@/lib/errors";
 import { useRequireAuth } from "@/hooks/useAuth";
+import { USER_THEME } from "@/lib/theme";
+import { getTermsSections } from "@/lib/terms";
 import type { UserRole } from "@/types";
 
 interface TermsContent {
@@ -65,40 +67,91 @@ function TermsContent() {
       });
   }, [terms, user?.role, router]);
 
+  const isUserRole = user?.role === "USER";
+
   if (!isAuthenticated || !terms) {
     return (
-      <main className="min-h-screen flex items-center justify-center p-8">
+      <main className={`min-h-screen flex items-center justify-center p-8 ${isUserRole ? USER_THEME.bg : "bg-[#F3F4F6]"}`}>
         {error ? (
           <p className="text-red-600">{error}</p>
         ) : (
-          <p className="text-gray-500">Loading terms…</p>
+          <p className={isUserRole ? USER_THEME.textMuted : "text-gray-500"}>Loading terms…</p>
         )}
       </main>
     );
   }
 
+  const isCa = user?.role === "CA";
+  const sections = getTermsSections(terms.content);
+  const showAsList = sections.length > 0;
+
   return (
-    <main className="min-h-screen max-w-2xl mx-auto p-8">
-      <h1 className="text-2xl font-bold mb-4">Terms &amp; Conditions</h1>
-      <div
-        className="prose prose-sm mb-6 border rounded p-4 bg-gray-50 max-h-96 overflow-y-auto"
-        dangerouslySetInnerHTML={{ __html: terms.content }}
-      />
-      {error && <p className="text-red-600 mb-4">{error}</p>}
-      <button
-        onClick={handleAccept}
-        disabled={accepting}
-        className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
-      >
-        {accepting ? "Accepting…" : "I Accept"}
-      </button>
+    <main className={`min-h-screen terms-page-bg flex flex-col items-center p-4 sm:p-6 md:p-8`}>
+      <div className="w-full max-w-3xl flex flex-col flex-1">
+        <div className="rounded-t-2xl overflow-hidden border border-b-0 border-[#E5E7EB] bg-white shadow-[0_4px_24px_rgba(0,0,0,0.06)]">
+          <div className={`h-2 w-full ${isCa ? "bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600" : "bg-gradient-to-r from-[#4285F4] via-[#5A95F5] to-[#3367D6]"}`} />
+          <div className="px-6 sm:px-8 pt-6 pb-4">
+            <div className="flex items-center gap-3">
+              <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-sm font-bold text-white ${isCa ? "bg-amber-500" : "bg-[#4285F4]"}`}>
+                📜
+              </span>
+              <div>
+                <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[#111827]">
+                  Terms &amp; Conditions
+                </h1>
+                <p className="text-xs sm:text-sm mt-0.5 text-[#6B7280]">
+                  Version {terms.version} · Acceptance required to continue
+                </p>
+              </div>
+            </div>
+            <p className="mt-3 text-sm text-[#6B7280] max-w-xl">
+              When terms are updated, you must accept the latest version to continue using the platform.
+            </p>
+          </div>
+        </div>
+
+        <div className="flex-1 border border-t-0 border-[#E5E7EB] rounded-b-2xl bg-white shadow-[0_4px_24px_rgba(0,0,0,0.06)] overflow-hidden flex flex-col min-h-0">
+          <div className="flex-1 overflow-y-auto max-h-[50vh] sm:max-h-[55vh] p-6 sm:p-8">
+            {showAsList ? (
+              <ol className="list-decimal list-outside pl-6 space-y-6 marker:font-bold marker:text-[#111827]">
+                {sections.map(({ number, title, body }) => (
+                  <li key={number} className="pl-2">
+                    <span className="font-semibold text-[#111827] block mb-1">{title}</span>
+                    <p className="text-sm text-[#6B7280] leading-relaxed ml-0">{body}</p>
+                  </li>
+                ))}
+              </ol>
+            ) : (
+              <div
+                className="prose prose-sm max-w-none terms-html"
+                dangerouslySetInnerHTML={{ __html: terms.content }}
+              />
+            )}
+          </div>
+
+          <div className="shrink-0 border-t border-[#E5E7EB] bg-[#F9FAFB] px-6 sm:px-8 py-4">
+            {error && (
+              <p className="text-sm text-red-600 mb-3" role="alert">
+                {error}
+              </p>
+            )}
+            <button
+              onClick={handleAccept}
+              disabled={accepting}
+              className={`w-full sm:w-auto min-w-[140px] px-6 py-3 rounded-xl text-sm font-semibold shadow-sm disabled:opacity-50 transition ${isCa ? "bg-amber-500 hover:bg-amber-600 text-white" : USER_THEME.btnPrimary}`}
+            >
+              {accepting ? "Accepting…" : "I Accept"}
+            </button>
+          </div>
+        </div>
+      </div>
     </main>
   );
 }
 
 export default function TermsPage() {
   return (
-    <Suspense fallback={<main className="min-h-screen flex items-center justify-center p-8"><p className="text-gray-500">Loading…</p></main>}>
+    <Suspense fallback={<main className={`min-h-screen flex items-center justify-center p-8 bg-[#F9FAFB]`}><p className="text-[#6B7280]">Loading…</p></main>}>
       <TermsContent />
     </Suspense>
   );

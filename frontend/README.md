@@ -7,7 +7,7 @@ Next.js 14 (App Router) frontend for the CA Marketplace. See `docs/FRONTEND_BUIL
 1. From this directory:
    ```bash
    cp .env.local.example .env.local
-   # Edit .env.local and set NEXT_PUBLIC_API_BASE_URL (e.g. http://localhost:8001), NEXT_PUBLIC_GOOGLE_CLIENT_ID, and optionally NEXT_PUBLIC_RAZORPAY_KEY_ID
+   # Edit .env.local: set NEXT_PUBLIC_API_BASE_URL (e.g. http://localhost:8001) and Firebase config (see "Firebase" below); optionally NEXT_PUBLIC_RAZORPAY_KEY_ID
    npm install
    npm run dev
    ```
@@ -33,10 +33,24 @@ For **development with hot reload** in Docker, you can override the frontend ser
 | Variable | Description |
 |----------|-------------|
 | `NEXT_PUBLIC_API_BASE_URL` | Backend API base URL (e.g. `http://localhost:8001`). Use host URL so the browser can reach the API. |
-| `NEXT_PUBLIC_GOOGLE_CLIENT_ID` | Google OAuth client ID for Sign-In. |
+| `NEXT_PUBLIC_FIREBASE_*` | Firebase config (see **Firebase** below). |
 | `NEXT_PUBLIC_RAZORPAY_KEY_ID` | (Optional) Razorpay key for checkout; can also come from `gateway_data`. |
 
 Copy from `.env.local.example` and fill in values.
+
+### Firebase
+
+Login uses **Firebase Authentication** with the Google provider. For project [cooking-66acb](https://console.firebase.google.com/project/cooking-66acb):
+
+1. In [Firebase Console](https://console.firebase.google.com/project/cooking-66acb/settings/general), add a **Web app** if you haven’t, then copy the config object.
+2. In **Authentication → Sign-in method**, enable **Google** and set the OAuth client (or use the default).
+3. In `.env.local`, set:
+   - `NEXT_PUBLIC_FIREBASE_API_KEY`
+   - `NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN` (e.g. `cooking-66acb.firebaseapp.com`)
+   - `NEXT_PUBLIC_FIREBASE_PROJECT_ID` (e.g. `cooking-66acb`)
+   - `NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET`
+   - `NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID`
+   - `NEXT_PUBLIC_FIREBASE_APP_ID`
 
 ## Stack
 
@@ -44,7 +58,7 @@ Copy from `.env.local.example` and fill in values.
 - **State:** TanStack React Query, Zustand (auth)
 - **Forms:** React Hook Form, Zod, @hookform/resolvers
 - **HTTP:** Axios (Bearer token, 401 refresh, redirect to login)
-- **Auth:** Google OAuth (`@react-oauth/google`), role-based routing (CA → `/ca/*`, USER → `/client/*`)
+- **Auth:** Firebase Authentication (Google sign-in), then `POST /auth/google` with id token + role; role-based routing (CA → `/ca/*`, USER → `/client/*`)
 
 ## Routes (summary)
 

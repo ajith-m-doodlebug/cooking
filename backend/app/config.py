@@ -28,17 +28,20 @@ class Settings(BaseSettings):
     CELERY_BROKER_URL: str = "redis://redis:6379/1"
     CELERY_RESULT_BACKEND: str = "redis://redis:6379/2"
 
-    # Google OAuth
+    # Google OAuth (backend server-side flows)
     GOOGLE_CLIENT_ID: str
     GOOGLE_CLIENT_SECRET: str
+    # When using Firebase Auth on the frontend, ID token aud is the Firebase Web client ID.
+    # Set this to that client ID (Google Cloud Console > Credentials > Web client for Firebase app).
+    FIREBASE_WEB_CLIENT_ID: str = ""
 
-    # OTP Provider
-    OTP_PROVIDER: str = "msg91"
+    # OTP Provider (Twilio)
+    OTP_PROVIDER: str = "twilio"
     OTP_EXPIRY_SECONDS: int = 300
 
-    MSG91_AUTH_KEY: str = ""
-    MSG91_TEMPLATE_ID: str = ""
-    MSG91_SENDER_ID: str = "CAMRKT"
+    TWILIO_ACCOUNT_SID: str = ""
+    TWILIO_AUTH_TOKEN: str = ""
+    TWILIO_FROM_NUMBER: str = ""
 
     # Payment Provider
     PAYMENT_PROVIDER: str = "razorpay"

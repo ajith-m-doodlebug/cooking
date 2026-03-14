@@ -30,7 +30,9 @@ RedisClient = Annotated[Redis, Depends(get_redis)]
 
 @router.post("/google", response_model=AuthResponse, summary="Google OAuth login")
 async def google_auth(payload: GoogleAuthRequest, db: DbSession):
-    return await AuthService.google_auth(db, payload.id_token, payload.role)
+    return await AuthService.google_auth(
+        db, payload.id_token, payload.role, payload.pre_accepted_terms_version
+    )
 
 
 @router.post("/phone/send-otp", summary="Send OTP to phone")

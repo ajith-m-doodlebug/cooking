@@ -1,0 +1,31 @@
+---
+description: Full-stack behavior — keep backend and frontend integrated when implementing features
+alwaysApply: true
+---
+
+# Full-stack integration behavior
+
+- **Treat backend and frontend as one system.**
+  - When a feature is requested, assume it may require **changes in both `backend/` and `frontend/`** plus any shared config (Docker, `.env`, docs).
+  - Do not limit changes to only the file or layer explicitly mentioned if other parts must change to make the feature truly work end‑to‑end.
+
+- **Keep API contracts and types in sync.**
+  - If you add or change a FastAPI route, model, or response shape in `backend/`, update the corresponding **TypeScript types, API calls, and UI behavior** in `frontend/`.
+  - If you change TypeScript models or how a screen uses data, update the **Pydantic schemas, SQLAlchemy models, and responses** so the API matches.
+
+- **Auth, errors, and routing must align.**
+  - When backend auth/permissions, roles, or error formats change, update **frontend auth store, hooks, guards, and error handling** so redirects and messages still make sense.
+  - If you introduce new states (e.g. verification, booking status), reflect them in both **backend enums/DB** and **frontend types/UI flows**.
+
+- **Respect environment and Docker wiring.**
+  - When touching ports, service names, or env variables in `backend/` or `docker-compose.yml`, update matching values in `frontend` (e.g. `NEXT_PUBLIC_API_BASE_URL`) and `.env` examples.
+
+- **Prefer cohesive, integrated PR-level changes.**
+  - For a requested feature, aim to deliver a **working vertical slice**: API, DB (if needed), and UI wired together, with happy path tested conceptually or via example flows.
+  - Clearly call out any remaining manual steps (migrations, seed data, env keys) needed for the feature to work.
+
+- **Use the common dev scripts; avoid per-service commands.**
+  - Do **not** instruct the user to run individual Docker/DB/frontend commands (e.g. `docker compose …`, `alembic upgrade`, `npm run dev`) after changes.
+  - Instead, assume the project is managed via the shared scripts at the repo root: `./setup.sh` (one-time), `./start.sh` (start full stack), and `./stop.sh` (stop full stack), and only reference these when needed.
+
+

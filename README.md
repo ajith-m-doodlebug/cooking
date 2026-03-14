@@ -39,7 +39,7 @@ All third-party integrations are swappable by changing a single `.env` variable:
 | Provider | Env Var | Current |
 |---|---|---|
 | Payment | `PAYMENT_PROVIDER` | `razorpay` |
-| OTP/SMS | `OTP_PROVIDER` | `msg91` |
+| OTP/SMS | `OTP_PROVIDER` | `twilio` |
 | Meetings | `MEETING_PROVIDER` | `google_meet` |
 
 To switch — e.g. to Stripe — add `backend/app/providers/payment/stripe.py` implementing `PaymentProvider` ABC, then set `PAYMENT_PROVIDER=stripe`. Nothing else changes.
@@ -114,6 +114,6 @@ See `.env.example` for the full list. Key variables:
 - `SECRET_KEY` — JWT signing secret (change in production)
 - `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` — Google OAuth app credentials
 - `RAZORPAY_KEY_ID` / `RAZORPAY_KEY_SECRET` — Razorpay API keys
-- `MSG91_AUTH_KEY` / `MSG91_TEMPLATE_ID` — MSG91 OTP credentials
+- `TWILIO_ACCOUNT_SID` / `TWILIO_AUTH_TOKEN` / `TWILIO_FROM_NUMBER` — Twilio OTP/SMS credentials
 - `GOOGLE_MEET_*` — Google Calendar API credentials for Meet integration
 # cooking

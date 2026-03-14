@@ -38,7 +38,14 @@ api.interceptors.response.use(
       _retry?: boolean;
     };
 
-    if (error.response?.status !== 401 || originalRequest._retry) {
+    const isAuthEndpoint =
+      typeof originalRequest?.url === "string" &&
+      originalRequest.url.startsWith("/auth/");
+
+    // For auth endpoints (e.g. /auth/google, /auth/refresh), don't try to
+    // auto-refresh on 401; let the caller handle the error so login flows
+    // don't cause a hard redirect loop back to /login.
+    if (error.response?.status !== 401 || originalRequest._retry || isAuthEndpoint) {
       return Promise.reject(error);
     }
 

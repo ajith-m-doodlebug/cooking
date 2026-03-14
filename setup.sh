@@ -4,11 +4,12 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 
-# All commands use project name "cooking" so only this project is touched
+# All commands use one Docker Compose project name so backend + frontend share the same stack
 COMPOSE_PROJECT_NAME=cooking
 
-echo "=== CA Marketplace — Setup (project: cooking) ==="
-echo "Sets up backend and frontend; both run with auto-refresh (hot reload) when you start."
+echo "=== CA Marketplace — Setup (project: ${COMPOSE_PROJECT_NAME}) ==="
+echo "Sets up the full stack (backend API, workers, db, redis, frontend)."
+echo "Both backend and frontend run with auto-refresh (hot reload) when you start."
 echo ""
 
 if [ ! -f .env ]; then
@@ -19,21 +20,21 @@ else
   echo ".env already exists."
 fi
 
-echo "Building Docker images (backend + frontend)..."
-docker compose -p cooking build
+echo "Building Docker images (backend + workers + frontend)..."
+docker compose -p "${COMPOSE_PROJECTNAME:-$COMPOSE_PROJECT_NAME}" build
 
 if [ -f frontend/package.json ] && command -v npm >/dev/null 2>&1; then
   echo "Installing frontend dependencies (host)..."
   (cd frontend && npm install)
 fi
 
-echo "Starting database and Redis..."
-docker compose -p cooking up -d db redis
+echo "Starting core infrastructure (database + Redis)..."
+docker compose -p "${COMPOSE_PROJECTNAME:-$COMPOSE_PROJECT_NAME}" up -d db redis
 
 echo "Waiting for PostgreSQL to be ready..."
 sleep 5
 for i in {1..30}; do
-  if docker compose -p cooking exec -T db pg_isready -U postgres >/dev/null 2>&1; then
+  if docker compose -p "${COMPOSE_PROJECTNAME:-$COMPOSE_PROJECT_NAME}" exec -T db pg_isready -U postgres >/dev/null 2>&1; then
     echo "PostgreSQL is ready."
     break
   fi
@@ -45,11 +46,12 @@ for i in {1..30}; do
 done
 
 echo "Running database migrations (backend)..."
-docker compose -p cooking run --rm api alembic upgrade head
+docker compose -p "${COMPOSE_PROJECTNAME:-$COMPOSE_PROJECT_NAME}" run --rm api alembic upgrade head
 
 echo ""
 echo "=== Setup complete ==="
-echo "Backend and frontend are ready. Run ./start.sh to start all services with auto-refresh:"
+echo "Backend and frontend share the same Docker project and are ready."
+echo "Run ./start.sh to start all services (backend + workers + frontend + db + redis + adminer) with auto-refresh:"
 echo "  - Backend (API):  http://localhost:8001  (uvicorn --reload)"
 echo "  - Frontend:       http://localhost:3000  (Next.js dev server)"
 echo "  - Adminer:        http://localhost:8081"

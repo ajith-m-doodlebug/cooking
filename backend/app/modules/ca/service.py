@@ -3,6 +3,7 @@ from sqlalchemy import select
 
 from app.core.exceptions import NotFoundError, ForbiddenError, ConflictError
 from app.modules.auth.models import User
+from app.modules.subscriptions.models import Subscription
 from .models import CAProfile, CAServiceDetails, CABookingDetails, VerificationStatus
 from .schemas import (
     OnboardingVerificationRequest,
@@ -13,6 +14,7 @@ from .schemas import (
     CAServiceDetailsResponse,
     CABookingDetailsResponse,
     PublicCAProfileResponse,
+    CAProfilePreviewResponse,
 )
 
 
@@ -187,6 +189,15 @@ class CAService:
         if profile.verification_status != VerificationStatus.VERIFIED or not profile.is_visible:
             raise NotFoundError("CA Profile")
 
+        sub_result = await db.execute(
+            select(Subscription).where(
+                Subscription.ca_id == profile.id,
+                Subscription.is_active == True,
+            ).limit(1)
+        )
+        if not sub_result.scalar_one_or_none():
+            raise NotFoundError("CA Profile")
+
         svc_result = await db.execute(
             select(CAServiceDetails).where(CAServiceDetails.ca_id == profile.id)
         )
@@ -197,12 +208,16 @@ class CAService:
         )
         bk = bk_result.scalar_one_or_none()
 
+        time_slots = []
+        if bk and bk.time_slots:
+            time_slots = [{"start": s.get("start", ""), "end": s.get("end", "")} for s in bk.time_slots if isinstance(s, dict)]
         return PublicCAProfileResponse(
             id=profile.id,
             full_name=profile.full_name,
             icai_membership_number=profile.icai_membership_number,
             year_of_qualification=profile.year_of_qualification,
             firm_name=profile.firm_name,
+            registered_office_address=profile.registered_office_address,
             services=svc.services if svc else [],
             consultation_mode=svc.consultation_mode if svc else "BOTH",
             languages=svc.languages if svc else [],
@@ -210,4 +225,60 @@ class CAService:
             fee_online=bk.fee_online if bk else None,
             fee_inperson=bk.fee_inperson if bk else None,
             available_days=bk.available_days if bk else [],
+            time_slots=time_slots,
+            slot_duration_minutes=bk.slot_duration_minutes if bk else 30,
+        )
+
+    @staticmethod
+    async def get_public_profile_preview(
+        db: AsyncSession,
+        user_id: str,
+    ) -> CAProfilePreviewResponse:
+        """Return current CA's public profile shape for preview. visible_to_clients = True only when verified, visible, and subscription active."""
+        profile = await CAService.get_profile_by_user(db, user_id)
+        if not profile:
+            raise NotFoundError("CA Profile")
+
+        svc_result = await db.execute(
+            select(CAServiceDetails).where(CAServiceDetails.ca_id == profile.id)
+        )
+        svc = svc_result.scalar_one_or_none()
+        bk_result = await db.execute(
+            select(CABookingDetails).where(CABookingDetails.ca_id == profile.id)
+        )
+        bk = bk_result.scalar_one_or_none()
+
+        visible = (
+            profile.verification_status == VerificationStatus.VERIFIED
+            and profile.is_visible
+        )
+        if visible:
+            sub_result = await db.execute(
+                select(Subscription).where(
+                    Subscription.ca_id == profile.id,
+                    Subscription.is_active == True,
+                ).limit(1)
+            )
+            visible = sub_result.scalar_one_or_none() is not None
+
+        time_slots = []
+        if bk and bk.time_slots:
+            time_slots = [{"start": s.get("start", ""), "end": s.get("end", "")} for s in bk.time_slots if isinstance(s, dict)]
+        return CAProfilePreviewResponse(
+            id=profile.id,
+            full_name=profile.full_name,
+            icai_membership_number=profile.icai_membership_number,
+            year_of_qualification=profile.year_of_qualification,
+            firm_name=profile.firm_name,
+            registered_office_address=profile.registered_office_address,
+            services=svc.services if svc else [],
+            consultation_mode=svc.consultation_mode if svc else "BOTH",
+            languages=svc.languages if svc else [],
+            experience_years=svc.experience_years if svc else None,
+            fee_online=bk.fee_online if bk else None,
+            fee_inperson=bk.fee_inperson if bk else None,
+            available_days=bk.available_days if bk else [],
+            time_slots=time_slots,
+            slot_duration_minutes=bk.slot_duration_minutes if bk else 30,
+            visible_to_clients=visible,
         )

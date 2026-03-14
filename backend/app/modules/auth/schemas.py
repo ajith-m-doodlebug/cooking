@@ -9,6 +9,7 @@ class RoleSelectRequest(BaseModel):
 class GoogleAuthRequest(BaseModel):
     id_token: str
     role: UserRole
+    pre_accepted_terms_version: str | None = None
 
 
 class SendOTPRequest(BaseModel):

@@ -147,10 +147,14 @@ class SubscriptionService:
 
     @staticmethod
     async def list_invoices(db: AsyncSession, user_id: str) -> list[Subscription]:
+        """List all subscription invoices (GST) for the CA, including expired."""
         profile = await SubscriptionService.get_ca_profile(db, user_id)
         result = await db.execute(
             select(Subscription)
-            .where(Subscription.ca_id == profile.id, Subscription.is_active == True)
+            .where(
+                Subscription.ca_id == profile.id,
+                Subscription.invoice_id.isnot(None),
+            )
             .order_by(Subscription.created_at.desc())
         )
         return result.scalars().all()

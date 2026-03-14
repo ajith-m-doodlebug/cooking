@@ -12,6 +12,7 @@ from .schemas import (
     CAFullProfileResponse,
     ToggleVisibilityRequest,
     PublicCAProfileResponse,
+    CAProfilePreviewResponse,
 )
 
 router = APIRouter()
@@ -63,6 +64,15 @@ async def submit_booking(
 )
 async def get_my_profile(db: DbSession, current_user=Depends(require_ca)):
     return await CAService.get_full_profile(db, current_user.id)
+
+
+@router.get(
+    "/profile/preview",
+    response_model=CAProfilePreviewResponse,
+    summary="Preview how your profile appears to clients",
+)
+async def get_my_profile_preview(db: DbSession, current_user=Depends(require_ca)):
+    return await CAService.get_public_profile_preview(db, current_user.id)
 
 
 @router.put(

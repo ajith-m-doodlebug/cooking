@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import api from "@/lib/api";
 import { getApiErrorMessage } from "@/lib/errors";
+import { USER_THEME } from "@/lib/theme";
 
 interface Booking {
   id: string;
@@ -36,10 +37,10 @@ export default function ClientBookingsPage() {
     },
   });
 
-  if (isLoading) return <div className="p-8"><p className="text-gray-500">Loading…</p></div>;
+  if (isLoading) return <div className={`p-8 ${USER_THEME.bg}`}><p className={USER_THEME.textMuted}>Loading…</p></div>;
   if (error) {
     return (
-      <div className="p-8">
+      <div className={`p-8 ${USER_THEME.bg}`}>
         <p className="text-red-600">{getApiErrorMessage(error)}</p>
       </div>
     );
@@ -47,24 +48,26 @@ export default function ClientBookingsPage() {
   const items = data?.items ?? [];
 
   return (
-    <div className="p-8">
-      <h1 className="text-2xl font-bold mb-4">My Bookings</h1>
+    <div className={`p-8 ${USER_THEME.bg} min-h-[60vh]`}>
+      <h1 className={`text-2xl font-bold mb-4 ${USER_THEME.text}`}>My Bookings</h1>
       {items.length === 0 ? (
-        <p className="text-gray-500">No bookings yet. <Link href="/search" className="text-blue-600 hover:underline">Search CAs</Link> to book.</p>
+        <p className={USER_THEME.textMuted}>
+          No bookings yet. <Link href="/search" className={USER_THEME.primaryText + " hover:underline"}>Search CAs</Link> to book.
+        </p>
       ) : (
         <ul className="space-y-3">
           {items.map((b) => (
-            <li key={b.id} className="border rounded p-3">
-              <div className="font-medium">{b.service}</div>
-              <div className="text-sm text-gray-600">
+            <li key={b.id} className={`${USER_THEME.card} rounded-xl p-4`}>
+              <div className="font-medium text-[#111827]">{b.service}</div>
+              <div className={`text-sm ${USER_THEME.textMuted}`}>
                 {b.booking_date} {b.slot_start}–{b.slot_end} · {b.status}
               </div>
               {b.meeting_join_url && (
-                <a href={b.meeting_join_url} target="_blank" rel="noreferrer" className="text-sm text-blue-600 hover:underline">
+                <a href={b.meeting_join_url} target="_blank" rel="noreferrer" className={`text-sm ${USER_THEME.primaryText} hover:underline`}>
                   Join meeting
                 </a>
               )}
-              <Link href={`/client/bookings/${b.id}`} className="ml-4 text-sm text-blue-600 hover:underline">Details · Invoice</Link>
+              <Link href={`/client/bookings/${b.id}`} className={`ml-4 text-sm ${USER_THEME.primaryText} hover:underline`}>Details · Invoice</Link>
             </li>
           ))}
         </ul>

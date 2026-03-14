@@ -93,12 +93,18 @@ class ToggleVisibilityRequest(BaseModel):
     is_visible: bool
 
 
+class TimeSlotDisplay(BaseModel):
+    start: str
+    end: str
+
+
 class PublicCAProfileResponse(BaseModel):
     id: str
     full_name: str
     icai_membership_number: str
     year_of_qualification: int | None
     firm_name: str | None
+    registered_office_address: str | None
     services: List[str]
     consultation_mode: ConsultationMode
     languages: List[str]
@@ -106,6 +112,13 @@ class PublicCAProfileResponse(BaseModel):
     fee_online: float | None
     fee_inperson: float | None
     available_days: List[str]
+    time_slots: List[TimeSlotDisplay] = []
+    slot_duration_minutes: int = 30
     disclaimer: str = (
         "This platform is a neutral technology facilitator and does not endorse any Chartered Accountant."
     )
+
+
+class CAProfilePreviewResponse(PublicCAProfileResponse):
+    """Same as public profile, for CA to preview. Includes whether profile is visible to clients."""
+    visible_to_clients: bool = False

@@ -1,8 +1,10 @@
 import json
-import httpx
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from redis.asyncio import Redis
+
+from google.oauth2 import id_token as google_id_token
+from google.auth.transport import requests as google_requests
 
 from app.config import settings
 from app.core.security import (
@@ -15,10 +17,9 @@ from app.core.security import (
 )
 from app.core.exceptions import UnauthorizedError, ConflictError, ValidationError, NotFoundError
 from app.providers.otp.factory import get_otp_provider
+from app.modules.terms.service import TermsService
 from .models import User, UserRole
 from .schemas import TokenResponse, UserResponse, AuthResponse
-
-GOOGLE_TOKENINFO_URL = "https://oauth2.googleapis.com/tokeninfo"
 
 
 class AuthService:
@@ -28,6 +29,7 @@ class AuthService:
         db: AsyncSession,
         id_token: str,
         role: UserRole,
+        pre_accepted_terms_version: str | None = None,
     ) -> AuthResponse:
         google_data = await AuthService._verify_google_token(id_token)
 
@@ -58,6 +60,14 @@ class AuthService:
                 user.google_id = google_id
             if not user.full_name and name:
                 user.full_name = name
+
+        if pre_accepted_terms_version and role in (UserRole.CA, UserRole.USER):
+            try:
+                latest = await TermsService.get_latest(db, role)
+                if latest.version == pre_accepted_terms_version:
+                    await TermsService.accept(db, user, pre_accepted_terms_version)
+            except (ConflictError, NotFoundError):
+                pass
 
         tokens = TokenResponse(
             access_token=create_access_token(user.id, extra={"role": user.role}),
@@ -120,13 +130,43 @@ class AuthService:
 
     @staticmethod
     async def _verify_google_token(id_token: str) -> dict:
-        async with httpx.AsyncClient(timeout=10) as client:
-            response = await client.get(
-                GOOGLE_TOKENINFO_URL, params={"id_token": id_token}
+        """
+        Verify a Google / Firebase ID token using google-auth instead of the
+        deprecated tokeninfo endpoint.
+        """
+        request = google_requests.Request()
+
+        allowed_audiences: list[str] = []
+        if settings.GOOGLE_CLIENT_ID:
+            allowed_audiences.append(settings.GOOGLE_CLIENT_ID)
+        if settings.FIREBASE_WEB_CLIENT_ID:
+            allowed_audiences.append(settings.FIREBASE_WEB_CLIENT_ID)
+
+        audience: str | list[str] | None
+        if len(allowed_audiences) == 1:
+            audience = allowed_audiences[0]
+        elif allowed_audiences:
+            audience = allowed_audiences
+        else:
+            audience = None
+
+        try:
+            data = google_id_token.verify_oauth2_token(
+                id_token,
+                request,
+                audience=audience,
             )
-            if response.status_code != 200:
-                raise UnauthorizedError("Invalid Google token")
-            data = response.json()
-            if data.get("aud") != settings.GOOGLE_CLIENT_ID:
-                raise UnauthorizedError("Google token audience mismatch")
-            return data
+        except Exception as e:
+            if not allowed_audiences:
+                raise UnauthorizedError(
+                    "Invalid Google token. Set FIREBASE_WEB_CLIENT_ID (and optionally GOOGLE_CLIENT_ID) "
+                    "in the backend .env. Use the Firebase Web client ID from Google Cloud Console → "
+                    "APIs & Services → Credentials → Web client (auto created by Google Service)."
+                )
+            raise UnauthorizedError(
+                "Invalid Google token. If you use Firebase Auth for sign-in, set FIREBASE_WEB_CLIENT_ID "
+                "in the backend .env to your Firebase Web client ID (Google Cloud Console → your project → "
+                "APIs & Services → Credentials → Web client (auto created by Google Service))."
+            ) from e
+
+        return data

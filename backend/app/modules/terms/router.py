@@ -26,7 +26,7 @@ async def accept_terms(
 ):
     return await TermsService.accept(db, current_user, payload.version)
 
-
 @router.get("/status", response_model=TermsStatusResponse, summary="Check T&C acceptance status")
 async def get_terms_status(db: DbSession, current_user=Depends(get_current_user)):
     return await TermsService.get_status(db, current_user)
+
