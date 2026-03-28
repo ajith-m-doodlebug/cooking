@@ -2,7 +2,7 @@
 
 /**
  * CA profile layout — matches Figma: left (photo + contact), center (name, services, overview), right (Book an Appointment + time slots).
- * Uses global colors only: same bg, text, light grey and yellow as login page.
+ * Uses global CSS variables from `globals.css` (cream surfaces, slate panel, primary / CA accent).
  */
 
 export interface TimeSlotDisplay {

@@ -84,7 +84,7 @@ export default function CASettingsPage() {
             </label>
           </div>
         ) : (
-          <p className="text-sm text-amber-700">
+          <p className="text-sm text-[var(--color-warning-text)]">
             Verify your ICAI details in Onboarding to enable visibility.
           </p>
         )}
@@ -95,17 +95,17 @@ export default function CASettingsPage() {
         <h2 className="font-semibold mb-2">Edit profile</h2>
         <ul className="space-y-2 text-sm">
           <li>
-            <Link href="/ca/settings/services" className="text-blue-600 hover:underline">
+            <Link href="/ca/settings/services" className="text-[var(--color-link)] hover:underline">
               Edit services (offered, consultation mode, languages, experience)
             </Link>
           </li>
           <li>
-            <Link href="/ca/settings/booking" className="text-blue-600 hover:underline">
+            <Link href="/ca/settings/booking" className="text-[var(--color-link)] hover:underline">
               Edit fees & availability (slot duration, days, time slots, fee online/in-person)
             </Link>
           </li>
           <li>
-            <Link href="/ca/profile/preview" className="text-blue-600 hover:underline">
+            <Link href="/ca/profile/preview" className="text-[var(--color-link)] hover:underline">
               View public profile (preview how clients see you)
             </Link>
           </li>
@@ -145,7 +145,7 @@ export default function CASettingsPage() {
             // ignore
           }
         }}
-        className="text-blue-600 hover:underline text-sm"
+        className="text-[var(--color-link)] hover:underline text-sm"
       >
         Download settlements CSV
       </button>

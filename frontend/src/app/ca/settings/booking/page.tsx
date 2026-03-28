@@ -123,7 +123,7 @@ export default function EditBookingPage() {
               <button type="button" onClick={() => timeSlots.remove(i)} className="text-red-600 text-sm hover:underline">Remove</button>
             </div>
           ))}
-          <button type="button" onClick={() => timeSlots.append({ start: "09:00", end: "10:00" })} className="text-sm text-blue-600 hover:underline">+ Add slot</button>
+          <button type="button" onClick={() => timeSlots.append({ start: "09:00", end: "10:00" })} className="text-sm text-[var(--color-link)] hover:underline">+ Add slot</button>
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div>
@@ -137,7 +137,7 @@ export default function EditBookingPage() {
         </div>
         <div className="flex gap-3">
           <Link href="/ca/settings" className="px-4 py-2 border rounded-lg hover:bg-gray-50">Cancel</Link>
-          <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Save</button>
+          <button type="submit" className="px-4 py-2 bg-[var(--color-primary-ca)] text-white rounded-lg hover:bg-[var(--color-primary-ca-hover)]">Save</button>
         </div>
       </form>
     </main>

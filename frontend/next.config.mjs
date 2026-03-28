@@ -24,6 +24,15 @@ const nextConfig = {
   output: "standalone",
   reactStrictMode: true,
   transpilePackages: ["firebase"],
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        pathname: "/**",
+      },
+    ],
+  },
   webpack: (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,

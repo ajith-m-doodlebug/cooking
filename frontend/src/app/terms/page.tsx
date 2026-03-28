@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import api from "@/lib/api";
 import { getApiErrorMessage } from "@/lib/errors";
 import { useRequireAuth } from "@/hooks/useAuth";
-import { USER_THEME } from "@/lib/theme";
+import { USER_THEME, CA_THEME } from "@/lib/theme";
 import { getTermsSections } from "@/lib/terms";
 import type { UserRole } from "@/types";
 
@@ -71,7 +71,7 @@ function TermsContent() {
 
   if (!isAuthenticated || !terms) {
     return (
-      <main className={`min-h-screen flex items-center justify-center p-8 ${isUserRole ? USER_THEME.bg : "bg-[#F3F4F6]"}`}>
+      <main className={`min-h-screen flex items-center justify-center p-8 ${isUserRole ? USER_THEME.bg : "bg-[var(--color-bg)]"}`}>
         {error ? (
           <p className="text-red-600">{error}</p>
         ) : (
@@ -88,36 +88,46 @@ function TermsContent() {
   return (
     <main className={`min-h-screen terms-page-bg flex flex-col items-center p-4 sm:p-6 md:p-8`}>
       <div className="w-full max-w-3xl flex flex-col flex-1">
-        <div className="rounded-t-2xl overflow-hidden border border-b-0 border-[#E5E7EB] bg-white shadow-[0_4px_24px_rgba(0,0,0,0.06)]">
-          <div className={`h-2 w-full ${isCa ? "bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600" : "bg-gradient-to-r from-[#4285F4] via-[#5A95F5] to-[#3367D6]"}`} />
+        <div className="rounded-t-2xl overflow-hidden border border-b-0 border-[var(--color-border)] bg-white shadow-[0_4px_24px_rgba(0,0,0,0.06)]">
+          <div
+            className={`h-2 w-full ${
+              isCa
+                ? "bg-gradient-to-r from-[var(--color-brand-tertiary)] via-[#ea8a5c] to-[var(--color-brand-tertiary-hover)]"
+                : "bg-gradient-to-r from-[var(--color-brand-primary)] via-[#7a9395] to-[var(--color-brand-primary-hover)]"
+            }`}
+          />
           <div className="px-6 sm:px-8 pt-6 pb-4">
             <div className="flex items-center gap-3">
-              <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-sm font-bold text-white ${isCa ? "bg-amber-500" : "bg-[#4285F4]"}`}>
+              <span
+                className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-sm font-bold text-white ${
+                  isCa ? "bg-[var(--color-primary-ca)]" : "bg-[var(--color-primary-user)]"
+                }`}
+              >
                 📜
               </span>
               <div>
-                <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[#111827]">
+                <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[var(--color-text)]">
                   Terms &amp; Conditions
                 </h1>
-                <p className="text-xs sm:text-sm mt-0.5 text-[#6B7280]">
+                <p className="text-xs sm:text-sm mt-0.5 text-[var(--color-text-muted)]">
                   Version {terms.version} · Acceptance required to continue
                 </p>
               </div>
             </div>
-            <p className="mt-3 text-sm text-[#6B7280] max-w-xl">
+            <p className="mt-3 text-sm text-[var(--color-text-muted)] max-w-xl">
               When terms are updated, you must accept the latest version to continue using the platform.
             </p>
           </div>
         </div>
 
-        <div className="flex-1 border border-t-0 border-[#E5E7EB] rounded-b-2xl bg-white shadow-[0_4px_24px_rgba(0,0,0,0.06)] overflow-hidden flex flex-col min-h-0">
+        <div className="flex-1 border border-t-0 border-[var(--color-border)] rounded-b-2xl bg-white shadow-[0_4px_24px_rgba(0,0,0,0.06)] overflow-hidden flex flex-col min-h-0">
           <div className="flex-1 overflow-y-auto max-h-[50vh] sm:max-h-[55vh] p-6 sm:p-8">
             {showAsList ? (
-              <ol className="list-decimal list-outside pl-6 space-y-6 marker:font-bold marker:text-[#111827]">
+              <ol className="list-decimal list-outside pl-6 space-y-6 marker:font-bold marker:text-[var(--color-text)]">
                 {sections.map(({ number, title, body }) => (
                   <li key={number} className="pl-2">
-                    <span className="font-semibold text-[#111827] block mb-1">{title}</span>
-                    <p className="text-sm text-[#6B7280] leading-relaxed ml-0">{body}</p>
+                    <span className="font-semibold text-[var(--color-text)] block mb-1">{title}</span>
+                    <p className="text-sm text-[var(--color-text-muted)] leading-relaxed ml-0">{body}</p>
                   </li>
                 ))}
               </ol>
@@ -129,7 +139,7 @@ function TermsContent() {
             )}
           </div>
 
-          <div className="shrink-0 border-t border-[#E5E7EB] bg-[#F9FAFB] px-6 sm:px-8 py-4">
+          <div className="shrink-0 border-t border-[var(--color-border)] bg-[var(--color-bg-subtle)] px-6 sm:px-8 py-4">
             {error && (
               <p className="text-sm text-red-600 mb-3" role="alert">
                 {error}
@@ -138,7 +148,7 @@ function TermsContent() {
             <button
               onClick={handleAccept}
               disabled={accepting}
-              className={`w-full sm:w-auto min-w-[140px] px-6 py-3 rounded-xl text-sm font-semibold shadow-sm disabled:opacity-50 transition ${isCa ? "bg-amber-500 hover:bg-amber-600 text-white" : USER_THEME.btnPrimary}`}
+              className={`w-full sm:w-auto min-w-[140px] px-6 py-3 rounded-xl text-sm font-semibold shadow-sm disabled:opacity-50 transition ${isCa ? CA_THEME.btnPrimary : USER_THEME.btnPrimary}`}
             >
               {accepting ? "Accepting…" : "I Accept"}
             </button>
@@ -151,7 +161,13 @@ function TermsContent() {
 
 export default function TermsPage() {
   return (
-    <Suspense fallback={<main className={`min-h-screen flex items-center justify-center p-8 bg-[#F9FAFB]`}><p className="text-[#6B7280]">Loading…</p></main>}>
+    <Suspense
+      fallback={
+        <main className="min-h-screen flex items-center justify-center p-8 bg-[var(--color-bg-subtle)]">
+          <p className="text-[var(--color-text-muted)]">Loading…</p>
+        </main>
+      }
+    >
       <TermsContent />
     </Suspense>
   );

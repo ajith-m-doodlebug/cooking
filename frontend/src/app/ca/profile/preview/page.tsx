@@ -46,7 +46,7 @@ export default function CAProfilePreviewPage() {
       variant="preview"
       visibilityBanner={
         !data.visible_to_clients ? (
-          <div className="rounded-xl border border-amber-200 bg-amber-50/80 p-4 mb-6 text-sm text-amber-900">
+          <div className="rounded-xl border border-[var(--color-warning-border)] bg-[var(--color-warning-bg)] p-4 mb-6 text-sm text-[var(--color-warning-text)]">
             Your profile is not visible to clients yet. Ensure verification is approved, subscription is active, and visibility is ON in Settings.
           </div>
         ) : undefined

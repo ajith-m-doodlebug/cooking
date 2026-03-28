@@ -58,16 +58,16 @@ export default function ClientLayout({
 
   if (!user || user.role !== "USER") {
     return (
-      <main className="min-h-screen flex items-center justify-center bg-[#F9FAFB]">
-        <p className="text-[#6B7280]">Redirecting…</p>
+      <main className="min-h-screen flex items-center justify-center bg-[var(--color-bg-subtle)]">
+        <p className="text-[var(--color-text-muted)]">Redirecting…</p>
       </main>
     );
   }
 
   if (!termsChecked || !termsAccepted) {
     return (
-      <main className="min-h-screen flex items-center justify-center bg-[#F9FAFB]">
-        <p className="text-[#6B7280]">Checking access…</p>
+      <main className="min-h-screen flex items-center justify-center bg-[var(--color-bg-subtle)]">
+        <p className="text-[var(--color-text-muted)]">Checking access…</p>
       </main>
     );
   }
@@ -89,14 +89,14 @@ export default function ClientLayout({
               My Bookings
             </Link>
           </div>
-          <span className="text-sm text-[#6B7280]">{user.email}</span>
+          <span className="text-sm text-[var(--color-text-muted)]">{user.email}</span>
           <button
             type="button"
             onClick={() => {
               logout();
               router.push("/login");
             }}
-            className="text-sm text-[#DC2626] hover:underline"
+            className="text-sm text-[var(--color-error)] hover:underline"
           >
             Log out
           </button>

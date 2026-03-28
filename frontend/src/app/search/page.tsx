@@ -52,7 +52,7 @@ export default function SearchPage() {
     return (
       <main className="min-h-screen p-8">
         <p className="text-red-600">{getApiErrorMessage(error)}</p>
-        <Link href="/" className="text-blue-600 mt-4 inline-block">Back to home</Link>
+        <Link href="/" className="text-[var(--color-link)] mt-4 inline-block">Back to home</Link>
       </main>
     );
   }
@@ -61,7 +61,7 @@ export default function SearchPage() {
     <main className="min-h-screen max-w-4xl mx-auto p-8">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">Find a CA</h1>
-        <Link href="/" className="text-blue-600 hover:underline">Home</Link>
+        <Link href="/" className="text-[var(--color-link)] hover:underline">Home</Link>
       </div>
       <ul className="space-y-4">
         {data?.items?.length === 0 ? (

@@ -133,7 +133,7 @@ export default function EditServicesPage() {
         </div>
         <div className="flex gap-3">
           <Link href="/ca/settings" className="px-4 py-2 border rounded-lg hover:bg-gray-50">Cancel</Link>
-          <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Save</button>
+          <button type="submit" className="px-4 py-2 bg-[var(--color-primary-ca)] text-white rounded-lg hover:bg-[var(--color-primary-ca-hover)]">Save</button>
         </div>
       </form>
     </main>

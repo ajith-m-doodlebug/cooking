@@ -2,34 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Global color palette — matches login page. Use everywhere for consistency. */
+/* Global design tokens — primary #607B7D, secondary #595F61, tertiary #E76C39, neutral #9E8F80 */
 :root {
-  --foreground: #0a0a0a;
-  --background: #fafafa;
-  /* Page & cards — same as login page bg and surfaces */
-  --color-bg: #F3F4F6;
-  --color-bg-subtle: #F9FAFB;
-  --color-surface: #FFFFFF;
-  --color-card-bg: #F3F4F6;
-  --color-border: #E5E7EB;
-  /* Text — same as login */
-  --color-text: #111827;
-  --color-text-muted: #6B7280;
-  --color-text-muted-light: #9CA3AF;
-  /* Panel / banner (login, OTP left side) */
-  --color-panel-start: #1F2937;
-  --color-panel-mid: #4B5563;
-  --color-panel-end: #111827;
-  --color-panel-text: #F8F8F8;
-  /* Primary — USER */
-  --color-primary-user: #4285F4;
-  --color-primary-user-hover: #3367D6;
-  /* Primary — CA (yellow, same as login CA button) */
-  --color-primary-ca: #F59E0B;
-  --color-primary-ca-hover: #d97706;
-  /* Semantic */
-  --color-error: #DC2626;
-  --color-timer: #DC2626;
+  --color-brand-primary: #607b7d;
+  --color-brand-primary-hover: #506a6c;
+  --color-brand-secondary: #595f61;
+  --color-brand-secondary-hover: #474c4e;
+  --color-brand-tertiary: #e76c39;
+  --color-brand-tertiary-hover: #cf5f32;
+  --color-brand-neutral: #9e8f80;
+
+  --foreground: #2c2e30;
+  --background: #f0ebe3;
+
+  --color-bg: #f0ebe3;
+  --color-bg-subtle: #faf8f5;
+  --color-surface: #ffffff;
+  --color-card-bg: #f5f0e8;
+  --color-border: #e5ddd4;
+
+  --color-text: #2c2e30;
+  --color-text-muted: #6b6560;
+  --color-text-muted-light: #9e958c;
+
+  /* Panel / banner (login, OTP left side) — secondary scale */
+  --color-panel-start: #595f61;
+  --color-panel-mid: #4d5254;
+  --color-panel-end: #3f4446;
+  --color-panel-text: #faf8f8;
+
+  /* Role accents: user = brand primary, CA = brand tertiary */
+  --color-primary-user: var(--color-brand-primary);
+  --color-primary-user-hover: var(--color-brand-primary-hover);
+  --color-primary-ca: var(--color-brand-tertiary);
+  --color-primary-ca-hover: var(--color-brand-tertiary-hover);
+
+  --color-link: var(--color-brand-primary);
+
+  --color-success: #4a7560;
+  --color-warning-bg: #fdf6f0;
+  --color-warning-border: #edc4b0;
+  --color-warning-text: #6b3d26;
+
+  --color-error: #b91c1c;
+  --color-error-bg: #fef2f2;
+  --color-timer: #b91c1c;
 }
 
 body {

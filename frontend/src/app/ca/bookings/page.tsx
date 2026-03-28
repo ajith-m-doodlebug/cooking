@@ -60,11 +60,11 @@ export default function CABookingsPage() {
                 {b.booking_date} {b.slot_start}–{b.slot_end} · {b.status}
               </div>
               {b.meeting_join_url && (
-                <a href={b.meeting_join_url} target="_blank" rel="noreferrer" className="text-sm text-blue-600 hover:underline">
+                <a href={b.meeting_join_url} target="_blank" rel="noreferrer" className="text-sm text-[var(--color-link)] hover:underline">
                   Join meeting
                 </a>
               )}
-              <Link href={`/ca/bookings/${b.id}`} className="ml-4 text-sm text-blue-600 hover:underline">Details</Link>
+              <Link href={`/ca/bookings/${b.id}`} className="ml-4 text-sm text-[var(--color-link)] hover:underline">Details</Link>
             </li>
           ))}
         </ul>

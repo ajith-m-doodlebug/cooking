@@ -11,7 +11,7 @@ export default function ClientBookPage() {
     return (
       <main className="p-8">
         <p className="text-gray-600">No CA selected.</p>
-        <Link href="/search" className="text-blue-600 hover:underline">Search CAs</Link>
+        <Link href="/search" className="text-[var(--color-link)] hover:underline">Search CAs</Link>
       </main>
     );
   }
@@ -22,7 +22,7 @@ export default function ClientBookPage() {
       <p className="text-gray-600 mb-4">
         Choose service, date and slot, then lock the slot and complete payment (Razorpay). Full flow: POST /bookings/lock-slot → POST /payments/booking/initiate/{"{booking_id}"} → gateway → POST /payments/booking/webhook.
       </p>
-      <Link href={`/ca/public/${caId}`} className="text-blue-600 hover:underline">Back to CA profile</Link>
+      <Link href={`/ca/public/${caId}`} className="text-[var(--color-link)] hover:underline">Back to CA profile</Link>
     </main>
   );
 }

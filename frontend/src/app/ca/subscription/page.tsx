@@ -97,9 +97,9 @@ export default function CASubscriptionPage() {
         <h2 className="font-semibold mb-2">Status</h2>
         <p className="font-medium">
           {active ? (
-            <span className="text-green-600">Active</span>
+            <span className="text-[var(--color-success)]">Active</span>
           ) : (
-            <span className="text-amber-600">Inactive</span>
+            <span className="text-[var(--color-primary-ca)]">Inactive</span>
           )}
         </p>
         {status?.end_date && (
@@ -115,7 +115,7 @@ export default function CASubscriptionPage() {
       </div>
 
       {!active && (
-        <div className="rounded-lg border border-amber-200 bg-amber-50 p-4 mb-6">
+        <div className="rounded-lg border border-[var(--color-warning-border)] bg-[var(--color-warning-bg)] p-4 mb-6">
           <h2 className="font-semibold mb-2">Subscribe</h2>
           <p className="text-sm text-gray-700 mb-3">
             Pay the fixed subscription fee to activate your profile and accept bookings. GST invoice will be generated after payment.
@@ -137,7 +137,7 @@ export default function CASubscriptionPage() {
             type="button"
             onClick={handleInitiate}
             disabled={initiating}
-            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
+            className="px-4 py-2 bg-[var(--color-primary-ca)] text-white rounded-lg hover:bg-[var(--color-primary-ca-hover)] disabled:opacity-50"
           >
             {initiating ? "Initiating…" : lastInitiate ? "Try again" : "Subscribe now"}
           </button>
@@ -168,11 +168,11 @@ export default function CASubscriptionPage() {
       </div>
 
       <p className="mt-6 text-sm text-gray-500">
-        <Link href="/ca/settings" className="text-blue-600 hover:underline">
+        <Link href="/ca/settings" className="text-[var(--color-link)] hover:underline">
           Settings
         </Link>
         {" · "}
-        <Link href="/ca/dashboard" className="text-blue-600 hover:underline">
+        <Link href="/ca/dashboard" className="text-[var(--color-link)] hover:underline">
           Dashboard
         </Link>
       </p>

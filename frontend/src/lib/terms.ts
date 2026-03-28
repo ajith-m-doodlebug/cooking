@@ -16,7 +16,7 @@ export function parseTermsSections(content: string): TermsSection[] {
   const sections: TermsSection[] = [];
   const segments = trimmed.split(/(?=\d+\.\s+)/).map((s) => s.trim()).filter(Boolean);
   for (const segment of segments) {
-    const leadMatch = segment.match(/^(\d+)\.\s+(.*)/s);
+    const leadMatch = segment.match(/^(\d+)\.\s+([\s\S]*)/);
     if (!leadMatch) continue;
     const num = parseInt(leadMatch[1], 10);
     const afterNumber = (leadMatch[2] ?? "").trim();

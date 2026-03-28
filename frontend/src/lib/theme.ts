@@ -1,71 +1,76 @@
 /**
- * Global color palette — matches login page. Use these everywhere for consistency.
- * Primary/secondary are role-based (USER: blue, CA: amber).
+ * Global design tokens — aligned with CSS variables in `globals.css`.
+ * USER accent: brand primary (#607B7D). CA accent: brand tertiary (#E76C39).
  */
 export const colors = {
-  // Neutrals (shared)
-  background: "#F3F4F6",
-  backgroundSubtle: "#F9FAFB",
+  brandPrimary: "#607B7D",
+  brandPrimaryHover: "#506A6C",
+  brandSecondary: "#595F61",
+  brandTertiary: "#E76C39",
+  brandTertiaryHover: "#CF5F32",
+  brandNeutral: "#9E8F80",
+
+  background: "#F0EBE3",
+  backgroundSubtle: "#FAF8F5",
   surface: "#FFFFFF",
-  border: "#E5E7EB",
-  borderLight: "#E5E7EB",
-  text: "#111827",
-  textMuted: "#6B7280",
-  textMutedLight: "#9CA3AF",
-  // Left panel / banner (login, OTP)
-  panelStart: "#1F2937",
-  panelMid: "#4B5563",
-  panelEnd: "#111827",
-  panelText: "#F8F8F8",
-  panelTextMuted: "rgba(248,248,248,0.8)",
+  border: "#E5DDD4",
+  borderLight: "#E5DDD4",
+  text: "#2C2E30",
+  textMuted: "#6B6560",
+  textMutedLight: "#9E958C",
+
+  panelStart: "#595F61",
+  panelMid: "#4D5254",
+  panelEnd: "#3F4446",
+  panelText: "#FAF8F8",
+  panelTextMuted: "rgba(250,248,248,0.8)",
   panelBadge: "rgba(0,0,0,0.2)",
-  // USER (primary)
-  userPrimary: "#4285F4",
-  userPrimaryHover: "#3367D6",
-  // CA (primary)
-  caPrimary: "#F59E0B",
-  caPrimaryHover: "#d97706",
-  // Semantic
-  error: "#DC2626",
+
+  userPrimary: "#607B7D",
+  userPrimaryHover: "#506A6C",
+  caPrimary: "#E76C39",
+  caPrimaryHover: "#CF5F32",
+
+  error: "#B91C1C",
   errorBg: "#FEF2F2",
-  success: "#059669",
-  timer: "#DC2626",
-  link: "#4285F4",
+  success: "#4A7560",
+  timer: "#B91C1C",
+  link: "#607B7D",
 } as const;
 
-/** Role-based theme (Tailwind class strings). Use for OTP, login, etc. */
+/** Role-based theme (Tailwind class strings). Uses CSS variables for one source of truth. */
 export function getTheme(role: "USER" | "CA") {
   return role === "CA" ? CA_THEME : USER_THEME;
 }
 
-/** USER theme: matches login "I am Looking for Chartered Accountant" */
 export const USER_THEME = {
-  primary: "bg-[#4285F4] hover:bg-[#3367D6]",
-  primaryText: "text-[#4285F4]",
-  primaryBorder: "border-[#4285F4]",
-  navLink: "text-[#111827] hover:text-[#4285F4] hover:underline",
-  navBorder: "border-[#E5E7EB]",
-  bg: "bg-[#F9FAFB]",
+  primary: "bg-[var(--color-primary-user)] hover:bg-[var(--color-primary-user-hover)]",
+  primaryText: "text-[var(--color-primary-user)]",
+  primaryBorder: "border-[var(--color-primary-user)]",
+  navLink: "text-[var(--color-text)] hover:text-[var(--color-primary-user)] hover:underline",
+  navBorder: "border-[var(--color-border)]",
+  bg: "bg-[var(--color-bg-subtle)]",
   bgWhite: "bg-white",
-  card: "bg-white border border-[#E5E7EB]",
-  text: "text-[#111827]",
-  textMuted: "text-[#6B7280]",
-  inputBorder: "border-[#E5E7EB] focus:border-[#4285F4] focus:ring-[#4285F4]",
-  btnPrimary: "bg-[#4285F4] hover:bg-[#3367D6] text-white",
+  card: "bg-white border border-[var(--color-border)]",
+  text: "text-[var(--color-text)]",
+  textMuted: "text-[var(--color-text-muted)]",
+  inputBorder:
+    "border-[var(--color-border)] focus:border-[var(--color-primary-user)] focus:ring-[var(--color-primary-user)]",
+  btnPrimary: "bg-[var(--color-primary-user)] hover:bg-[var(--color-primary-user-hover)] text-white",
 } as const;
 
-/** CA theme: matches login "I am a Chartered Accountant" */
 export const CA_THEME = {
-  primary: "bg-[#F59E0B] hover:bg-[#d97706]",
-  primaryText: "text-[#F59E0B]",
-  primaryBorder: "border-[#F59E0B]",
-  navLink: "text-[#111827] hover:text-[#F59E0B] hover:underline",
-  navBorder: "border-[#E5E7EB]",
-  bg: "bg-[#F9FAFB]",
+  primary: "bg-[var(--color-primary-ca)] hover:bg-[var(--color-primary-ca-hover)]",
+  primaryText: "text-[var(--color-primary-ca)]",
+  primaryBorder: "border-[var(--color-primary-ca)]",
+  navLink: "text-[var(--color-text)] hover:text-[var(--color-primary-ca)] hover:underline",
+  navBorder: "border-[var(--color-border)]",
+  bg: "bg-[var(--color-bg-subtle)]",
   bgWhite: "bg-white",
-  card: "bg-white border border-[#E5E7EB]",
-  text: "text-[#111827]",
-  textMuted: "text-[#6B7280]",
-  inputBorder: "border-[#E5E7EB] focus:border-[#F59E0B] focus:ring-[#F59E0B]",
-  btnPrimary: "bg-[#F59E0B] hover:bg-[#d97706] text-white",
+  card: "bg-white border border-[var(--color-border)]",
+  text: "text-[var(--color-text)]",
+  textMuted: "text-[var(--color-text-muted)]",
+  inputBorder:
+    "border-[var(--color-border)] focus:border-[var(--color-primary-ca)] focus:ring-[var(--color-primary-ca)]",
+  btnPrimary: "bg-[var(--color-primary-ca)] hover:bg-[var(--color-primary-ca-hover)] text-white",
 } as const;

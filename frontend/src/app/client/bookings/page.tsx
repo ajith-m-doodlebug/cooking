@@ -58,7 +58,7 @@ export default function ClientBookingsPage() {
         <ul className="space-y-3">
           {items.map((b) => (
             <li key={b.id} className={`${USER_THEME.card} rounded-xl p-4`}>
-              <div className="font-medium text-[#111827]">{b.service}</div>
+              <div className="font-medium text-[var(--color-text)]">{b.service}</div>
               <div className={`text-sm ${USER_THEME.textMuted}`}>
                 {b.booking_date} {b.slot_start}–{b.slot_end} · {b.status}
               </div>
