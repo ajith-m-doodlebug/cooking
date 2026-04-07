@@ -110,12 +110,19 @@ services:
       NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID: ${NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID:-}
       NEXT_PUBLIC_FIREBASE_APP_ID: ${NEXT_PUBLIC_FIREBASE_APP_ID:-}
       NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID: ${NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID:-}
+      WATCHPACK_POLLING: "true"
+      CHOKIDAR_USEPOLLING: "true"
+      NODE_OPTIONS: --max-old-space-size=4096
     volumes:
+      # Keep .next on a Docker volume (not the macOS bind mount) so dev chunks
+      # load quickly and avoid ChunkLoadError timeouts in the browser.
       - ./frontend:/app
       - /app/node_modules
+      - frontend_next:/app/.next
     depends_on:
       - api
     restart: unless-stopped
 
 volumes:
   postgres_data:
+  frontend_next:

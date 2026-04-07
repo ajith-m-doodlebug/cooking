@@ -9,9 +9,15 @@ from .base import PaymentProvider, PaymentOrder, PaymentVerification, RefundResu
 
 class RazorpayProvider(PaymentProvider):
     def __init__(self):
-        self._client = razorpay.Client(
-            auth=(settings.RAZORPAY_KEY_ID, settings.RAZORPAY_KEY_SECRET)
-        )
+        key_id = (settings.RAZORPAY_KEY_ID or "").strip()
+        key_secret = (settings.RAZORPAY_KEY_SECRET or "").strip()
+        if not key_id or not key_secret:
+            raise ProviderError(
+                "Razorpay",
+                "RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET must be set in the API environment, "
+                "or set PAYMENT_PROVIDER=mock for local development.",
+            )
+        self._client = razorpay.Client(auth=(key_id, key_secret))
 
     def create_order(
         self,
@@ -26,7 +32,8 @@ class RazorpayProvider(PaymentProvider):
                 "payment_capture": 1,
             }
             if metadata:
-                data["notes"] = metadata
+                # Razorpay requires note values to be strings.
+                data["notes"] = {str(k): str(v) for k, v in metadata.items()}
 
             order = self._client.order.create(data=data)
             return PaymentOrder(
@@ -34,7 +41,8 @@ class RazorpayProvider(PaymentProvider):
                 amount=order["amount"],
                 currency=order["currency"],
                 gateway_data={
-                    "key": settings.RAZORPAY_KEY_ID,
+                    "provider": "razorpay",
+                    "key": (settings.RAZORPAY_KEY_ID or "").strip(),
                     "order_id": order["id"],
                     "amount": order["amount"],
                     "currency": order["currency"],

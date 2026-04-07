@@ -12,12 +12,18 @@ import { getApiErrorMessage } from "@/lib/errors";
 
 const DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
+const optionalInr = z.preprocess((v) => {
+  if (v === "" || v === undefined || v === null) return null;
+  const n = Number(v);
+  return Number.isNaN(n) ? null : n;
+}, z.number().min(0).nullable().optional());
+
 const schema = z.object({
   slot_duration_minutes: z.coerce.number().int().min(15).max(120),
   available_days: z.array(z.string()).min(1, "Select at least one day"),
   time_slots: z.array(z.object({ start: z.string(), end: z.string() })).min(1, "Add at least one slot"),
-  fee_online: z.coerce.number().min(0).optional().nullable(),
-  fee_inperson: z.coerce.number().min(0).optional().nullable(),
+  fee_online: optionalInr,
+  fee_inperson: optionalInr,
 });
 
 type FormValues = z.infer<typeof schema>;

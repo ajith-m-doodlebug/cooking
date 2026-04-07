@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useAuthStore } from "@/lib/auth-store";
 import { logout } from "@/lib/auth";
 import api from "@/lib/api";
-import { USER_THEME } from "@/lib/theme";
+import { MaterialIcon } from "@/components/editorial/MaterialIcon";
 
 interface TermsStatus {
   has_accepted: boolean;
@@ -19,7 +19,7 @@ export default function ClientLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { user, tokens } = useAuthStore();
+  const { user, tokens, hasHydrated } = useAuthStore();
   const router = useRouter();
   const pathname = usePathname();
   const [termsChecked, setTermsChecked] = useState(false);
@@ -27,6 +27,7 @@ export default function ClientLayout({
 
   useEffect(() => {
     if (typeof window === "undefined") return;
+    if (!hasHydrated) return;
     if (!user || !tokens?.access_token) {
       router.replace("/login");
       return;
@@ -54,11 +55,11 @@ export default function ClientLayout({
         setTermsChecked(true);
       })
       .catch(() => setTermsChecked(true));
-  }, [user, tokens, router, pathname]);
+  }, [user, tokens, hasHydrated, router, pathname]);
 
-  if (!user || user.role !== "USER") {
+  if (!hasHydrated || !user || user.role !== "USER") {
     return (
-      <main className="min-h-screen flex items-center justify-center bg-[var(--color-bg-subtle)]">
+      <main className="flex min-h-screen items-center justify-center bg-[var(--color-bg)]">
         <p className="text-[var(--color-text-muted)]">Redirecting…</p>
       </main>
     );
@@ -66,7 +67,7 @@ export default function ClientLayout({
 
   if (!termsChecked || !termsAccepted) {
     return (
-      <main className="min-h-screen flex items-center justify-center bg-[var(--color-bg-subtle)]">
+      <main className="flex min-h-screen items-center justify-center bg-[var(--color-bg)]">
         <p className="text-[var(--color-text-muted)]">Checking access…</p>
       </main>
     );
@@ -75,32 +76,59 @@ export default function ClientLayout({
   const isVerifyPage = pathname === "/client/verify-phone";
 
   return (
-    <div className={`min-h-screen ${USER_THEME.bg}`}>
+    <div className="min-h-screen bg-[var(--color-bg)] font-body">
       {!isVerifyPage && (
-        <nav className={`border-b ${USER_THEME.navBorder} bg-white px-6 py-3 flex items-center justify-between`}>
-          <div className="flex gap-6">
-            <Link href="/client" className={`text-sm font-medium ${USER_THEME.navLink}`}>
-              Home
+        <header className="sticky top-0 z-30 glass-editorial border-b border-[var(--color-border)]/70">
+          <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4">
+            <Link href="/client" className="font-headline text-lg font-bold text-[var(--color-brand-primary)]">
+              Client portal
             </Link>
-            <Link href="/search" className={`text-sm font-medium ${USER_THEME.navLink}`}>
-              Search CAs
-            </Link>
-            <Link href="/client/bookings" className={`text-sm font-medium ${USER_THEME.navLink}`}>
-              My Bookings
-            </Link>
+            <nav className="hidden items-center gap-8 md:flex" aria-label="Client">
+              <Link
+                href="/client"
+                className={`text-sm font-semibold transition ${
+                  pathname === "/client"
+                    ? "text-[var(--color-brand-primary)]"
+                    : "text-[var(--color-text-muted)] hover:text-[var(--color-brand-primary)]"
+                }`}
+              >
+                Home
+              </Link>
+              <Link
+                href="/search"
+                className="text-sm font-semibold text-[var(--color-text-muted)] transition hover:text-[var(--color-brand-primary)]"
+              >
+                Find CAs
+              </Link>
+              <Link
+                href="/client/bookings"
+                className={`text-sm font-semibold transition ${
+                  pathname.startsWith("/client/bookings")
+                    ? "text-[var(--color-brand-primary)]"
+                    : "text-[var(--color-text-muted)] hover:text-[var(--color-brand-primary)]"
+                }`}
+              >
+                Bookings
+              </Link>
+            </nav>
+            <div className="flex items-center gap-3">
+              <span className="hidden max-w-[180px] truncate text-xs text-[var(--color-text-muted)] sm:inline">
+                {user.email}
+              </span>
+              <button
+                type="button"
+                onClick={() => {
+                  logout();
+                  router.push("/login");
+                }}
+                className="inline-flex items-center gap-1 rounded-lg border border-[var(--color-border)] px-3 py-2 text-xs font-bold uppercase tracking-wider text-[var(--color-text-muted)] transition hover:border-[var(--color-brand-primary)] hover:text-[var(--color-brand-primary)]"
+              >
+                <MaterialIcon name="logout" className="!text-base" />
+                <span className="hidden sm:inline">Log out</span>
+              </button>
+            </div>
           </div>
-          <span className="text-sm text-[var(--color-text-muted)]">{user.email}</span>
-          <button
-            type="button"
-            onClick={() => {
-              logout();
-              router.push("/login");
-            }}
-            className="text-sm text-[var(--color-error)] hover:underline"
-          >
-            Log out
-          </button>
-        </nav>
+        </header>
       )}
       {children}
     </div>

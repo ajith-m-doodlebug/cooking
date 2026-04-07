@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export function useAuth() {
-  const { user, tokens, logout: storeLogout } = useAuthStore();
+  const { user, tokens, hasHydrated, logout: storeLogout } = useAuthStore();
   const router = useRouter();
   const isAuthenticated = Boolean(user && tokens?.access_token);
 
@@ -14,29 +14,31 @@ export function useAuth() {
     router.push("/login");
   };
 
-  return { user, tokens, isAuthenticated, logout };
+  return { user, tokens, hasHydrated, isAuthenticated, logout };
 }
 
 export function useRequireAuth() {
-  const { user, tokens } = useAuthStore();
+  const { user, tokens, hasHydrated } = useAuthStore();
   const router = useRouter();
 
   useEffect(() => {
     if (typeof window === "undefined") return;
+    if (!hasHydrated) return;
     if (!user || !tokens?.access_token) {
       router.replace("/login");
     }
-  }, [user, tokens, router]);
+  }, [user, tokens, hasHydrated, router]);
 
-  return { user, tokens, isAuthenticated: Boolean(user && tokens?.access_token) };
+  return { user, tokens, hasHydrated, isAuthenticated: Boolean(user && tokens?.access_token) };
 }
 
 export function useRequireRole(allowedRoles: Array<"CA" | "USER">) {
-  const { user, tokens } = useAuthStore();
+  const { user, tokens, hasHydrated } = useAuthStore();
   const router = useRouter();
 
   useEffect(() => {
     if (typeof window === "undefined") return;
+    if (!hasHydrated) return;
     if (!user || !tokens?.access_token) {
       router.replace("/login");
       return;
@@ -45,7 +47,7 @@ export function useRequireRole(allowedRoles: Array<"CA" | "USER">) {
       if (user.role === "CA") router.replace("/ca/dashboard");
       else router.replace("/client");
     }
-  }, [user, tokens, allowedRoles, router]);
+  }, [user, tokens, hasHydrated, allowedRoles, router]);
 
-  return { user, tokens };
+  return { user, tokens, hasHydrated };
 }

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Secure Access | The Modern Archivist</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&amp;family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#486264",
+                        "secondary-container": "#f1f5f9",
+                        "surface-container-low": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#cbe8ea",
+                        "on-background": "#1e293b",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#ffffff",
+                        "primary-fixed-dim": "#afccce",
+                        "on-secondary-fixed": "#171d1e",
+                        "inverse-on-surface": "#f8fafc",
+                        "on-tertiary-container": "#ffffff",
+                        "tertiary-fixed-dim": "#cbd5e1",
+                        "surface-container": "#f8fafc",
+                        "on-secondary-container": "#64748b",
+                        "on-tertiary-fixed-variant": "#475569",
+                        "secondary-fixed": "#f1f5f9",
+                        "error-container": "#fee2e2",
+                        "tertiary-container": "#94a3b8",
+                        "surface-container-high": "#f1f5f9",
+                        "on-surface-variant": "#64748b",
+                        "tertiary": "#64748b",
+                        "surface": "#ffffff",
+                        "secondary": "#64748b",
+                        "outline": "#cbd5e1",
+                        "on-error-container": "#991b1b",
+                        "background": "#ffffff",
+                        "on-primary-fixed-variant": "#314b4d",
+                        "surface-dim": "#f1f5f9",
+                        "inverse-primary": "#afccce",
+                        "on-primary-fixed": "#031f21",
+                        "secondary-fixed-dim": "#cbd5e1",
+                        "on-tertiary-fixed": "#1e293b",
+                        "on-secondary-fixed-variant": "#475569",
+                        "outline-variant": "#e2e8f0",
+                        "inverse-surface": "#1e293b",
+                        "tertiary-fixed": "#f1f5f9",
+                        "surface-bright": "#ffffff",
+                        "on-surface": "#1e293b",
+                        "primary-container": "#486264",
+                        "surface-variant": "#f1f5f9",
+                        "surface-tint": "#486365",
+                        "surface-container-highest": "#e2e8f0",
+                        "error": "#ef4444",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff"
+                    },
+                    fontFamily: {
+                        "headline": ["Newsreader"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        /* Explicitly remove any potential inherited italics from Newsreader */
+        .font-headline {
+            font-style: normal !important;
+        }
+    </style>
+</head>
+<body class="bg-white text-on-background antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="bg-white/80 backdrop-blur-xl border-b border-slate-100 top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="text-xl font-bold tracking-tight text-primary font-headline italic-none">
+            The Modern Archivist
+        </div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-secondary hover:text-primary transition-colors font-body text-sm font-medium" href="#">Compliance</a>
+<a class="text-secondary hover:text-primary transition-colors font-body text-sm font-medium" href="#">Audit</a>
+<a class="text-secondary hover:text-primary transition-colors font-body text-sm font-medium" href="#">Advisory</a>
+<a class="text-secondary hover:text-primary transition-colors font-body text-sm font-medium" href="#">Firm Profile</a>
+</div>
+<div class="flex items-center space-x-6">
+<div class="flex space-x-4 text-slate-400">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-all duration-300">help_outline</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-all duration-300">notifications_none</span>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label text-[0.6875rem] font-extrabold uppercase tracking-wider transition-opacity hover:opacity-90">
+                Secure Portal
+            </button>
+</div>
+</div>
+</nav>
+<!-- Main Content: Authentication Shell -->
+<main class="flex-grow flex items-center justify-center px-4 py-20 bg-white">
+<div class="max-w-md w-full">
+<!-- Form Header -->
+<div class="text-center mb-12">
+<h1 class="font-headline text-4xl font-semibold text-primary mb-4 leading-tight">Identity Verification</h1>
+<p class="font-body text-secondary text-sm leading-relaxed max-w-xs mx-auto">
+                Enter your registered mobile number to receive a secure access code for the portal.
+            </p>
+</div>
+<!-- Minimalist Form Card -->
+<div class="bg-white border border-slate-100 rounded-2xl p-10 shadow-sm relative">
+<form class="space-y-8">
+<div class="space-y-3">
+<label class="font-label text-[0.6875rem] font-bold text-secondary tracking-widest uppercase" for="phone">
+                        Professional Contact Number
+                    </label>
+<div class="relative flex items-center group">
+<!-- Country Selector -->
+<div class="absolute left-0 flex items-center pl-4 pr-3 border-r border-slate-100 h-8">
+<span class="text-xl mr-2">🇨🇦</span>
+<span class="font-body text-sm font-semibold text-on-surface">+1</span>
+<span class="material-symbols-outlined text-sm ml-1 text-slate-400">expand_more</span>
+</div>
+<input class="w-full h-14 pl-28 pr-4 bg-slate-50 border-transparent focus:bg-white focus:border-primary focus:ring-0 transition-all font-body text-lg text-on-surface rounded-xl placeholder:text-slate-300" id="phone" placeholder="(555) 000-0000" required="" type="tel"/>
+</div>
+<!-- Inline Validation -->
+<div class="flex items-center space-x-2 pt-1">
+<span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<p class="text-[0.7rem] font-body text-slate-400">Encryption protocols active for this transmission.</p>
+</div>
+</div>
+<div class="space-y-4 pt-4">
+<button class="w-full bg-primary text-on-primary py-4 rounded-xl font-label text-[0.75rem] font-extrabold uppercase tracking-[0.2em] transition-all hover:brightness-110 active:scale-[0.98]" type="submit">
+                        Send Access Code
+                    </button>
+<p class="text-center text-[0.65rem] font-label text-slate-400 uppercase tracking-wider px-6">
+                        By proceeding, you acknowledge our <a class="text-primary hover:underline underline-offset-4" href="#">Digital Audit Terms</a>
+</p>
+</div>
+</form>
+<!-- Status Chip -->
+<div class="absolute top-4 right-4">
+<span class="bg-slate-100 text-slate-500 font-label text-[0.6rem] px-3 py-1 rounded-full font-bold tracking-tight">
+                    MFA SECURED
+                </span>
+</div>
+</div>
+<!-- Alternative Action -->
+<div class="mt-8 text-center">
+<a class="inline-flex items-center text-secondary hover:text-primary transition-colors text-xs font-body group" href="#">
+<span class="material-symbols-outlined text-sm mr-2 group-hover:-translate-x-1 transition-transform">arrow_back</span>
+                Return to Login with Credentials
+            </a>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-white w-full py-12 px-8 border-t border-slate-100">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:flex lg:justify-between items-center w-full max-w-screen-2xl mx-auto space-y-8 lg:space-y-0">
+<div class="space-y-2">
+<div class="text-lg font-bold text-primary font-headline">The Modern Archivist</div>
+<p class="text-slate-400 font-body text-sm leading-relaxed">
+                © 2024 The Modern Archivist. Professional Rigor Guaranteed.
+            </p>
+</div>
+<div class="flex flex-wrap gap-x-8 gap-y-4">
+<a class="text-slate-400 hover:text-primary transition-all font-label text-[0.6875rem] font-bold uppercase tracking-widest hover:underline underline-offset-4" href="#">Legal Terms</a>
+<a class="text-slate-400 hover:text-primary transition-all font-label text-[0.6875rem] font-bold uppercase tracking-widest hover:underline underline-offset-4" href="#">Privacy Policy</a>
+<a class="text-slate-400 hover:text-primary transition-all font-label text-[0.6875rem] font-bold uppercase tracking-widest hover:underline underline-offset-4" href="#">Regulatory Disclosure</a>
+<a class="text-slate-400 hover:text-primary transition-all font-label text-[0.6875rem] font-bold uppercase tracking-widest hover:underline underline-offset-4" href="#">Contact Support</a>
+</div>
+</div>
+</footer>
+</body></html>

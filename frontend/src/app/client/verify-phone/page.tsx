@@ -11,7 +11,7 @@ export default function ClientVerifyPhonePage() {
       role="USER"
       successRedirect="/client"
       backHref="/client"
-      brandLabel="CA Booking Studio"
+      brandLabel="The Archivist"
       onSuccess={() => router.replace("/client")}
     />
   );

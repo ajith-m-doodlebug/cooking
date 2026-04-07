@@ -37,10 +37,13 @@ class BookingService:
         if not ca_profile or ca_profile.verification_status != VerificationStatus.VERIFIED:
             raise NotFoundError("CA Profile")
 
+        now = datetime.now(timezone.utc)
         sub_result = await db.execute(
             select(Subscription).where(
                 Subscription.ca_id == payload.ca_id,
                 Subscription.is_active == True,
+                Subscription.end_date.isnot(None),
+                Subscription.end_date > now,
             )
         )
         if not sub_result.scalar_one_or_none():

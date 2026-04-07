@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-lowest": "#ffffff",
+              "on-secondary": "#ffffff",
+              "inverse-surface": "#392f23",
+              "surface-container-highest": "#f2dfce",
+              "on-surface-variant": "#414848",
+              "error": "#ba1a1a",
+              "on-secondary-container": "#5e6466",
+              "primary-fixed": "#cbe8ea",
+              "primary-container": "#607b7d",
+              "on-primary-fixed-variant": "#314b4d",
+              "on-error": "#ffffff",
+              "on-surface": "#231a10",
+              "on-secondary-fixed-variant": "#42484a",
+              "tertiary-container": "#c55322",
+              "on-secondary-fixed": "#171d1e",
+              "primary-fixed-dim": "#afccce",
+              "on-primary-container": "#ffffff",
+              "inverse-on-surface": "#ffeede",
+              "tertiary": "#a43b08",
+              "secondary": "#595f61",
+              "outline-variant": "#c1c8c8",
+              "on-background": "#231a10",
+              "surface-variant": "#f2dfce",
+              "tertiary-fixed": "#ffdbce",
+              "surface-tint": "#486365",
+              "outline": "#727879",
+              "inverse-primary": "#afccce",
+              "surface-container-low": "#fff1e6",
+              "secondary-container": "#dbe1e3",
+              "secondary-fixed-dim": "#c2c7c9",
+              "secondary-fixed": "#dee3e5",
+              "on-tertiary-fixed": "#370d00",
+              "surface": "#fff8f4",
+              "on-tertiary-container": "#ffffff",
+              "on-tertiary-fixed-variant": "#802a00",
+              "surface-container-high": "#f7e5d4",
+              "surface-bright": "#fff8f4",
+              "on-primary-fixed": "#031f21",
+              "on-primary": "#ffffff",
+              "on-error-container": "#93000a",
+              "tertiary-fixed-dim": "#ffb59a",
+              "surface-container": "#fdebd9",
+              "primary": "#486264",
+              "background": "#fff8f4",
+              "on-tertiary": "#ffffff",
+              "surface-dim": "#e9d7c6",
+              "error-container": "#ffdad6"
+            },
+            fontFamily: {
+              "headline": ["Newsreader"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: 0.75rem;
+            top: 2rem;
+            bottom: 0;
+            width: 1px;
+            background-color: #c1c8c8; /* outline-variant */
+            opacity: 0.4;
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-background antialiased selection:bg-tertiary-fixed">
+<!-- SideNavBar Integration -->
+<aside class="flex flex-col h-full py-6 h-screen w-64 fixed left-0 top-0 border-r-0 bg-slate-100 dark:bg-slate-900 z-50">
+<div class="px-6 mb-8">
+<h1 class="font-['Newsreader'] text-2xl font-semibold text-emerald-900 dark:text-emerald-100">Modern Archivist</h1>
+<p class="text-[10px] uppercase tracking-widest font-bold text-slate-500 mt-1">Chartered Accountancy</p>
+</div>
+<nav class="flex-1 space-y-1 px-3">
+<a class="flex items-center px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-emerald-800 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors active:scale-95 duration-150 font-['Manrope'] font-bold tracking-tight" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center px-4 py-3 text-emerald-900 dark:text-emerald-50 bg-white dark:bg-slate-800 font-bold border-r-4 border-emerald-700 transition-colors active:scale-95 duration-150 font-['Manrope'] font-bold tracking-tight" href="#">
+<span class="material-symbols-outlined mr-3">calendar_month</span>
+                Bookings
+            </a>
+<a class="flex items-center px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-emerald-800 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors active:scale-95 duration-150 font-['Manrope'] font-bold tracking-tight" href="#">
+<span class="material-symbols-outlined mr-3">person_pin</span>
+                Profiles
+            </a>
+<a class="flex items-center px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-emerald-800 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors active:scale-95 duration-150 font-['Manrope'] font-bold tracking-tight" href="#">
+<span class="material-symbols-outlined mr-3">folder_shared</span>
+                Documents
+            </a>
+<a class="flex items-center px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-emerald-800 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors active:scale-95 duration-150 font-['Manrope'] font-bold tracking-tight" href="#">
+<span class="material-symbols-outlined mr-3">fact_check</span>
+                Audit Log
+            </a>
+</nav>
+<div class="px-6 mt-auto">
+<button class="w-full bg-primary text-on-primary py-3 rounded-lg font-bold shadow-md hover:opacity-90 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">add</span>
+                New Engagement
+            </button>
+</div>
+<div class="mt-6 border-t border-slate-200 pt-4 px-3 space-y-1">
+<a class="flex items-center px-4 py-2 text-slate-500 dark:text-slate-400 hover:text-emerald-800 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors font-['Manrope'] font-bold tracking-tight" href="#">
+<span class="material-symbols-outlined mr-3">settings</span>
+                Settings
+            </a>
+<a class="flex items-center px-4 py-2 text-slate-500 dark:text-slate-400 hover:text-emerald-800 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors font-['Manrope'] font-bold tracking-tight" href="#">
+<span class="material-symbols-outlined mr-3">contact_support</span>
+                Support
+            </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen">
+<!-- TopAppBar Integration -->
+<header class="flex items-center justify-between px-8 h-20 sticky top-0 z-40 w-full bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-100 dark:border-slate-800/50 shadow-sm dark:shadow-none">
+<div>
+<span class="font-['Newsreader'] font-bold text-emerald-900 dark:text-emerald-50 text-xl">The Archivist Portal</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="absolute inset-y-0 left-3 flex items-center text-outline">
+<span class="material-symbols-outlined">search</span>
+</span>
+<input class="pl-10 pr-4 py-2 bg-slate-100 border-none rounded-full text-sm focus:ring-2 focus:ring-emerald-500 w-64 transition-all" placeholder="Search client ledger..." type="text"/>
+</div>
+<div class="flex items-center gap-4 text-emerald-800 dark:text-emerald-400">
+<button class="hover:opacity-70 transition-opacity"><span class="material-symbols-outlined">notifications</span></button>
+<button class="hover:opacity-70 transition-opacity"><span class="material-symbols-outlined">help_outline</span></button>
+</div>
+<div class="flex items-center gap-3 pl-4 border-l border-slate-200">
+<div class="text-right">
+<p class="text-sm font-bold text-on-surface">Firm Principal</p>
+<p class="text-[10px] text-outline font-bold uppercase tracking-tighter">Licensed CA</p>
+</div>
+<img alt="Firm Principal Profile" class="w-10 h-10 rounded-full object-cover" data-alt="Close-up portrait of a professional male accountant in a sharp grey suit against a blurred architectural office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFpCAVSKkX9HT_E10391qCGDKzvj3fNFWhbSM-IcCSSpKIQIJ4L5brlmrsPQeNxHA4fxTWBHkRnq34iiAN4Q86bmrwlQQ6AVD7ZnlGDGASvU1ghSP8-wRh09ZzmJxBm4xrQCT4QBn7gm2e1ctIPc8HOdzGqhhNbv-z3CH5kzfBL60Wo6GGqYQ4AxM7AOilUjxJIavnTDOKiHAEcktzbLPet4MmkPytZuyUwz2L3_g5uddZiMiQ0wLC65jR2AB90p4VbSaC4LCReTc"/>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="px-12 py-10 max-w-6xl mx-auto">
+<!-- Hero Header Section -->
+<div class="mb-12 flex items-end justify-between">
+<div class="max-w-xl">
+<h2 class="font-headline text-5xl font-semibold text-on-surface mb-4">Upcoming Bookings</h2>
+<p class="font-body text-secondary leading-relaxed">
+                        A centralized chronological ledger of all firm engagements. High-priority audits and compliance reviews are pinned for immediate verification.
+                    </p>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="font-label text-tertiary text-[10px] tracking-[0.2em] font-extrabold uppercase">Current Status</span>
+<div class="px-4 py-2 bg-surface-container-high rounded-full border border-outline-variant/30 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+<span class="text-sm font-bold text-primary">8 Active Engagements Today</span>
+</div>
+</div>
+</div>
+<!-- Timeline Content -->
+<div class="relative space-y-8 timeline-line">
+<!-- Date Header -->
+<div class="relative z-10">
+<div class="flex items-center gap-4">
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center ring-4 ring-background">
+<span class="w-2 h-2 rounded-full bg-white"></span>
+</div>
+<h3 class="font-label text-xs tracking-[0.15em] font-extrabold text-outline uppercase">Tuesday • October 24, 2023</h3>
+</div>
+</div>
+<!-- Booking Card 1 -->
+<div class="ml-10 group">
+<div class="bg-surface-container-lowest p-8 rounded-xl transition-all duration-300 hover:translate-x-1 border border-transparent hover:border-outline-variant/20 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.04)]">
+<div class="flex items-start justify-between">
+<div class="flex gap-8">
+<div class="w-16 h-16 rounded-lg overflow-hidden shrink-0">
+<img alt="Corporate client" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all" data-alt="Wide shot of a modern glass skyscraper corporate headquarters reflecting the clear blue sky in the afternoon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCR4EPu3Evz7PkcCYVMIywqLHLAZyYATQeTKH580QCZIsIRrpEZ5ufu9jIv79B_116PHzih0K7gxyEc5CVY0iISvMsDPDctOapvjEwMy16ujJzlwP8LwS_kpAjo8xIjztM1V6d9ARxiqiR_HHQ1QsiPxoroCrj9wTF-6mqPokXpNWCKAu8hvCTp_oN-kn2K-tX350Ve_IirGn-HY1dp3aK-tpyZFMKwJo5zTSnyFHh7lBccG0PC17jSIAYEsPn8Yg4bYpvk-E7Fohw"/>
+</div>
+<div class="space-y-1">
+<div class="flex items-center gap-3">
+<h4 class="font-headline text-2xl text-on-surface">Vanguard Logistics Corp.</h4>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant font-label text-[10px] rounded-full uppercase font-extrabold tracking-wider">Audit</span>
+</div>
+<p class="font-body text-secondary text-sm">Quarterly Statutory Compliance Review</p>
+<div class="flex items-center gap-6 mt-4 pt-4 border-t border-outline-variant/10">
+<div class="flex items-center gap-2 text-outline">
+<span class="material-symbols-outlined text-lg">schedule</span>
+<span class="text-sm font-bold">09:30 AM — 11:00 AM</span>
+</div>
+<div class="flex items-center gap-2 text-outline">
+<span class="material-symbols-outlined text-lg">location_on</span>
+<span class="text-sm font-bold">In-Person • Main Boardroom</span>
+</div>
+</div>
+</div>
+</div>
+<button class="px-6 py-3 bg-surface-container-high text-primary font-bold rounded-lg hover:bg-primary hover:text-white transition-all active:scale-95">
+                                View Details
+                            </button>
+</div>
+</div>
+</div>
+<!-- Booking Card 2 -->
+<div class="ml-10 group">
+<div class="bg-surface-container-lowest p-8 rounded-xl transition-all duration-300 hover:translate-x-1 border border-transparent hover:border-outline-variant/20 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.04)]">
+<div class="flex items-start justify-between">
+<div class="flex gap-8">
+<div class="w-16 h-16 rounded-lg overflow-hidden shrink-0">
+<img alt="Retail client" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all" data-alt="Interior of a luxury minimalist retail store with clean lines, soft wood textures, and elegant lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCXLWFHMCtYdLKNtXnH6VcVRpHur6TwNF7TQmbUvCbsecyyu1hsUHitPG5AnoNP9OsTajcYbfYuPzXLEjOZccot0K9Plwqz54yWJ9gC4S6L4nrClCi6ra6E6XkTNJQCoFbZCtyEBNLVUGAm5kk51k6pVmz3yhuGGd1SOYR55KHmAsAOzcxd4TGU6BlWFZtDZZK5nqzlanKjeFfzVsCXe1Np9pJSadNEcMcymnZQk7v-rPlQMUki1bDWlElzKxp893BvD3-vHf-aHI"/>
+</div>
+<div class="space-y-1">
+<div class="flex items-center gap-3">
+<h4 class="font-headline text-2xl text-on-surface">Helios Retail Group</h4>
+<span class="px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed-variant font-label text-[10px] rounded-full uppercase font-extrabold tracking-wider">Tax Planning</span>
+</div>
+<p class="font-body text-secondary text-sm">International Tax Restructuring Advisory</p>
+<div class="flex items-center gap-6 mt-4 pt-4 border-t border-outline-variant/10">
+<div class="flex items-center gap-2 text-outline">
+<span class="material-symbols-outlined text-lg">schedule</span>
+<span class="text-sm font-bold">02:00 PM — 03:30 PM</span>
+</div>
+<div class="flex items-center gap-2 text-outline">
+<span class="material-symbols-outlined text-lg">videocam</span>
+<span class="text-sm font-bold">Online • Secure Link Generated</span>
+</div>
+</div>
+</div>
+</div>
+<button class="px-6 py-3 bg-surface-container-high text-primary font-bold rounded-lg hover:bg-primary hover:text-white transition-all active:scale-95">
+                                View Details
+                            </button>
+</div>
+</div>
+</div>
+<!-- Date Header -->
+<div class="relative z-10 pt-4">
+<div class="flex items-center gap-4">
+<div class="w-6 h-6 rounded-full bg-outline-variant flex items-center justify-center ring-4 ring-background">
+<span class="w-2 h-2 rounded-full bg-white"></span>
+</div>
+<h3 class="font-label text-xs tracking-[0.15em] font-extrabold text-outline uppercase">Wednesday • October 25, 2023</h3>
+</div>
+</div>
+<!-- Booking Card 3 (Dense Asymmetric Layout) -->
+<div class="ml-10">
+<div class="grid grid-cols-12 gap-6">
+<div class="col-span-8 bg-surface-container-lowest p-8 rounded-xl border border-transparent hover:border-outline-variant/20 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.04)]">
+<div class="space-y-1">
+<div class="flex items-center gap-3">
+<h4 class="font-headline text-2xl text-on-surface">Dr. Elizabeth Thorne</h4>
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container font-label text-[10px] rounded-full uppercase font-extrabold tracking-wider">Wealth Mgmt</span>
+</div>
+<p class="font-body text-secondary text-sm">Portfolio Review and Trust Disbursement</p>
+<div class="flex items-center gap-6 mt-4 pt-4 border-t border-outline-variant/10">
+<div class="flex items-center gap-2 text-outline">
+<span class="material-symbols-outlined text-lg text-tertiary">priority_high</span>
+<span class="text-sm font-bold text-on-surface">High Priority Engagement</span>
+</div>
+<div class="flex items-center gap-2 text-outline">
+<span class="material-symbols-outlined text-lg">schedule</span>
+<span class="text-sm font-bold">10:00 AM</span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-4 bg-primary p-8 rounded-xl flex flex-col justify-between text-on-primary">
+<div>
+<span class="font-label text-[10px] font-extrabold uppercase tracking-widest opacity-80">Location</span>
+<p class="font-headline text-xl mt-2">Private Banking Wing, Floor 4</p>
+</div>
+<button class="w-full py-3 bg-white/10 hover:bg-white/20 transition-colors border border-white/20 rounded-lg font-bold text-sm uppercase tracking-widest">
+                                Check-in
+                            </button>
+</div>
+</div>
+</div>
+<!-- Booking Card 4 -->
+<div class="ml-10 group">
+<div class="bg-surface-container-lowest p-8 rounded-xl transition-all duration-300 hover:translate-x-1 border border-transparent hover:border-outline-variant/20 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.04)]">
+<div class="flex items-start justify-between">
+<div class="flex gap-8">
+<div class="w-16 h-16 rounded-lg overflow-hidden shrink-0">
+<img alt="Tech client" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all" data-alt="Abstract data visualization on a high-tech monitor in a dark room with neon blue highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0TPE0vkNh53x9GvADoNnGwf8VSMqrJxxv3PQesFz7uuJrj8NOAqb1LVpJUJNTO1J9NDmLob0Fw3ZmA-R3ZA7mPen-dMflDDxh1L8tx8uebxBTRISr_X1RkuVudfG4FQKRJ8QQPksbVWoKbj36OGuzDnh8JCYc5bMD9QL_lRAqfzCKelpw_KuWhio8kz619PY6GRcitPOrgZliaIi5jVyn3iZ8AD2h_b7I3CCnS6TLrrUzabv12vOB5siKA-gRm2ZC4eQF9Ya04gk"/>
+</div>
+<div class="space-y-1">
+<div class="flex items-center gap-3">
+<h4 class="font-headline text-2xl text-on-surface">Nebula Systems</h4>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant font-label text-[10px] rounded-full uppercase font-extrabold tracking-wider">Payroll</span>
+</div>
+<p class="font-body text-secondary text-sm">Employee Benefits Audit &amp; TDS Compliance</p>
+<div class="flex items-center gap-6 mt-4 pt-4 border-t border-outline-variant/10">
+<div class="flex items-center gap-2 text-outline">
+<span class="material-symbols-outlined text-lg">schedule</span>
+<span class="text-sm font-bold">04:30 PM — 05:30 PM</span>
+</div>
+<div class="flex items-center gap-2 text-outline">
+<span class="material-symbols-outlined text-lg">videocam</span>
+<span class="text-sm font-bold">Online</span>
+</div>
+</div>
+</div>
+</div>
+<button class="px-6 py-3 bg-surface-container-high text-primary font-bold rounded-lg hover:bg-primary hover:text-white transition-all active:scale-95">
+                                View Details
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Pagination/Load More -->
+<div class="mt-16 flex justify-center">
+<button class="group flex items-center gap-3 px-8 py-4 bg-white border border-outline-variant/30 rounded-full font-bold text-primary hover:bg-surface-container-low transition-all shadow-sm">
+                    Load Archive Bookings
+                    <span class="material-symbols-outlined group-hover:translate-y-1 transition-transform">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Sidebar Summary (Bento-ish Detail) -->
+<div class="fixed right-8 top-32 w-72 space-y-6">
+<div class="bg-surface-container p-6 rounded-xl space-y-4">
+<h5 class="font-label text-[10px] font-extrabold tracking-[0.2em] uppercase text-outline">Weekly Load</h5>
+<div class="flex items-end justify-between gap-1 h-24 px-2">
+<div class="w-full bg-primary-container/30 rounded-t-sm h-1/2"></div>
+<div class="w-full bg-primary-container/30 rounded-t-sm h-3/4"></div>
+<div class="w-full bg-primary rounded-t-sm h-full"></div>
+<div class="w-full bg-primary-container/30 rounded-t-sm h-2/3"></div>
+<div class="w-full bg-primary-container/30 rounded-t-sm h-1/2"></div>
+<div class="w-full bg-primary-container/10 rounded-t-sm h-1/4"></div>
+<div class="w-full bg-primary-container/10 rounded-t-sm h-1/4"></div>
+</div>
+<div class="pt-2">
+<p class="text-xs font-bold text-on-surface">Peak Activity: Wednesday</p>
+<p class="text-[10px] text-outline mt-1">12 scheduled sessions remaining.</p>
+</div>
+</div>
+<div class="bg-surface-container-high p-6 rounded-xl">
+<h5 class="font-label text-[10px] font-extrabold tracking-[0.2em] uppercase text-outline mb-4">Firm Health</h5>
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<span class="text-xs font-bold">Completion Rate</span>
+<span class="text-xs font-extrabold text-emerald-700">98.2%</span>
+</div>
+<div class="w-full bg-outline-variant/20 h-1.5 rounded-full overflow-hidden">
+<div class="bg-emerald-600 h-full w-[98%]"></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

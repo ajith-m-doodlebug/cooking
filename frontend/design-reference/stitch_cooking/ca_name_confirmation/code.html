@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "outline-variant": "#c1c8c8",
+            "on-secondary-container": "#692100",
+            "outline": "#727879",
+            "on-secondary-fixed": "#370d00",
+            "error-container": "#ffdad6",
+            "inverse-surface": "#392f23",
+            "surface-container": "#fdebd9",
+            "on-primary-container": "#ffffff",
+            "inverse-primary": "#afccce",
+            "on-tertiary-fixed": "#171d1e",
+            "primary-fixed-dim": "#afccce",
+            "on-primary": "#ffffff",
+            "on-surface": "#231a10",
+            "surface-container-low": "#fff1e6",
+            "secondary-container": "#ff7e49",
+            "primary-fixed": "#cbe8ea",
+            "error": "#ba1a1a",
+            "on-primary-fixed": "#031f21",
+            "background": "#fff8f4",
+            "surface-container-highest": "#f2dfce",
+            "surface-container-high": "#f7e5d4",
+            "surface": "#fff8f4",
+            "on-secondary-fixed-variant": "#802a00",
+            "on-primary-fixed-variant": "#314b4d",
+            "primary": "#486264",
+            "tertiary": "#585e60",
+            "surface-dim": "#e9d7c6",
+            "on-secondary": "#ffffff",
+            "on-error-container": "#93000a",
+            "tertiary-fixed": "#dee3e5",
+            "secondary": "#a53c09",
+            "surface-variant": "#f2dfce",
+            "surface-tint": "#486365",
+            "secondary-fixed-dim": "#ffb59a",
+            "on-error": "#ffffff",
+            "surface-bright": "#fff8f4",
+            "primary-container": "#607b7d",
+            "secondary-fixed": "#ffdbce",
+            "on-background": "#231a10",
+            "on-tertiary": "#ffffff",
+            "on-surface-variant": "#414848",
+            "tertiary-container": "#717779",
+            "on-tertiary-fixed-variant": "#42484a",
+            "inverse-on-surface": "#ffeede",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed-dim": "#c2c7c9",
+            "on-tertiary-container": "#ffffff"
+          },
+          fontFamily: {
+            "headline": ["Newsreader", "serif"],
+            "body": ["Manrope", "sans-serif"],
+            "label": ["Manrope", "sans-serif"]
+          },
+          borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      background-color: #fff8f4;
+      font-family: 'Manrope', sans-serif;
+      color: #231a10;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .serif-bold { font-family: 'Newsreader', serif; font-weight: 700; }
+    .tonal-transition { transition: background-color 0.3s ease; }
+  </style>
+</head>
+<body class="bg-surface selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- SideNavBar Suppression logic: This is a focused onboarding task. Shell hidden to prioritize Canvas. -->
+<main class="min-h-screen flex flex-col items-center justify-center p-6 sm:p-12 relative overflow-hidden">
+<!-- Background Architectural Element -->
+<div class="absolute inset-0 z-0 pointer-events-none opacity-5">
+<svg height="100%" preserveaspectratio="none" viewbox="0 0 100 100" width="100%">
+<defs>
+<pattern height="10" id="grid" patternunits="userSpaceOnUse" width="10">
+<path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.1"></path>
+</pattern>
+</defs>
+<rect fill="url(#grid)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<!-- Center Content Canvas -->
+<div class="w-full max-w-xl z-10">
+<!-- Top Branding - Minimal for Focused Journey -->
+<div class="flex flex-col items-center mb-12 text-center">
+<div class="mb-6 flex items-center justify-center h-16 w-16 rounded-full bg-surface-container-lowest shadow-sm">
+<span class="material-symbols-outlined text-primary text-3xl">verified_user</span>
+</div>
+<span class="text-secondary font-label text-sm font-semibold tracking-widest uppercase mb-3">Identity Verification</span>
+<h1 class="font-headline text-4xl md:text-5xl text-on-background tracking-tight leading-tight">Architectural Ledger</h1>
+</div>
+<!-- Identity Confirmation Card -->
+<div class="bg-surface-container-lowest p-8 md:p-12 rounded-xl shadow-[0_20px_40px_rgba(35,26,16,0.06)] border border-outline-variant/15 relative overflow-hidden">
+<div class="mb-8">
+<h2 class="font-headline text-2xl text-primary mb-2">Confirm your full name</h2>
+<p class="text-on-surface-variant font-body leading-relaxed">We've pulled your information from Google. Please ensure it aligns with your professional credentials.</p>
+</div>
+<form class="space-y-8">
+<div class="group">
+<label class="block text-xs font-label font-bold text-primary uppercase tracking-widest mb-3" for="full_name">Full Name</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border-none border-b-2 border-outline-variant focus:ring-0 focus:border-secondary transition-all duration-300 font-body text-lg py-4 px-0 placeholder-outline-variant text-on-surface" id="full_name" placeholder="Enter your name exactly as it appears" type="text" value="Vikram Sethi"/>
+<div class="absolute right-0 top-1/2 -translate-y-1/2 opacity-40">
+<span class="material-symbols-outlined text-primary">edit</span>
+</div>
+</div>
+<!-- Helper Text with Editorial Tag style -->
+<div class="mt-6 p-5 bg-primary/5 rounded-lg flex items-start space-x-4 border-l-4 border-secondary">
+<span class="material-symbols-outlined text-secondary shrink-0" style="font-variation-settings: 'FILL' 1;">info</span>
+<div>
+<p class="text-sm font-body text-on-surface leading-relaxed">
+<strong>Critical:</strong> Your name must exactly match <span class="text-primary font-bold">ICAI records</span>. Discrepancies may delay your professional verification process.
+                </p>
+</div>
+</div>
+</div>
+<!-- CTA Section -->
+<div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+<button class="text-primary font-label font-bold text-sm tracking-wide flex items-center group" type="button">
+<span class="material-symbols-outlined mr-2 group-hover:-translate-x-1 transition-transform">arrow_back</span>
+              Back to login
+            </button>
+<button class="w-full sm:w-auto bg-secondary text-on-secondary px-10 py-4 rounded-lg font-label font-bold tracking-wide hover:bg-on-secondary-fixed-variant transition-all duration-300 active:scale-95 flex items-center justify-center" type="submit">
+              Continue
+              <span class="material-symbols-outlined ml-2">chevron_right</span>
+</button>
+</div>
+</form>
+<!-- Aesthetic Texture Element -->
+<div class="absolute bottom-0 right-0 opacity-5 pointer-events-none p-4">
+<span class="font-headline text-8xl italic select-none">AL</span>
+</div>
+</div>
+<!-- Footer Context -->
+<p class="mt-8 text-center text-xs text-outline font-label tracking-widest uppercase">
+        Step 1 of 5 • Profile Setup
+      </p>
+</div>
+</main>
+<!-- Visual Support: Architectural/Texture Element -->
+<div class="fixed bottom-0 right-0 w-1/4 h-1/4 z-0 pointer-events-none hidden lg:block">
+<div class="w-full h-full bg-surface-container-high opacity-40 rounded-tl-[10rem]"></div>
+</div>
+</body></html>

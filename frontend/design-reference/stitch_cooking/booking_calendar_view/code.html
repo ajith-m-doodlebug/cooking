@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-lowest": "#ffffff",
+              "on-secondary": "#ffffff",
+              "inverse-surface": "#392f23",
+              "surface-container-highest": "#f2dfce",
+              "on-surface-variant": "#414848",
+              "error": "#ba1a1a",
+              "on-secondary-container": "#5e6466",
+              "primary-fixed": "#cbe8ea",
+              "primary-container": "#607b7d",
+              "on-primary-fixed-variant": "#314b4d",
+              "on-error": "#ffffff",
+              "on-surface": "#231a10",
+              "on-secondary-fixed-variant": "#42484a",
+              "tertiary-container": "#c55322",
+              "on-secondary-fixed": "#171d1e",
+              "primary-fixed-dim": "#afccce",
+              "on-primary-container": "#ffffff",
+              "inverse-on-surface": "#ffeede",
+              "tertiary": "#a43b08",
+              "secondary": "#595f61",
+              "outline-variant": "#c1c8c8",
+              "on-background": "#231a10",
+              "surface-variant": "#f2dfce",
+              "tertiary-fixed": "#ffdbce",
+              "surface-tint": "#486365",
+              "outline": "#727879",
+              "inverse-primary": "#afccce",
+              "surface-container-low": "#fff1e6",
+              "secondary-container": "#dbe1e3",
+              "secondary-fixed-dim": "#c2c7c9",
+              "secondary-fixed": "#dee3e5",
+              "on-tertiary-fixed": "#370d00",
+              "surface": "#fff8f4",
+              "on-tertiary-container": "#ffffff",
+              "on-tertiary-fixed-variant": "#802a00",
+              "surface-container-high": "#f7e5d4",
+              "surface-bright": "#fff8f4",
+              "on-primary-fixed": "#031f21",
+              "on-primary": "#ffffff",
+              "on-error-container": "#93000a",
+              "tertiary-fixed-dim": "#ffb59a",
+              "surface-container": "#fdebd9",
+              "primary": "#486264",
+              "background": "#fff8f4",
+              "on-tertiary": "#ffffff",
+              "surface-dim": "#e9d7c6",
+              "error-container": "#ffdad6"
+            },
+            fontFamily: {
+              "headline": ["Newsreader"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-background antialiased selection:bg-primary-fixed-dim selection:text-on-primary-fixed">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 border-r-0 bg-slate-100 dark:bg-slate-900 flex flex-col py-6 z-50">
+<div class="px-6 mb-8">
+<h1 class="font-['Newsreader'] text-2xl font-semibold text-emerald-900 dark:text-emerald-100">Modern Archivist</h1>
+<p class="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500 mt-1">Chartered Accountancy</p>
+</div>
+<nav class="flex-1 space-y-1 px-3">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-emerald-800 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors active:scale-95 duration-150 rounded" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-['Manrope'] font-bold tracking-tight">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-emerald-900 dark:text-emerald-50 bg-white dark:bg-slate-800 font-bold border-r-4 border-emerald-700 active:scale-95 duration-150 rounded" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-['Manrope'] font-bold tracking-tight">Bookings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-emerald-800 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors active:scale-95 duration-150 rounded" href="#">
+<span class="material-symbols-outlined">person_pin</span>
+<span class="font-['Manrope'] font-bold tracking-tight">Profiles</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-emerald-800 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors active:scale-95 duration-150 rounded" href="#">
+<span class="material-symbols-outlined">folder_shared</span>
+<span class="font-['Manrope'] font-bold tracking-tight">Documents</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-emerald-800 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors active:scale-95 duration-150 rounded" href="#">
+<span class="material-symbols-outlined">fact_check</span>
+<span class="font-['Manrope'] font-bold tracking-tight">Audit Log</span>
+</a>
+</nav>
+<div class="mt-auto px-3 space-y-1">
+<button class="w-full mb-6 bg-primary text-on-primary py-3 px-4 rounded font-bold tracking-tight flex items-center justify-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm">add</span>
+                New Engagement
+            </button>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 dark:text-slate-400 hover:text-emerald-800 transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-['Manrope'] font-bold tracking-tight text-sm">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 dark:text-slate-400 hover:text-emerald-800 transition-colors" href="#">
+<span class="material-symbols-outlined">contact_support</span>
+<span class="font-['Manrope'] font-bold tracking-tight text-sm">Support</span>
+</a>
+<div class="mt-6 pt-6 border-t border-slate-200 dark:border-slate-800 px-4 flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Professional headshot of a mature firm principal in a charcoal suit, soft office lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBf2e-HyV_V1B65Vg3yOJZ0JMO8-29DG9Zgdhtt0tnzAffz30EmfEHgh3CsImg6J9p9prTh7nkmmH4L3qWPBuatU4G0kkvZVJD49CGUWqefItG_n_cwWW0JSVUQp5vexJg90dWuIeuFHA6q_w7AfPEebZqTMOZQUm_8NSAf4ru9Os6gi6ltfh3Bc4gWfVwKH8xySx_Mg1a0mXiMkCkFVyMfmXUJ1jCPlB2BnQuVu4cLZRUpWZtYVFHwlgcY2sTSBg_s5YK0vaq9J9w"/>
+<div>
+<p class="text-xs font-bold text-slate-900 dark:text-slate-100">Alexander Thorne</p>
+<p class="text-[10px] text-slate-500">Principal Partner</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="sticky top-0 z-40 w-full bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl flex items-center justify-between px-8 h-20 ml-64 border-b border-slate-100 dark:border-slate-800/50 shadow-sm dark:shadow-none">
+<div class="flex items-center gap-4">
+<h2 class="font-['Newsreader'] font-bold text-emerald-900 dark:text-emerald-50 text-xl">The Archivist Portal</h2>
+<div class="h-6 w-[1px] bg-slate-200"></div>
+<span class="text-sm font-label font-extrabold uppercase tracking-widest text-secondary">October 2024</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative focus-within:ring-2 focus-within:ring-emerald-500 rounded">
+<input class="bg-surface-container-low border-none rounded-lg px-4 py-2 text-sm w-64 focus:ring-0 placeholder:text-neutral" placeholder="Search engagements..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-2 text-neutral text-xl">search</span>
+</div>
+<div class="flex items-center gap-4 text-emerald-800 dark:text-emerald-400">
+<button class="material-symbols-outlined hover:text-emerald-600 transition-opacity">notifications</button>
+<button class="material-symbols-outlined hover:text-emerald-600 transition-opacity">help_outline</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 p-8 min-h-[calc(100vh-80px)]">
+<!-- Dashboard Header & Tabs -->
+<div class="flex justify-between items-end mb-8">
+<div class="space-y-1">
+<h3 class="font-headline text-3xl font-semibold text-on-background">Booking Management</h3>
+<p class="text-secondary font-body">Manage firm-wide audit schedules and client consultations.</p>
+</div>
+<div class="flex bg-surface-container p-1 rounded-lg">
+<button class="px-6 py-2 rounded bg-surface-container-lowest shadow-sm text-primary font-bold text-sm">Monthly</button>
+<button class="px-6 py-2 rounded text-secondary font-bold text-sm hover:bg-surface-container-high transition-colors">Weekly</button>
+<button class="px-6 py-2 rounded text-secondary font-bold text-sm hover:bg-surface-container-high transition-colors">Day</button>
+</div>
+</div>
+<!-- Calendar Filter Bar -->
+<div class="mb-6 flex items-center justify-between">
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-primary-container"></div>
+<span class="text-[10px] font-label font-extrabold text-secondary tracking-widest">BOOKED</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full border-2 border-primary"></div>
+<span class="text-[10px] font-label font-extrabold text-secondary tracking-widest">AVAILABLE</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-slate-300"></div>
+<span class="text-[10px] font-label font-extrabold text-secondary tracking-widest">BLOCKED</span>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center gap-2 px-4 py-2 border border-outline-variant bg-surface-container-lowest rounded text-sm font-bold text-secondary hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-lg">filter_list</span>
+                    Staff Filter
+                </button>
+<button class="flex items-center gap-2 px-4 py-2 border border-outline-variant bg-surface-container-lowest rounded text-sm font-bold text-secondary hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-lg">download</span>
+                    Export Schedule
+                </button>
+</div>
+</div>
+<!-- Calendar Grid -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant/10">
+<!-- Day Labels -->
+<div class="calendar-grid bg-surface-container-low border-b border-outline-variant/20">
+<div class="py-4 text-center text-[10px] font-label font-extrabold text-secondary tracking-[0.2em]">SUNDAY</div>
+<div class="py-4 text-center text-[10px] font-label font-extrabold text-secondary tracking-[0.2em]">MONDAY</div>
+<div class="py-4 text-center text-[10px] font-label font-extrabold text-secondary tracking-[0.2em]">TUESDAY</div>
+<div class="py-4 text-center text-[10px] font-label font-extrabold text-secondary tracking-[0.2em]">WEDNESDAY</div>
+<div class="py-4 text-center text-[10px] font-label font-extrabold text-secondary tracking-[0.2em]">THURSDAY</div>
+<div class="py-4 text-center text-[10px] font-label font-extrabold text-secondary tracking-[0.2em]">FRIDAY</div>
+<div class="py-4 text-center text-[10px] font-label font-extrabold text-secondary tracking-[0.2em]">SATURDAY</div>
+</div>
+<!-- Calendar Cells -->
+<div class="calendar-grid">
+<!-- Row 1 (Empty starts) -->
+<div class="min-h-[140px] p-2 bg-surface-container-low/30 border-r border-b border-outline-variant/10"></div>
+<div class="min-h-[140px] p-2 bg-surface-container-low/30 border-r border-b border-outline-variant/10"></div>
+<div class="min-h-[140px] p-3 border-r border-b border-outline-variant/10 group hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex justify-between items-start mb-2">
+<span class="text-sm font-bold text-secondary">01</span>
+<span class="text-[10px] px-1.5 py-0.5 bg-primary-container text-white rounded font-bold">2 AUDITS</span>
+</div>
+<div class="space-y-1">
+<div class="text-[9px] p-1.5 bg-primary-container text-white rounded font-bold truncate">Vanguard Corp Audit</div>
+<div class="text-[9px] p-1.5 bg-primary-container text-white rounded font-bold truncate">Consult: J. Miller</div>
+</div>
+</div>
+<div class="min-h-[140px] p-3 border-r border-b border-outline-variant/10 group hover:bg-surface-container transition-colors cursor-pointer">
+<span class="text-sm font-bold text-secondary">02</span>
+<div class="mt-2 text-[9px] p-1.5 border border-primary text-primary rounded font-bold text-center">Open Slot</div>
+</div>
+<div class="min-h-[140px] p-3 border-r border-b border-outline-variant/10 group hover:bg-surface-container transition-colors cursor-pointer">
+<span class="text-sm font-bold text-secondary">03</span>
+<div class="mt-2 text-[9px] p-1.5 bg-slate-300 text-slate-600 rounded font-bold text-center">Maintenance</div>
+</div>
+<div class="min-h-[140px] p-3 border-r border-b border-outline-variant/10 group hover:bg-surface-container transition-colors cursor-pointer">
+<span class="text-sm font-bold text-secondary">04</span>
+<div class="mt-2 space-y-1">
+<div class="text-[9px] p-1.5 bg-primary-container text-white rounded font-bold truncate">Tax Filing Review</div>
+</div>
+</div>
+<div class="min-h-[140px] p-3 border-b border-outline-variant/10 group hover:bg-surface-container transition-colors cursor-pointer">
+<span class="text-sm font-bold text-secondary">05</span>
+</div>
+<!-- Row 2 -->
+<div class="min-h-[140px] p-3 border-r border-b border-outline-variant/10 group hover:bg-surface-container transition-colors cursor-pointer">
+<span class="text-sm font-bold text-secondary">06</span>
+</div>
+<div class="min-h-[140px] p-3 border-r border-b border-outline-variant/10 group hover:bg-surface-container transition-colors cursor-pointer">
+<span class="text-sm font-bold text-secondary">07</span>
+<div class="mt-2 space-y-1">
+<div class="text-[9px] p-1.5 bg-primary-container text-white rounded font-bold truncate">Quarterly Prep</div>
+<div class="text-[9px] p-1.5 border border-primary text-primary rounded font-bold text-center">3 PM Avail.</div>
+</div>
+</div>
+<div class="min-h-[140px] p-3 border-r border-b border-outline-variant/10 group hover:bg-surface-container transition-colors cursor-pointer bg-primary-fixed/20 ring-1 ring-inset ring-primary">
+<div class="flex justify-between items-start">
+<span class="text-sm font-bold text-primary">08</span>
+<span class="text-[10px] font-extrabold text-primary">TODAY</span>
+</div>
+<div class="mt-2 space-y-1">
+<div class="text-[9px] p-1.5 bg-tertiary-container text-white rounded font-bold truncate">URGENT: IRS Inquiry</div>
+<div class="text-[9px] p-1.5 bg-primary-container text-white rounded font-bold truncate">Audit: Helios Ltd</div>
+</div>
+</div>
+<div class="min-h-[140px] p-3 border-r border-b border-outline-variant/10 group hover:bg-surface-container transition-colors cursor-pointer">
+<span class="text-sm font-bold text-secondary">09</span>
+<div class="mt-2 text-[9px] p-1.5 bg-slate-300 text-slate-600 rounded font-bold text-center">Public Holiday</div>
+</div>
+<div class="min-h-[140px] p-3 border-r border-b border-outline-variant/10 group hover:bg-surface-container transition-colors cursor-pointer">
+<span class="text-sm font-bold text-secondary">10</span>
+<div class="mt-2 text-[9px] p-1.5 border border-primary text-primary rounded font-bold text-center">4 Slots Available</div>
+</div>
+<div class="min-h-[140px] p-3 border-r border-b border-outline-variant/10 group hover:bg-surface-container transition-colors cursor-pointer">
+<span class="text-sm font-bold text-secondary">11</span>
+</div>
+<div class="min-h-[140px] p-3 border-b border-outline-variant/10 group hover:bg-surface-container transition-colors cursor-pointer">
+<span class="text-sm font-bold text-secondary">12</span>
+</div>
+<!-- Row 3 -->
+<div class="min-h-[140px] p-3 border-r border-b border-outline-variant/10 group hover:bg-surface-container transition-colors cursor-pointer">
+<span class="text-sm font-bold text-secondary">13</span>
+</div>
+<div class="min-h-[140px] p-3 border-r border-b border-outline-variant/10 group hover:bg-surface-container transition-colors cursor-pointer">
+<span class="text-sm font-bold text-secondary">14</span>
+<div class="mt-2 space-y-1">
+<div class="text-[9px] p-1.5 bg-primary-container text-white rounded font-bold truncate">Client Lunch</div>
+<div class="text-[9px] p-1.5 bg-primary-container text-white rounded font-bold truncate">Onboarding: Astra</div>
+</div>
+</div>
+<div class="min-h-[140px] p-3 border-r border-b border-outline-variant/10 group hover:bg-surface-container transition-colors cursor-pointer">
+<span class="text-sm font-bold text-secondary">15</span>
+</div>
+<div class="min-h-[140px] p-3 border-r border-b border-outline-variant/10 group hover:bg-surface-container transition-colors cursor-pointer">
+<span class="text-sm font-bold text-secondary">16</span>
+<div class="mt-2 text-[9px] p-1.5 border border-primary text-primary rounded font-bold text-center">Morning Avail.</div>
+</div>
+<div class="min-h-[140px] p-3 border-r border-b border-outline-variant/10 group hover:bg-surface-container transition-colors cursor-pointer">
+<span class="text-sm font-bold text-secondary">17</span>
+<div class="mt-2 space-y-1">
+<div class="text-[9px] p-1.5 bg-primary-container text-white rounded font-bold truncate">Internal Review</div>
+</div>
+</div>
+<div class="min-h-[140px] p-3 border-r border-b border-outline-variant/10 group hover:bg-surface-container transition-colors cursor-pointer">
+<span class="text-sm font-bold text-secondary">18</span>
+</div>
+<div class="min-h-[140px] p-3 border-b border-outline-variant/10 group hover:bg-surface-container transition-colors cursor-pointer">
+<span class="text-sm font-bold text-secondary">19</span>
+</div>
+</div>
+</div>
+<!-- Sidebar / Contextual Info in Bento Style -->
+<div class="grid grid-cols-12 gap-8 mt-8">
+<div class="col-span-8 bg-white border border-outline-variant/20 p-6 rounded-xl">
+<div class="flex items-center justify-between mb-6">
+<h4 class="font-headline text-xl font-semibold">Active Engagements</h4>
+<span class="text-[10px] font-label font-extrabold text-primary bg-primary-fixed px-2 py-1 rounded">THIS WEEK</span>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg border-l-4 border-primary">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-primary-container text-white rounded-full flex items-center justify-center font-bold">VC</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Vanguard Capital Audit</p>
+<p class="text-xs text-secondary">Lead: Robert Chambers • Q3 Compliance</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-on-surface">Oct 24, 09:00 AM</p>
+<span class="text-[10px] font-extrabold text-tertiary">ACTION REQUIRED</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg border-l-4 border-secondary">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-secondary text-white rounded-full flex items-center justify-center font-bold">HL</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Helios Logistics</p>
+<p class="text-xs text-secondary">Lead: Sarah Jenkins • Tax Advisory</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-on-surface">Oct 25, 11:30 AM</p>
+<span class="text-[10px] font-extrabold text-secondary">SCHEDULED</span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-4 space-y-6">
+<div class="bg-primary p-6 rounded-xl text-on-primary">
+<h5 class="font-headline text-lg font-semibold mb-2">Availability Settings</h5>
+<p class="text-sm opacity-80 mb-6">Your standard office hours are currently set to 08:30 — 17:30 Mon-Fri.</p>
+<button class="w-full py-2 bg-white text-primary font-bold rounded text-sm hover:bg-slate-100 transition-colors">Modify Schedule</button>
+</div>
+<div class="bg-surface-container-high p-6 rounded-xl">
+<h5 class="font-headline text-lg font-semibold text-on-surface mb-4">Firm Capacity</h5>
+<div class="space-y-4">
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold text-secondary">
+<span>AUDIT DEPT</span>
+<span>82%</span>
+</div>
+<div class="w-full h-2 bg-white rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[82%]"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold text-secondary">
+<span>TAX DEPT</span>
+<span>45%</span>
+</div>
+<div class="w-full h-2 bg-white rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[45%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-tertiary text-on-tertiary rounded-full shadow-2xl flex items-center justify-center active:scale-90 transition-transform z-50">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</body></html>

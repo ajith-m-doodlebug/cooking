@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Professional Verification</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700;6..72,800&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-surface": "#231a10",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#ffeede",
+                        "secondary": "#a53c09",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#314b4d",
+                        "primary-fixed-dim": "#afccce",
+                        "surface-dim": "#e9d7c6",
+                        "tertiary-fixed-dim": "#c2c7c9",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#802a00",
+                        "tertiary": "#585e60",
+                        "primary-container": "#607b7d",
+                        "on-primary-fixed": "#031f21",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#ffffff",
+                        "primary": "#486264",
+                        "on-primary-container": "#ffffff",
+                        "surface": "#fff8f4",
+                        "on-secondary-fixed": "#370d00",
+                        "on-surface-variant": "#414848",
+                        "on-background": "#231a10",
+                        "tertiary-fixed": "#dee3e5",
+                        "tertiary-container": "#717779",
+                        "surface-container-low": "#fff1e6",
+                        "primary-fixed": "#cbe8ea",
+                        "outline": "#727879",
+                        "on-tertiary-fixed": "#171d1e",
+                        "surface-container-high": "#f7e5d4",
+                        "outline-variant": "#c1c8c8",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#f2dfce",
+                        "on-tertiary-fixed-variant": "#42484a",
+                        "surface-bright": "#fff8f4",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#fdebd9",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#ffb59a",
+                        "on-secondary-container": "#692100",
+                        "background": "#fff8f4",
+                        "surface-tint": "#486365",
+                        "surface-variant": "#f2dfce",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#afccce",
+                        "secondary-fixed": "#ffdbce",
+                        "secondary-container": "#ff7e49",
+                        "inverse-surface": "#392f23"
+                    },
+                    fontFamily: {
+                        "headline": ["Newsreader"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #ffffff; /* Overriding surface with pure white per user request */
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body text-on-background selection:bg-secondary-fixed-dim">
+<!-- TopAppBar -->
+<header class="flex items-center justify-between px-6 h-16 w-full fixed top-0 z-50 bg-[#fff8f4] dark:bg-stone-950">
+<div class="flex items-center gap-4">
+<button class="scale-95 active:scale-90 transition-transform text-[#486264] dark:text-stone-300">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-['Newsreader'] font-bold text-xl tracking-tight text-[#486264] dark:text-stone-300">Verification</h1>
+</div>
+<div class="font-label text-[10px] font-bold uppercase tracking-widest text-secondary bg-secondary/10 px-2 py-1 rounded">
+            Step 1 of 3
+        </div>
+</header>
+<div class="bg-stone-200/20 dark:bg-stone-800/20 h-px w-full fixed top-16 z-50"></div>
+<!-- Main Content -->
+<main class="pt-24 pb-32 px-6 max-w-md mx-auto">
+<!-- Hero Identity Section -->
+<section class="mb-10 text-center md:text-left">
+<h2 class="font-headline text-3xl font-bold text-primary mb-2">Professional Credentials</h2>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">
+                Provide your chartered accountancy details to unlock the verified editorial ledger.
+            </p>
+</section>
+<!-- Form Fields -->
+<form class="space-y-8">
+<!-- Full Name (Pre-filled, non-editable) -->
+<div class="group">
+<label class="font-label text-[11px] font-bold uppercase tracking-widest text-primary mb-2 block">Full Name</label>
+<div class="bg-surface-container-low border-b-2 border-outline-variant/30 py-3 px-1">
+<span class="font-headline text-lg font-semibold text-on-surface/60 italic">Arjun S. Vardhan</span>
+</div>
+<p class="mt-2 text-[10px] text-on-surface-variant/70 italic flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="lock" style="font-variation-settings: 'FILL' 1;">lock</span>
+                    Locked to registered identity
+                </p>
+</div>
+<!-- ICAI Membership Number -->
+<div class="group">
+<label class="font-label text-[11px] font-bold uppercase tracking-widest text-primary mb-2 block" for="icai_membership">ICAI Membership Number</label>
+<input class="w-full bg-transparent border-t-0 border-x-0 border-b-2 border-outline-variant focus:border-secondary focus:ring-0 px-1 py-3 font-body text-base transition-colors placeholder:text-on-surface-variant/30" id="icai_membership" placeholder="e.g. 504932" type="number"/>
+</div>
+<!-- COP Number -->
+<div class="group">
+<label class="font-label text-[11px] font-bold uppercase tracking-widest text-primary mb-2 block" for="cop_number">COP Number</label>
+<input class="w-full bg-transparent border-t-0 border-x-0 border-b-2 border-outline-variant focus:border-secondary focus:ring-0 px-1 py-3 font-body text-base transition-colors placeholder:text-on-surface-variant/30" id="cop_number" placeholder="Enter Certificate of Practice Number" type="text"/>
+</div>
+<!-- Year of Qualification -->
+<div class="group">
+<label class="font-label text-[11px] font-bold uppercase tracking-widest text-primary mb-2 block" for="year_qualification">Year of Qualification</label>
+<div class="relative">
+<select class="appearance-none w-full bg-transparent border-t-0 border-x-0 border-b-2 border-outline-variant focus:border-secondary focus:ring-0 px-1 py-3 font-body text-base transition-colors" id="year_qualification">
+<option disabled="" selected="" value="">Select Year</option>
+<option value="2023">2023</option>
+<option value="2022">2022</option>
+<option value="2021">2021</option>
+<option value="2020">2020</option>
+<option value="2019">2019</option>
+<option value="2018">2018</option>
+</select>
+<div class="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none">
+<span class="material-symbols-outlined text-primary" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Registered Firm Name -->
+<div class="group">
+<label class="font-label text-[11px] font-bold uppercase tracking-widest text-primary mb-2 block" for="firm_name">Registered Firm Name</label>
+<input class="w-full bg-transparent border-t-0 border-x-0 border-b-2 border-outline-variant focus:border-secondary focus:ring-0 px-1 py-3 font-body text-base transition-colors placeholder:text-on-surface-variant/30" id="firm_name" placeholder="Vardhan &amp; Associates LLP" type="text"/>
+</div>
+<!-- Registered Office Address -->
+<div class="group">
+<label class="font-label text-[11px] font-bold uppercase tracking-widest text-primary mb-2 block" for="office_address">Registered Office Address</label>
+<textarea class="w-full bg-surface-container-lowest border-t-0 border-x-0 border-b-2 border-outline-variant focus:border-secondary focus:ring-0 px-1 py-3 font-body text-base transition-colors resize-none placeholder:text-on-surface-variant/30" id="office_address" placeholder="Enter complete professional address..." rows="3"></textarea>
+</div>
+<!-- Data Ledger Security Notice (Informational Box) -->
+<div class="bg-surface-container-low p-6 rounded-xl flex items-start gap-4 mt-12 relative overflow-hidden">
+<div class="absolute top-0 right-0 opacity-5">
+<span class="material-symbols-outlined text-9xl -mr-8 -mt-8" data-icon="shield">shield</span>
+</div>
+<div class="bg-primary-container p-2 rounded-lg shrink-0">
+<span class="material-symbols-outlined text-on-primary-container text-xl" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-primary text-base mb-1">Data Ledger Security</h4>
+<p class="font-body text-[12px] leading-relaxed text-on-surface-variant">
+                        Your professional credentials are cross-referenced with the official ICAI registry. We use 256-bit encryption to ensure the confidentiality of your architectural data records.
+                    </p>
+</div>
+</div>
+</form>
+</main>
+<!-- Fixed Bottom Action Bar -->
+<div class="fixed bottom-0 left-0 w-full p-6 bg-white/80 backdrop-blur-xl z-50">
+<button class="w-full bg-secondary hover:bg-secondary/90 text-on-secondary py-4 px-6 rounded-xl font-body font-bold text-base tracking-wide flex items-center justify-center gap-2 shadow-lg transition-all active:scale-[0.98]">
+            Verify &amp; Continue
+            <span class="material-symbols-outlined text-[20px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- Hidden Navigation Shell (Suppressed based on Transactional Focus Rule) -->
+<!-- But implementing a phantom BottomNavBar logic for structure reference if needed in other views -->
+<div class="hidden h-20"></div>
+</body></html>

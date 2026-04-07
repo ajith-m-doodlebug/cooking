@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-lowest": "#ffffff",
+              "inverse-on-surface": "#ffeede",
+              "on-secondary-fixed": "#171d1e",
+              "on-primary-fixed-variant": "#314b4d",
+              "secondary-container": "#dbe1e3",
+              "on-surface-variant": "#414848",
+              "error-container": "#ffdad6",
+              "on-secondary": "#ffffff",
+              "secondary": "#595f61",
+              "secondary-fixed-dim": "#c2c7c9",
+              "primary-container": "#607b7d",
+              "on-primary-container": "#ffffff",
+              "on-surface": "#231a10",
+              "on-primary-fixed": "#031f21",
+              "outline": "#727879",
+              "primary-fixed-dim": "#afccce",
+              "on-primary": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "surface-container-high": "#f7e5d4",
+              "on-error": "#ffffff",
+              "inverse-surface": "#392f23",
+              "surface-container-highest": "#f2dfce",
+              "tertiary": "#a43b08",
+              "on-background": "#231a10",
+              "surface-variant": "#f2dfce",
+              "surface-container-low": "#fff1e6",
+              "tertiary-container": "#c55322",
+              "surface": "#fff8f4",
+              "on-secondary-container": "#5e6466",
+              "error": "#ba1a1a",
+              "secondary-fixed": "#dee3e5",
+              "tertiary-fixed-dim": "#ffb59a",
+              "on-tertiary-fixed": "#370d00",
+              "on-tertiary-container": "#ffffff",
+              "tertiary-fixed": "#ffdbce",
+              "surface-dim": "#e9d7c6",
+              "primary": "#486264",
+              "primary-fixed": "#cbe8ea",
+              "on-error-container": "#93000a",
+              "surface-container": "#fdebd9",
+              "on-secondary-fixed-variant": "#42484a",
+              "inverse-primary": "#afccce",
+              "background": "#fff8f4",
+              "outline-variant": "#c1c8c8",
+              "on-tertiary-fixed-variant": "#802a00",
+              "surface-tint": "#486365",
+              "surface-bright": "#fff8f4"
+            },
+            fontFamily: {
+              "headline": ["Newsreader"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-gradient {
+            background: linear-gradient(135deg, #486264 0%, #607B7D 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface-container-low font-body text-on-surface selection:bg-primary-fixed-dim overflow-x-hidden">
+<!-- TopNavBar (Shared Component Execution) -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm opacity-4 shadow-slate-900/5">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold font-serif text-slate-800 dark:text-slate-100">The Archivist</span>
+</div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors p-2 rounded-full cursor-pointer" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors p-2 rounded-full cursor-pointer" data-icon="help">help</span>
+<button class="font-label text-xs font-extrabold uppercase tracking-wider text-slate-700 dark:text-slate-300 px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Support</button>
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="Close up portrait of a professional senior chartered accountant in a charcoal grey suit with a confident, welcoming expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlbvpVck4o2Z7Z8T2r4I76hDK7dcgitItb1fMiE3rdAQngAm166ngb2Hu404xxtjPY17menWzRCPAovLsdErM3xZMs0VPXmVNhVKWqOazetoiKSeoHyDJohl0bkMGzD3MTGeCkfh_dD5eYoY2S6IniG7EAEC3oSbazt2HwKMBxuj29a2haroV03UumuAlMuqPYqxVT1qjSf1-LXIQJ98E1FllHSD_g_EVyfQx0_HDmg4FQTjgs4UTyYI9CZtr2GEVqOs_YUosZM0E"/>
+</div>
+</div>
+</header>
+<main class="pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto min-h-screen">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<!-- Left Column: Celebratory Messaging -->
+<div class="lg:col-span-7 flex flex-col items-start space-y-8">
+<!-- Status Chip -->
+<div class="inline-flex items-center gap-2 bg-primary px-4 py-2 rounded-full text-on-primary">
+<span class="material-symbols-outlined text-sm" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label text-xs font-extrabold uppercase tracking-widest">Verification Approved</span>
+</div>
+<h1 class="font-headline text-6xl md:text-8xl font-semibold leading-tight text-primary">
+                    You’re Verified <span class="text-tertiary">🎉</span>
+</h1>
+<p class="font-body text-xl text-secondary max-w-xl leading-relaxed">
+                    Your profile is now live and visible to users. Every ledger, every audit, and every expertise you’ve shared is now part of the professional network.
+                </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<!-- Primary CTA -->
+<button class="editorial-gradient text-on-primary px-8 py-4 rounded-md font-label font-extrabold text-sm uppercase tracking-widest flex items-center gap-3 shadow-[0_4px_0_0_#314b4d] active:translate-y-1 active:shadow-none transition-all duration-150">
+                        Go to Dashboard
+                        <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<!-- Secondary CTA -->
+<button class="bg-surface-container-highest text-primary px-8 py-4 rounded-md font-label font-extrabold text-sm uppercase tracking-widest hover:bg-surface-container-high transition-colors">
+                        View Public Profile
+                    </button>
+</div>
+</div>
+<!-- Right Column: Premium Card Visualization -->
+<div class="lg:col-span-5 relative">
+<!-- Decorative Backdrop -->
+<div class="absolute -top-12 -right-12 w-64 h-64 bg-surface-container-high rounded-full blur-3xl opacity-50"></div>
+<!-- Main Card Layering -->
+<div class="relative bg-white p-8 rounded-xl shadow-2xl shadow-on-surface/5 border-b-4 border-primary">
+<div class="flex justify-between items-start mb-8">
+<div class="w-20 h-20 rounded-xl overflow-hidden border-2 border-surface-container">
+<img alt="Profile avatar" class="w-full h-full object-cover" data-alt="Portrait of a sophisticated professional in a clean, modern office environment, high-end editorial photography style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuStRTRzjxN4iwOjo-Kvaf2TL28JZ8pLdLrHcuANkn-D7XSRlBhw2meV3mr1Dg55HK7z4UVlZRM05tB0TulduA9D85Bqyc_B6pv32G2Q2xWEN8CrhJWtym26o8qI6UjY6R8mcmKcq1QvMD2k2flp3odJ3YugU0TE3-MZTuY9tVIwQbERg3qISYVz0B3Iv5iQULeCdANkV-PpX8bmu-VMTXRA9YkFpqsVZfDvr3zsA9dB3pGQZDqdqDkAuZDGLT-nhMAWnHdX4mNMM"/>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label text-[10px] text-outline uppercase tracking-widest mb-1">Account Status</span>
+<div class="bg-primary/10 text-primary px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label text-[10px] font-extrabold uppercase">Verified Partner</span>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<div>
+<h2 class="font-headline text-3xl font-medium text-on-surface">Jameson Sterling, FCA</h2>
+<p class="font-body text-secondary text-sm">Senior Lead Auditor • 14 Years Experience</p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-4 rounded-lg">
+<span class="font-label text-[9px] text-outline uppercase tracking-tighter">Trust Score</span>
+<p class="font-headline text-2xl text-primary font-bold">99.8%</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-lg">
+<span class="font-label text-[9px] text-outline uppercase tracking-tighter">Verified Audits</span>
+<p class="font-headline text-2xl text-primary font-bold">412</p>
+</div>
+</div>
+<!-- Data Density Simulation -->
+<div class="border-t border-outline-variant pt-6">
+<div class="flex justify-between items-center mb-4">
+<span class="font-label text-[10px] text-outline uppercase tracking-widest">Public Visibility</span>
+<span class="text-tertiary font-bold text-xs uppercase">Live Now</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="w-full h-full editorial-gradient"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Detail Card -->
+<div class="absolute -bottom-6 -left-12 hidden md:block bg-surface-container-highest p-4 rounded-lg shadow-xl border border-white/50 backdrop-blur-md">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-tertiary/10 rounded-full flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" data-icon="workspace_premium">workspace_premium</span>
+</div>
+<div>
+<p class="font-label text-[10px] uppercase font-extrabold text-tertiary tracking-tight">System Notification</p>
+<p class="text-xs text-on-surface">Tier 1 Verification Seal Enabled</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Next Steps Bento -->
+<div class="mt-32">
+<h3 class="font-label text-xs font-extrabold uppercase tracking-[0.3em] text-outline mb-8 border-b border-outline-variant pb-4">Getting Started</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Step 1 -->
+<div class="bg-white p-8 rounded-xl border-l-4 border-primary shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+<span class="material-symbols-outlined text-primary mb-4 block" data-icon="edit_square">edit_square</span>
+<h4 class="font-headline text-xl font-semibold mb-2">Update Credentials</h4>
+<p class="font-body text-sm text-secondary leading-relaxed">Ensure your specialization certificates are up to date for better client matching.</p>
+</div>
+<!-- Step 2 -->
+<div class="bg-white p-8 rounded-xl border-l-4 border-tertiary shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+<span class="material-symbols-outlined text-tertiary mb-4 block" data-icon="groups">groups</span>
+<h4 class="font-headline text-xl font-semibold mb-2">Network Access</h4>
+<p class="font-body text-sm text-secondary leading-relaxed">Connect with other senior partners and explore audit collaboration requests.</p>
+</div>
+<!-- Step 3 -->
+<div class="bg-white p-8 rounded-xl border-l-4 border-outline shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+<span class="material-symbols-outlined text-outline mb-4 block" data-icon="monitoring">monitoring</span>
+<h4 class="font-headline text-xl font-semibold mb-2">Visibility Analytics</h4>
+<p class="font-body text-sm text-secondary leading-relaxed">Track how many firms have viewed your profile in the last 24 hours.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- SideNavBar (Mobile Suppression Logic Applied - Rendered as Floating Mobile Nav if needed, but per system, Shell Visibility Filter: Suppressed on Success screens if not top-level) -->
+<!-- We prioritize the Canvas for this specific "Verification Success" screen as per the "Task-Focused" rule -->
+<!-- Global Footer Minimal -->
+<footer class="py-12 px-6 border-t border-outline-variant bg-surface">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<span class="text-sm font-serif italic text-primary">The Archivist — Institutional Integrity Since 1994</span>
+<div class="flex gap-8">
+<a class="font-label text-[10px] uppercase font-extrabold tracking-widest text-outline hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label text-[10px] uppercase font-extrabold tracking-widest text-outline hover:text-primary transition-colors" href="#">Regulatory Compliance</a>
+<a class="font-label text-[10px] uppercase font-extrabold tracking-widest text-outline hover:text-primary transition-colors" href="#">Audit Standards</a>
+</div>
+</div>
+</footer>
+</body></html>

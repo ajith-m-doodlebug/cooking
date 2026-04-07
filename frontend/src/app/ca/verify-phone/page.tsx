@@ -11,7 +11,7 @@ export default function CAVerifyPhonePage() {
       role="CA"
       successRedirect="/ca/onboarding"
       backHref="/ca/onboarding"
-      brandLabel="CA Booking Studio"
+      brandLabel="The Archivist"
       onSuccess={() => router.replace("/ca/onboarding")}
     />
   );

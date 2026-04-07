@@ -8,6 +8,7 @@ import { useRequireAuth } from "@/hooks/useAuth";
 import { USER_THEME, CA_THEME } from "@/lib/theme";
 import { getTermsSections } from "@/lib/terms";
 import type { UserRole } from "@/types";
+import { MaterialIcon } from "@/components/editorial/MaterialIcon";
 
 interface TermsContent {
   id: string;
@@ -28,7 +29,6 @@ function TermsContent() {
   const role = (searchParams.get("role") as UserRole) || "USER";
   const { user, isAuthenticated } = useRequireAuth();
   const [terms, setTerms] = useState<TermsContent | null>(null);
-  const [status, setStatus] = useState<TermsStatus | null>(null);
   const [accepting, setAccepting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -40,7 +40,6 @@ function TermsContent() {
     ])
       .then(([content, st]) => {
         setTerms(content);
-        setStatus(st);
         if (st.has_accepted) {
           if (user?.role === "CA") router.replace("/ca/dashboard");
           else router.replace("/client");
@@ -71,11 +70,13 @@ function TermsContent() {
 
   if (!isAuthenticated || !terms) {
     return (
-      <main className={`min-h-screen flex items-center justify-center p-8 ${isUserRole ? USER_THEME.bg : "bg-[var(--color-bg)]"}`}>
+      <main
+        className={`flex min-h-screen items-center justify-center p-8 ${isUserRole ? USER_THEME.bg : "bg-[var(--color-bg)]"}`}
+      >
         {error ? (
-          <p className="text-red-600">{error}</p>
+          <p className="text-[var(--color-error)]">{error}</p>
         ) : (
-          <p className={isUserRole ? USER_THEME.textMuted : "text-gray-500"}>Loading terms…</p>
+          <p className={isUserRole ? USER_THEME.textMuted : "text-[var(--color-text-muted)]"}>Loading terms…</p>
         )}
       </main>
     );
@@ -86,71 +87,72 @@ function TermsContent() {
   const showAsList = sections.length > 0;
 
   return (
-    <main className={`min-h-screen terms-page-bg flex flex-col items-center p-4 sm:p-6 md:p-8`}>
-      <div className="w-full max-w-3xl flex flex-col flex-1">
-        <div className="rounded-t-2xl overflow-hidden border border-b-0 border-[var(--color-border)] bg-white shadow-[0_4px_24px_rgba(0,0,0,0.06)]">
+    <main className="min-h-screen bg-[var(--color-bg)] px-4 py-10 font-body sm:px-6 md:py-14">
+      <div className="mx-auto flex w-full max-w-3xl flex-col">
+        <div className="overflow-hidden rounded-t-2xl border border-b-0 border-[var(--color-border)]/80 bg-[var(--color-surface)] shadow-editorial">
           <div
-            className={`h-2 w-full ${
+            className={`h-1.5 w-full ${
               isCa
                 ? "bg-gradient-to-r from-[var(--color-brand-tertiary)] via-[#ea8a5c] to-[var(--color-brand-tertiary-hover)]"
                 : "bg-gradient-to-r from-[var(--color-brand-primary)] via-[#7a9395] to-[var(--color-brand-primary-hover)]"
             }`}
           />
-          <div className="px-6 sm:px-8 pt-6 pb-4">
-            <div className="flex items-center gap-3">
-              <span
-                className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-sm font-bold text-white ${
+          <div className="px-6 pb-5 pt-8 sm:px-10">
+            <div className="flex items-start gap-4">
+              <div
+                className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-white ${
                   isCa ? "bg-[var(--color-primary-ca)]" : "bg-[var(--color-primary-user)]"
                 }`}
               >
-                📜
-              </span>
+                <MaterialIcon name="gavel" className="!text-2xl" />
+              </div>
               <div>
-                <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[var(--color-text)]">
-                  Terms &amp; Conditions
+                <h1 className="font-headline text-2xl font-bold tracking-tight text-[var(--color-text)] sm:text-3xl">
+                  Terms &amp; conditions
                 </h1>
-                <p className="text-xs sm:text-sm mt-0.5 text-[var(--color-text-muted)]">
+                <p className="mt-1 text-sm text-[var(--color-text-muted)]">
                   Version {terms.version} · Acceptance required to continue
                 </p>
               </div>
             </div>
-            <p className="mt-3 text-sm text-[var(--color-text-muted)] max-w-xl">
+            <p className="mt-5 max-w-xl text-sm leading-relaxed text-[var(--color-text-muted)]">
               When terms are updated, you must accept the latest version to continue using the platform.
             </p>
           </div>
         </div>
 
-        <div className="flex-1 border border-t-0 border-[var(--color-border)] rounded-b-2xl bg-white shadow-[0_4px_24px_rgba(0,0,0,0.06)] overflow-hidden flex flex-col min-h-0">
-          <div className="flex-1 overflow-y-auto max-h-[50vh] sm:max-h-[55vh] p-6 sm:p-8">
+        <div className="flex min-h-0 flex-1 flex-col overflow-hidden rounded-b-2xl border border-t-0 border-[var(--color-border)]/80 bg-[var(--color-surface)] shadow-editorial">
+          <div className="scrollbar-hide max-h-[50vh] flex-1 overflow-y-auto p-6 sm:max-h-[55vh] sm:p-10">
             {showAsList ? (
-              <ol className="list-decimal list-outside pl-6 space-y-6 marker:font-bold marker:text-[var(--color-text)]">
+              <ol className="list-decimal list-outside space-y-6 pl-5 marker:font-headline marker:text-[var(--color-brand-primary)]">
                 {sections.map(({ number, title, body }) => (
                   <li key={number} className="pl-2">
-                    <span className="font-semibold text-[var(--color-text)] block mb-1">{title}</span>
-                    <p className="text-sm text-[var(--color-text-muted)] leading-relaxed ml-0">{body}</p>
+                    <span className="font-headline text-lg font-semibold text-[var(--color-text)]">{title}</span>
+                    <p className="mt-2 text-sm leading-relaxed text-[var(--color-text-muted)]">{body}</p>
                   </li>
                 ))}
               </ol>
             ) : (
               <div
-                className="prose prose-sm max-w-none terms-html"
+                className="prose prose-sm max-w-none terms-html text-[var(--color-text-muted)]"
                 dangerouslySetInnerHTML={{ __html: terms.content }}
               />
             )}
           </div>
 
-          <div className="shrink-0 border-t border-[var(--color-border)] bg-[var(--color-bg-subtle)] px-6 sm:px-8 py-4">
+          <div className="shrink-0 border-t border-[var(--color-border)]/80 bg-[var(--color-bg-subtle)] px-6 py-5 sm:px-10">
             {error && (
-              <p className="text-sm text-red-600 mb-3" role="alert">
+              <p className="mb-3 text-sm text-[var(--color-error)]" role="alert">
                 {error}
               </p>
             )}
             <button
+              type="button"
               onClick={handleAccept}
               disabled={accepting}
-              className={`w-full sm:w-auto min-w-[140px] px-6 py-3 rounded-xl text-sm font-semibold shadow-sm disabled:opacity-50 transition ${isCa ? CA_THEME.btnPrimary : USER_THEME.btnPrimary}`}
+              className={`w-full rounded-xl px-6 py-3.5 text-sm font-bold text-white shadow-editorial transition disabled:opacity-50 sm:w-auto ${isCa ? CA_THEME.btnPrimary : USER_THEME.btnPrimary}`}
             >
-              {accepting ? "Accepting…" : "I Accept"}
+              {accepting ? "Accepting…" : "I accept"}
             </button>
           </div>
         </div>
@@ -163,7 +165,7 @@ export default function TermsPage() {
   return (
     <Suspense
       fallback={
-        <main className="min-h-screen flex items-center justify-center p-8 bg-[var(--color-bg-subtle)]">
+        <main className="flex min-h-screen items-center justify-center bg-[var(--color-bg)] p-8">
           <p className="text-[var(--color-text-muted)]">Loading…</p>
         </main>
       }

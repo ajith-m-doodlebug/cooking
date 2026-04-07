@@ -18,7 +18,8 @@ export function getApiErrorMessage(error: unknown): string {
     return body?.error?.message ?? "Validation error.";
   }
   if (body?.error?.code === "PAYMENT_ERROR") return body.error.message ?? "Payment failed.";
-  if (body?.error?.code === "PROVIDER_ERROR") return "Service temporarily unavailable.";
+  if (body?.error?.code === "PROVIDER_ERROR")
+    return body.error.message ?? "Payment service error. Check API logs and gateway configuration.";
   if (body?.error?.code === "INTERNAL_ERROR") return "Something went wrong. Please try again.";
   return body?.error?.message ?? ax.message ?? "Something went wrong.";
 }

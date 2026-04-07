@@ -4,3 +4,5 @@ node_modules
 .env*.local
 *.log
 .DS_Store
+# Stitch/Figma export — large; not needed in image and slows build context
+design-reference

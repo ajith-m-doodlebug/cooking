@@ -5,6 +5,10 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import Link from "next/link";
 import api from "@/lib/api";
 import { getApiErrorMessage } from "@/lib/errors";
+import {
+  openRazorpayOrderModal,
+  type RazorpayGatewayData,
+} from "@/lib/razorpay-checkout";
 
 interface SubStatus {
   is_active: boolean;
@@ -68,6 +72,68 @@ export default function CASubscriptionPage() {
     }
   };
 
+  const isMockGateway = (gw: Record<string, unknown>) =>
+    gw.provider === "mock" || gw.key === "mock_key_id";
+
+  const handleRazorpayPay = async () => {
+    if (!lastInitiate) return;
+    const gw = lastInitiate.gateway_data as RazorpayGatewayData;
+    setInitError(null);
+    setInitiating(true);
+    try {
+      await openRazorpayOrderModal(gw, {
+        title: "The Archivist",
+        description: "CA platform subscription (incl. GST)",
+        onSuccess: async (payload) => {
+          setInitiating(true);
+          try {
+            await api.post("/subscriptions/webhook", {
+              order_id: payload.razorpay_order_id,
+              payment_id: payload.razorpay_payment_id,
+              signature: payload.razorpay_signature,
+            });
+            setLastInitiate(null);
+            await queryClient.invalidateQueries({ queryKey: ["subscriptions"] });
+          } catch (err) {
+            setInitError(getApiErrorMessage(err));
+          } finally {
+            setInitiating(false);
+          }
+        },
+        onFailure: (msg) => {
+          setInitError(msg);
+        },
+        onDismiss: () => setInitiating(false),
+      });
+      setInitiating(false);
+    } catch (err) {
+      setInitError(getApiErrorMessage(err));
+      setInitiating(false);
+    }
+  };
+
+  const handleMockComplete = async () => {
+    if (!lastInitiate) return;
+    const gw = lastInitiate.gateway_data as Record<string, unknown>;
+    const orderId = typeof gw.order_id === "string" ? gw.order_id : null;
+    if (!orderId) return;
+    setInitError(null);
+    setInitiating(true);
+    try {
+      await api.post("/subscriptions/webhook", {
+        order_id: orderId,
+        payment_id: "pay_mock_dev",
+        signature: "mock",
+      });
+      setLastInitiate(null);
+      queryClient.invalidateQueries({ queryKey: ["subscriptions"] });
+    } catch (err) {
+      setInitError(getApiErrorMessage(err));
+    } finally {
+      setInitiating(false);
+    }
+  };
+
   if (statusLoading) {
     return (
       <main className="p-8">
@@ -89,9 +155,15 @@ export default function CASubscriptionPage() {
   return (
     <main className="p-8 max-w-2xl">
       <h1 className="text-2xl font-bold mb-4">Subscription</h1>
-      <p className="text-gray-600 mb-6">
-        Fixed subscription fee. GST invoice is generated on payment. Your profile is visible to clients only when verification is approved, subscription is active, and visibility is ON. No ranking or promotional benefits.
+      <p className="text-gray-600 mb-4">
+        Fixed platform subscription (no ranking or promotional benefits). GST invoice is issued after successful payment. Your profile appears in search only when you are verified, turn visibility on, and have an active subscription within its validity period.
       </p>
+      <ul className="list-disc pl-5 text-sm text-gray-600 space-y-1 mb-6">
+        <li>Fixed subscription fee (+ applicable GST)</li>
+        <li>GST invoice generation after payment</li>
+        <li>Subscription validity tracking; expired plans hide your profile automatically</li>
+        <li>Works together with Page 3 — Booking Details (slot duration, days, time slots, online / in-person fees)</li>
+      </ul>
 
       <div className="rounded-lg border p-4 mb-6">
         <h2 className="font-semibold mb-2">Status</h2>
@@ -133,14 +205,41 @@ export default function CASubscriptionPage() {
               </p>
             </div>
           ) : null}
-          <button
-            type="button"
-            onClick={handleInitiate}
-            disabled={initiating}
-            className="px-4 py-2 bg-[var(--color-primary-ca)] text-white rounded-lg hover:bg-[var(--color-primary-ca-hover)] disabled:opacity-50"
-          >
-            {initiating ? "Initiating…" : lastInitiate ? "Try again" : "Subscribe now"}
-          </button>
+          <div className="flex flex-wrap gap-2">
+            <button
+              type="button"
+              onClick={handleInitiate}
+              disabled={initiating}
+              className="px-4 py-2 bg-[var(--color-primary-ca)] text-white rounded-lg hover:bg-[var(--color-primary-ca-hover)] disabled:opacity-50"
+            >
+              {initiating ? "Initiating…" : lastInitiate ? "New checkout" : "Subscribe now"}
+            </button>
+            {lastInitiate && !isMockGateway(lastInitiate.gateway_data as Record<string, unknown>) && (
+              <button
+                type="button"
+                onClick={handleRazorpayPay}
+                disabled={initiating}
+                className="px-4 py-2 bg-[var(--color-brand-primary)] text-white rounded-lg text-sm font-semibold hover:opacity-95 disabled:opacity-50"
+              >
+                {initiating ? "Opening checkout…" : "Pay with Razorpay"}
+              </button>
+            )}
+            {lastInitiate && isMockGateway(lastInitiate.gateway_data as Record<string, unknown>) && (
+              <button
+                type="button"
+                onClick={handleMockComplete}
+                disabled={initiating}
+                className="px-4 py-2 border border-[var(--color-border)] rounded-lg text-sm font-medium hover:bg-[var(--color-bg-subtle)] disabled:opacity-50"
+              >
+                Complete test payment (mock)
+              </button>
+            )}
+          </div>
+          <p className="text-xs text-gray-500 mt-3">
+            Test mode uses your Razorpay test keys. After paying, the app confirms the payment with the server. With{" "}
+            <code className="bg-gray-100 px-1 rounded">PAYMENT_PROVIDER=mock</code> (or no keys in dev), use the mock
+            completion button instead.
+          </p>
         </div>
       )}
 

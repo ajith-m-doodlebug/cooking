@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-low": "#fff1e6",
+                        "surface-container-highest": "#f2dfce",
+                        "inverse-surface": "#392f23",
+                        "inverse-on-surface": "#ffeede",
+                        "primary-container": "#607b7d",
+                        "surface-dim": "#e9d7c6",
+                        "outline": "#727879",
+                        "on-secondary-fixed": "#171d1e",
+                        "on-background": "#231a10",
+                        "surface-tint": "#486365",
+                        "surface-variant": "#f2dfce",
+                        "on-secondary-fixed-variant": "#42484a",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "background": "#fff8f4",
+                        "secondary-fixed": "#dee3e5",
+                        "primary": "#486264",
+                        "secondary-container": "#dbe1e3",
+                        "on-secondary-container": "#5e6466",
+                        "on-tertiary-fixed": "#370d00",
+                        "on-tertiary-container": "#ffffff",
+                        "tertiary-fixed": "#ffdbce",
+                        "on-tertiary-fixed-variant": "#802a00",
+                        "on-surface": "#231a10",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#fdebd9",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#fff8f4",
+                        "outline-variant": "#c1c8c8",
+                        "tertiary-container": "#c55322",
+                        "surface": "#fff8f4",
+                        "on-surface-variant": "#414848",
+                        "tertiary": "#a43b08",
+                        "secondary": "#595f61",
+                        "on-primary-container": "#ffffff",
+                        "primary-fixed": "#cbe8ea",
+                        "primary-fixed-dim": "#afccce",
+                        "secondary-fixed-dim": "#c2c7c9",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "on-primary-fixed-variant": "#314b4d",
+                        "inverse-primary": "#afccce",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#f7e5d4",
+                        "on-primary-fixed": "#031f21",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff"
+                    },
+                    fontFamily: {
+                        "headline": ["Newsreader", "serif"],
+                        "body": ["Manrope", "sans-serif"],
+                        "label": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #ffffff;
+        }
+        h1, h2, h3 {
+            font-family: 'Newsreader', serif;
+        }
+        .input-heavy-bottom {
+            border-bottom: 2px solid #c1c8c8;
+            transition: border-color 0.2s ease;
+        }
+        .input-heavy-bottom:focus {
+            outline: none;
+            border-bottom-color: #486264;
+        }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 shadow-sm dark:shadow-none flex justify-between items-center px-8 h-20 max-w-full mx-auto">
+<div class="text-xl font-bold tracking-tight text-slate-700 dark:text-slate-100 font-headline">The Archivist</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors font-body" href="#">Compliance</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors font-body" href="#">Audit</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors font-body" href="#">Advisory</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors font-body" href="#">Firm Profile</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-bold text-sm tracking-wide transition-all active:scale-95 opacity-90">
+            Secure Portal
+        </button>
+</nav>
+<!-- Main Content Canvas -->
+<main class="min-h-screen flex items-center justify-center pt-20 pb-12 bg-white">
+<!-- Identity Verification Card -->
+<div class="w-full max-w-md mx-4 bg-surface-container-lowest p-10 rounded-xl border border-outline-variant/15 shadow-[0_40px_40px_-15px_rgba(35,26,16,0.04)]">
+<!-- Branding/Security Icon -->
+<div class="flex justify-center mb-8">
+<div class="w-16 h-16 bg-surface-container-low rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="shield_person">shield_person</span>
+</div>
+</div>
+<header class="text-center mb-10">
+<h1 class="text-3xl font-semibold text-on-surface mb-3 tracking-tight">Identity Verification</h1>
+<p class="text-secondary body-md leading-relaxed">Enter your registered mobile number for a secure access code</p>
+</header>
+<form class="space-y-8">
+<div class="relative">
+<label class="block label-sm text-secondary mb-2 font-extrabold tracking-widest uppercase">Mobile Number</label>
+<div class="flex gap-0 items-end">
+<!-- Country Selector -->
+<div class="relative min-w-[100px] border-b-2 border-outline-variant group">
+<select class="appearance-none bg-transparent w-full py-4 pl-0 pr-6 text-on-surface font-semibold focus:outline-none cursor-pointer">
+<option>UK (+44)</option>
+<option>US (+1)</option>
+<option>EU (+49)</option>
+<option>AU (+61)</option>
+</select>
+<span class="material-symbols-outlined absolute right-0 bottom-4 text-outline pointer-events-none text-xl" data-icon="expand_more">expand_more</span>
+</div>
+<!-- Phone Input -->
+<div class="flex-grow ml-4">
+<input class="w-full py-4 bg-transparent text-on-surface font-semibold placeholder:text-outline-variant input-heavy-bottom transition-all" placeholder="7700 900000" type="tel"/>
+</div>
+</div>
+<!-- Form Note -->
+<div class="mt-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="verified_user">verified_user</span>
+<p class="text-[0.7rem] text-secondary font-medium tracking-wide">Encrypted end-to-end connection</p>
+</div>
+</div>
+<!-- Primary Action -->
+<button class="w-full bg-primary text-on-primary py-5 rounded-lg font-bold text-sm tracking-widest uppercase shadow-[0_4px_0_0_#314b4d] active:shadow-none active:translate-y-1 transition-all" type="submit">
+                    Send Access Code
+                </button>
+<!-- Support Link -->
+<div class="text-center mt-6">
+<p class="text-xs text-outline font-medium">
+                        Having trouble? <a class="text-tertiary font-bold hover:underline decoration-tertiary/30 underline-offset-4" href="#">Contact Advisory Support</a>
+</p>
+</div>
+</form>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-slate-950 w-full py-12 px-8 flex flex-col md:flex-row justify-between items-center gap-4 border-t border-slate-200 dark:border-slate-800">
+<div class="flex flex-col items-center md:items-start gap-4">
+<div class="text-lg font-bold text-slate-700 dark:text-slate-200 font-headline">The Archivist</div>
+<p class="text-slate-600 dark:text-slate-400 text-sm font-body">© 2024 The Archivist Chartered Accountants. All rights reserved.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-slate-500 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 text-sm font-body transition-colors" href="#">Legal Notice</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 text-sm font-body transition-colors" href="#">Privacy Policy</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 text-sm font-body transition-colors" href="#">Terms of Service</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 text-sm font-body transition-colors" href="#">Accessibility</a>
+</div>
+</footer>
+</body></html>

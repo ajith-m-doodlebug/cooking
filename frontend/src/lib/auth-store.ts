@@ -7,6 +7,8 @@ const REFRESH_TOKEN_KEY = "ca_marketplace_refresh_token";
 export interface AuthState {
   user: User | null;
   tokens: Tokens | null;
+  hasHydrated: boolean;
+  setHasHydrated: (value: boolean) => void;
   setUser: (user: User | null) => void;
   setTokens: (tokens: Tokens | null) => void;
   logout: () => void;
@@ -20,6 +22,8 @@ export const useAuthStore = create<AuthState>()(
     (set, get) => ({
       user: null,
       tokens: null,
+      hasHydrated: false,
+      setHasHydrated: (value) => set({ hasHydrated: value }),
       setUser: (user) => set({ user }),
       setTokens: (tokens) => set({ tokens }),
       logout: () => {
@@ -42,6 +46,9 @@ export const useAuthStore = create<AuthState>()(
     {
       name: "ca-marketplace-auth",
       partialize: (state) => ({ user: state.user, tokens: state.tokens }),
+      onRehydrateStorage: () => (state) => {
+        state?.setHasHydrated(true);
+      },
     }
   )
 );

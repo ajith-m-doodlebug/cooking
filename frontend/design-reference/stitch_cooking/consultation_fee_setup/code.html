@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Edit Consultation Fees | The Archivist</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-primary": "#afccce",
+              "tertiary-fixed-dim": "#ffb59a",
+              "on-tertiary": "#ffffff",
+              "on-tertiary-container": "#ffffff",
+              "tertiary-container": "#c55322",
+              "tertiary": "#a43b08",
+              "surface-variant": "#f2dfce",
+              "on-tertiary-fixed-variant": "#802a00",
+              "on-surface-variant": "#414848",
+              "secondary": "#595f61",
+              "on-primary-fixed-variant": "#314b4d",
+              "primary-fixed": "#cbe8ea",
+              "surface-bright": "#fff8f4",
+              "on-secondary-fixed": "#171d1e",
+              "inverse-on-surface": "#ffeede",
+              "on-primary": "#ffffff",
+              "on-primary-fixed": "#031f21",
+              "on-surface": "#231a10",
+              "on-secondary-fixed-variant": "#42484a",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-container": "#5e6466",
+              "on-error-container": "#93000a",
+              "surface-container-high": "#f7e5d4",
+              "outline": "#727879",
+              "secondary-container": "#dbe1e3",
+              "surface-container": "#fdebd9",
+              "background": "#fff8f4",
+              "on-error": "#ffffff",
+              "surface-tint": "#486365",
+              "surface": "#fff8f4",
+              "surface-dim": "#e9d7c6",
+              "error": "#ba1a1a",
+              "surface-container-low": "#fff1e6",
+              "on-primary-container": "#ffffff",
+              "secondary-fixed-dim": "#c2c7c9",
+              "outline-variant": "#c1c8c8",
+              "primary-container": "#607b7d",
+              "on-background": "#231a10",
+              "error-container": "#ffdad6",
+              "on-secondary": "#ffffff",
+              "on-tertiary-fixed": "#370d00",
+              "surface-container-highest": "#f2dfce",
+              "primary": "#486264",
+              "inverse-surface": "#392f23",
+              "tertiary-fixed": "#ffdbce",
+              "primary-fixed-dim": "#afccce",
+              "secondary-fixed": "#dee3e5"
+            },
+            fontFamily: {
+              "headline": ["Newsreader"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #fff8f4;
+            color: #231a10;
+        }
+        .serif {
+            font-family: 'Newsreader', serif;
+        }
+        .bg-brushed-steel {
+            background: linear-gradient(135deg, #486264 0%, #607b7d 100%);
+        }
+    </style>
+</head>
+<body class="flex min-h-screen">
+<!-- SideNavBar (Execution from JSON) -->
+<aside class="hidden md:flex flex-col h-screen w-64 border-r-0 bg-slate-50 dark:bg-slate-900 sticky top-0">
+<div class="flex flex-col h-full py-8 px-4">
+<div class="mb-10 px-2 flex items-center gap-3">
+<div class="h-10 w-10 bg-primary-container rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+</div>
+<div>
+<h1 class="font-['Newsreader'] font-semibold text-xl text-slate-800 dark:text-slate-100">The Archivist</h1>
+<p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Chartered Accountancy</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 py-3 px-4 transition-all hover:bg-slate-100 text-slate-500 font-['Manrope'] font-bold text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                    Dashboard
+                </a>
+<a class="flex items-center gap-3 py-3 px-4 transition-all hover:bg-slate-100 text-slate-500 font-['Manrope'] font-bold text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+                    Profile
+                </a>
+<a class="flex items-center gap-3 py-3 px-4 transition-all hover:bg-slate-100 text-slate-500 font-['Manrope'] font-bold text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="event_available">event_available</span>
+                    Bookings
+                </a>
+<a class="flex items-center gap-3 py-3 px-4 transition-all hover:bg-slate-100 text-slate-500 font-['Manrope'] font-bold text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+                    Notifications
+                </a>
+<a class="flex items-center gap-3 py-3 px-4 transition-all text-slate-900 font-bold border-r-4 border-slate-600 bg-white/50 font-['Manrope'] text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                    Settings
+                </a>
+</nav>
+<div class="mt-auto pt-6 border-t border-slate-200/50">
+<div class="flex items-center gap-3 px-2">
+<img class="h-10 w-10 rounded-full object-cover" data-alt="professional portrait of a chartered accountant in a charcoal suit against a minimal grey background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfpHTzmt2ROAOfdnS_KdInBvxypm_YFKRN4TOws3aEvbJBJH2GCKp1GkT9pkfCPXL0enG3GNclLZzwpMhd00lqmJlK6tTabP8FTGFUn97Tk9Ro7tdV5o31xrU7EFkYCmcNBhycE-3IPbFN3hsxhbM8TljQk9vJs3k9jCeOSa7BRNc80dZrgnjyAAbV09kGKTKwNxoip4SOWiqNbbnKlD5B5qPRyCAuxuddRZ8B_6Vji6KgiMFvAjUVsi_9C-R09d9u6wyOnv2YGQc"/>
+<div class="overflow-hidden">
+<p class="text-sm font-bold truncate">Aditya Sharma</p>
+<p class="text-xs text-slate-500 truncate">Senior Associate</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<main class="flex-1 flex flex-col">
+<!-- TopNavBar (Execution from JSON) -->
+<header class="flex justify-between items-center w-full px-8 h-20 bg-white/80 backdrop-blur-md docked full-width top-0 z-40 border-b border-slate-100 shadow-sm shadow-slate-200/50">
+<div class="flex items-center gap-6">
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 material-symbols-outlined" data-icon="search">search</span>
+<input class="pl-10 pr-4 py-2 bg-slate-50 border-none rounded-lg text-sm focus:ring-1 focus:ring-slate-200 w-64 font-body" placeholder="Search client records..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<h2 class="font-['Newsreader'] font-bold text-slate-800 text-lg mr-4">Management Portal</h2>
+<button class="p-2 text-slate-600 hover:text-slate-800 transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-600 hover:text-slate-800 transition-all">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-slate-200 overflow-hidden ml-2">
+<img class="h-full w-full object-cover" data-alt="close-up headshot of a smiling professional with neutral lighting and minimalist aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSb3DqsLS56c0CUo_f-nO5drczgqGDD09oaKLgZP6GWoaKDiW7l0jYSTTsTmo9wrnuC4_4-Kvof19Y2FsJECRI2jdWuWsjOIJWiCC41O2W3C8FYK21kDp-tUfeWiAUgqCd0wCtZa9VYmF1YPdAF8Q4UzphNelAC_Zvsekusna4yZD21tJHPHbYECUfF5WIC295pmzcFfqmtgS2mFP3nnHJ-o0YbLdqERTOVOPYTlX2-GRVPNxSttpRa6YxNBbv6T-GLuCTX7MoeaA"/>
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<div class="p-10 max-w-6xl mx-auto w-full">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-2 mb-8 text-xs font-label font-extrabold uppercase tracking-widest text-neutral">
+<a class="hover:text-primary transition-colors" href="#">Settings</a>
+<span class="material-symbols-outlined text-[10px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary">Consultation Fees</span>
+</nav>
+<!-- Page Header -->
+<div class="flex justify-between items-end mb-12">
+<div class="max-w-xl">
+<h1 class="text-5xl serif font-semibold mb-4 leading-tight text-on-surface">Update Pricing Architecture</h1>
+<p class="text-body-md text-on-surface-variant leading-relaxed">Adjust your professional consultation rates across different service delivery models. These changes will apply to all new bookings from the next billing cycle.</p>
+</div>
+<div class="flex gap-4">
+<button class="px-6 py-3 bg-surface-container-high text-primary font-bold rounded-md hover:bg-surface-container-highest transition-colors">Discard</button>
+<button class="px-8 py-3 bg-primary text-on-primary font-bold rounded-md shadow-[0_2px_0_0_#314b4d] hover:translate-y-[1px] hover:shadow-none transition-all">Save Changes</button>
+</div>
+</div>
+<!-- Pricing Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+<!-- Online Consultation Card -->
+<div class="bg-surface-container-low rounded-xl p-8 transition-all hover:bg-surface-container flex flex-col">
+<div class="flex items-start justify-between mb-8">
+<div class="h-14 w-14 bg-white flex items-center justify-center rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="video_chat">video_chat</span>
+</div>
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-tighter">Active State</span>
+</div>
+<h3 class="text-2xl serif font-medium mb-2">Online Consultation</h3>
+<p class="text-sm text-on-surface-variant mb-10 font-body">Standard 45-minute virtual session via encrypted portal.</p>
+<div class="mt-auto">
+<label class="block text-[10px] font-extrabold uppercase tracking-widest text-on-surface-variant mb-2 ml-1">Fee Amount (₹)</label>
+<div class="relative group">
+<span class="absolute left-5 top-1/2 -translate-y-1/2 text-2xl font-bold text-on-surface/30">₹</span>
+<input class="w-full bg-white border-none border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-3xl font-bold pl-12 pr-6 py-4 rounded-t-md transition-all" type="text" value="4,500"/>
+</div>
+<p class="mt-3 text-[11px] text-neutral flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="info">info</span>
+                            Recommended for CAs with 5-8 years of experience: ₹3,500 - ₹5,500
+                        </p>
+</div>
+</div>
+<!-- In-person Consultation Card -->
+<div class="bg-surface-container-low rounded-xl p-8 transition-all hover:bg-surface-container flex flex-col">
+<div class="flex items-start justify-between mb-8">
+<div class="h-14 w-14 bg-white flex items-center justify-center rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="corporate_fare">corporate_fare</span>
+</div>
+<span class="bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-tighter">Premium Service</span>
+</div>
+<h3 class="text-2xl serif font-medium mb-2">In-person Consultation</h3>
+<p class="text-sm text-on-surface-variant mb-10 font-body">Face-to-face meeting at your registered office or client premises.</p>
+<div class="mt-auto">
+<label class="block text-[10px] font-extrabold uppercase tracking-widest text-on-surface-variant mb-2 ml-1">Fee Amount (₹)</label>
+<div class="relative group">
+<span class="absolute left-5 top-1/2 -translate-y-1/2 text-2xl font-bold text-on-surface/30">₹</span>
+<input class="w-full bg-white border-none border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-3xl font-bold pl-12 pr-6 py-4 rounded-t-md transition-all" type="text" value="7,500"/>
+</div>
+<p class="mt-3 text-[11px] text-neutral flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="trending_up">trending_up</span>
+                            Market average for premium office visits: ₹6,000+
+                        </p>
+</div>
+</div>
+</div>
+<!-- Guidance Section -->
+<div class="bg-brushed-steel rounded-xl overflow-hidden text-white flex flex-col md:flex-row items-stretch">
+<div class="p-10 md:w-2/3">
+<h4 class="text-2xl serif mb-4">Strategic Pricing Insights</h4>
+<p class="text-primary-fixed leading-relaxed mb-6 opacity-90">Based on recent market audits, professional fees for independent Chartered Accountants have seen an upward trend of 12% in the last fiscal year. Consider aligning your rates to reflect your specialization in International Taxation.</p>
+<div class="grid grid-cols-2 gap-6">
+<div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm">
+<p class="text-[10px] uppercase font-bold tracking-widest text-primary-fixed mb-1">Peer Average</p>
+<p class="text-xl font-bold">₹5,200 <span class="text-xs font-normal opacity-70">/ session</span></p>
+</div>
+<div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm">
+<p class="text-[10px] uppercase font-bold tracking-widest text-primary-fixed mb-1">Your Growth</p>
+<p class="text-xl font-bold">+18.4% <span class="text-xs font-normal opacity-70">year-on-year</span></p>
+</div>
+</div>
+</div>
+<div class="md:w-1/3 relative overflow-hidden hidden md:block">
+<img class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-50" data-alt="abstract architectural geometry with sharp lines and deep shadows in shades of slate green and terracotta representing professional structure" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJc9BylGPPG1vO9KLEoUHZnQbJuLZ17ho-qA8xVmUJJDV3nxs4pfnYJy9-XR_O9q8e20SV8Gk-e4LQjv7tUkRI7yKidhTC0Hr68S3hMBG-c3LHPHnNntSnHp6dBaiIT7M9oA0P4DKMLVcH_eW1dLOMqkd_Q8qYM_T4VNoesCZrKN5k-0AwDGEiHQYdqhYBDL3Xy2Fgy2vXj3ojE0WWnRV2Y2DCP5Ap3jQiGqBHaXeS4sL8q7JCK69E5tn1tlEmsHk5HpNGJ5_y0jc"/>
+<div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-transparent"></div>
+</div>
+</div>
+<!-- Supplemental Settings -->
+<div class="mt-16 pt-10 border-t border-outline-variant/15">
+<h3 class="text-xl serif font-medium mb-8">Additional Adjustments</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="flex gap-4">
+<div class="h-10 w-10 flex-shrink-0 bg-surface-container rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="schedule">schedule</span>
+</div>
+<div>
+<p class="font-bold text-sm mb-1">Duration Settings</p>
+<p class="text-xs text-on-surface-variant">Modify the standard duration of sessions from 45 mins.</p>
+<a class="text-xs text-tertiary font-bold mt-2 inline-block hover:underline" href="#">Manage Time →</a>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="h-10 w-10 flex-shrink-0 bg-surface-container rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="percent">percent</span>
+</div>
+<div>
+<p class="font-bold text-sm mb-1">Tax Inclusive</p>
+<p class="text-xs text-on-surface-variant">GST 18% is currently excluded from the listed prices.</p>
+<a class="text-xs text-tertiary font-bold mt-2 inline-block hover:underline" href="#">Edit Tax Logic →</a>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="h-10 w-10 flex-shrink-0 bg-surface-container rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+</div>
+<div>
+<p class="font-bold text-sm mb-1">Corporate Rates</p>
+<p class="text-xs text-on-surface-variant">Customized pricing for entities and recurring contracts.</p>
+<a class="text-xs text-tertiary font-bold mt-2 inline-block hover:underline" href="#">View Tiers →</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer class="mt-auto px-10 py-8 text-center border-t border-outline-variant/10 text-neutral text-[11px] font-label font-extrabold uppercase tracking-[0.2em]">
+            © 2024 The Archivist Management Systems. All professional rights reserved.
+        </footer>
+</main>
+</body></html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed-dim": "#c2c7c9",
+              "surface-variant": "#f2dfce",
+              "primary-fixed-dim": "#afccce",
+              "on-primary-fixed-variant": "#314b4d",
+              "on-primary-container": "#ffffff",
+              "surface": "#fff8f4",
+              "secondary-fixed": "#ffdbce",
+              "secondary": "#a53c09",
+              "primary-container": "#607b7d",
+              "error": "#ba1a1a",
+              "surface-bright": "#fff8f4",
+              "secondary-container": "#ff7e49",
+              "on-background": "#231a10",
+              "surface-container-highest": "#f2dfce",
+              "primary": "#486264",
+              "surface-dim": "#e9d7c6",
+              "inverse-surface": "#392f23",
+              "surface-container-lowest": "#ffffff",
+              "on-error-container": "#93000a",
+              "surface-container-high": "#f7e5d4",
+              "on-surface-variant": "#414848",
+              "on-secondary-fixed-variant": "#802a00",
+              "primary-fixed": "#cbe8ea",
+              "tertiary": "#585e60",
+              "on-tertiary-container": "#ffffff",
+              "on-primary-fixed": "#031f21",
+              "inverse-primary": "#afccce",
+              "background": "#fff8f4",
+              "surface-tint": "#486365",
+              "secondary-fixed-dim": "#ffb59a",
+              "surface-container-low": "#fff1e6",
+              "on-tertiary-fixed-variant": "#42484a",
+              "on-surface": "#231a10",
+              "outline": "#727879",
+              "on-tertiary-fixed": "#171d1e",
+              "surface-container": "#fdebd9",
+              "on-secondary-container": "#692100",
+              "tertiary-container": "#717779",
+              "on-secondary": "#ffffff",
+              "inverse-on-surface": "#ffeede",
+              "on-error": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-tertiary": "#ffffff",
+              "on-primary": "#ffffff",
+              "tertiary-fixed": "#dee3e5",
+              "outline-variant": "#c1c8c8",
+              "on-secondary-fixed": "#370d00"
+            },
+            fontFamily: {
+              "headline": ["Newsreader", "serif"],
+              "body": ["Manrope", "sans-serif"],
+              "label": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-gradient {
+            background: radial-gradient(circle at top right, #fdebd9 0%, #fff8f4 50%, #fff1e6 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-secondary-container/30">
+<nav class="fixed top-0 w-full z-50 bg-[#fff8f4]/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(35,26,16,0.06)]">
+<div class="flex justify-between items-center px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-headline italic text-[#486264]">Editorial CA</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-[#595F61] hover:text-[#486264] transition-opacity duration-300" href="#">Solutions</a>
+<a class="text-[#595F61] hover:text-[#486264] transition-opacity duration-300" href="#">Methodology</a>
+<a class="text-[#595F61] hover:text-[#486264] transition-opacity duration-300" href="#">Pricing</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-[#486264] font-label font-bold text-sm hover:opacity-80 transition-opacity">Client Portal</button>
+<button class="bg-secondary text-on-secondary px-6 py-2 rounded-lg font-label font-bold text-sm scale-95 hover:scale-100 duration-200 ease-in-out transition-transform">Contact</button>
+</div>
+</div>
+</nav>
+<main class="min-h-screen pt-32 pb-20 editorial-gradient overflow-hidden">
+<div class="max-w-7xl mx-auto px-8 relative">
+<div class="absolute -top-24 -left-24 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+<header class="text-center mb-20 relative z-10">
+<span class="text-secondary font-label font-bold text-xs tracking-[0.2em] uppercase mb-4 block">Onboarding Entry</span>
+<h1 class="text-6xl md:text-7xl font-headline text-primary tracking-tight mb-6">Choose your <span class="italic">perspective.</span></h1>
+<p class="max-w-2xl mx-auto text-lg text-on-surface-variant leading-relaxed">
+                    Select the gateway that aligns with your objectives. Our platform offers dedicated architectures for both practice management and financial oversight.
+                </p>
+</header>
+<div class="grid md:grid-cols-2 gap-10 relative z-10">
+<div class="group cursor-pointer bg-surface-container-lowest p-10 rounded-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_40px_80px_rgba(35,26,16,0.08)] border border-outline-variant/10">
+<div class="flex flex-col h-full">
+<div class="w-16 h-16 bg-primary-container/10 rounded-lg flex items-center justify-center mb-8 group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors duration-300">
+<span class="material-symbols-outlined text-3xl" data-icon="account_balance">account_balance</span>
+</div>
+<h2 class="text-3xl font-headline text-primary mb-4">Chartered Accountant</h2>
+<p class="text-on-surface-variant leading-relaxed mb-10">
+                            Access your professional ledger, manage client engagements with architectural precision, and leverage automated compliance frameworks.
+                        </p>
+<div class="mt-auto flex items-center gap-2 text-primary font-bold group-hover:text-secondary transition-colors duration-300">
+<span>Access Practitioner Suite</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+</div>
+<div class="group cursor-pointer bg-surface-container-lowest p-10 rounded-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_40px_80px_rgba(35,26,16,0.08)] border border-outline-variant/10">
+<div class="flex flex-col h-full">
+<div class="w-16 h-16 bg-secondary/5 rounded-lg flex items-center justify-center mb-8 group-hover:bg-secondary group-hover:text-on-secondary transition-colors duration-300">
+<span class="material-symbols-outlined text-3xl" data-icon="person_search">person_search</span>
+</div>
+<h2 class="text-3xl font-headline text-primary mb-4">Client/User</h2>
+<p class="text-on-surface-variant leading-relaxed mb-10">
+                            Monitor your financial health through curated dashboards, securely exchange documents, and connect with your advisory team.
+                        </p>
+<div class="mt-auto flex items-center gap-2 text-primary font-bold group-hover:text-secondary transition-colors duration-300">
+<span>Enter Client Portal</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-24 grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-primary/5 pt-12">
+<div>
+<h3 class="font-headline text-xl text-primary mb-2">Immutable Security</h3>
+<p class="text-sm text-on-surface-variant">Your financial data is protected by enterprise-grade encryption and regional compliance protocols.</p>
+</div>
+<div>
+<h3 class="font-headline text-xl text-primary mb-2">Seamless Integration</h3>
+<p class="text-sm text-on-surface-variant">Connect with major banking institutions and ERP systems through our secure API layer.</p>
+</div>
+<div>
+<h3 class="font-headline text-xl text-primary mb-2">Direct Collaboration</h3>
+<p class="text-sm text-on-surface-variant">Real-time communication channels designed specifically for the CA-Client relationship.</p>
+</div>
+</div>
+</div>
+</main>
+<footer class="w-full py-12 px-8 bg-surface-container-low">
+<div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 border-t border-[#486264]/10 pt-12">
+<div class="font-headline text-[#486264] text-xl">Editorial Authority</div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="text-[#9E8F80] font-label text-sm tracking-wide hover:text-[#a53c09] underline decoration-2 underline-offset-4 transition-all" href="#">Privacy Policy</a>
+<a class="text-[#9E8F80] font-label text-sm tracking-wide hover:text-[#a53c09] underline decoration-2 underline-offset-4 transition-all" href="#">Terms of Service</a>
+<a class="text-[#9E8F80] font-label text-sm tracking-wide hover:text-[#a53c09] underline decoration-2 underline-offset-4 transition-all" href="#">Regulatory Disclosure</a>
+<a class="text-[#9E8F80] font-label text-sm tracking-wide hover:text-[#a53c09] underline decoration-2 underline-offset-4 transition-all" href="#">Accessibility</a>
+</div>
+<div class="text-[#9E8F80] font-label text-sm tracking-wide">
+                © 2024 Editorial Authority Chartered Accountants. All rights reserved.
+            </div>
+</div>
+</footer>
+</body></html>

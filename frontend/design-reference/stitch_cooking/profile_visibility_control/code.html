@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CA Visibility Toggle | The Archivist</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-primary": "#afccce",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-container": "#ffffff",
+                        "tertiary-container": "#c55322",
+                        "tertiary": "#a43b08",
+                        "surface-variant": "#f2dfce",
+                        "on-tertiary-fixed-variant": "#802a00",
+                        "on-surface-variant": "#414848",
+                        "secondary": "#595f61",
+                        "on-primary-fixed-variant": "#314b4d",
+                        "primary-fixed": "#cbe8ea",
+                        "surface-bright": "#fff8f4",
+                        "on-secondary-fixed": "#171d1e",
+                        "inverse-on-surface": "#ffeede",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#031f21",
+                        "on-surface": "#231a10",
+                        "on-secondary-fixed-variant": "#42484a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#5e6466",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#f7e5d4",
+                        "outline": "#727879",
+                        "secondary-container": "#dbe1e3",
+                        "surface-container": "#fdebd9",
+                        "background": "#fff8f4",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#486365",
+                        "surface": "#fff8f4",
+                        "surface-dim": "#e9d7c6",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#fff1e6",
+                        "on-primary-container": "#ffffff",
+                        "secondary-fixed-dim": "#c2c7c9",
+                        "outline-variant": "#c1c8c8",
+                        "primary-container": "#607b7d",
+                        "on-background": "#231a10",
+                        "error-container": "#ffdad6",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#370d00",
+                        "surface-container-highest": "#f2dfce",
+                        "primary": "#486264",
+                        "inverse-surface": "#392f23",
+                        "tertiary-fixed": "#ffdbce",
+                        "primary-fixed-dim": "#afccce",
+                        "secondary-fixed": "#dee3e5"
+                    },
+                    fontFamily: {
+                        "headline": ["Newsreader"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #486264;
+        }
+        .toggle-checkbox:checked + .toggle-label .toggle-dot {
+            transform: translateX(100%);
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface flex min-h-screen">
+<!-- SideNavBar Anchor -->
+<aside class="hidden md:flex flex-col h-screen w-64 bg-slate-50 dark:bg-slate-900 py-8 px-4 border-r-0 fixed left-0 top-0">
+<div class="mb-10 px-2">
+<h1 class="font-['Newsreader'] font-semibold text-xl text-slate-800 dark:text-slate-100 mb-1">The Archivist</h1>
+<p class="font-['Manrope'] font-bold text-xs tracking-tight text-slate-500 uppercase">Chartered Accountancy</p>
+</div>
+<nav class="flex-1 space-y-2">
+<!-- Dashboard -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-['Manrope'] font-bold text-sm tracking-tight">Dashboard</span>
+</a>
+<!-- Profile -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Manrope'] font-bold text-sm tracking-tight">Profile</span>
+</a>
+<!-- Bookings -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="event_available">event_available</span>
+<span class="font-['Manrope'] font-bold text-sm tracking-tight">Bookings</span>
+</a>
+<!-- Notifications -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="font-['Manrope'] font-bold text-sm tracking-tight">Notifications</span>
+</a>
+<!-- Settings (Active) -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-900 dark:text-white font-bold border-r-4 border-slate-600 dark:border-slate-400 bg-white/50 dark:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-['Manrope'] font-bold text-sm tracking-tight">Settings</span>
+</a>
+</nav>
+<div class="mt-auto px-2 pt-4 border-t border-slate-200/50">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-slate-200 overflow-hidden">
+<img alt="Firm Logo" data-alt="professional portrait of a senior partner in a chartered accountancy firm with a minimalist architectural background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACaiVfIZdiIQNL0fyd2qHRuRXqNtqGop07gFQ684F5ssx9yVkNWdcQzOmCVHmZrdQ4cgDOE75nIIxZN2Qx0dcA6YD3DRDvo-KPpVVLdaYwrzwYFQggXxdpaLqqaMCKv5Ca-yTB6SPjtyv0h3IbVW1fpSROHp-uYX_maAZe90e6nje5_sLlhIF3jqjpI2lH1I-lCwceuDh1MzyNPr9izvYZCJC-wtuA_XW40kA3FPB2-GgJjXza6ZXkx1ZL8QuN2lo6YudRRCN-WHc"/>
+</div>
+<div>
+<p class="text-xs font-bold text-slate-900">James Sterling</p>
+<p class="text-[10px] text-slate-500">Managing Partner</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 flex flex-col min-h-screen">
+<!-- TopNavBar Anchor -->
+<header class="sticky top-0 z-40 flex justify-between items-center w-full px-8 h-20 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 shadow-sm shadow-slate-200/50 dark:shadow-none">
+<div class="flex items-center gap-6">
+<h2 class="font-['Newsreader'] font-bold text-slate-800 dark:text-slate-100 text-xl">Management Portal</h2>
+<div class="hidden lg:flex items-center bg-surface-container-low px-4 py-2 rounded-full focus-within:ring-1 focus-within:ring-slate-200 transition-all">
+<span class="material-symbols-outlined text-slate-400 text-sm" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm text-on-surface-variant font-body ml-2 w-48" placeholder="Search directories..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:text-slate-800 transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:text-slate-800 transition-all">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-white text-xs font-bold">
+                    JS
+                </div>
+</div>
+</header>
+<!-- Visibility Control Content -->
+<div class="flex-1 p-8 md:p-16 flex flex-col items-center justify-center bg-surface">
+<!-- Page Header -->
+<div class="max-w-2xl w-full text-center mb-12">
+<span class="font-label text-label-sm text-primary tracking-widest mb-4 block">SECURITY &amp; DISCOVERY</span>
+<h3 class="font-headline text-display-lg text-on-surface mb-6">Profile Visibility Control</h3>
+<p class="font-body text-body-md text-on-surface-variant leading-relaxed">
+                    Manage how your firm appears in the public directory. When visibility is active, potential clients can discover your services and book consultations directly through The Archivist portal.
+                </p>
+</div>
+<!-- Central Control Card -->
+<div class="max-w-xl w-full bg-surface-container-low p-10 rounded-xl relative overflow-hidden">
+<!-- Tonal layering: Surface Container High to highlight the core action -->
+<div class="bg-surface-container-lowest p-8 rounded-lg shadow-sm">
+<div class="flex flex-col items-center gap-8">
+<!-- Status Indicator Badge -->
+<div class="flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container-highest border border-outline-variant/15">
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
+<span class="font-label text-[10px] font-extrabold uppercase tracking-tighter text-on-surface-variant">Profile Currently Hidden</span>
+</div>
+<!-- The Toggle Switch -->
+<div class="relative inline-block w-24 h-12 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-10 h-10 rounded-full bg-white border-4 border-surface-container-highest appearance-none cursor-pointer z-10 transition-transform duration-300 top-1 left-1 focus:outline-none" id="visibility-toggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-12 rounded-full bg-surface-container-highest cursor-pointer transition-colors duration-300" for="visibility-toggle"></label>
+</div>
+<!-- Labels -->
+<div class="text-center">
+<h4 class="font-headline text-headline-md text-on-surface mb-2">Public Directory Status</h4>
+<p class="font-body text-body-md text-on-surface-variant max-w-xs mx-auto">
+                                Visibility is currently <strong class="text-on-surface">OFF</strong>. Clients cannot find you in search results.
+                            </p>
+</div>
+</div>
+</div>
+<!-- Footer Meta Info -->
+<div class="mt-8 pt-8 border-t border-outline-variant/15 flex flex-col gap-4">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="verified_user">verified_user</span>
+<div>
+<p class="font-body text-body-md font-bold text-on-surface">Verification Requirement</p>
+<p class="font-body text-sm text-on-surface-variant">Only visible when verified and subscription is active.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="visibility">visibility</span>
+<div>
+<p class="font-body text-body-md font-bold text-on-surface">Preview Profile</p>
+<p class="font-body text-sm text-on-surface-variant">See how your firm looks to potential clients before going live.</p>
+</div>
+</div>
+</div>
+<!-- CTA -->
+<div class="mt-10">
+<button class="w-full py-4 bg-primary text-on-primary font-body font-bold rounded-md hover:opacity-90 transition-all shadow-[0_4px_0_0_rgba(35,47,48,1)] active:translate-y-1 active:shadow-none">
+                        Save Status
+                    </button>
+<button class="w-full mt-4 py-3 text-primary font-label text-label-sm tracking-widest font-extrabold hover:bg-surface-container-high transition-colors">
+                        PREVIEW PUBLIC PAGE
+                    </button>
+</div>
+</div>
+<!-- Side Commentary (Asymmetric Layout Element) -->
+<div class="max-w-2xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 mt-20 opacity-80">
+<div class="space-y-4">
+<div class="w-12 h-1 bg-tertiary"></div>
+<h5 class="font-headline text-title-lg text-on-surface">Precision in Presence</h5>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">
+                        Control exactly when your firm enters the marketplace. Our toggle ensures that your profile only appears when your practice is ready for new engagement.
+                    </p>
+</div>
+<div class="space-y-4">
+<div class="w-12 h-1 bg-primary"></div>
+<h5 class="font-headline text-title-lg text-on-surface">Verified Visibility</h5>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">
+                        The Archivist maintains a strict "Verified Only" policy. Toggle activation requires a completed audit of your credentials and an active professional tier.
+                    </p>
+</div>
+</div>
+</div>
+<!-- Footer / Credits -->
+<footer class="p-8 border-t border-outline-variant/10 flex justify-between items-center text-[10px] font-label tracking-widest text-neutral uppercase opacity-60">
+<span>© 2024 The Archivist Systems Ltd.</span>
+<div class="flex gap-6">
+<a class="hover:text-primary transition-colors" href="#">Privacy Protocol</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Authority</a>
+</div>
+</footer>
+</main>
+<!-- Contextual FAB (Suppressed as per rules: Task-focused/Settings screen) -->
+</body></html>

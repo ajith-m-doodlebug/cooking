@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Invoices &amp; Documents | The Archivist</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary": "#a43b08",
+              "primary-fixed": "#cbe8ea",
+              "primary-container": "#607b7d",
+              "background": "#fff8f4",
+              "on-tertiary-container": "#ffffff",
+              "on-secondary": "#ffffff",
+              "inverse-on-surface": "#ffeede",
+              "secondary": "#595f61",
+              "tertiary-fixed": "#ffdbce",
+              "surface-tint": "#486365",
+              "on-primary-container": "#ffffff",
+              "surface-container-high": "#f7e5d4",
+              "inverse-primary": "#afccce",
+              "error": "#ba1a1a",
+              "surface-container": "#fdebd9",
+              "on-secondary-container": "#5e6466",
+              "on-secondary-fixed": "#171d1e",
+              "secondary-fixed": "#dee3e5",
+              "primary-fixed-dim": "#afccce",
+              "secondary-container": "#dbe1e3",
+              "surface-container-highest": "#f2dfce",
+              "on-error-container": "#93000a",
+              "tertiary-container": "#c55322",
+              "outline": "#727879",
+              "on-primary-fixed-variant": "#314b4d",
+              "error-container": "#ffdad6",
+              "on-surface-variant": "#414848",
+              "on-primary": "#ffffff",
+              "surface-bright": "#fff8f4",
+              "on-secondary-fixed-variant": "#42484a",
+              "on-error": "#ffffff",
+              "surface-dim": "#e9d7c6",
+              "on-tertiary-fixed-variant": "#802a00",
+              "surface-variant": "#f2dfce",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-fixed": "#370d00",
+              "on-primary-fixed": "#031f21",
+              "on-tertiary": "#ffffff",
+              "surface": "#fff8f4",
+              "on-surface": "#231a10",
+              "surface-container-low": "#fff1e6",
+              "secondary-fixed-dim": "#c2c7c9",
+              "outline-variant": "#c1c8c8",
+              "on-background": "#231a10",
+              "tertiary-fixed-dim": "#ffb59a",
+              "primary": "#486264",
+              "inverse-surface": "#392f23"
+            },
+            fontFamily: {
+              "headline": ["Newsreader"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body { font-family: 'Manrope', sans-serif; }
+      h1, h2, h3 { font-family: 'Newsreader', serif; }
+      .tonal-shift { transition: background-color 0.2s ease; }
+    </style>
+</head>
+<body class="bg-background text-on-background">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 border-r-0 bg-slate-100 dark:bg-slate-900 shadow-[40px_0_40px_-20px_rgba(35,26,16,0.04)] flex flex-col py-6 px-4 z-50">
+<div class="mb-10 px-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+</div>
+<div>
+<h2 class="text-xl font-bold font-serif text-slate-700 dark:text-slate-200">The Archivist</h2>
+<p class="text-[10px] font-label font-extrabold text-secondary tracking-widest uppercase">Chartered Accountants</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label font-extrabold text-xs tracking-wider uppercase">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label font-extrabold text-xs tracking-wider uppercase">Profile</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="event">event</span>
+<span class="font-label font-extrabold text-xs tracking-wider uppercase">Bookings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="font-label font-extrabold text-xs tracking-wider uppercase">Notifications</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label font-extrabold text-xs tracking-wider uppercase">Earnings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-800 dark:text-white font-bold border-r-4 border-slate-600 dark:border-slate-400 bg-white/50 dark:bg-slate-800/50" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-label font-extrabold text-xs tracking-wider uppercase">Documents</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-slate-200 dark:border-slate-800 space-y-1">
+<button class="w-full bg-primary text-on-primary py-3 rounded-md font-label font-extrabold text-xs tracking-widest uppercase mb-4 shadow-sm hover:opacity-90 transition-opacity">
+                New Audit
+            </button>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="settings">settings</span>
+<span class="font-label font-extrabold text-[10px] tracking-wider uppercase">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="help">help</span>
+<span class="font-label font-extrabold text-[10px] tracking-wider uppercase">Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<main class="ml-64 min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] z-40 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md flex justify-between items-center h-20 px-8 border-b-2 border-slate-100 dark:border-slate-900">
+<div class="flex items-center gap-6 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border-none focus:ring-2 focus:ring-primary-container rounded-lg font-body text-sm" placeholder="Search Invoices..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-slate-500">
+<button class="hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</button>
+</div>
+<div class="h-8 w-px bg-slate-200"></div>
+<div class="flex items-center gap-3">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-bold text-slate-800">Alexander Thorne</p>
+<p class="text-[10px] font-label font-extrabold text-secondary tracking-tighter uppercase">Senior Auditor</p>
+</div>
+<img alt="Accountant Profile" class="w-10 h-10 rounded-full object-cover ring-2 ring-primary-container/20" data-alt="Professional headshot of a middle-aged man in a charcoal suit with a confident and approachable expression, neutral studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8z-oLntb8FYk16_VH018pO879AQD6RbJRridLlMI1sA7lVhSU-EoTrfhbvBpCiyQnUFAaiFcz1hGwwSrlHBS-ht9OafTiFHbsE7NIFEPoRXy2Ol2I9S1CIqi_93BAyBSA1uCY54hS1_6n1pdcibTecT9oanIPgQengdHkokmd-Y-P9iFwWOBNPIuG6eL6n8Nx6DYat5uDzqBlAMidQB6kpt6FCeobO0F0umm5hFJCQw-l4IxRJaZ3_sStZJxzIr8UIy7c_Dx4TxM"/>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="pt-28 px-10 pb-12">
+<!-- Page Header Section -->
+<section class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="max-w-2xl">
+<h1 class="text-5xl font-headline font-semibold text-primary mb-4 tracking-tight">Invoices &amp; Documents</h1>
+<p class="text-secondary font-body leading-relaxed">
+                        Access and manage your complete financial ledger. Our archival system ensures every transaction is verified, timestamped, and ready for regulatory audit.
+                    </p>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-3 bg-surface-container-high text-primary rounded-lg font-label font-extrabold text-xs tracking-widest uppercase hover:bg-surface-container-highest transition-colors">
+                        Export Report
+                    </button>
+<button class="px-6 py-3 bg-primary text-on-primary rounded-lg font-label font-extrabold text-xs tracking-widest uppercase shadow-[0_4px_0_0_rgba(49,75,77,1)] active:translate-y-[2px] active:shadow-none transition-all">
+                        Upload New File
+                    </button>
+</div>
+</section>
+<!-- Quick Stats Bento -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+<div class="bg-surface-container-low p-6 rounded-xl border-b-2 border-transparent hover:border-primary transition-all group">
+<p class="font-label font-extrabold text-[10px] text-secondary tracking-widest uppercase mb-2">Total Outstanding</p>
+<h3 class="text-3xl font-headline font-medium text-on-surface">$14,290.00</h3>
+<div class="mt-4 flex items-center gap-2 text-xs text-tertiary font-bold">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+<span>+12% from last month</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border-b-2 border-transparent hover:border-primary transition-all">
+<p class="font-label font-extrabold text-[10px] text-secondary tracking-widest uppercase mb-2">Pending Audits</p>
+<h3 class="text-3xl font-headline font-medium text-on-surface">07</h3>
+<div class="mt-4 flex items-center gap-2 text-xs text-primary font-bold">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+<span>Due within 48 hours</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border-b-2 border-transparent hover:border-primary transition-all">
+<p class="font-label font-extrabold text-[10px] text-secondary tracking-widest uppercase mb-2">Verified Docs</p>
+<h3 class="text-3xl font-headline font-medium text-on-surface">1,204</h3>
+<div class="mt-4 flex items-center gap-2 text-xs text-slate-500 font-bold">
+<span class="material-symbols-outlined text-sm" data-icon="verified">verified</span>
+<span>Archival integrity 100%</span>
+</div>
+</div>
+<div class="bg-primary p-6 rounded-xl text-on-primary relative overflow-hidden">
+<div class="relative z-10">
+<p class="font-label font-extrabold text-[10px] opacity-80 tracking-widest uppercase mb-2">Storage Usage</p>
+<h3 class="text-3xl font-headline font-medium">82.4 GB</h3>
+<div class="w-full bg-white/20 h-1.5 rounded-full mt-4">
+<div class="bg-white h-full rounded-full" style="width: 65%;"></div>
+</div>
+</div>
+<span class="material-symbols-outlined absolute -bottom-4 -right-4 text-9xl opacity-10" data-icon="cloud_done">cloud_done</span>
+</div>
+</div>
+<!-- Documents Table Header -->
+<div class="flex items-center justify-between mb-6 px-4">
+<div class="flex items-center gap-8">
+<button class="font-label font-extrabold text-xs tracking-widest uppercase border-b-2 border-primary text-primary pb-1">All Documents</button>
+<button class="font-label font-extrabold text-xs tracking-widest uppercase text-secondary hover:text-primary transition-colors pb-1 border-b-2 border-transparent">Invoices</button>
+<button class="font-label font-extrabold text-xs tracking-widest uppercase text-secondary hover:text-primary transition-colors pb-1 border-b-2 border-transparent">Tax Filings</button>
+<button class="font-label font-extrabold text-xs tracking-widest uppercase text-secondary hover:text-primary transition-colors pb-1 border-b-2 border-transparent">Payroll</button>
+</div>
+<div class="flex items-center gap-2 text-slate-400">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary" data-icon="filter_list">filter_list</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary" data-icon="sort">sort</span>
+</div>
+</div>
+<!-- Modern Card-based List -->
+<div class="space-y-3">
+<!-- Table Header (Labels) -->
+<div class="grid grid-cols-12 px-6 py-2">
+<div class="col-span-4 font-label font-extrabold text-[10px] text-secondary tracking-widest uppercase">Document Name / ID</div>
+<div class="col-span-2 font-label font-extrabold text-[10px] text-secondary tracking-widest uppercase">Issue Date</div>
+<div class="col-span-2 font-label font-extrabold text-[10px] text-secondary tracking-widest uppercase">Amount</div>
+<div class="col-span-2 font-label font-extrabold text-[10px] text-secondary tracking-widest uppercase">Status</div>
+<div class="col-span-2 text-right font-label font-extrabold text-[10px] text-secondary tracking-widest uppercase">Actions</div>
+</div>
+<!-- Document Row 1 -->
+<div class="grid grid-cols-12 items-center bg-surface-container-lowest p-6 rounded-xl border border-transparent hover:border-primary-container/20 hover:bg-surface-container transition-all group">
+<div class="col-span-4 flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-red-50 text-red-600 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="picture_as_pdf">picture_as_pdf</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">Invoice #INV-2024-001</p>
+<p class="text-xs text-secondary">Q1 Corporate Tax Consulting</p>
+</div>
+</div>
+<div class="col-span-2 text-sm font-medium text-on-surface">Jan 12, 2024</div>
+<div class="col-span-2 text-sm font-bold text-on-surface">$4,500.00</div>
+<div class="col-span-2">
+<span class="px-3 py-1 bg-green-100 text-green-700 text-[10px] font-label font-extrabold uppercase rounded-full tracking-wider">Verified</span>
+</div>
+<div class="col-span-2 flex justify-end gap-3 text-secondary">
+<button class="p-2 hover:bg-white rounded-lg transition-colors hover:text-primary"><span class="material-symbols-outlined" data-icon="visibility">visibility</span></button>
+<button class="p-2 hover:bg-white rounded-lg transition-colors hover:text-primary"><span class="material-symbols-outlined" data-icon="download">download</span></button>
+<button class="p-2 hover:bg-white rounded-lg transition-colors hover:text-error"><span class="material-symbols-outlined" data-icon="more_vert">more_vert</span></button>
+</div>
+</div>
+<!-- Document Row 2 -->
+<div class="grid grid-cols-12 items-center bg-surface-container-lowest p-6 rounded-xl border border-transparent hover:border-primary-container/20 hover:bg-surface-container transition-all group">
+<div class="col-span-4 flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">Invoice #INV-2024-042</p>
+<p class="text-xs text-secondary">Audit Retainer - Spring Term</p>
+</div>
+</div>
+<div class="col-span-2 text-sm font-medium text-on-surface">Feb 05, 2024</div>
+<div class="col-span-2 text-sm font-bold text-on-surface">$2,850.00</div>
+<div class="col-span-2">
+<span class="px-3 py-1 bg-orange-100 text-orange-700 text-[10px] font-label font-extrabold uppercase rounded-full tracking-wider">Pending</span>
+</div>
+<div class="col-span-2 flex justify-end gap-3 text-secondary">
+<button class="p-2 hover:bg-white rounded-lg transition-colors hover:text-primary"><span class="material-symbols-outlined" data-icon="visibility">visibility</span></button>
+<button class="p-2 hover:bg-white rounded-lg transition-colors hover:text-primary"><span class="material-symbols-outlined" data-icon="download">download</span></button>
+<button class="p-2 hover:bg-white rounded-lg transition-colors hover:text-error"><span class="material-symbols-outlined" data-icon="more_vert">more_vert</span></button>
+</div>
+</div>
+<!-- Document Row 3 -->
+<div class="grid grid-cols-12 items-center bg-surface-container-lowest p-6 rounded-xl border border-transparent hover:border-primary-container/20 hover:bg-surface-container transition-all group">
+<div class="col-span-4 flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="table_chart">table_chart</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">Spreadsheet #XLS-FIN-99</p>
+<p class="text-xs text-secondary">Yearly Revenue Projections</p>
+</div>
+</div>
+<div class="col-span-2 text-sm font-medium text-on-surface">Feb 14, 2024</div>
+<div class="col-span-2 text-sm font-bold text-on-surface">--</div>
+<div class="col-span-2">
+<span class="px-3 py-1 bg-green-100 text-green-700 text-[10px] font-label font-extrabold uppercase rounded-full tracking-wider">Verified</span>
+</div>
+<div class="col-span-2 flex justify-end gap-3 text-secondary">
+<button class="p-2 hover:bg-white rounded-lg transition-colors hover:text-primary"><span class="material-symbols-outlined" data-icon="visibility">visibility</span></button>
+<button class="p-2 hover:bg-white rounded-lg transition-colors hover:text-primary"><span class="material-symbols-outlined" data-icon="download">download</span></button>
+<button class="p-2 hover:bg-white rounded-lg transition-colors hover:text-error"><span class="material-symbols-outlined" data-icon="more_vert">more_vert</span></button>
+</div>
+</div>
+<!-- Document Row 4 -->
+<div class="grid grid-cols-12 items-center bg-surface-container-lowest p-6 rounded-xl border border-transparent hover:border-primary-container/20 hover:bg-surface-container transition-all group">
+<div class="col-span-4 flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-red-50 text-red-600 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="picture_as_pdf">picture_as_pdf</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">Invoice #INV-2024-081</p>
+<p class="text-xs text-secondary">Compliance Certification Fee</p>
+</div>
+</div>
+<div class="col-span-2 text-sm font-medium text-on-surface">Mar 01, 2024</div>
+<div class="col-span-2 text-sm font-bold text-on-surface">$1,200.00</div>
+<div class="col-span-2">
+<span class="px-3 py-1 bg-red-100 text-red-700 text-[10px] font-label font-extrabold uppercase rounded-full tracking-wider">Overdue</span>
+</div>
+<div class="col-span-2 flex justify-end gap-3 text-secondary">
+<button class="p-2 hover:bg-white rounded-lg transition-colors hover:text-primary"><span class="material-symbols-outlined" data-icon="visibility">visibility</span></button>
+<button class="p-2 hover:bg-white rounded-lg transition-colors hover:text-primary"><span class="material-symbols-outlined" data-icon="download">download</span></button>
+<button class="p-2 hover:bg-white rounded-lg transition-colors hover:text-error"><span class="material-symbols-outlined" data-icon="more_vert">more_vert</span></button>
+</div>
+</div>
+</div>
+<!-- Bottom Pagination Section -->
+<div class="mt-8 flex items-center justify-between">
+<p class="text-xs font-medium text-secondary">Showing 1 to 4 of 48 entries</p>
+<div class="flex gap-1">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span></button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-on-primary font-bold text-xs">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-surface-container transition-colors font-bold text-xs">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-surface-container transition-colors font-bold text-xs">3</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span></button>
+</div>
+</div>
+<!-- Floating Contextual Alert (Subtle) -->
+<div class="mt-12 p-6 bg-tertiary-fixed border-l-4 border-tertiary rounded-lg flex items-start gap-4">
+<span class="material-symbols-outlined text-tertiary" data-icon="info">info</span>
+<div>
+<h4 class="font-bold text-on-tertiary-fixed text-sm">Tax Season Deadline Approaching</h4>
+<p class="text-xs text-on-tertiary-fixed-variant mt-1 leading-relaxed">Please ensure all Q1 documents are uploaded and verified before March 31st to avoid late filing penalties. Contact your primary accountant for prioritized review.</p>
+</div>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed-dim": "#c2c7c9",
+              "surface-variant": "#f2dfce",
+              "primary-fixed-dim": "#afccce",
+              "on-primary-fixed-variant": "#314b4d",
+              "on-primary-container": "#ffffff",
+              "surface": "#fff8f4",
+              "secondary-fixed": "#ffdbce",
+              "secondary": "#a53c09",
+              "primary-container": "#607b7d",
+              "error": "#ba1a1a",
+              "surface-bright": "#fff8f4",
+              "secondary-container": "#ff7e49",
+              "on-background": "#231a10",
+              "surface-container-highest": "#f2dfce",
+              "primary": "#486264",
+              "surface-dim": "#e9d7c6",
+              "inverse-surface": "#392f23",
+              "surface-container-lowest": "#ffffff",
+              "on-error-container": "#93000a",
+              "surface-container-high": "#f7e5d4",
+              "on-surface-variant": "#414848",
+              "on-secondary-fixed-variant": "#802a00",
+              "primary-fixed": "#cbe8ea",
+              "tertiary": "#585e60",
+              "on-tertiary-container": "#ffffff",
+              "on-primary-fixed": "#031f21",
+              "inverse-primary": "#afccce",
+              "background": "#fff8f4",
+              "surface-tint": "#486365",
+              "secondary-fixed-dim": "#ffb59a",
+              "surface-container-low": "#fff1e6",
+              "on-tertiary-fixed-variant": "#42484a",
+              "on-surface": "#231a10",
+              "outline": "#727879",
+              "on-tertiary-fixed": "#171d1e",
+              "surface-container": "#fdebd9",
+              "on-secondary-container": "#692100",
+              "tertiary-container": "#717779",
+              "on-secondary": "#ffffff",
+              "inverse-on-surface": "#ffeede",
+              "on-error": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-tertiary": "#ffffff",
+              "on-primary": "#ffffff",
+              "tertiary-fixed": "#dee3e5",
+              "outline-variant": "#c1c8c8",
+              "on-secondary-fixed": "#370d00"
+            },
+            fontFamily: {
+              "headline": ["Newsreader", "serif"],
+              "body": ["Manrope", "sans-serif"],
+              "label": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Manrope', sans-serif; }
+        h1, h2, h3 { font-family: 'Newsreader', serif; font-style: normal; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col">
+<nav class="fixed top-0 w-full z-50 bg-[#fff8f4]/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(35,26,16,0.06)]">
+<div class="flex justify-between items-center px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-headline font-semibold text-[#486264]">Editorial CA</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-[#595F61] hover:text-[#486264] transition-opacity duration-300 font-medium" href="#">Solutions</a>
+<a class="text-[#595F61] hover:text-[#486264] transition-opacity duration-300 font-medium" href="#">Methodology</a>
+<a class="text-[#595F61] hover:text-[#486264] transition-opacity duration-300 font-medium" href="#">Pricing</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-[#595F61] hover:opacity-80 transition-opacity duration-300 text-sm font-semibold">Client Portal</button>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg text-sm font-bold hover:opacity-90 transition-all">Contact</button>
+</div>
+</div>
+</nav>
+<main class="flex-grow flex items-center justify-center pt-24 pb-12 px-6">
+<div class="w-full max-w-5xl flex flex-col md:flex-row bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_20px_40px_rgba(35,26,16,0.06)] min-h-[600px]">
+<div class="hidden md:block md:w-5/12 relative">
+<div class="absolute inset-0 bg-primary/10 mix-blend-multiply z-10"></div>
+<img alt="Office Interior" class="absolute inset-0 w-full h-full object-cover" data-alt="Modern architectural office interior with clean lines, large glass windows, and soft natural morning light reflecting on slate surfaces" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVVcZx54Bd_K05OGtC_1-kJjc4OHLWqzbkA5nEIjPoPHr9jiJh7CJFZUe_w0OfhkCzuJLBxxlPbgKgD8LZoRINx3ldci1hXP3uWP_wrwIUgttkudnqZv878xcV7OPkFNYr7wXK3h9VvI34XFyNEF6o7hZuOdM4-yQ0bhfjfk2HMRF550xC_Yi6IQYV9KdKFoBqMqrz_mBVYG89-LPNr7GYqdsyaPysKsl9IVsza2RtO00oKIb2KTLxujOGXezK3bOIah69J-zaDqs"/>
+<div class="absolute bottom-12 left-8 right-8 z-20">
+<p class="text-secondary font-label font-bold uppercase tracking-widest text-xs mb-4">Secure Access</p>
+<h2 class="text-on-primary-container text-4xl leading-tight font-headline mb-6">Verified Precision for Your Financial Integrity.</h2>
+<div class="w-12 h-1 bg-secondary"></div>
+</div>
+</div>
+<div class="w-full md:w-7/12 p-8 md:p-16 flex flex-col justify-center bg-surface-container-lowest">
+<div class="max-w-md mx-auto w-full">
+<header class="mb-12">
+<span class="text-secondary font-bold text-xs tracking-widest uppercase mb-2 block">Identity Verification</span>
+<h1 class="text-4xl md:text-5xl font-headline font-bold text-primary mb-4">Verification</h1>
+<p class="text-on-surface-variant text-lg leading-relaxed font-body">Enter your registered mobile number to receive a secure access code via SMS.</p>
+</header>
+<form class="space-y-10">
+<div class="space-y-4">
+<label class="block text-sm font-label font-bold text-primary ml-1 uppercase tracking-wider">Phone Number</label>
+<div class="flex gap-0 group">
+<div class="relative">
+<div class="flex items-center gap-2 px-4 h-14 bg-surface-container-low border-b-2 border-outline-variant group-focus-within:border-primary transition-all cursor-pointer">
+<span class="text-sm font-bold">CA</span>
+<span class="material-symbols-outlined text-sm text-outline">expand_more</span>
+</div>
+</div>
+<div class="flex-grow relative">
+<input class="w-full h-14 bg-surface-container-low border-none border-b-2 border-outline-variant focus:ring-0 focus:border-primary text-lg font-body px-4 transition-all placeholder:text-outline-variant font-medium" placeholder="+1 (555) 000-0000" required="" type="tel"/>
+<div class="absolute right-4 top-1/2 -translate-y-1/2 flex items-center text-primary">
+<span class="material-symbols-outlined" data-weight="fill">check_circle</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2 ml-1">
+<span class="material-symbols-outlined text-[16px] text-primary">info</span>
+<p class="text-xs text-on-surface-variant font-medium">Standard carrier rates may apply for international SMS.</p>
+</div>
+</div>
+<div class="space-y-6">
+<button class="w-full bg-primary text-on-primary py-5 rounded-lg font-bold text-lg hover:brightness-110 active:scale-[0.98] transition-all shadow-lg shadow-primary/20 uppercase tracking-widest" type="submit">
+                                Send Access Code
+                            </button>
+<div class="text-center">
+<button class="text-primary font-bold text-sm group inline-flex flex-col items-center uppercase tracking-wide" type="button">
+                                    Support and Assistance
+                                    <span class="h-[2px] w-1/2 bg-primary group-hover:w-full transition-all duration-300"></span>
+</button>
+</div>
+</div>
+</form>
+<footer class="mt-16 pt-8 border-t border-outline-variant/20">
+<div class="flex items-start gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined text-xl mt-1 text-primary">encrypted</span>
+<p class="text-xs font-body leading-relaxed font-medium">
+                                Your data is protected by industry-leading 256-bit encryption. Editorial Authority maintains strict confidentiality and never shares contact information with third-party entities.
+                            </p>
+</div>
+</footer>
+</div>
+</div>
+</div>
+</main>
+<footer class="w-full py-12 px-8 mt-auto bg-[#fff8f4]">
+<div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 border-t border-[#486264]/20 pt-8">
+<div class="font-headline font-bold text-[#486264] text-xl">Editorial CA</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-[#595F61] hover:text-[#a53c09] transition-all text-sm font-bold tracking-wide uppercase" href="#">Privacy Policy</a>
+<a class="text-[#595F61] hover:text-[#a53c09] transition-all text-sm font-bold tracking-wide uppercase" href="#">Terms of Service</a>
+<a class="text-[#595F61] hover:text-[#a53c09] transition-all text-sm font-bold tracking-wide uppercase" href="#">Regulatory Disclosure</a>
+<a class="text-[#595F61] hover:text-[#a53c09] transition-all text-sm font-bold tracking-wide uppercase" href="#">Accessibility</a>
+</div>
+<div class="text-[#9E8F80] text-xs font-bold uppercase tracking-tighter">© 2024 Editorial Authority Chartered Accountants.</div>
+</div>
+</footer>
+</body></html>

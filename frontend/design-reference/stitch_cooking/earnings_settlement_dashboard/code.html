@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Earnings &amp; Settlements | The Archivist</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&amp;family=Manrope:wght@200;400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary": "#a43b08",
+              "primary-fixed": "#cbe8ea",
+              "primary-container": "#607b7d",
+              "background": "#fff8f4",
+              "on-tertiary-container": "#ffffff",
+              "on-secondary": "#ffffff",
+              "inverse-on-surface": "#ffeede",
+              "secondary": "#595f61",
+              "tertiary-fixed": "#ffdbce",
+              "surface-tint": "#486365",
+              "on-primary-container": "#ffffff",
+              "surface-container-high": "#f7e5d4",
+              "inverse-primary": "#afccce",
+              "error": "#ba1a1a",
+              "surface-container": "#fdebd9",
+              "on-secondary-container": "#5e6466",
+              "on-secondary-fixed": "#171d1e",
+              "secondary-fixed": "#dee3e5",
+              "primary-fixed-dim": "#afccce",
+              "secondary-container": "#dbe1e3",
+              "surface-container-highest": "#f2dfce",
+              "on-error-container": "#93000a",
+              "tertiary-container": "#c55322",
+              "outline": "#727879",
+              "on-primary-fixed-variant": "#314b4d",
+              "error-container": "#ffdad6",
+              "on-surface-variant": "#414848",
+              "on-primary": "#ffffff",
+              "surface-bright": "#fff8f4",
+              "on-secondary-fixed-variant": "#42484a",
+              "on-error": "#ffffff",
+              "surface-dim": "#e9d7c6",
+              "on-tertiary-fixed-variant": "#802a00",
+              "surface-variant": "#f2dfce",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-fixed": "#370d00",
+              "on-primary-fixed": "#031f21",
+              "on-tertiary": "#ffffff",
+              "surface": "#fff8f4",
+              "on-surface": "#231a10",
+              "surface-container-low": "#fff1e6",
+              "secondary-fixed-dim": "#c2c7c9",
+              "outline-variant": "#c1c8c8",
+              "on-background": "#231a10",
+              "tertiary-fixed-dim": "#ffb59a",
+              "primary": "#486264",
+              "inverse-surface": "#392f23"
+            },
+            fontFamily: {
+              "headline": ["Newsreader"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .tonal-shift { transition: background-color 0.3s ease; }
+    </style>
+</head>
+<body class="bg-background font-body text-on-background selection:bg-primary-fixed">
+<!-- SideNavBar Shell -->
+<aside class="h-screen w-64 fixed left-0 top-0 border-r-0 bg-slate-100 dark:bg-slate-900 flex flex-col py-6 px-4 shadow-[40px_0_40px_-20px_rgba(35,26,16,0.04)] z-50">
+<div class="mb-10 px-2">
+<h1 class="text-xl font-bold font-serif text-slate-700 dark:text-slate-200">The Archivist</h1>
+<p class="text-xs font-label uppercase tracking-widest text-slate-500 mt-1">Chartered Accountants</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-medium">Profile</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined" data-icon="event">event</span>
+<span class="font-medium">Bookings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="font-medium">Notifications</span>
+</a>
+<!-- Active State: Earnings -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-800 dark:text-white font-bold border-r-4 border-slate-600 dark:border-slate-400 bg-white/50 dark:bg-slate-800/50 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="payments" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span class="font-medium">Earnings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-medium">Documents</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-slate-200 dark:border-slate-800 space-y-1">
+<button class="w-full mb-4 bg-primary text-on-primary py-2.5 rounded-lg font-bold text-sm shadow-sm scale-98 active:opacity-80 transition-all">
+                New Audit
+            </button>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-sm font-label uppercase tracking-tighter">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="text-sm font-label uppercase tracking-tighter">Support</span>
+</a>
+</div>
+</aside>
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] z-40 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md flex justify-between items-center h-20 px-8 border-b-2 border-slate-100 dark:border-slate-900">
+<div class="flex items-center flex-1 max-w-xl">
+<div class="relative w-full group focus-within:ring-2 focus-within:ring-slate-400 rounded-lg">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" data-icon="search">search</span>
+<input class="w-full bg-slate-50 dark:bg-slate-900 border-none pl-10 pr-4 py-2.5 rounded-lg text-sm focus:ring-0 placeholder:text-slate-400" placeholder="Search settlements, clients, or IDs..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 border-r border-slate-200 dark:border-slate-800 pr-6">
+<button class="text-slate-500 hover:text-slate-900 dark:hover:text-white relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-tertiary rounded-full"></span>
+</button>
+<button class="text-slate-500 hover:text-slate-900 dark:hover:text-white">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</button>
+</div>
+<div class="flex items-center gap-3">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-bold text-slate-800 dark:text-slate-100">David Thorne, FCA</p>
+<p class="text-[10px] font-label text-slate-500 uppercase tracking-widest">Senior Auditor</p>
+</div>
+<img alt="Accountant Profile" class="w-10 h-10 rounded-full object-cover border-2 border-slate-200 dark:border-slate-700" data-alt="professional portrait of a senior accountant in a charcoal suit, clean background, high-end corporate photography style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAK9-4PYXeM9Z0kiNGJ7DbB_35VWxeMhHDqRDGBsRlS1qHeABFEUNxSYZWJMYq49LE2cjufnxwofvUdYzL_4Qzys7ZrFcHOGmfbOB5HxjI3GmgR3uig9LelIZydJuBrKgQnuPZ1SmzLlGZI4GFIbsdHokzwwiAJ1eKB8lKXLVVzrIJbIPtTBbyh7xrk3u-pOnqa_60BXOdJsDWTgxn08mnur2nj7U-ylDlY-m2CM5KqJ4RnIqMg0Lful2R6Cg-B4HC3C2cfAppQrPc"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-20 min-h-screen">
+<div class="p-8 max-w-7xl mx-auto space-y-10">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row justify-between items-end gap-6">
+<div>
+<span class="text-tertiary font-label text-xs tracking-[0.2em] mb-2 block uppercase">Financial Performance</span>
+<h2 class="text-5xl font-headline font-semibold text-primary tracking-tight">Earnings &amp; Settlements</h2>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-3 bg-surface-container-high text-primary font-bold rounded-lg text-sm transition-all hover:bg-surface-container-highest">
+                        Download Statement
+                    </button>
+<button class="px-6 py-3 bg-primary text-on-primary font-bold rounded-lg text-sm shadow-[0_4px_0_0_#314b4d] active:shadow-none active:translate-y-[2px] transition-all">
+                        Request Settlement
+                    </button>
+</div>
+</div>
+<!-- Bento Grid - Earnings Summary -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Total Earnings Card -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[40px_0_40px_-20px_rgba(35,26,16,0.04)] border-b-2 border-primary/10">
+<div class="flex justify-between items-start mb-6">
+<div class="p-3 bg-primary-fixed rounded-lg text-primary">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+</div>
+<span class="text-green-600 bg-green-50 px-2 py-1 rounded text-[10px] font-bold uppercase">+12.5%</span>
+</div>
+<p class="text-slate-500 font-label text-[11px] uppercase tracking-widest mb-1">Total Lifetime Earnings</p>
+<h3 class="text-4xl font-headline font-bold text-on-surface">£412,890.00</h3>
+</div>
+<!-- Monthly Earnings Card -->
+<div class="bg-primary p-8 rounded-xl shadow-lg relative overflow-hidden">
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-6">
+<div class="p-3 bg-white/10 rounded-lg text-white">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+</div>
+<span class="text-white/80 font-label text-[10px] uppercase tracking-widest">Oct 2023</span>
+</div>
+<p class="text-white/70 font-label text-[11px] uppercase tracking-widest mb-1">This Month's Revenue</p>
+<h3 class="text-4xl font-headline font-bold text-white">£24,500.00</h3>
+</div>
+<!-- Abstract texture -->
+<div class="absolute -right-10 -bottom-10 opacity-10">
+<span class="material-symbols-outlined text-[160px]" data-icon="trending_up">trending_up</span>
+</div>
+</div>
+<!-- Pending Settlements Card -->
+<div class="bg-surface-container-low p-8 rounded-xl border-b-2 border-tertiary/20">
+<div class="flex justify-between items-start mb-6">
+<div class="p-3 bg-tertiary/10 rounded-lg text-tertiary">
+<span class="material-symbols-outlined" data-icon="hourglass_empty">hourglass_empty</span>
+</div>
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full bg-slate-300 border-2 border-white"></div>
+<div class="w-6 h-6 rounded-full bg-slate-400 border-2 border-white"></div>
+</div>
+</div>
+<p class="text-slate-500 font-label text-[11px] uppercase tracking-widest mb-1">Pending Settlements</p>
+<h3 class="text-4xl font-headline font-bold text-tertiary">£8,120.45</h3>
+</div>
+</section>
+<!-- Middle Section: Visual Chart & Detailed Breakdowns -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Data Visualization: Earnings Over Time -->
+<div class="lg:col-span-2 bg-surface-container-lowest p-8 rounded-xl shadow-[40px_0_40px_-20px_rgba(35,26,16,0.02)]">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h4 class="text-xl font-headline font-bold text-on-surface">Revenue Growth Analysis</h4>
+<p class="text-sm text-slate-500 font-body">Comparison of gross vs net earnings (Last 6 Months)</p>
+</div>
+<select class="bg-surface-container-low border-none rounded-lg text-xs font-bold py-2 px-4 focus:ring-primary">
+<option>Semi-Annual View</option>
+<option>Quarterly</option>
+</select>
+</div>
+<!-- Mock Chart Visualization -->
+<div class="h-64 flex items-end justify-between gap-4 pt-4 border-l-2 border-b-2 border-slate-100 px-4">
+<div class="w-full flex flex-col items-center gap-2 group">
+<div class="w-full bg-slate-100 rounded-t h-32 group-hover:bg-primary-fixed transition-colors relative">
+<div class="absolute bottom-0 w-full bg-primary h-20 rounded-t opacity-80"></div>
+</div>
+<span class="text-[10px] font-label text-slate-400">MAY</span>
+</div>
+<div class="w-full flex flex-col items-center gap-2 group">
+<div class="w-full bg-slate-100 rounded-t h-40 group-hover:bg-primary-fixed transition-colors relative">
+<div class="absolute bottom-0 w-full bg-primary h-28 rounded-t opacity-80"></div>
+</div>
+<span class="text-[10px] font-label text-slate-400">JUN</span>
+</div>
+<div class="w-full flex flex-col items-center gap-2 group">
+<div class="w-full bg-slate-100 rounded-t h-48 group-hover:bg-primary-fixed transition-colors relative">
+<div class="absolute bottom-0 w-full bg-primary h-36 rounded-t opacity-80"></div>
+</div>
+<span class="text-[10px] font-label text-slate-400">JUL</span>
+</div>
+<div class="w-full flex flex-col items-center gap-2 group">
+<div class="w-full bg-slate-100 rounded-t h-36 group-hover:bg-primary-fixed transition-colors relative">
+<div class="absolute bottom-0 w-full bg-primary h-24 rounded-t opacity-80"></div>
+</div>
+<span class="text-[10px] font-label text-slate-400">AUG</span>
+</div>
+<div class="w-full flex flex-col items-center gap-2 group">
+<div class="w-full bg-slate-100 rounded-t h-56 group-hover:bg-primary-fixed transition-colors relative">
+<div class="absolute bottom-0 w-full bg-primary h-44 rounded-t opacity-80"></div>
+</div>
+<span class="text-[10px] font-label text-slate-400">SEP</span>
+</div>
+<div class="w-full flex flex-col items-center gap-2 group">
+<div class="w-full bg-slate-100 rounded-t h-60 group-hover:bg-primary-fixed transition-colors relative">
+<div class="absolute bottom-0 w-full bg-tertiary h-48 rounded-t opacity-90"></div>
+</div>
+<span class="text-[10px] font-label text-slate-800 font-bold">OCT</span>
+</div>
+</div>
+</div>
+<!-- Secondary Insight Card -->
+<div class="bg-surface-container p-8 rounded-xl flex flex-col justify-between">
+<div>
+<h4 class="text-xl font-headline font-bold text-on-surface mb-2">Audit Efficiency</h4>
+<p class="text-sm text-slate-600 leading-relaxed">Your time-to-settlement has improved by <strong class="text-primary">18%</strong> this quarter.</p>
+</div>
+<div class="space-y-4 my-8">
+<div class="flex justify-between items-end border-b border-outline-variant/30 pb-2">
+<span class="text-xs font-label uppercase text-slate-500">Avg. Settlement</span>
+<span class="font-bold text-primary">4.2 Days</span>
+</div>
+<div class="flex justify-between items-end border-b border-outline-variant/30 pb-2">
+<span class="text-xs font-label uppercase text-slate-500">Tax Withholding</span>
+<span class="font-bold text-primary">£2,450.00</span>
+</div>
+<div class="flex justify-between items-end border-b border-outline-variant/30 pb-2">
+<span class="text-xs font-label uppercase text-slate-500">Fee Ratio</span>
+<span class="font-bold text-primary">2.5%</span>
+</div>
+</div>
+<img alt="Financial Context" class="w-full h-32 object-cover rounded-lg opacity-80" data-alt="stylized architectural detail of a modern financial building, high contrast concrete and glass, clean lines, minimalist aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSroNKZ_Gs6dN08HibJH8gFOXL_hOaGrJKESn5pIdmuAUhATleSlmH_cDCZiQ7U11X7LJE0gg6CuLyZN4JedB1RIzMKkTGgJywM5tyQ_Wi5NhQl71b9BiZDWOYTB03eKPvvmUonuQ1XeA-d5UANjSg9u_2SdVcqyFXxZZaAkJguu5xn8crqdez49Ssro0toju3zICVZwWSg34RwZ-vtxFf4w3mmW2t2T__pbhikiqX1Ex21QctNedQ7tEL3xcllj2FcNxUc6tLYjk"/>
+</div>
+</section>
+<!-- Recent Transactions Table -->
+<section class="space-y-6">
+<div class="flex justify-between items-center">
+<h4 class="text-2xl font-headline font-bold text-on-surface">Recent Transactions</h4>
+<button class="text-primary font-bold text-sm flex items-center gap-1 group">
+                        View Audit Log <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-slate-50 dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
+<th class="px-8 py-4 text-[10px] font-label uppercase tracking-widest text-slate-500">Reference</th>
+<th class="px-8 py-4 text-[10px] font-label uppercase tracking-widest text-slate-500">Client / Engagement</th>
+<th class="px-8 py-4 text-[10px] font-label uppercase tracking-widest text-slate-500 text-center">Date</th>
+<th class="px-8 py-4 text-[10px] font-label uppercase tracking-widest text-slate-500 text-center">Status</th>
+<th class="px-8 py-4 text-[10px] font-label uppercase tracking-widest text-slate-500 text-right">Amount</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-50 dark:divide-slate-900">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-8 py-5">
+<span class="text-xs font-mono font-bold text-slate-400">#ARC-9921-X</span>
+</td>
+<td class="px-8 py-5">
+<div>
+<p class="font-bold text-on-surface">Lumina Tech Holdings</p>
+<p class="text-xs text-slate-500">Statutory Audit FY23</p>
+</div>
+</td>
+<td class="px-8 py-5 text-center text-sm text-slate-600">Oct 24, 2023</td>
+<td class="px-8 py-5 text-center">
+<span class="inline-block px-3 py-1 bg-green-100 text-green-800 text-[10px] font-bold rounded-full uppercase tracking-tighter">Verified</span>
+</td>
+<td class="px-8 py-5 text-right font-bold text-primary">£12,400.00</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-8 py-5">
+<span class="text-xs font-mono font-bold text-slate-400">#ARC-9918-B</span>
+</td>
+<td class="px-8 py-5">
+<div>
+<p class="font-bold text-on-surface">Overture Creative Ltd</p>
+<p class="text-xs text-slate-500">Tax Advisory Retainer</p>
+</div>
+</td>
+<td class="px-8 py-5 text-center text-sm text-slate-600">Oct 21, 2023</td>
+<td class="px-8 py-5 text-center">
+<span class="inline-block px-3 py-1 bg-surface-container-highest text-on-surface-variant text-[10px] font-bold rounded-full uppercase tracking-tighter">Pending</span>
+</td>
+<td class="px-8 py-5 text-right font-bold text-primary">£4,250.00</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-8 py-5">
+<span class="text-xs font-mono font-bold text-slate-400">#ARC-9877-S</span>
+</td>
+<td class="px-8 py-5">
+<div>
+<p class="font-bold text-on-surface">Blue Rock Logistics</p>
+<p class="text-xs text-slate-500">Internal Controls Review</p>
+</div>
+</td>
+<td class="px-8 py-5 text-center text-sm text-slate-600">Oct 19, 2023</td>
+<td class="px-8 py-5 text-center">
+<span class="inline-block px-3 py-1 bg-green-100 text-green-800 text-[10px] font-bold rounded-full uppercase tracking-tighter">Verified</span>
+</td>
+<td class="px-8 py-5 text-right font-bold text-primary">£8,950.00</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-8 py-5">
+<span class="text-xs font-mono font-bold text-slate-400">#ARC-9860-L</span>
+</td>
+<td class="px-8 py-5">
+<div>
+<p class="font-bold text-on-surface">Dr. Helena Thorne</p>
+<p class="text-xs text-slate-500">Personal Wealth Audit</p>
+</div>
+</td>
+<td class="px-8 py-5 text-center text-sm text-slate-600">Oct 15, 2023</td>
+<td class="px-8 py-5 text-center">
+<span class="inline-block px-3 py-1 bg-red-100 text-red-800 text-[10px] font-bold rounded-full uppercase tracking-tighter">Reversed</span>
+</td>
+<td class="px-8 py-5 text-right font-bold text-slate-400 line-through">£1,200.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="flex justify-center pt-4">
+<button class="flex items-center gap-2 text-xs font-label uppercase tracking-widest text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+                        Show Older Transactions
+                    </button>
+</div>
+</section>
+</div>
+<!-- Footer Branding -->
+<footer class="mt-20 border-t border-slate-100 dark:border-slate-900 bg-slate-50/50 py-12">
+<div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+<div>
+<h5 class="text-lg font-headline font-bold text-slate-700">The Archivist</h5>
+<p class="text-sm text-slate-500">Professional Auditing &amp; Chartered Accountancy Interface</p>
+</div>
+<div class="flex gap-8">
+<a class="text-xs font-label uppercase tracking-widest text-slate-500 hover:text-primary" href="#">Compliance</a>
+<a class="text-xs font-label uppercase tracking-widest text-slate-500 hover:text-primary" href="#">Privacy</a>
+<a class="text-xs font-label uppercase tracking-widest text-slate-500 hover:text-primary" href="#">Terms</a>
+</div>
+<p class="text-xs text-slate-400">© 2023 Archivist Financial Systems v4.2.1</p>
+</div>
+</footer>
+</main>
+</body></html>

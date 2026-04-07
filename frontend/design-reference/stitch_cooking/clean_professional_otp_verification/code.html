@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OTP Verification | The Modern Archivist</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Newsreader & Manrope -->
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&amp;family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#486264",
+              "secondary-container": "#f1f3f4",
+              "surface-container-low": "#f8fafb",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed": "#cbe8ea",
+              "on-background": "#1a1c1d",
+              "on-error": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "on-primary-container": "#ffffff",
+              "primary-fixed-dim": "#afccce",
+              "on-secondary-fixed": "#171d1e",
+              "inverse-on-surface": "#ffffff",
+              "on-tertiary-container": "#ffffff",
+              "tertiary-fixed-dim": "#ffb59a",
+              "surface-container": "#f1f3f4",
+              "on-secondary-container": "#5e6466",
+              "on-tertiary-fixed-variant": "#802a00",
+              "secondary-fixed": "#dee3e5",
+              "error-container": "#ffdad6",
+              "tertiary-container": "#486264",
+              "surface-container-high": "#ebeef0",
+              "on-surface-variant": "#444748",
+              "tertiary": "#486264",
+              "surface": "#ffffff",
+              "secondary": "#595f61",
+              "outline": "#727879",
+              "on-error-container": "#93000a",
+              "background": "#ffffff",
+              "on-primary-fixed-variant": "#314b4d",
+              "surface-dim": "#f1f3f4",
+              "inverse-primary": "#afccce",
+              "on-primary-fixed": "#031f21",
+              "secondary-fixed-dim": "#c2c7c9",
+              "on-tertiary-fixed": "#370d00",
+              "on-secondary-fixed-variant": "#42484a",
+              "outline-variant": "#dee3e5",
+              "inverse-surface": "#2e3132",
+              "tertiary-fixed": "#ffdbce",
+              "surface-bright": "#ffffff",
+              "on-surface": "#1a1c1d",
+              "primary-container": "#486264",
+              "surface-variant": "#e1e3e4",
+              "surface-tint": "#486365",
+              "surface-container-highest": "#e1e3e4",
+              "error": "#ba1a1a",
+              "on-primary": "#ffffff",
+              "on-secondary": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Newsreader", "serif"],
+              "body": ["Manrope", "sans-serif"],
+              "label": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .otp-shadow {
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        /* Ensure no italics in Newsreader if some versions default to it */
+        .font-headline { font-style: normal !important; }
+    </style>
+</head>
+<body class="bg-white text-on-background font-body min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-white border-b border-outline-variant sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-8 py-5 max-w-screen-2xl mx-auto">
+<div class="text-xl font-bold tracking-tight text-primary">
+                The Modern Archivist
+            </div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-secondary hover:text-primary transition-colors font-body text-sm font-medium" href="#">Compliance</a>
+<a class="text-secondary hover:text-primary transition-colors font-body text-sm font-medium" href="#">Audit</a>
+<a class="text-secondary hover:text-primary transition-colors font-body text-sm font-medium" href="#">Advisory</a>
+<a class="text-secondary hover:text-primary transition-colors font-body text-sm font-medium" href="#">Firm Profile</a>
+</nav>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-secondary cursor-pointer hover:text-primary transition-colors">help_outline</span>
+<span class="material-symbols-outlined text-secondary cursor-pointer hover:text-primary transition-colors">notifications_none</span>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-none font-label text-[11px] uppercase tracking-widest font-bold hover:opacity-90 transition-all">
+                    Secure Portal
+                </button>
+</div>
+</div>
+</header>
+<!-- Main Content: OTP Verification -->
+<main class="flex-grow flex items-center justify-center px-6 py-20 bg-white">
+<div class="w-full max-w-md">
+<div class="bg-white border border-outline-variant p-12 flex flex-col items-center">
+<!-- Branding Icon -->
+<div class="w-16 h-16 bg-surface-container-low border border-outline-variant flex items-center justify-center mb-10">
+<span class="material-symbols-outlined text-primary text-3xl">shield_lock</span>
+</div>
+<!-- Header Typography -->
+<h1 class="font-headline text-3xl font-medium text-on-surface mb-3 text-center" style="font-style: normal;">Identity Verification</h1>
+<p class="text-on-surface-variant text-sm text-center mb-12 max-w-[300px] leading-relaxed">
+                    A secure verification code has been sent to your institutional email address.
+                </p>
+<!-- OTP Input Grid -->
+<form class="w-full space-y-10">
+<div class="flex justify-between gap-3">
+<input class="w-12 h-16 md:w-14 md:h-16 text-center text-2xl font-bold font-body bg-white border border-outline-variant focus:border-primary focus:ring-0 transition-all rounded-none" maxlength="1" placeholder="" type="text"/>
+<input class="w-12 h-16 md:w-14 md:h-16 text-center text-2xl font-bold font-body bg-white border border-outline-variant focus:border-primary focus:ring-0 transition-all rounded-none" maxlength="1" placeholder="" type="text"/>
+<input class="w-12 h-16 md:w-14 md:h-16 text-center text-2xl font-bold font-body bg-white border border-outline-variant focus:border-primary focus:ring-0 transition-all rounded-none" maxlength="1" placeholder="" type="text"/>
+<input class="w-12 h-16 md:w-14 md:h-16 text-center text-2xl font-bold font-body bg-white border border-outline-variant focus:border-primary focus:ring-0 transition-all rounded-none" maxlength="1" placeholder="" type="text"/>
+<input class="w-12 h-16 md:w-14 md:h-16 text-center text-2xl font-bold font-body bg-white border border-outline-variant focus:border-primary focus:ring-0 transition-all rounded-none" maxlength="1" placeholder="" type="text"/>
+<input class="w-12 h-16 md:w-14 md:h-16 text-center text-2xl font-bold font-body bg-white border border-outline-variant focus:border-primary focus:ring-0 transition-all rounded-none" maxlength="1" placeholder="" type="text"/>
+</div>
+<!-- Actions & Timer -->
+<div class="flex flex-col items-center gap-8">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-secondary">schedule</span>
+<span class="font-label text-[11px] font-bold text-secondary tracking-widest uppercase">Expires in: 01:59</span>
+</div>
+<button class="w-full bg-primary hover:opacity-90 text-white py-4 rounded-none font-label text-[11px] font-bold uppercase tracking-[0.25em] transition-all" type="submit">
+                            Verify Identity
+                        </button>
+<div class="text-center">
+<span class="text-on-surface-variant text-sm">Did not receive code?</span>
+<button class="block mt-2 text-primary font-bold text-sm hover:underline underline-offset-4 transition-all" type="button">Request New Code</button>
+</div>
+</div>
+</form>
+<!-- Rigor Assurance -->
+<div class="mt-12 pt-8 border-t border-outline-variant w-full flex items-center justify-center gap-6">
+<div class="flex items-center gap-2 opacity-50">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+<span class="font-label text-[10px] font-bold uppercase tracking-widest">AES-256</span>
+</div>
+<div class="flex items-center gap-2 opacity-50">
+<span class="material-symbols-outlined text-[18px]">gavel</span>
+<span class="font-label text-[10px] font-bold uppercase tracking-widest">Compliant</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-white w-full py-16 px-8 border-t border-outline-variant">
+<div class="flex flex-col md:flex-row md:justify-between items-start md:items-center w-full max-w-screen-2xl mx-auto gap-8">
+<div>
+<div class="text-base font-bold text-primary mb-2">The Modern Archivist</div>
+<p class="text-secondary font-body text-xs max-w-xs leading-relaxed">
+                    © 2024 The Modern Archivist. Professional Rigor Guaranteed. Chartered Accountancy Excellence.
+                </p>
+</div>
+<div class="flex flex-wrap gap-x-10 gap-y-4">
+<a class="text-secondary hover:text-primary transition-all font-label text-[10px] font-bold uppercase tracking-widest" href="#">Legal Terms</a>
+<a class="text-secondary hover:text-primary transition-all font-label text-[10px] font-bold uppercase tracking-widest" href="#">Privacy Policy</a>
+<a class="text-secondary hover:text-primary transition-all font-label text-[10px] font-bold uppercase tracking-widest" href="#">Regulatory</a>
+<a class="text-secondary hover:text-primary transition-all font-label text-[10px] font-bold uppercase tracking-widest" href="#">Support</a>
+</div>
+</div>
+</footer>
+</body></html>

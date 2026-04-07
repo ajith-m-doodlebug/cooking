@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "background": "#fff8f4",
+              "on-tertiary-fixed-variant": "#42484a",
+              "error-container": "#ffdad6",
+              "on-secondary-fixed-variant": "#802a00",
+              "tertiary-container": "#717779",
+              "tertiary-fixed-dim": "#c2c7c9",
+              "on-error-container": "#93000a",
+              "primary-fixed-dim": "#afccce",
+              "surface-container-high": "#f7e5d4",
+              "on-primary-fixed-variant": "#314b4d",
+              "tertiary-fixed": "#dee3e5",
+              "on-background": "#231a10",
+              "error": "#ba1a1a",
+              "inverse-on-surface": "#ffeede",
+              "inverse-primary": "#afccce",
+              "surface-container-highest": "#f2dfce",
+              "secondary": "#a53c09",
+              "secondary-fixed": "#ffdbce",
+              "surface-container-low": "#fff1e6",
+              "outline-variant": "#c1c8c8",
+              "surface": "#fff8f4",
+              "tertiary": "#585e60",
+              "on-secondary-fixed": "#370d00",
+              "surface-container": "#fdebd9",
+              "on-primary-fixed": "#031f21",
+              "on-tertiary-container": "#ffffff",
+              "secondary-container": "#ff7e49",
+              "primary": "#486264",
+              "surface-tint": "#486365",
+              "surface-container-lowest": "#ffffff",
+              "surface-variant": "#f2dfce",
+              "on-surface": "#231a10",
+              "on-primary-container": "#ffffff",
+              "surface-dim": "#e9d7c6",
+              "on-tertiary-fixed": "#171d1e",
+              "on-surface-variant": "#414848",
+              "on-secondary": "#ffffff",
+              "primary-fixed": "#cbe8ea",
+              "on-error": "#ffffff",
+              "inverse-surface": "#392f23",
+              "on-secondary-container": "#692100",
+              "on-primary": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "outline": "#727879",
+              "primary-container": "#607b7d",
+              "surface-bright": "#fff8f4",
+              "secondary-fixed-dim": "#ffb59a"
+            },
+            fontFamily: {
+              "headline": ["Newsreader"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fff8f4;
+            color: #231a10;
+        }
+    </style>
+</head>
+<body class="font-body selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<nav class="fixed top-0 w-full z-50 bg-[#fff8f4] dark:bg-stone-950 backdrop-blur-md bg-opacity-90">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-8 py-6">
+<div class="font-['Newsreader'] font-bold text-2xl tracking-tighter text-[#486264] dark:text-stone-100">Ledger &amp; Co.</div>
+<div class="hidden md:flex gap-10 items-center">
+<a class="text-[#486264] dark:text-stone-400 font-medium font-['Newsreader'] serif tracking-tight text-lg hover:text-[#a53c09] transition-colors duration-300" href="#">Home</a>
+<a class="text-[#a53c09] dark:text-[#a53c09] border-b-2 border-[#a53c09] pb-1 font-['Newsreader'] serif tracking-tight text-lg" href="#">Services</a>
+<a class="text-[#486264] dark:text-stone-400 font-medium font-['Newsreader'] serif tracking-tight text-lg hover:text-[#a53c09] transition-colors duration-300" href="#">About Us</a>
+<a class="text-[#486264] dark:text-stone-400 font-medium font-['Newsreader'] serif tracking-tight text-lg hover:text-[#a53c09] transition-colors duration-300" href="#">Insights</a>
+<a class="text-[#486264] dark:text-stone-400 font-medium font-['Newsreader'] serif tracking-tight text-lg hover:text-[#a53c09] transition-colors duration-300" href="#">Contact</a>
+</div>
+<button class="bg-secondary text-on-secondary px-6 py-2.5 rounded-md font-medium scale-100 active:scale-95 transition-transform">
+                Free Consultation
+            </button>
+</div>
+<div class="h-px w-full bg-gradient-to-r from-transparent via-outline-variant/20 to-transparent"></div>
+</nav>
+<main class="pt-32">
+<section class="max-w-7xl mx-auto px-8 mb-24">
+<div class="max-w-3xl">
+<span class="text-secondary font-label font-bold uppercase tracking-widest text-xs mb-4 block">Our Expertise</span>
+<h1 class="font-headline text-6xl md:text-7xl text-primary font-bold tracking-tighter mb-8 leading-tight"> Precision in Every <span class="italic text-secondary">Balance</span>.</h1>
+<p class="text-on-surface-variant text-xl leading-relaxed font-light">We provide a curated suite of financial architectures, ensuring compliance and strategic growth for individuals and corporate entities through meticulous ledger management.</p>
+</div>
+</section>
+<section class="max-w-7xl mx-auto px-8 mb-24">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<div class="md:col-span-8 bg-surface-container-low p-12 relative overflow-hidden">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-secondary text-4xl mb-6" data-icon="account_balance">account_balance</span>
+<h2 class="font-headline text-4xl text-primary font-bold mb-4">Auditing &amp; Assurance</h2>
+<p class="text-on-surface-variant text-lg leading-relaxed mb-8 max-w-xl">Beyond mere compliance, our audit services provide a deep architectural review of your financial integrity, identifying risks before they manifest.</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
+<span class="font-medium text-on-surface">Statutory Audit</span>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
+<span class="font-medium text-on-surface">Internal Control Reviews</span>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
+<span class="font-medium text-on-surface">Forensic Accounting</span>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
+<span class="font-medium text-on-surface">Risk Assessment</span>
+</div>
+</div>
+</div>
+<div class="absolute right-0 bottom-0 opacity-10">
+<span class="material-symbols-outlined text-[15rem]" data-icon="verified_user">verified_user</span>
+</div>
+</div>
+<div class="md:col-span-4 bg-primary text-on-primary p-12 flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-secondary-fixed text-4xl mb-6" data-icon="payments">payments</span>
+<h2 class="font-headline text-3xl font-bold mb-4 text-white">Financial Planning</h2>
+<p class="opacity-80 leading-relaxed mb-8">Architecting your future through disciplined wealth management and legacy structuring.</p>
+</div>
+<a class="inline-flex items-center gap-2 font-bold group" href="#">
+                        Inquire Details 
+                        <span class="material-symbols-outlined transition-transform group-hover:translate-x-2" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<div class="md:col-span-4 bg-surface-container-lowest p-12 shadow-sm border border-outline-variant/10">
+<span class="material-symbols-outlined text-secondary text-4xl mb-6" data-icon="corporate_fare">corporate_fare</span>
+<h2 class="font-headline text-3xl text-primary font-bold mb-4">Corporate Taxation</h2>
+<p class="text-on-surface-variant mb-6">Navigating complex regulatory landscapes with precision to optimize your fiscal position.</p>
+<ul class="space-y-3 border-t border-outline-variant/20 pt-6">
+<li class="text-sm opacity-70">Tax Compliance &amp; Filing</li>
+<li class="text-sm opacity-70">Transfer Pricing</li>
+<li class="text-sm opacity-70">International Taxation</li>
+</ul>
+</div>
+<div class="md:col-span-4 bg-surface-container-lowest p-12 shadow-sm border border-outline-variant/10">
+<span class="material-symbols-outlined text-secondary text-4xl mb-6" data-icon="person">person</span>
+<h2 class="font-headline text-3xl text-primary font-bold mb-4">Personal Taxation</h2>
+<p class="text-on-surface-variant mb-6">Tailored strategies for high-net-worth individuals to preserve and grow personal capital.</p>
+<ul class="space-y-3 border-t border-outline-variant/20 pt-6">
+<li class="text-sm opacity-70">Income Tax Planning</li>
+<li class="text-sm opacity-70">Estate &amp; Trust Advisory</li>
+<li class="text-sm opacity-70">Expat Tax Services</li>
+</ul>
+</div>
+<div class="md:col-span-4 bg-surface-container-high p-12">
+<span class="material-symbols-outlined text-primary text-4xl mb-6" data-icon="lightbulb">lightbulb</span>
+<h2 class="font-headline text-3xl text-primary font-bold mb-4">Advisory Services</h2>
+<p class="text-on-surface-variant mb-6">Strategic insights for mergers, acquisitions, and business restructuring.</p>
+<div class="mt-4 inline-block px-4 py-1 bg-secondary/10 text-secondary text-xs font-bold rounded-full">New Enterprise Focus</div>
+</div>
+</div>
+</section>
+<section class="max-w-7xl mx-auto px-8 mb-24">
+<div class="bg-surface-container-low rounded-xl overflow-hidden grid grid-cols-1 lg:grid-cols-2">
+<div class="p-16 flex flex-col justify-center">
+<h2 class="font-headline text-4xl text-primary font-bold mb-6">The Ledger Advantage</h2>
+<div class="space-y-12">
+<div class="flex gap-6">
+<div class="h-12 w-12 rounded-full bg-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-white" data-icon="history_edu">history_edu</span>
+</div>
+<div>
+<h4 class="font-bold text-primary mb-2">Heritage of Integrity</h4>
+<p class="text-on-surface-variant text-sm">Over three decades of maintaining the highest ethical standards in the accounting profession.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="h-12 w-12 rounded-full bg-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-white" data-icon="biotech">biotech</span>
+</div>
+<div>
+<h4 class="font-bold text-primary mb-2">Technological Precision</h4>
+<p class="text-on-surface-variant text-sm">Utilizing advanced AI-driven analytics to identify anomalies and financial opportunities.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="min-h-[400px] relative">
+<img alt="Modern architecture office" class="absolute inset-0 w-full h-full object-cover" data-alt="Modern architectural shot of a sleek glass office building with sharp lines and minimalist professional aesthetic under soft daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2sg7g8keiZinVZD74v8zlMjSprIt2hgGYe7_EzjwuTgC54i98gaAwnLRVdQjOFmFnB5-j7VuAup8r1DSmA23ANFTeARcArWzYQQnuswpwbC2ytylqZYPDMB4vlPfi8XHJMFi_XfvvP4IlFtqAdpiPpJ-onBf9Xf94nFSlcAaX7qM9az5jcFzYHIxrrcBRtpuUNL_rVfPvE10yrGUckjQH55k7nIt3VCm8NdAh4GT3tBmshalvgABI8hFaUJ0DXNtMN21kyFmPpl0"/>
+<div class="absolute inset-0 bg-primary/20 mix-blend-multiply"></div>
+</div>
+</div>
+</section>
+<section class="max-w-7xl mx-auto px-8 mb-24 text-center">
+<div class="bg-primary-container p-16 relative overflow-hidden">
+<div class="relative z-10">
+<h2 class="font-headline text-4xl text-white mb-6">Ready to balance your future?</h2>
+<p class="text-white/80 text-lg mb-10 max-w-2xl mx-auto">Join hundreds of successful businesses that rely on our architectural approach to financial management.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-secondary text-on-secondary px-8 py-4 rounded-md font-bold transition-all hover:brightness-110">Schedule Consultation</button>
+<button class="bg-white/10 text-white backdrop-blur-md px-8 py-4 rounded-md font-bold hover:bg-white/20 transition-all">Download Service Guide</button>
+</div>
+</div>
+<div class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
+<div class="grid grid-cols-12 h-full">
+<div class="border-r border-white h-full"></div>
+<div class="border-r border-white h-full"></div>
+<div class="border-r border-white h-full"></div>
+<div class="border-r border-white h-full"></div>
+<div class="border-r border-white h-full"></div>
+<div class="border-r border-white h-full"></div>
+<div class="border-r border-white h-full"></div>
+<div class="border-r border-white h-full"></div>
+<div class="border-r border-white h-full"></div>
+<div class="border-r border-white h-full"></div>
+<div class="border-r border-white h-full"></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-[#486264] dark:bg-stone-900 w-full py-16 px-8 mt-20">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto">
+<div class="md:col-span-1">
+<div class="font-['Newsreader'] text-xl text-white mb-6">Ledger &amp; Co.</div>
+<p class="text-stone-300 opacity-80 text-sm leading-relaxed font-['Manrope'] sans-serif">
+                    Chartered Accountants specializing in architectural financial structures for the modern world.
+                </p>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6 text-sm uppercase tracking-widest">Solutions</h4>
+<ul class="space-y-4 text-stone-300 opacity-80 text-sm font-['Manrope']">
+<li><a class="hover:opacity-100 hover:text-[#a53c09] transition-all" href="#">Audit &amp; Assurance</a></li>
+<li><a class="hover:opacity-100 hover:text-[#a53c09] transition-all" href="#">Tax Strategy</a></li>
+<li><a class="hover:opacity-100 hover:text-[#a53c09] transition-all" href="#">Financial Planning</a></li>
+<li><a class="hover:opacity-100 hover:text-[#a53c09] transition-all" href="#">Business Advisory</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6 text-sm uppercase tracking-widest">Company</h4>
+<ul class="space-y-4 text-stone-300 opacity-80 text-sm font-['Manrope']">
+<li><a class="hover:opacity-100 hover:text-[#a53c09] transition-all" href="#">About Us</a></li>
+<li><a class="hover:opacity-100 hover:text-[#a53c09] transition-all" href="#">Insights</a></li>
+<li><a class="hover:opacity-100 hover:text-[#a53c09] transition-all" href="#">Contact</a></li>
+<li><a class="hover:opacity-100 hover:text-[#a53c09] transition-all" href="#">Careers</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6 text-sm uppercase tracking-widest">Contact</h4>
+<ul class="space-y-4 text-stone-300 opacity-80 text-sm font-['Manrope']">
+<li>1200 Financial Plaza, Wall St.</li>
+<li>New York, NY 10005</li>
+<li>+1 (555) 234-8900</li>
+<li>consult@ledgerco.com</li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-stone-300 opacity-80 text-sm font-['Manrope']">© 2024 Ledger &amp; Co. Chartered Accountants. All rights reserved.</p>
+<div class="flex gap-8 text-stone-300 opacity-80 text-sm font-['Manrope']">
+<a class="hover:text-white transition-all" href="#">Privacy Policy</a>
+<a class="hover:text-white transition-all" href="#">Terms of Service</a>
+<a class="hover:text-white transition-all" href="#">Regulatory Disclosures</a>
+</div>
+</div>
+</footer>
+</body></html>

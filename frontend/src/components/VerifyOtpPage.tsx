@@ -7,6 +7,7 @@ import { getApiErrorMessage } from "@/lib/errors";
 import { useAuthStore } from "@/lib/auth-store";
 import { getTheme } from "@/lib/theme";
 import type { User, UserRole } from "@/types";
+import { MaterialIcon } from "@/components/editorial/MaterialIcon";
 
 const OTP_LENGTH = 6;
 const RESEND_COOLDOWN_SEC = 60;
@@ -23,7 +24,7 @@ export default function VerifyOtpPage({
   role,
   successRedirect,
   backHref,
-  brandLabel = "CA Booking Studio",
+  brandLabel = "The Archivist",
   onSuccess,
 }: VerifyOtpPageProps) {
   const theme = getTheme(role);
@@ -125,142 +126,158 @@ export default function VerifyOtpPage({
   };
 
   return (
-    <main className="min-h-screen bg-[var(--color-bg)] flex items-center justify-center px-4 py-14">
-      <div className="w-full max-w-6xl rounded-[32px] bg-white border border-[var(--color-border)] shadow-[0_60px_110px_rgba(0,0,0,0.35)] overflow-hidden flex flex-col md:flex-row md:min-h-[720px]">
-        {/* Left: Welcome banner — same as login */}
-        <section className="md:w-1/2 bg-gradient-to-b from-[var(--color-panel-start)] via-[var(--color-panel-mid)] to-[var(--color-panel-end)] px-8 sm:px-10 py-10 flex flex-col justify-between">
-          <div>
-            <div className="inline-flex items-center gap-2 mb-6 rounded-full bg-black/20 px-4 py-1 text-xs font-semibold tracking-[0.2em] text-[var(--color-panel-text)] uppercase">
-              <span
-                className={`h-2 w-2 rounded-full ${role === "CA" ? "bg-[var(--color-primary-ca)]" : "bg-[var(--color-primary-user)]"}`}
-              />
-              <span>{brandLabel}</span>
-            </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-white mb-3">
-              Verify your phone
-            </h1>
-            <p className="text-sm sm:text-base text-[var(--color-panel-text)]/80 max-w-md mb-2">
-              {role === "CA"
-                ? "As a Chartered Accountant, we need your phone number to secure your account and for client communications."
-                : "We need your phone number to secure your account and to send booking reminders and updates."}
-            </p>
-            <p className="text-sm text-[var(--color-panel-text)]/70 max-w-md">
-              Enter the one-time code we send to your mobile. You must verify before accessing the platform.
-            </p>
+    <main className="min-h-screen overflow-hidden bg-[var(--color-bg)] font-body">
+      <div className="flex min-h-screen flex-col md:flex-row">
+        <section className="relative hidden min-h-[320px] flex-[1.1] flex-col justify-center overflow-hidden bg-gradient-to-br from-[var(--color-brand-secondary)] via-[var(--color-panel-mid)] to-[var(--color-brand-primary)] p-10 text-white md:flex lg:p-16">
+          <div className="pointer-events-none absolute inset-0 opacity-25">
+            <div className="absolute right-0 top-0 h-full w-full bg-[radial-gradient(circle_at_top_right,_var(--color-brand-tertiary)_0%,transparent_55%)]" />
           </div>
-          <div className="mt-8 flex items-center justify-between text-[11px] text-[var(--color-panel-text)]/70">
-            <Link href={backHref} className="underline underline-offset-2">
-              ← Back
+          <div className="relative z-10 max-w-md">
+            <span className="mb-6 inline-block bg-[var(--color-brand-tertiary)] px-3 py-1 text-xs font-extrabold uppercase tracking-widest text-white">
+              Phone verification
+            </span>
+            <h1 className="font-headline text-4xl font-semibold leading-tight lg:text-5xl">Verify your mobile</h1>
+            <p className="mt-5 text-sm leading-relaxed text-white/85">
+              {role === "CA"
+                ? "We use your number for account security and client communications."
+                : "We use your number for booking reminders and account security."}
+            </p>
+            <div className="mt-12 grid grid-cols-2 gap-8 border-t border-white/20 pt-10">
+              <div>
+                <MaterialIcon name="shield_lock" className="!text-3xl text-[var(--color-brand-tertiary)]" />
+                <p className="mt-3 font-headline text-lg font-semibold">Protected</p>
+                <p className="mt-1 text-xs leading-relaxed text-white/75">OTP via secure channel.</p>
+              </div>
+              <div>
+                <MaterialIcon name="timer" className="!text-3xl text-[var(--color-brand-tertiary)]" />
+                <p className="mt-3 font-headline text-lg font-semibold">Fast</p>
+                <p className="mt-1 text-xs leading-relaxed text-white/75">Complete in under a minute.</p>
+              </div>
+            </div>
+          </div>
+          <div className="relative z-10 mt-12 flex items-center justify-between text-xs text-white/70">
+            <Link href={backHref} className="inline-flex items-center gap-1 underline-offset-4 hover:underline">
+              <MaterialIcon name="arrow_back" className="!text-base" />
+              Back
             </Link>
-            <Link href="/terms" className="underline underline-offset-2">
-              Terms &amp; Conditions
-            </Link>
+            <span className="uppercase tracking-widest opacity-80">{brandLabel}</span>
           </div>
         </section>
 
-        {/* Right: Form */}
-        <section className="md:w-1/2 flex flex-col items-center justify-center p-8 sm:p-12 bg-white">
-          <div className="w-full max-w-sm">
-            <div className="flex justify-end mb-6">
-              <Link href="/terms" className="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] flex items-center gap-1">
-                <span className="inline-flex w-5 h-5 items-center justify-center rounded-full border border-[var(--color-border)] text-xs">i</span>
-                Need help?
+        <section className="flex flex-1 flex-col justify-center bg-[var(--color-surface)] px-6 py-12 md:px-12 lg:px-20">
+          <div className="mx-auto w-full max-w-md">
+            <div className="mb-8 flex justify-end md:hidden">
+              <Link
+                href="/terms"
+                className="inline-flex items-center gap-1 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
+              >
+                <MaterialIcon name="info" className="!text-lg" />
+                Help
               </Link>
             </div>
 
-            {/* Phone number verification — always visible */}
-            <h2 className="text-2xl font-bold text-[var(--color-text)] mb-1">Enter phone number</h2>
-                <p className="text-sm text-[var(--color-text-muted)] mb-4">
-                  We’ll send a verification code to this number.
-                </p>
-                {error && (
-                  <p className="text-sm text-[var(--color-error)] bg-[var(--color-error-bg)] border border-red-200 rounded-lg px-3 py-2 mb-4">
-                    {error}
-                  </p>
-                )}
-                <input
-                  type="tel"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  placeholder="10-digit mobile number"
-                  className={`w-full rounded-lg border px-4 py-3 text-[var(--color-text)] placeholder-[var(--color-text-muted-light)] focus:ring-2 outline-none ${theme.inputBorder}`}
-                  maxLength={14}
-                  disabled={otpSent}
-                />
+            <h2 className="font-headline text-3xl font-semibold text-[var(--color-text)]">Phone number</h2>
+            <p className="mt-2 text-[var(--color-text-muted)]">We’ll send a one-time code to this number.</p>
+
+            {error && (
+              <p className="mt-4 rounded-lg border border-red-200 bg-[var(--color-error-bg)] px-3 py-2 text-sm text-[var(--color-error)]">
+                {error}
+              </p>
+            )}
+
+            <label className="mt-8 block text-[10px] font-extrabold uppercase tracking-widest text-[var(--color-text-muted)]">
+              Mobile (India +91)
+            </label>
+            <input
+              type="tel"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              placeholder="10-digit mobile number"
+              className="mt-2 w-full border-0 border-b-2 border-[var(--color-border)] bg-transparent px-0 py-3 text-lg text-[var(--color-text)] placeholder-[var(--color-text-muted-light)] outline-none transition focus:border-[var(--color-brand-primary)]"
+              maxLength={14}
+              disabled={otpSent}
+            />
+            <button
+              type="button"
+              onClick={handleSendOtp}
+              disabled={sending}
+              className={`mt-6 w-full rounded-lg py-3.5 text-sm font-bold text-white disabled:opacity-60 ${theme.btnPrimary}`}
+            >
+              {sending ? "Sending…" : "Send OTP"}
+            </button>
+
+            <div className={`mt-10 border-t border-[var(--color-border)] pt-8 ${!otpSent ? "pointer-events-none opacity-50" : ""}`}>
+              <h3 className="font-headline text-xl font-semibold text-[var(--color-text)]">Enter code</h3>
+              <p className="mt-1 text-sm text-[var(--color-text-muted)]">Six digits from your SMS.</p>
+              <div className="mt-6 flex justify-center gap-2 sm:gap-3">
+                {otpDigits.map((d, i) => (
+                  <input
+                    key={i}
+                    ref={(el) => {
+                      otpInputRefs.current[i] = el;
+                    }}
+                    type="text"
+                    inputMode="numeric"
+                    maxLength={6}
+                    value={d}
+                    onChange={(e) => handleOtpChange(i, e.target.value)}
+                    onKeyDown={(e) => handleOtpKeyDown(i, e)}
+                    className="h-14 w-11 rounded-lg border border-[var(--color-border)] bg-[var(--color-bg-subtle)] text-center text-xl font-bold text-[var(--color-text)] outline-none focus:border-[var(--color-brand-primary)] focus:ring-2 focus:ring-[var(--color-brand-primary)]/25 sm:h-14 sm:w-12"
+                  />
+                ))}
+              </div>
+              <div className="mt-4 flex items-center justify-between text-sm">
+                <span className="text-[var(--color-text-muted)]">
+                  {resendSec > 0 ? (
+                    <span className="font-medium text-[var(--color-timer)]">Resend in {resendSec}s</span>
+                  ) : otpSent ? (
+                    <span>Sent to +91{phone.replace(/\D/g, "")}</span>
+                  ) : (
+                    <span>—</span>
+                  )}
+                </span>
                 <button
                   type="button"
-                  onClick={handleSendOtp}
-                  disabled={sending}
-                  className={`mt-4 w-full rounded-full py-3 text-sm font-semibold text-white disabled:opacity-60 ${theme.btnPrimary}`}
+                  onClick={handleResend}
+                  disabled={resendSec > 0 || sending || !otpSent}
+                  className={`font-bold disabled:opacity-40 ${theme.primaryText} hover:underline`}
                 >
-                  {sending ? "Sending…" : "Send OTP"}
+                  Resend OTP
                 </button>
-
-            {/* OTP box — visible below phone verification */}
-            <div className={`mt-8 pt-6 border-t border-[var(--color-border)] ${!otpSent ? "opacity-60 pointer-events-none" : ""}`}>
-              <h3 className="text-lg font-semibold text-[var(--color-text)] mb-1">Verify OTP</h3>
-              <p className="text-sm text-[var(--color-text-muted)] mb-4">
-                Enter the verification code we sent to your mobile number.
-              </p>
-              <div className="flex gap-2 justify-center mb-4">
-                  {otpDigits.map((d, i) => (
-                    <input
-                      key={i}
-                      ref={(el) => { otpInputRefs.current[i] = el; }}
-                      type="text"
-                      inputMode="numeric"
-                      maxLength={6}
-                      value={d}
-                      onChange={(e) => handleOtpChange(i, e.target.value)}
-                      onKeyDown={(e) => handleOtpKeyDown(i, e)}
-                      className={`w-12 h-12 text-center text-lg font-semibold rounded-lg text-[var(--color-text)] focus:ring-2 outline-none ${theme.inputBorder}`}
-                    />
-                  ))}
-                </div>
-                <div className="flex items-center justify-between text-sm mb-6">
-                  <span className="text-[var(--color-text-muted)] flex items-center gap-1">
-                    {resendSec > 0 ? (
-                      <>
-                        <span className="inline-block w-4 h-4 text-[var(--color-timer)]">⏱</span>
-                        <span className="text-[var(--color-timer)] font-medium">{resendSec} Sec</span>
-                      </>
-                    ) : (
-                      <span>{otpSent ? `Code sent to +91${phone.replace(/\D/g, "")}` : "—"}</span>
-                    )}
-                  </span>
-                  <button
-                    type="button"
-                    onClick={handleResend}
-                    disabled={resendSec > 0 || sending || !otpSent}
-                    className={`font-medium disabled:opacity-50 ${theme.primaryText} hover:underline`}
-                  >
-                    Resend OTP
-                  </button>
-                </div>
-                <div className="flex gap-3">
-                  <button
-                    type="button"
-                    onClick={() => { setOtpSent(false); setOtpDigits(Array(OTP_LENGTH).fill("")); setError(null); }}
-                    className="flex-1 rounded-full py-3 text-sm font-semibold bg-white text-[var(--color-text)] border border-[var(--color-border)] hover:bg-[var(--color-bg-subtle)]"
-                  >
-                    Back
-                  </button>
-                  <button
-                    type="button"
-                    onClick={handleVerifyOtp}
-                    disabled={verifying || otpDigits.join("").length !== OTP_LENGTH || !otpSent}
-                    className={`flex-1 rounded-full py-3 text-sm font-semibold text-white disabled:opacity-60 ${theme.btnPrimary}`}
-                  >
-                    {verifying ? "Verifying…" : "Verify"}
-                  </button>
-                </div>
+              </div>
+              <div className="mt-6 flex gap-3">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setOtpSent(false);
+                    setOtpDigits(Array(OTP_LENGTH).fill(""));
+                    setError(null);
+                  }}
+                  className="flex-1 rounded-lg border border-[var(--color-border)] bg-white py-3.5 text-sm font-bold text-[var(--color-text)] transition hover:bg-[var(--color-bg-subtle)]"
+                >
+                  Edit number
+                </button>
+                <button
+                  type="button"
+                  onClick={handleVerifyOtp}
+                  disabled={verifying || otpDigits.join("").length !== OTP_LENGTH || !otpSent}
+                  className={`flex-1 rounded-lg py-3.5 text-sm font-bold text-white disabled:opacity-60 ${theme.btnPrimary}`}
+                >
+                  {verifying ? "Verifying…" : "Verify"}
+                </button>
+              </div>
             </div>
 
-            <p className="mt-6 text-center text-xs text-[var(--color-text-muted)]">
+            <p className="mt-8 text-center text-xs text-[var(--color-text-muted)]">
               By verifying, you agree to our{" "}
-              <Link href="/terms" className={`${theme.primaryText} hover:underline`}>Terms of Use</Link>
-              {" "}&amp;{" "}
-              <Link href="/terms" className={`${theme.primaryText} hover:underline`}>Privacy Policy</Link>.
+              <Link href="/terms" className={`font-semibold ${theme.primaryText} hover:underline`}>
+                Terms
+              </Link>{" "}
+              &amp;{" "}
+              <Link href="/terms" className={`font-semibold ${theme.primaryText} hover:underline`}>
+                Privacy
+              </Link>
+              .
             </p>
           </div>
         </section>

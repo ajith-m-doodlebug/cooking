@@ -1,9 +1,12 @@
+from datetime import datetime, timezone
+
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 
 from app.core.exceptions import NotFoundError, ForbiddenError, ConflictError
 from app.modules.auth.models import User
 from app.modules.subscriptions.models import Subscription
+from app.modules.subscriptions.service import SubscriptionService
 from .models import CAProfile, CAServiceDetails, CABookingDetails, VerificationStatus
 from .schemas import (
     OnboardingVerificationRequest,
@@ -171,6 +174,12 @@ class CAService:
             raise NotFoundError("CA Profile")
         if profile.verification_status != VerificationStatus.VERIFIED:
             raise ForbiddenError("Profile must be verified before enabling visibility")
+        await SubscriptionService.deactivate_expired_for_ca(db, profile)
+        if is_visible:
+            if not await SubscriptionService.has_active_non_expired_subscription(db, profile.id):
+                raise ForbiddenError(
+                    "Active subscription required to show your profile in search. Complete payment under Subscription."
+                )
         profile.is_visible = is_visible
         await db.flush()
         return profile
@@ -189,10 +198,15 @@ class CAService:
         if profile.verification_status != VerificationStatus.VERIFIED or not profile.is_visible:
             raise NotFoundError("CA Profile")
 
+        await SubscriptionService.deactivate_expired_for_ca(db, profile)
+
+        now = datetime.now(timezone.utc)
         sub_result = await db.execute(
             select(Subscription).where(
                 Subscription.ca_id == profile.id,
                 Subscription.is_active == True,
+                Subscription.end_date.isnot(None),
+                Subscription.end_date > now,
             ).limit(1)
         )
         if not sub_result.scalar_one_or_none():
@@ -248,18 +262,14 @@ class CAService:
         )
         bk = bk_result.scalar_one_or_none()
 
+        await SubscriptionService.deactivate_expired_for_ca(db, profile)
+
         visible = (
             profile.verification_status == VerificationStatus.VERIFIED
             and profile.is_visible
         )
         if visible:
-            sub_result = await db.execute(
-                select(Subscription).where(
-                    Subscription.ca_id == profile.id,
-                    Subscription.is_active == True,
-                ).limit(1)
-            )
-            visible = sub_result.scalar_one_or_none() is not None
+            visible = await SubscriptionService.has_active_non_expired_subscription(db, profile.id)
 
         time_slots = []
         if bk and bk.time_slots:

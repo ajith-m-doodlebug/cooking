@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Edit Availability | The Archivist</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700;6..72,800&amp;family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-primary": "#afccce",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-container": "#ffffff",
+                        "tertiary-container": "#c55322",
+                        "tertiary": "#a43b08",
+                        "surface-variant": "#f2dfce",
+                        "on-tertiary-fixed-variant": "#802a00",
+                        "on-surface-variant": "#414848",
+                        "secondary": "#595f61",
+                        "on-primary-fixed-variant": "#314b4d",
+                        "primary-fixed": "#cbe8ea",
+                        "surface-bright": "#fff8f4",
+                        "on-secondary-fixed": "#171d1e",
+                        "inverse-on-surface": "#ffeede",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#031f21",
+                        "on-surface": "#231a10",
+                        "on-secondary-fixed-variant": "#42484a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#5e6466",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#f7e5d4",
+                        "outline": "#727879",
+                        "secondary-container": "#dbe1e3",
+                        "surface-container": "#fdebd9",
+                        "background": "#fff8f4",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#486365",
+                        "surface": "#fff8f4",
+                        "surface-dim": "#e9d7c6",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#fff1e6",
+                        "on-primary-container": "#ffffff",
+                        "secondary-fixed-dim": "#c2c7c9",
+                        "outline-variant": "#c1c8c8",
+                        "primary-container": "#607b7d",
+                        "on-background": "#231a10",
+                        "error-container": "#ffdad6",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#370d00",
+                        "surface-container-highest": "#f2dfce",
+                        "primary": "#486264",
+                        "inverse-surface": "#392f23",
+                        "tertiary-fixed": "#ffdbce",
+                        "primary-fixed-dim": "#afccce",
+                        "secondary-fixed": "#dee3e5"
+                    },
+                    fontFamily: {
+                        "headline": ["Newsreader"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Manrope', sans-serif; }
+        h1, h2, h3 { font-family: 'Newsreader', serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-tertiary/20">
+<div class="flex min-h-screen">
+<!-- SideNavBar Component -->
+<aside class="h-screen w-64 border-r-0 bg-slate-50 dark:bg-slate-900 flex flex-col py-8 px-4 shrink-0 sticky top-0">
+<div class="mb-10 px-2">
+<h1 class="font-['Newsreader'] font-semibold text-xl text-slate-800 dark:text-slate-100">The Archivist</h1>
+<p class="font-['Manrope'] font-bold text-[10px] uppercase tracking-widest text-slate-500 mt-1">Chartered Accountancy</p>
+</div>
+<nav class="space-y-1 flex-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200 font-['Manrope'] font-bold text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                    Dashboard
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200 font-['Manrope'] font-bold text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+                    Profile
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200 font-['Manrope'] font-bold text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="event_available">event_available</span>
+                    Bookings
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200 font-['Manrope'] font-bold text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+                    Notifications
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-900 dark:text-white font-bold border-r-4 border-slate-600 dark:border-slate-400 bg-white/50 dark:bg-white/5 transition-colors duration-200 font-['Manrope'] font-bold text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                    Settings
+                </a>
+</nav>
+<div class="mt-auto px-4 py-4 bg-slate-100 dark:bg-slate-800/50 rounded-xl flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="close-up portrait of a professional accountant in a well-lit modern office environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZxcTgcEePvWDQa0hdYId2jdgVB_g_ufoTWVJI-oQ7nDDydhk_rIJp9QhTpFFb9UdfTKgGR6Qwj_pykxj10nVqLnUgR0uLg2QQ6FbzHaweWzLGLMY1IhK8avo3Iln2AfEpYSAuNGkZTjclQ3VUQ_caAqXTiGjki6PRJirW55lDVF9D6jMNnsP3hMb604A0yo-BoG1C9xB5Sz3dqQVMTYvi4TrdO2Hfj5msQZFF8Iv0pY0ssjp9E1_v7D8xOR4YX9Ona47UbIypyHg"/>
+</div>
+<div class="overflow-hidden">
+<p class="text-xs font-bold truncate">Arthur Sterling</p>
+<p class="text-[10px] text-slate-500 truncate">Senior Partner</p>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-w-0 bg-surface">
+<!-- TopNavBar Component -->
+<header class="flex justify-between items-center w-full px-8 h-20 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 shadow-sm shadow-slate-200/50 dark:shadow-none z-40 sticky top-0">
+<div class="flex items-center gap-8 flex-1">
+<span class="font-['Newsreader'] font-bold text-slate-800 dark:text-slate-100 text-lg">Management Portal</span>
+<div class="relative w-full max-w-md group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-slate-50 dark:bg-slate-800 border-none rounded-lg text-sm focus:ring-1 ring-slate-200 dark:ring-slate-700 transition-all outline-none" placeholder="Search archives or clients..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6 ml-4">
+<button class="text-slate-500 hover:text-slate-800 transition-all relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-tertiary rounded-full"></span>
+</button>
+<button class="text-slate-500 hover:text-slate-800 transition-all">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<div class="h-8 w-[1px] bg-slate-200 mx-2"></div>
+<div class="flex items-center gap-2">
+<span class="font-['Newsreader'] font-medium text-slate-700">Sterling &amp; Co.</span>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="p-12 max-w-6xl mx-auto w-full">
+<!-- Header Section -->
+<div class="mb-12 flex justify-between items-end">
+<div class="max-w-2xl">
+<nav class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-neutral mb-4">
+<span>Settings</span>
+<span class="material-symbols-outlined text-[10px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary">Availability</span>
+</nav>
+<h2 class="text-5xl font-semibold text-on-surface mb-4">Edit Availability</h2>
+<p class="text-secondary font-body leading-relaxed">Define your professional consultation windows. Precise scheduling ensures seamless client transitions and maximizes billable efficiency.</p>
+</div>
+<div class="flex gap-4">
+<button class="px-6 py-3 bg-surface-container-high text-primary font-bold rounded-md hover:bg-surface-container-highest transition-colors">
+                            Discard Changes
+                        </button>
+<button class="px-8 py-3 bg-primary text-on-primary font-bold rounded-md shadow-[0_4px_0_0_#314b4d] active:translate-y-[2px] active:shadow-none transition-all">
+                            Save Schedule
+                        </button>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-8">
+<!-- Config Sidebar -->
+<div class="col-span-12 lg:col-span-4 space-y-8">
+<!-- Global Controls -->
+<section class="bg-surface-container-low p-8 rounded-xl">
+<h3 class="text-xl font-medium mb-6">Global Settings</h3>
+<div class="space-y-6">
+<div>
+<label class="block text-[11px] font-extrabold uppercase tracking-tighter text-on-surface-variant mb-2">Default Slot Duration</label>
+<div class="relative">
+<select class="w-full bg-white border-b-2 border-outline-variant focus:border-primary px-4 py-3 appearance-none outline-none font-body font-semibold">
+<option>30 Minutes (Standard)</option>
+<option>45 Minutes (Audit Prep)</option>
+<option>60 Minutes (Tax Advisory)</option>
+<option>90 Minutes (Deep Dive)</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</div>
+</div>
+<div>
+<label class="block text-[11px] font-extrabold uppercase tracking-tighter text-on-surface-variant mb-2">Booking Buffer</label>
+<div class="flex items-center gap-4">
+<div class="flex-1 bg-white border-b-2 border-outline-variant px-4 py-3 flex justify-between items-center">
+<span class="font-body font-semibold">15 Minutes</span>
+<span class="text-[10px] text-neutral">Before &amp; After</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Timezone Card -->
+<section class="bg-primary p-8 rounded-xl text-on-primary relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="text-lg font-medium mb-2 font-headline">Operational Timezone</h3>
+<p class="text-sm opacity-80 mb-6 font-body">(GMT +00:00) London, United Kingdom</p>
+<button class="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-inverse-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="public">public</span>
+                                    Change Timezone
+                                </button>
+</div>
+<div class="absolute -right-8 -bottom-8 opacity-10">
+<span class="material-symbols-outlined text-[120px]" data-icon="schedule" style="font-variation-settings: 'wght' 200;">schedule</span>
+</div>
+</section>
+</div>
+<!-- Main Scheduling Grid -->
+<div class="col-span-12 lg:col-span-8 space-y-6">
+<div class="bg-white rounded-xl shadow-sm border border-outline-variant/10 overflow-hidden">
+<!-- Week Header -->
+<div class="grid grid-cols-7 border-b border-outline-variant/20 bg-surface-container-low/50">
+<button class="p-4 flex flex-col items-center gap-1 group border-r border-outline-variant/10 bg-primary text-on-primary">
+<span class="text-[10px] font-extrabold uppercase">Mon</span>
+<span class="text-xl font-headline font-bold">14</span>
+</button>
+<button class="p-4 flex flex-col items-center gap-1 group border-r border-outline-variant/10 hover:bg-surface-container transition-colors">
+<span class="text-[10px] font-extrabold uppercase text-neutral">Tue</span>
+<span class="text-xl font-headline font-bold">15</span>
+</button>
+<button class="p-4 flex flex-col items-center gap-1 group border-r border-outline-variant/10 hover:bg-surface-container transition-colors">
+<span class="text-[10px] font-extrabold uppercase text-neutral">Wed</span>
+<span class="text-xl font-headline font-bold">16</span>
+</button>
+<button class="p-4 flex flex-col items-center gap-1 group border-r border-outline-variant/10 hover:bg-surface-container transition-colors">
+<span class="text-[10px] font-extrabold uppercase text-neutral">Thu</span>
+<span class="text-xl font-headline font-bold">17</span>
+</button>
+<button class="p-4 flex flex-col items-center gap-1 group border-r border-outline-variant/10 hover:bg-surface-container transition-colors">
+<span class="text-[10px] font-extrabold uppercase text-neutral">Fri</span>
+<span class="text-xl font-headline font-bold">18</span>
+</button>
+<button class="p-4 flex flex-col items-center gap-1 group border-r border-outline-variant/10 bg-surface-container-high/30 opacity-50">
+<span class="text-[10px] font-extrabold uppercase text-neutral">Sat</span>
+<span class="text-xl font-headline font-bold">19</span>
+</button>
+<button class="p-4 flex flex-col items-center gap-1 group bg-surface-container-high/30 opacity-50">
+<span class="text-[10px] font-extrabold uppercase text-neutral">Sun</span>
+<span class="text-xl font-headline font-bold">20</span>
+</button>
+</div>
+<!-- Day Builder -->
+<div class="p-10">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h4 class="text-2xl font-medium mb-1">Monday, October 14</h4>
+<span class="inline-flex items-center gap-2 text-[11px] font-extrabold text-tertiary bg-tertiary/5 px-3 py-1 rounded-full uppercase tracking-widest">
+                                            Active Schedule
+                                        </span>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 text-sm font-bold text-primary hover:bg-primary/5 rounded-md transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="copy_all">copy_all</span>
+                                        Apply to All Workdays
+                                    </button>
+</div>
+<!-- Time Slot Rows -->
+<div class="space-y-4">
+<!-- Slot 1 -->
+<div class="flex items-center gap-4 group">
+<div class="flex-1 grid grid-cols-2 gap-4">
+<div class="relative">
+<label class="absolute -top-2 left-3 bg-white px-1 text-[9px] font-extrabold text-neutral uppercase">Start Time</label>
+<input class="w-full px-4 py-4 bg-white border-2 border-outline-variant/30 rounded-lg font-body font-bold focus:border-primary outline-none transition-all" type="time" value="09:00"/>
+</div>
+<div class="relative">
+<label class="absolute -top-2 left-3 bg-white px-1 text-[9px] font-extrabold text-neutral uppercase">End Time</label>
+<input class="w-full px-4 py-4 bg-white border-2 border-outline-variant/30 rounded-lg font-body font-bold focus:border-primary outline-none transition-all" type="time" value="12:30"/>
+</div>
+</div>
+<div class="w-24 flex flex-col items-center justify-center border-l border-outline-variant/20 h-full">
+<span class="text-[10px] font-bold text-neutral uppercase">Duration</span>
+<span class="text-sm font-bold">3.5h</span>
+</div>
+<button class="p-2 text-error hover:bg-error/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined" data-icon="delete_outline">delete_outline</span>
+</button>
+</div>
+<!-- Slot 2 -->
+<div class="flex items-center gap-4 group">
+<div class="flex-1 grid grid-cols-2 gap-4">
+<div class="relative">
+<label class="absolute -top-2 left-3 bg-white px-1 text-[9px] font-extrabold text-neutral uppercase">Start Time</label>
+<input class="w-full px-4 py-4 bg-white border-2 border-outline-variant/30 rounded-lg font-body font-bold focus:border-primary outline-none transition-all" type="time" value="14:00"/>
+</div>
+<div class="relative">
+<label class="absolute -top-2 left-3 bg-white px-1 text-[9px] font-extrabold text-neutral uppercase">End Time</label>
+<input class="w-full px-4 py-4 bg-white border-2 border-outline-variant/30 rounded-lg font-body font-bold focus:border-primary outline-none transition-all" type="time" value="17:00"/>
+</div>
+</div>
+<div class="w-24 flex flex-col items-center justify-center border-l border-outline-variant/20 h-full">
+<span class="text-[10px] font-bold text-neutral uppercase">Duration</span>
+<span class="text-sm font-bold">3.0h</span>
+</div>
+<button class="p-2 text-error hover:bg-error/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined" data-icon="delete_outline">delete_outline</span>
+</button>
+</div>
+<!-- Add New Slot Trigger -->
+<button class="w-full py-6 border-2 border-dashed border-outline-variant/40 rounded-xl hover:border-primary/40 hover:bg-primary/5 transition-all flex flex-col items-center justify-center gap-2 text-primary group">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-all">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</div>
+<span class="text-xs font-bold uppercase tracking-widest">Append Time Block</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Visual Breakdown / Bento Stats -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-surface-container-low p-6 rounded-xl flex items-center gap-6">
+<div class="w-16 h-16 rounded-full border-4 border-primary-container border-t-outline-variant flex items-center justify-center text-primary font-bold">
+                                    74%
+                                </div>
+<div>
+<h5 class="text-sm font-bold uppercase tracking-tighter text-on-surface-variant">Capacity Utilisation</h5>
+<p class="text-xs text-secondary mt-1">Based on current monthly average of 22 working days.</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl flex items-center gap-6">
+<div class="w-16 h-16 bg-tertiary/10 rounded-lg flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-3xl" data-icon="event_busy">event_busy</span>
+</div>
+<div>
+<h5 class="text-sm font-bold uppercase tracking-tighter text-on-surface-variant">Upcoming Outages</h5>
+<p class="text-xs text-secondary mt-1">3 public holidays and 1 personal leave detected in Oct.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- History / Audit Trail Section -->
+<div class="mt-16 pt-12 border-t border-outline-variant/10">
+<h3 class="text-2xl font-medium mb-8">Schedule Audit History</h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between py-4 border-b border-outline-variant/10">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-neutral" data-icon="history">history</span>
+<div>
+<p class="font-bold text-sm">Automated Buffer Adjustment</p>
+<p class="text-xs text-neutral">Increased from 10m to 15m</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-xs font-bold uppercase">Yesterday</p>
+<p class="text-[10px] text-neutral">System-Optimized</p>
+</div>
+</div>
+<div class="flex items-center justify-between py-4 border-b border-outline-variant/10">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-neutral" data-icon="edit">edit</span>
+<div>
+<p class="font-bold text-sm">Manual Schedule Override</p>
+<p class="text-xs text-neutral">Modified Friday PM Slots</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-xs font-bold uppercase">Oct 10, 2023</p>
+<p class="text-[10px] text-neutral">Arthur Sterling</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

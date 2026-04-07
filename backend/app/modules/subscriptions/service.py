@@ -6,7 +6,7 @@ from sqlalchemy import select
 from app.config import settings
 from app.core.utils import rupees_to_paise, calculate_gst, generate_invoice_number
 from app.core.exceptions import NotFoundError, PaymentError, ForbiddenError
-from app.modules.ca.models import CAProfile, VerificationStatus
+from app.modules.ca.models import CAProfile, VerificationStatus, SubscriptionPaymentStatus
 from app.providers.payment.factory import get_payment_provider
 from .models import Subscription
 from .schemas import (
@@ -16,6 +16,32 @@ from .schemas import (
 
 
 class SubscriptionService:
+
+    @staticmethod
+    async def deactivate_expired_for_ca(db: AsyncSession, profile: CAProfile) -> None:
+        """Mark subscriptions past end_date inactive and hide profile (no ranking; search/off-booking safe)."""
+        now = datetime.now(timezone.utc)
+        result = await db.execute(
+            select(Subscription).where(
+                Subscription.ca_id == profile.id,
+                Subscription.is_active == True,
+            )
+        )
+        changed = False
+        for sub in result.scalars().all():
+            if sub.end_date is None or sub.end_date <= now:
+                sub.is_active = False
+                changed = True
+                if profile.active_subscription_id == sub.id:
+                    profile.subscription_payment_status = (
+                        SubscriptionPaymentStatus.EXPIRED
+                        if sub.gateway_payment_id
+                        else SubscriptionPaymentStatus.NONE
+                    )
+                    profile.active_subscription_id = None
+        if changed:
+            profile.is_visible = False
+            await db.flush()
 
     @staticmethod
     async def get_ca_profile(db: AsyncSession, user_id: str) -> CAProfile:
@@ -33,8 +59,13 @@ class SubscriptionService:
         user_id: str,
     ) -> InitiateSubscriptionResponse:
         profile = await SubscriptionService.get_ca_profile(db, user_id)
+        await SubscriptionService.deactivate_expired_for_ca(db, profile)
 
-        if profile.verification_status != VerificationStatus.VERIFIED:
+        vs = profile.verification_status
+        is_verified = vs == VerificationStatus.VERIFIED or (
+            isinstance(vs, str) and vs.upper() == "VERIFIED"
+        )
+        if not is_verified:
             raise ForbiddenError("CA must be verified before subscribing")
 
         base_amount = float(settings.CA_SUBSCRIPTION_FEE)
@@ -57,6 +88,10 @@ class SubscriptionService:
             is_active=False,
         )
         db.add(subscription)
+        await db.flush()
+
+        profile.subscription_payment_status = SubscriptionPaymentStatus.PENDING
+        profile.active_subscription_id = subscription.id
         await db.flush()
 
         return InitiateSubscriptionResponse(
@@ -103,6 +138,9 @@ class SubscriptionService:
         invoice_number = generate_invoice_number("SUB")
         subscription.invoice_id = invoice_number
 
+        profile.subscription_payment_status = SubscriptionPaymentStatus.ACTIVE
+        profile.active_subscription_id = subscription.id
+
         await db.flush()
 
         from app.modules.notifications.service import NotificationService
@@ -118,10 +156,17 @@ class SubscriptionService:
     @staticmethod
     async def get_status(db: AsyncSession, user_id: str) -> SubscriptionStatusResponse:
         profile = await SubscriptionService.get_ca_profile(db, user_id)
+        await SubscriptionService.deactivate_expired_for_ca(db, profile)
 
+        now = datetime.now(timezone.utc)
         result = await db.execute(
             select(Subscription)
-            .where(Subscription.ca_id == profile.id, Subscription.is_active == True)
+            .where(
+                Subscription.ca_id == profile.id,
+                Subscription.is_active == True,
+                Subscription.end_date.isnot(None),
+                Subscription.end_date > now,
+            )
             .order_by(Subscription.end_date.desc())
             .limit(1)
         )
@@ -135,11 +180,10 @@ class SubscriptionService:
                 days_remaining=None,
             )
 
-        now = datetime.now(timezone.utc)
         days_remaining = max(0, (subscription.end_date - now).days) if subscription.end_date else None
 
         return SubscriptionStatusResponse(
-            is_active=subscription.is_active,
+            is_active=True,
             start_date=subscription.start_date,
             end_date=subscription.end_date,
             days_remaining=days_remaining,
@@ -158,3 +202,16 @@ class SubscriptionService:
             .order_by(Subscription.created_at.desc())
         )
         return result.scalars().all()
+
+    @staticmethod
+    async def has_active_non_expired_subscription(db: AsyncSession, ca_profile_id: str) -> bool:
+        now = datetime.now(timezone.utc)
+        result = await db.execute(
+            select(Subscription.id).where(
+                Subscription.ca_id == ca_profile_id,
+                Subscription.is_active == True,
+                Subscription.end_date.isnot(None),
+                Subscription.end_date > now,
+            ).limit(1)
+        )
+        return result.scalar_one_or_none() is not None

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Notification Detail | The Archivist</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary": "#a43b08",
+              "primary-fixed": "#cbe8ea",
+              "primary-container": "#607b7d",
+              "background": "#fff8f4",
+              "on-tertiary-container": "#ffffff",
+              "on-secondary": "#ffffff",
+              "inverse-on-surface": "#ffeede",
+              "secondary": "#595f61",
+              "tertiary-fixed": "#ffdbce",
+              "surface-tint": "#486365",
+              "on-primary-container": "#ffffff",
+              "surface-container-high": "#f7e5d4",
+              "inverse-primary": "#afccce",
+              "error": "#ba1a1a",
+              "surface-container": "#fdebd9",
+              "on-secondary-container": "#5e6466",
+              "on-secondary-fixed": "#171d1e",
+              "secondary-fixed": "#dee3e5",
+              "primary-fixed-dim": "#afccce",
+              "secondary-container": "#dbe1e3",
+              "surface-container-highest": "#f2dfce",
+              "on-error-container": "#93000a",
+              "tertiary-container": "#c55322",
+              "outline": "#727879",
+              "on-primary-fixed-variant": "#314b4d",
+              "error-container": "#ffdad6",
+              "on-surface-variant": "#414848",
+              "on-primary": "#ffffff",
+              "surface-bright": "#fff8f4",
+              "on-secondary-fixed-variant": "#42484a",
+              "on-error": "#ffffff",
+              "surface-dim": "#e9d7c6",
+              "on-tertiary-fixed-variant": "#802a00",
+              "surface-variant": "#f2dfce",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-fixed": "#370d00",
+              "on-primary-fixed": "#031f21",
+              "on-tertiary": "#ffffff",
+              "surface": "#fff8f4",
+              "on-surface": "#231a10",
+              "surface-container-low": "#fff1e6",
+              "secondary-fixed-dim": "#c2c7c9",
+              "outline-variant": "#c1c8c8",
+              "on-background": "#231a10",
+              "tertiary-fixed-dim": "#ffb59a",
+              "primary": "#486264",
+              "inverse-surface": "#392f23"
+            },
+            fontFamily: {
+              "headline": ["Newsreader", "serif"],
+              "body": ["Manrope", "sans-serif"],
+              "label": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .tonal-shift {
+        transition: background-color 0.3s ease;
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased">
+<!-- SideNavBar Anchor -->
+<aside class="h-screen w-64 fixed left-0 top-0 border-r-0 bg-slate-100 dark:bg-slate-900 flex flex-col py-6 px-4 shadow-[40px_0_40px_-20px_rgba(35,26,16,0.04)] z-50">
+<div class="mb-10 px-2">
+<h1 class="text-xl font-bold font-serif text-slate-700 dark:text-slate-200">The Archivist</h1>
+<p class="text-[10px] font-extrabold uppercase tracking-widest text-slate-500 mt-1">Chartered Accountants</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="text-xs font-extrabold uppercase tracking-tight">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined text-[20px]">person</span>
+<span class="text-xs font-extrabold uppercase tracking-tight">Profile</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined text-[20px]">event</span>
+<span class="text-xs font-extrabold uppercase tracking-tight">Bookings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-slate-800 dark:text-white font-bold border-r-4 border-slate-600 dark:border-slate-400 bg-white/50 dark:bg-slate-800/50 transition-colors duration-200 rounded-l-lg group" href="#">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<span class="text-xs font-extrabold uppercase tracking-tight">Notifications</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+<span class="text-xs font-extrabold uppercase tracking-tight">Earnings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined text-[20px]">description</span>
+<span class="text-xs font-extrabold uppercase tracking-tight">Documents</span>
+</a>
+</nav>
+<button class="mt-4 mb-8 mx-2 bg-primary text-on-primary py-3 rounded-md font-bold text-xs uppercase tracking-widest shadow-lg hover:opacity-90 transition-all active:scale-95">
+            New Audit
+        </button>
+<div class="pt-6 border-t border-slate-200 dark:border-slate-800 space-y-1">
+<a class="flex items-center gap-3 px-3 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="text-xs font-extrabold uppercase tracking-tight">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">help</span>
+<span class="text-xs font-extrabold uppercase tracking-tight">Support</span>
+</a>
+</div>
+</aside>
+<!-- TopAppBar Anchor -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] z-40 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b-2 border-slate-100 dark:border-slate-900 flex justify-between items-center h-20 px-8 ml-64">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md focus-within:ring-2 focus-within:ring-slate-400 rounded-md overflow-hidden">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">search</span>
+<input class="w-full bg-slate-50 border-none pl-10 pr-4 py-2.5 text-sm focus:ring-0" placeholder="Search audits, clients, or files..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<button class="text-slate-500 hover:text-slate-900 dark:hover:text-white transition-all relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-tertiary rounded-full border-2 border-white"></span>
+</button>
+<button class="text-slate-500 hover:text-slate-900 dark:hover:text-white transition-all">
+<span class="material-symbols-outlined">mail</span>
+</button>
+</div>
+<div class="h-8 w-[1px] bg-slate-200 dark:bg-slate-800"></div>
+<button class="text-xs font-extrabold uppercase tracking-widest text-slate-500 hover:text-slate-900">Support</button>
+<button class="bg-primary px-5 py-2 text-on-primary text-xs font-extrabold uppercase tracking-widest rounded-md hover:opacity-90">Quick Action</button>
+<div class="flex items-center gap-3 ml-2">
+<img class="w-10 h-10 rounded-full object-cover border-2 border-slate-100" data-alt="professional portrait of a chartered accountant in a modern office with natural light and minimalist decor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-6Tvvk1VhOMR908lQFTE3CyoRSLb42-GCBMVeCqRovEENmn_HQtd_x29yYN8Q5tKEEwm_r2xVQbJ02Wmtpo4QLcrg-aMM8zq8EFiMzRKV2RbmF7zg3kXNhb-yiZMD3pOEu0VbGG-EGY0XRR3_Asx6IQhr7vPNwTe5M_N_GRDgUIfRFt_hqSr6zcP7Z_mdNeQXgxoFVR5_LjFZr4xVPde0PajbhpljRAqZXm8DvN3dc4nr9h-pZBgcCssTkQilY8uwPFHxxCL8UOE"/>
+</div>
+</div>
+</header>
+<!-- Main Canvas Content -->
+<main class="ml-64 pt-20 min-h-screen">
+<div class="max-w-6xl mx-auto p-12">
+<!-- Breadcrumb / Header Section -->
+<div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<nav class="flex items-center gap-2 mb-4">
+<span class="text-[10px] font-extrabold uppercase tracking-widest text-slate-400">Notifications</span>
+<span class="material-symbols-outlined text-xs text-slate-400">chevron_right</span>
+<span class="text-[10px] font-extrabold uppercase tracking-widest text-primary">System Alert</span>
+</nav>
+<h2 class="text-5xl font-headline font-semibold text-on-surface leading-tight max-w-2xl">
+                        Annual Compliance Audit Scheduled for FY 2023-24
+                    </h2>
+</div>
+<div class="flex flex-col items-start md:items-end gap-2">
+<div class="px-4 py-1.5 bg-surface-container-highest text-on-surface-variant text-[10px] font-extrabold uppercase tracking-widest rounded-full">
+                        Urgent Attention
+                    </div>
+<p class="text-sm text-outline font-medium">Received Oct 24, 2023 • 09:42 AM</p>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Main Message Body -->
+<div class="lg:col-span-8">
+<div class="bg-surface-container-lowest rounded-xl p-10 shadow-[0_4px_20px_-10px_rgba(35,26,16,0.08)]">
+<div class="prose prose-slate max-w-none">
+<p class="text-lg font-headline text-on-surface-variant leading-relaxed mb-8">
+                                Dear Accountant, your scheduled annual compliance audit for the fiscal year 2023-24 has been successfully initiated by the automated verification system.
+                            </p>
+<div class="h-px bg-outline-variant/30 mb-8"></div>
+<h4 class="text-xs font-extrabold uppercase tracking-widest text-primary mb-4">Audit Details</h4>
+<div class="grid grid-cols-2 gap-8 mb-10">
+<div class="space-y-1">
+<p class="text-[10px] font-extrabold text-outline uppercase tracking-widest">Reference ID</p>
+<p class="text-base font-bold text-on-surface">AUD-2023-99410-X</p>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] font-extrabold text-outline uppercase tracking-widest">Client Account</p>
+<p class="text-base font-bold text-on-surface">Stark Industries Holdings</p>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] font-extrabold text-outline uppercase tracking-widest">Scheduled Date</p>
+<p class="text-base font-bold text-on-surface">November 12, 2023</p>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] font-extrabold text-outline uppercase tracking-widest">Verification Status</p>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<p class="text-base font-bold text-on-surface">Awaiting Documents</p>
+</div>
+</div>
+</div>
+<p class="text-body-md text-on-surface-variant leading-relaxed mb-6">
+                                To ensure a seamless audit process, please review all pending financial statements and tax declarations. Our system has flagged 3 items requiring immediate clarification before the formal review begins. Failure to address these by the deadline may result in a non-compliance filing.
+                            </p>
+<div class="bg-surface-container-low p-6 rounded-lg border-l-4 border-primary mb-10">
+<p class="text-sm font-semibold text-primary mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">info</span>
+                                    Required Action
+                                </p>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                                    Please upload the consolidated balance sheets for the European subsidiaries no later than <strong>Friday, October 27th</strong>.
+                                </p>
+</div>
+<div class="h-px bg-outline-variant/30 mb-8"></div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="professional male executive portrait with focused expression wearing tailored suit in corporate background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr-_R_aeVOa57iXy8P8jZAYgAeATQayKm4_ZgAgBnY8ueFAgSVXN3fenhtCn4u2NUHSTf1lwINVHPLF4JSA2x0Naf3CRhRkAAgfwBMqo5Kq-e5cDBwKxQ_VsIbs6Ew_57Bgjj0RuuJvPgQN-Xf5OnDOOHtuXCgF96fNG1z380Xu00crjYC3pfCgPMdN6YpTB_u3OCshHWmna4-57zIa9YJ48Ym6Vak445G0fPra4hMwEGhBZRbvaFK4JMqSc3iX9nylnwgy95w9yc"/>
+<div>
+<p class="text-xs font-extrabold uppercase tracking-tight text-on-surface">Marcus Thorne</p>
+<p class="text-[10px] font-bold text-outline uppercase tracking-widest">Chief Compliance Officer</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="p-2 text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">print</span>
+</button>
+<button class="p-2 text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Contextual Sidebar Actions -->
+<div class="lg:col-span-4 space-y-6">
+<!-- Action Card -->
+<div class="bg-primary p-8 rounded-xl text-on-primary shadow-lg relative overflow-hidden">
+<div class="absolute -right-10 -top-10 w-40 h-40 bg-white/5 rounded-full blur-3xl"></div>
+<h3 class="text-2xl font-headline font-medium mb-4 relative z-10">Take Action</h3>
+<p class="text-sm text-primary-fixed mb-8 relative z-10 opacity-90">Review the booking details and confirm your availability for the onsite visit.</p>
+<div class="space-y-3 relative z-10">
+<button class="w-full bg-white text-primary font-bold text-xs uppercase tracking-widest py-4 rounded shadow-md hover:bg-primary-fixed transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg" data-weight="fill">event_available</span>
+                                View Booking Details
+                            </button>
+<button class="w-full bg-primary-container text-white border border-white/20 font-bold text-xs uppercase tracking-widest py-4 rounded hover:bg-white/10 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">upload_file</span>
+                                Upload Statements
+                            </button>
+</div>
+</div>
+<!-- Subscription/Secondary Card -->
+<div class="bg-surface-container-high p-8 rounded-xl">
+<h3 class="text-xs font-extrabold uppercase tracking-widest text-on-surface-variant mb-6">Service Health</h3>
+<div class="mb-6 flex items-center justify-between">
+<div class="space-y-1">
+<p class="text-sm font-bold text-on-surface">Archivist Pro Subscription</p>
+<p class="text-[10px] font-extrabold text-tertiary uppercase tracking-widest">Expires in 12 days</p>
+</div>
+<span class="material-symbols-outlined text-tertiary">warning</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 mb-8">
+<div class="bg-tertiary h-1.5 rounded-full" style="width: 85%"></div>
+</div>
+<button class="w-full border-2 border-primary text-primary font-bold text-xs uppercase tracking-widest py-3 rounded hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2">
+                            Renew Subscription
+                        </button>
+</div>
+<!-- Related Notifications List -->
+<div class="bg-surface p-6 rounded-xl border border-outline-variant/20">
+<h3 class="text-[10px] font-extrabold uppercase tracking-widest text-outline mb-4">Related Updates</h3>
+<div class="space-y-4">
+<a class="block group" href="#">
+<p class="text-xs font-bold text-on-surface group-hover:text-primary transition-colors">Document #881 Verified</p>
+<p class="text-[10px] text-outline">Oct 22 • Tax Ledger Support</p>
+</a>
+<a class="block group" href="#">
+<p class="text-xs font-bold text-on-surface group-hover:text-primary transition-colors">Client Onboarding Update</p>
+<p class="text-[10px] text-outline">Oct 20 • Stark Industries</p>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB Suppression (Hiding based on Detail Screen Rule) -->
+</body></html>

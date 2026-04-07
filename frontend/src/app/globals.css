@@ -54,6 +54,57 @@ body {
   background: var(--background);
 }
 
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1.5rem;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  vertical-align: middle;
+}
+
+.editorial-underline {
+  position: relative;
+}
+.editorial-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 50%;
+  height: 2px;
+  background-color: var(--color-brand-tertiary);
+  transition: width 0.3s ease;
+}
+.editorial-underline:hover::after {
+  width: 100%;
+}
+
+.glass-editorial {
+  background: color-mix(in srgb, var(--color-surface) 80%, transparent);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.sidebar-ca-gradient {
+  background: linear-gradient(180deg, var(--color-bg-subtle) 0%, var(--color-card-bg) 100%);
+}
+
 /* Terms page: subtle pattern and HTML content lists */
 .terms-page-bg {
   background-color: var(--color-bg);

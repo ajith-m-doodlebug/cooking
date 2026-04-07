@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Edit Services | The Archivist</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-primary": "#afccce",
+              "tertiary-fixed-dim": "#ffb59a",
+              "on-tertiary": "#ffffff",
+              "on-tertiary-container": "#ffffff",
+              "tertiary-container": "#c55322",
+              "tertiary": "#a43b08",
+              "surface-variant": "#f2dfce",
+              "on-tertiary-fixed-variant": "#802a00",
+              "on-surface-variant": "#414848",
+              "secondary": "#595f61",
+              "on-primary-fixed-variant": "#314b4d",
+              "primary-fixed": "#cbe8ea",
+              "surface-bright": "#fff8f4",
+              "on-secondary-fixed": "#171d1e",
+              "inverse-on-surface": "#ffeede",
+              "on-primary": "#ffffff",
+              "on-primary-fixed": "#031f21",
+              "on-surface": "#231a10",
+              "on-secondary-fixed-variant": "#42484a",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-container": "#5e6466",
+              "on-error-container": "#93000a",
+              "surface-container-high": "#f7e5d4",
+              "outline": "#727879",
+              "secondary-container": "#dbe1e3",
+              "surface-container": "#fdebd9",
+              "background": "#fff8f4",
+              "on-error": "#ffffff",
+              "surface-tint": "#486365",
+              "surface": "#fff8f4",
+              "surface-dim": "#e9d7c6",
+              "error": "#ba1a1a",
+              "surface-container-low": "#fff1e6",
+              "on-primary-container": "#ffffff",
+              "secondary-fixed-dim": "#c2c7c9",
+              "outline-variant": "#c1c8c8",
+              "primary-container": "#607b7d",
+              "on-background": "#231a10",
+              "error-container": "#ffdad6",
+              "on-secondary": "#ffffff",
+              "on-tertiary-fixed": "#370d00",
+              "surface-container-highest": "#f2dfce",
+              "primary": "#486264",
+              "inverse-surface": "#392f23",
+              "tertiary-fixed": "#ffdbce",
+              "primary-fixed-dim": "#afccce",
+              "secondary-fixed": "#dee3e5"
+            },
+            fontFamily: {
+              "headline": ["Newsreader"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .font-serif { font-family: 'Newsreader', serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface flex min-h-screen overflow-hidden">
+<!-- SideNavBar Component -->
+<aside class="flex flex-col h-screen w-64 border-r-0 bg-slate-50 dark:bg-slate-900 py-8 px-4 flex-shrink-0">
+<div class="mb-10 px-2">
+<h1 class="font-['Newsreader'] font-semibold text-xl text-slate-800 dark:text-slate-100">The Archivist</h1>
+<p class="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-bold mt-1">Chartered Accountancy</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 py-3 px-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200 font-['Manrope'] font-bold text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 py-3 px-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200 font-['Manrope'] font-bold text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+                Profile
+            </a>
+<a class="flex items-center gap-3 py-3 px-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200 font-['Manrope'] font-bold text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="event_available">event_available</span>
+                Bookings
+            </a>
+<a class="flex items-center gap-3 py-3 px-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200 font-['Manrope'] font-bold text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+                Notifications
+            </a>
+<a class="flex items-center gap-3 py-3 px-3 rounded-lg text-slate-900 dark:text-white font-bold border-r-4 border-slate-600 dark:border-slate-400 bg-white/50 dark:bg-white/5 font-['Manrope'] font-bold text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+</nav>
+<div class="mt-auto px-2 pt-4 border-t border-slate-200/50">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-sm" data-icon="account_balance">account_balance</span>
+</div>
+<div>
+<p class="text-xs font-bold text-slate-800">Firm Account</p>
+<p class="text-[10px] text-slate-500">Premium Tier</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col h-screen overflow-y-auto bg-surface">
+<!-- TopNavBar Component -->
+<header class="flex justify-between items-center w-full px-8 h-20 docked full-width top-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 shadow-sm shadow-slate-200/50 dark:shadow-none">
+<div class="flex items-center gap-8">
+<h2 class="font-['Newsreader'] font-bold text-slate-800 dark:text-slate-100 text-xl">Management Portal</h2>
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg" data-icon="search">search</span>
+<input class="pl-10 pr-4 py-2 bg-slate-100/50 dark:bg-slate-800/50 border-none rounded-lg text-sm w-64 focus:ring-1 ring-slate-200 dark:ring-slate-700 outline-none" placeholder="Search records..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-slate-500 hover:text-slate-800 transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-slate-500 hover:text-slate-800 transition-all">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<div class="h-8 w-[1px] bg-slate-200"></div>
+<div class="flex items-center gap-3">
+<img alt="User Avatar" class="w-9 h-9 rounded-full object-cover border-2 border-white shadow-sm" data-alt="professional portrait of a middle-aged male executive with glasses in a formal suit against a neutral office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrSi3gIIHtCSWE_iMfQ8eG-86rRPsEO8SEZrfOxZa51wIoMxYMNznKsCYomLN4qH1R9TsXmFTSTQaQuf4BTZv-fStj6dgqRjAmZT6iZw15cuItJq8v-YvpPSZeNKO9A4S0qF1Ww7pTu70ureWcYLIsw5vh0qSK6Dn-GJglsGJMOP-WEXpJfKfHGcIB_ZYy2E4QJ9SjhtxkRXLlMLMmzNkJdrVELDDy56Ls6aGjSzut5CL_6WAKaKigptqy4ecqrjC0uMy5K3iZSs4"/>
+<span class="material-symbols-outlined text-slate-400" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</div>
+</div>
+</header>
+<!-- Editorial Content Canvas -->
+<div class="p-12 max-w-5xl mx-auto w-full">
+<!-- Page Header -->
+<div class="mb-12">
+<span class="font-label font-extrabold text-[10px] uppercase tracking-widest text-tertiary mb-3 block">Professional Directory</span>
+<h3 class="font-headline text-5xl font-semibold text-on-surface mb-4">Edit Services Offered</h3>
+<p class="font-body text-secondary max-w-xl leading-relaxed">
+                    Update your firm's expertise profile. These services determine client matching and appear on your public archival listing.
+                </p>
+</div>
+<!-- Centralized Service Editor Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0px_40px_80px_-20px_rgba(35,26,16,0.04)] overflow-hidden">
+<div class="p-10 border-b border-outline-variant/15">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl" data-icon="account_tree">account_tree</span>
+</div>
+<div>
+<h4 class="font-headline text-2xl text-on-surface">Service Configuration</h4>
+<p class="font-body text-xs text-secondary font-medium">Select primary and secondary service verticals</p>
+</div>
+</div>
+<!-- Multi-select Input Area -->
+<div class="space-y-6">
+<div class="relative">
+<label class="font-label font-extrabold text-[10px] uppercase tracking-[0.15em] text-on-surface-variant mb-2 block">Available Services</label>
+<div class="group relative">
+<div class="w-full h-14 bg-surface-container-low border-b-2 border-outline-variant flex items-center px-4 group-focus-within:border-primary transition-all cursor-pointer">
+<span class="text-secondary font-body text-sm">Select a service to add...</span>
+<span class="material-symbols-outlined ml-auto text-outline" data-icon="expand_more">expand_more</span>
+</div>
+<!-- Pseudo-dropdown for visual effect -->
+<div class="absolute top-full left-0 right-0 mt-1 bg-white shadow-xl rounded-lg z-10 hidden group-hover:block border border-outline-variant/10 overflow-hidden">
+<div class="p-2 hover:bg-surface-container transition-colors cursor-pointer text-sm font-medium px-4 py-3">Corporate Audit &amp; Assurance</div>
+<div class="p-2 hover:bg-surface-container transition-colors cursor-pointer text-sm font-medium px-4 py-3">Indirect Taxation (GST)</div>
+<div class="p-2 hover:bg-surface-container transition-colors cursor-pointer text-sm font-medium px-4 py-3">Mergers &amp; Acquisitions</div>
+<div class="p-2 hover:bg-surface-container transition-colors cursor-pointer text-sm font-medium px-4 py-3">Financial Planning</div>
+</div>
+</div>
+</div>
+<!-- Active Service Chips -->
+<div>
+<label class="font-label font-extrabold text-[10px] uppercase tracking-[0.15em] text-on-surface-variant mb-4 block">Currently Offered Services</label>
+<div class="flex flex-wrap gap-3">
+<!-- Service Chip -->
+<div class="flex items-center gap-2 bg-primary text-on-primary pl-4 pr-2 py-2 rounded-full text-xs font-bold tracking-tight shadow-sm">
+                                    Strategic Tax Advisory
+                                    <button class="hover:bg-white/20 rounded-full p-0.5 transition-colors leading-[0]">
+<span class="material-symbols-outlined text-base" data-icon="close">close</span>
+</button>
+</div>
+<!-- Service Chip -->
+<div class="flex items-center gap-2 bg-primary text-on-primary pl-4 pr-2 py-2 rounded-full text-xs font-bold tracking-tight shadow-sm">
+                                    Forensic Audit
+                                    <button class="hover:bg-white/20 rounded-full p-0.5 transition-colors leading-[0]">
+<span class="material-symbols-outlined text-base" data-icon="close">close</span>
+</button>
+</div>
+<!-- Service Chip -->
+<div class="flex items-center gap-2 bg-primary text-on-primary pl-4 pr-2 py-2 rounded-full text-xs font-bold tracking-tight shadow-sm">
+                                    Wealth Management
+                                    <button class="hover:bg-white/20 rounded-full p-0.5 transition-colors leading-[0]">
+<span class="material-symbols-outlined text-base" data-icon="close">close</span>
+</button>
+</div>
+<!-- Service Chip -->
+<div class="flex items-center gap-2 bg-primary text-on-primary pl-4 pr-2 py-2 rounded-full text-xs font-bold tracking-tight shadow-sm">
+                                    IFRS Compliance
+                                    <button class="hover:bg-white/20 rounded-full p-0.5 transition-colors leading-[0]">
+<span class="material-symbols-outlined text-base" data-icon="close">close</span>
+</button>
+</div>
+<!-- Empty State / Action -->
+<button class="flex items-center gap-2 border-2 border-dashed border-outline-variant text-secondary pl-4 pr-4 py-2 rounded-full text-xs font-bold tracking-tight hover:border-primary hover:text-primary transition-all">
+<span class="material-symbols-outlined text-base" data-icon="add">add</span>
+                                    Add New Vertical
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="bg-surface-container-low px-10 py-6 flex items-center justify-between">
+<div class="flex items-center gap-2 text-secondary">
+<span class="material-symbols-outlined text-lg" data-icon="info">info</span>
+<p class="text-xs font-medium">Changes will be reflected across your client portals immediately.</p>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-6 py-3 font-bold text-sm text-primary hover:bg-surface-container-high rounded-lg transition-colors">Discard</button>
+<button class="px-10 py-3 bg-primary text-on-primary font-bold text-sm rounded-lg shadow-[0_4px_0_0_#314b4d] active:translate-y-[2px] active:shadow-none transition-all">Save Changes</button>
+</div>
+</div>
+</div>
+<!-- Bento Context Cards (Asymmetric Support) -->
+<div class="mt-12 grid grid-cols-12 gap-6">
+<div class="col-span-12 lg:col-span-7 bg-surface-container-low p-8 rounded-xl border border-outline-variant/10">
+<h5 class="font-headline text-xl mb-4">Firm Analytics Impact</h5>
+<div class="flex gap-8">
+<div class="flex-1">
+<p class="text-[10px] font-extrabold uppercase text-secondary tracking-widest mb-1">Search Visibility</p>
+<p class="text-3xl font-bold text-primary">+14%</p>
+<div class="w-full bg-outline-variant/20 h-1.5 mt-4 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[72%]"></div>
+</div>
+</div>
+<div class="flex-1">
+<p class="text-[10px] font-extrabold uppercase text-secondary tracking-widest mb-1">Market Position</p>
+<p class="text-3xl font-bold text-tertiary">Top 5</p>
+<p class="text-[10px] text-on-surface-variant mt-3 leading-tight">Within the London metropolitan taxation hub</p>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-5 relative group overflow-hidden rounded-xl bg-primary">
+<img alt="Office Interior" class="absolute inset-0 w-full h-full object-cover opacity-30 grayscale group-hover:scale-105 transition-transform duration-700" data-alt="ultra-modern minimalist executive office with large windows showing a city skyline at dusk, sharp lines and neutral tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5b2kqmW8YVgBy7dWcjipM-ajLwYmKIM1BUAYNUu0XgfOd3AYgZLchbKw-Drfl6u4cZaaqRldSknIODDZKo9BsuJvTXInLj-cNZRXtpWStr9TORc_Pr5kll3OVKYBIwfpCkFs-DxLVn9LGiSd5bNWT4N0K4XIa6ARGlIYVjq02aSZNCRgbZSxJjl7PYV8jW7bdEtKLwjRVqquN5AB-_aN8GENPGYgbNXE62Dq02227ZKy8yY_Ir8_mlDJ_DfgyKGZ8SDg_XOP7u7k"/>
+<div class="relative z-10 p-8 flex flex-col h-full justify-between">
+<div class="w-10 h-10 rounded bg-white/10 backdrop-blur-md flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div>
+<h5 class="font-headline text-xl text-white mb-2 leading-tight">Professional Standards Audit</h5>
+<p class="text-white/70 text-xs font-medium leading-relaxed">Ensure your service selections comply with regional CA jurisdictional mandates for the 2024 fiscal cycle.</p>
+</div>
+</div>
+</div>
+</div>
+<footer class="mt-20 border-t border-outline-variant/15 pt-8 pb-12">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="font-headline text-lg text-secondary">The Archivist — Precision in Practice.</p>
+<div class="flex gap-8 text-[10px] font-extrabold uppercase tracking-widest text-on-surface-variant">
+<a class="hover:text-primary transition-colors" href="#">Privacy Charter</a>
+<a class="hover:text-primary transition-colors" href="#">Audit Trail</a>
+<a class="hover:text-primary transition-colors" href="#">Firm Ledger</a>
+</div>
+</div>
+</footer>
+</div>
+</main>
+</body></html>

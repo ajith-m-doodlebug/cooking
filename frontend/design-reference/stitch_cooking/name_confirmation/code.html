@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Identity Verification | Architectural Ledger</title>
+<!-- Google Fonts: Newsreader (Serif) & Manrope (Sans-Serif) -->
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;0,700;1,400&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed": "#cbe8ea",
+              "outline-variant": "#c1c8c8",
+              "on-surface": "#231a10",
+              "surface-container": "#fdebd9",
+              "on-primary-fixed": "#031f21",
+              "on-tertiary": "#ffffff",
+              "on-primary-fixed-variant": "#314b4d",
+              "error": "#ba1a1a",
+              "surface": "#fff8f4",
+              "secondary": "#a53c09",
+              "primary-fixed-dim": "#afccce",
+              "background": "#fff8f4",
+              "error-container": "#ffdad6",
+              "on-tertiary-container": "#ffffff",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-fixed-variant": "#42484a",
+              "on-secondary-fixed": "#370d00",
+              "secondary-container": "#ff7e49",
+              "on-error": "#ffffff",
+              "tertiary-fixed": "#dee3e5",
+              "on-secondary-container": "#692100",
+              "on-error-container": "#93000a",
+              "inverse-on-surface": "#ffeede",
+              "surface-tint": "#486365",
+              "outline": "#727879",
+              "surface-variant": "#f2dfce",
+              "primary-container": "#607b7d",
+              "inverse-primary": "#afccce",
+              "on-secondary": "#ffffff",
+              "surface-container-highest": "#f2dfce",
+              "surface-dim": "#e9d7c6",
+              "on-tertiary-fixed": "#171d1e",
+              "tertiary-fixed-dim": "#c2c7c9",
+              "on-secondary-fixed-variant": "#802a00",
+              "primary": "#486264",
+              "on-primary": "#ffffff",
+              "secondary-fixed-dim": "#ffb59a",
+              "on-surface-variant": "#414848",
+              "tertiary": "#585e60",
+              "secondary-fixed": "#ffdbce",
+              "surface-container-high": "#f7e5d4",
+              "on-background": "#231a10",
+              "inverse-surface": "#392f23",
+              "tertiary-container": "#717779",
+              "surface-container-low": "#fff1e6",
+              "surface-bright": "#fff8f4",
+              "on-primary-container": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Newsreader", "serif"],
+              "body": ["Manrope", "sans-serif"],
+              "label": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .serif-italic { font-style: italic; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-[#fff8f4] dark:bg-stone-950 flex justify-between items-center w-full px-8 py-4 max-w-full sticky top-0 z-50">
+<div class="flex items-center gap-2">
+<span class="text-xl font-serif italic text-[#607B7D] dark:text-[#8aa4a6]">Architectural Ledger</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-[#a53c09] dark:text-[#e76c39] font-bold border-b-2 border-[#a53c09] transition-colors duration-300" href="#">Progress</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="text-[#595F61] dark:text-stone-400 hover:text-[#a53c09] transition-colors duration-300">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-full sticky top-0 bg-[#fff8f4] dark:bg-stone-950 h-screen w-64 border-r border-stone-200/15">
+<div class="p-8 border-b border-stone-200/10">
+<h2 class="font-headline text-[#607B7D] text-lg">Onboarding</h2>
+<p class="text-xs text-stone-500 font-label tracking-tight opacity-60">Step 6 of 10</p>
+</div>
+<nav class="flex-1 py-6">
+<div class="space-y-1">
+<div class="flex items-center gap-3 px-8 py-3 text-[#595F61] dark:text-stone-500 opacity-60 hover:opacity-100 hover:bg-stone-100 dark:hover:bg-stone-800 transition-all duration-200 ease-in-out cursor-pointer">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label tracking-tight">Identity</span>
+</div>
+<!-- ACTIVE TAB: Verification (Context: Identity Confirmation) -->
+<div class="flex items-center gap-3 px-8 py-3 text-[#607B7D] dark:text-[#8aa4a6] font-bold bg-[#fff8f4] dark:bg-stone-900 shadow-sm transition-all duration-200 ease-in-out cursor-pointer">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+<span class="font-label tracking-tight">Verification</span>
+</div>
+<div class="flex items-center gap-3 px-8 py-3 text-[#595F61] dark:text-stone-500 opacity-60 hover:opacity-100 hover:bg-stone-100 dark:hover:bg-stone-800 transition-all duration-200 ease-in-out cursor-pointer">
+<span class="material-symbols-outlined" data-icon="layers">layers</span>
+<span class="font-label tracking-tight">Portfolio</span>
+</div>
+<div class="flex items-center gap-3 px-8 py-3 text-[#595F61] dark:text-stone-500 opacity-60 hover:opacity-100 hover:bg-stone-100 dark:hover:bg-stone-800 transition-all duration-200 ease-in-out cursor-pointer">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-label tracking-tight">Availability</span>
+</div>
+<div class="flex items-center gap-3 px-8 py-3 text-[#595F61] dark:text-stone-500 opacity-60 hover:opacity-100 hover:bg-stone-100 dark:hover:bg-stone-800 transition-all duration-200 ease-in-out cursor-pointer">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label tracking-tight">Payment</span>
+</div>
+</div>
+</nav>
+<div class="p-8 mt-auto flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-fixed-dim flex items-center justify-center">
+<span class="text-xs font-bold text-on-primary-fixed">VS</span>
+</div>
+<div class="text-xs">
+<p class="font-bold text-primary">Vikram Sethi</p>
+<p class="opacity-60">Professional Profile</p>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex items-center justify-center p-6 md:p-12 bg-white">
+<div class="max-w-2xl w-full">
+<!-- Decorative Architectural Background Element -->
+<div class="absolute inset-0 pointer-events-none overflow-hidden opacity-5 z-0">
+<svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="40" id="grid" patternunits="userSpaceOnUse" width="40">
+<path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width="0.5"></path>
+</pattern>
+</defs>
+<rect fill="url(#grid)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<div class="relative z-10">
+<!-- Heading Section -->
+<div class="mb-12 text-center md:text-left">
+<span class="text-secondary font-label text-sm font-semibold tracking-widest uppercase mb-4 block">Identity Verification</span>
+<h1 class="font-headline text-4xl md:text-5xl text-primary leading-tight font-bold">Confirm your professional identity</h1>
+<p class="mt-4 text-tertiary text-lg max-w-lg font-body leading-relaxed">
+                            We've pulled your profile details from Google. Please ensure this information aligns exactly with your ICAI records to prevent delays in verification.
+                        </p>
+</div>
+<!-- Centered Form Card -->
+<div class="bg-surface-container-lowest p-8 md:p-12 shadow-[0_20px_40px_rgba(35,26,16,0.06)] rounded-lg">
+<form class="space-y-8">
+<div class="space-y-2">
+<label class="block font-label text-sm font-bold text-primary opacity-80 uppercase tracking-wider" for="full_name">Confirm your full name</label>
+<div class="relative group">
+<input class="block w-full border-0 border-b-2 border-outline-variant bg-transparent py-4 text-xl font-body focus:ring-0 focus:border-secondary transition-colors duration-300" id="full_name" name="full_name" type="text" value="Vikram Sethi"/>
+<div class="absolute right-0 top-1/2 -translate-y-1/2">
+<span class="material-symbols-outlined text-outline-variant group-focus-within:text-secondary transition-colors" data-icon="edit">edit</span>
+</div>
+</div>
+</div>
+<!-- Subtle Warning Block -->
+<div class="flex items-start gap-4 p-5 bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-secondary text-2xl mt-0.5" data-icon="warning">warning</span>
+<div>
+<p class="text-sm font-body text-primary font-semibold leading-snug">Verification Requirement</p>
+<p class="text-sm text-tertiary mt-1 leading-relaxed">
+                                        The name provided must match your <span class="font-bold">Institute of Chartered Accountants of India (ICAI)</span> registration records exactly for automatic ledger approval.
+                                    </p>
+</div>
+</div>
+<div class="pt-4 flex flex-col md:flex-row items-center gap-6">
+<button class="w-full md:w-auto px-10 py-4 bg-[#E76C39] text-white font-bold rounded-lg hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg shadow-[#E76C39]/20" type="submit">
+                                    Continue
+                                </button>
+<button class="text-primary font-bold hover:text-secondary transition-colors flex items-center gap-2 group" type="button">
+                                    I'll verify manually
+                                    <span class="w-4 h-[2px] bg-secondary/50 group-hover:w-full transition-all duration-300"></span>
+</button>
+</div>
+</form>
+</div>
+<!-- Editorial Footnote -->
+<div class="mt-12 flex items-center justify-between opacity-40">
+<div class="h-[1px] bg-outline-variant flex-1"></div>
+<span class="px-6 font-label text-[10px] uppercase tracking-[0.2em] whitespace-nowrap">Audit Trail #192-A6</span>
+<div class="h-[1px] bg-outline-variant flex-1"></div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Mobile Bottom Navigation -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-[#fff8f4] dark:bg-stone-950 flex justify-around items-center py-4 z-50">
+<div class="flex flex-col items-center gap-1 text-[#595F61] dark:text-stone-500 opacity-60">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px] font-label">Identity</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-[#a53c09] dark:text-[#e76c39] font-bold">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+<span class="text-[10px] font-label">Verification</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-[#595F61] dark:text-stone-500 opacity-60">
+<span class="material-symbols-outlined" data-icon="layers">layers</span>
+<span class="text-[10px] font-label">Portfolio</span>
+</div>
+</nav>
+</body></html>

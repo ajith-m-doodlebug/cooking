@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Payment Successful - The Archivist</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700;6..72,800&amp;family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-lowest": "#ffffff",
+              "inverse-on-surface": "#ffeede",
+              "on-secondary-fixed": "#171d1e",
+              "on-primary-fixed-variant": "#314b4d",
+              "secondary-container": "#dbe1e3",
+              "on-surface-variant": "#414848",
+              "error-container": "#ffdad6",
+              "on-secondary": "#ffffff",
+              "secondary": "#595f61",
+              "secondary-fixed-dim": "#c2c7c9",
+              "primary-container": "#607b7d",
+              "on-primary-container": "#ffffff",
+              "on-surface": "#231a10",
+              "on-primary-fixed": "#031f21",
+              "outline": "#727879",
+              "primary-fixed-dim": "#afccce",
+              "on-primary": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "surface-container-high": "#f7e5d4",
+              "on-error": "#ffffff",
+              "inverse-surface": "#392f23",
+              "surface-container-highest": "#f2dfce",
+              "tertiary": "#a43b08",
+              "on-background": "#231a10",
+              "surface-variant": "#f2dfce",
+              "surface-container-low": "#fff1e6",
+              "tertiary-container": "#c55322",
+              "surface": "#fff8f4",
+              "on-secondary-container": "#5e6466",
+              "error": "#ba1a1a",
+              "secondary-fixed": "#dee3e5",
+              "tertiary-fixed-dim": "#ffb59a",
+              "on-tertiary-fixed": "#370d00",
+              "on-tertiary-container": "#ffffff",
+              "tertiary-fixed": "#ffdbce",
+              "surface-dim": "#e9d7c6",
+              "primary": "#486264",
+              "primary-fixed": "#cbe8ea",
+              "on-error-container": "#93000a",
+              "surface-container": "#fdebd9",
+              "on-secondary-fixed-variant": "#42484a",
+              "inverse-primary": "#afccce",
+              "background": "#fff8f4",
+              "outline-variant": "#c1c8c8",
+              "on-tertiary-fixed-variant": "#802a00",
+              "surface-tint": "#486365",
+              "surface-bright": "#fff8f4"
+            },
+            fontFamily: {
+              "headline": ["Newsreader"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .success-pulse {
+            background: radial-gradient(circle, rgba(96, 123, 125, 0.15) 0%, rgba(255, 248, 244, 0) 70%);
+        }
+        .editorial-shadow {
+            box-shadow: 0 40px 40px -20px rgba(35, 26, 16, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-surface-bright font-body text-on-surface min-h-screen flex flex-col items-center justify-center p-6 selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Success Background Ornament -->
+<div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+<div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-primary/5 blur-3xl"></div>
+<div class="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-tertiary/5 blur-3xl"></div>
+</div>
+<!-- Main Success Container -->
+<main class="w-full max-w-xl animate-fade-in">
+<!-- Header Section -->
+<div class="text-center mb-10">
+<!-- Success Icon with Pulse -->
+<div class="relative inline-flex items-center justify-center mb-8">
+<div class="absolute inset-0 scale-150 success-pulse rounded-full"></div>
+<div class="relative w-24 h-24 rounded-full bg-primary flex items-center justify-center text-on-primary shadow-xl">
+<span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<h1 class="font-headline text-4xl md:text-5xl font-semibold text-on-surface mb-3 tracking-tight">Payment Successful</h1>
+<p class="font-body text-lg text-secondary font-medium opacity-80">Your subscription is now active</p>
+</div>
+<!-- Invoice Summary Card -->
+<div class="bg-surface-container-lowest rounded-xl editorial-shadow overflow-hidden relative">
+<!-- Tonal Top Border -->
+<div class="h-1.5 w-full bg-gradient-to-r from-primary via-primary-container to-primary"></div>
+<div class="p-8 md:p-10">
+<div class="flex justify-between items-start mb-8">
+<div>
+<span class="font-label text-xs text-secondary opacity-60 tracking-[0.2em]">RECEIPT NO.</span>
+<p class="font-body font-bold text-on-surface mt-1">#ARC-9920-X1</p>
+</div>
+<div class="text-right">
+<span class="font-label text-xs text-secondary opacity-60 tracking-[0.2em]">DATE</span>
+<p class="font-body font-bold text-on-surface mt-1">OCT 24, 2023</p>
+</div>
+</div>
+<!-- Line Items -->
+<div class="space-y-6">
+<div class="flex justify-between items-baseline group">
+<div class="max-w-[70%]">
+<h3 class="font-headline text-xl text-on-surface mb-1">Annual Professional Access</h3>
+<p class="font-body text-sm text-secondary">Unlimited audit logs, priority compliance support, and cloud ledger archiving for 12 months.</p>
+</div>
+<span class="font-body font-bold text-lg text-on-surface">$1,200.00</span>
+</div>
+<!-- Visual Separator (Tonal Shift) -->
+<div class="h-px w-full bg-outline-variant/20"></div>
+<div class="space-y-3">
+<div class="flex justify-between text-sm">
+<span class="text-secondary font-medium">Subtotal</span>
+<span class="text-on-surface font-bold">$1,200.00</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-secondary font-medium">GST (18%)</span>
+<span class="text-on-surface font-bold">$216.00</span>
+</div>
+</div>
+<!-- Total Section -->
+<div class="mt-8 bg-surface-container-low p-6 rounded-lg flex justify-between items-center">
+<span class="font-label text-sm text-primary font-extrabold tracking-widest uppercase">Total Amount Paid</span>
+<span class="font-headline text-3xl font-bold text-primary">$1,416.00</span>
+</div>
+</div>
+</div>
+<!-- Card Footer Metadata -->
+<div class="bg-surface-container-lowest px-8 py-4 border-t border-outline-variant/10 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<p class="font-body text-xs text-secondary italic">Secured by The Archivist Protocol. A confirmation email has been sent to partner@firm.com</p>
+</div>
+</div>
+<!-- Navigation Actions -->
+<div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-primary text-on-primary px-10 py-4 rounded-md font-body font-bold text-sm tracking-wide transition-all hover:brightness-110 active:scale-[0.98] shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+                Continue to Dashboard
+                <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+<button class="bg-surface-container-high text-primary px-10 py-4 rounded-md font-body font-bold text-sm tracking-wide transition-all hover:bg-surface-container-highest active:scale-[0.98] flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">download</span>
+                Download Invoice
+            </button>
+</div>
+<!-- Support Footer -->
+<p class="mt-12 text-center font-body text-sm text-secondary/60">
+            Need help with your subscription? 
+            <a class="text-tertiary font-bold hover:underline underline-offset-4 decoration-tertiary/30" href="#">Contact Support</a>
+</p>
+</main>
+<!-- Visual Confirmation Elements (Floating Papers/Receipts) -->
+<div class="hidden lg:block fixed left-12 top-1/2 -translate-y-1/2 opacity-40">
+<div class="w-48 h-64 bg-white/40 backdrop-blur-md rounded-lg rotate-[-6deg] editorial-shadow p-4 border border-white/20">
+<div class="w-12 h-2 bg-primary/10 mb-4"></div>
+<div class="space-y-2">
+<div class="w-full h-1.5 bg-secondary/5"></div>
+<div class="w-3/4 h-1.5 bg-secondary/5"></div>
+<div class="w-5/6 h-1.5 bg-secondary/5"></div>
+</div>
+</div>
+</div>
+<div class="hidden lg:block fixed right-12 top-1/2 -translate-y-1/2 opacity-40">
+<div class="w-52 h-64 bg-white/40 backdrop-blur-md rounded-lg rotate-[4deg] editorial-shadow p-6 border border-white/20">
+<div class="w-10 h-10 rounded-full bg-tertiary/5 mb-6"></div>
+<div class="space-y-3">
+<div class="w-full h-2 bg-primary/5"></div>
+<div class="w-full h-2 bg-primary/5"></div>
+<div class="w-1/2 h-2 bg-primary/5"></div>
+</div>
+</div>
+</div>
+</body></html>

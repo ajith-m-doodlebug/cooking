@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200..900&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed-dim": "#c2c7c9",
+              "surface-variant": "#f2dfce",
+              "primary-fixed-dim": "#afccce",
+              "on-primary-fixed-variant": "#314b4d",
+              "on-primary-container": "#ffffff",
+              "surface": "#fff8f4",
+              "secondary-fixed": "#ffdbce",
+              "secondary": "#a53c09",
+              "primary-container": "#607b7d",
+              "error": "#ba1a1a",
+              "surface-bright": "#fff8f4",
+              "secondary-container": "#ff7e49",
+              "on-background": "#231a10",
+              "surface-container-highest": "#f2dfce",
+              "primary": "#486264",
+              "surface-dim": "#e9d7c6",
+              "inverse-surface": "#392f23",
+              "surface-container-lowest": "#ffffff",
+              "on-error-container": "#93000a",
+              "surface-container-high": "#f7e5d4",
+              "on-surface-variant": "#414848",
+              "on-secondary-fixed-variant": "#802a00",
+              "primary-fixed": "#cbe8ea",
+              "tertiary": "#585e60",
+              "on-tertiary-container": "#ffffff",
+              "on-primary-fixed": "#031f21",
+              "inverse-primary": "#afccce",
+              "background": "#fff8f4",
+              "surface-tint": "#486365",
+              "secondary-fixed-dim": "#ffb59a",
+              "surface-container-low": "#fff1e6",
+              "on-tertiary-fixed-variant": "#42484a",
+              "on-surface": "#231a10",
+              "outline": "#727879",
+              "on-tertiary-fixed": "#171d1e",
+              "surface-container": "#fdebd9",
+              "on-secondary-container": "#692100",
+              "tertiary-container": "#717779",
+              "on-secondary": "#ffffff",
+              "inverse-on-surface": "#ffeede",
+              "on-error": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-tertiary": "#ffffff",
+              "on-primary": "#ffffff",
+              "tertiary-fixed": "#dee3e5",
+              "outline-variant": "#c1c8c8",
+              "on-secondary-fixed": "#370d00",
+              "brand-slate": "#595F61",
+              "brand-teal": "#607B7D",
+              "brand-orange": "#E76C39",
+              "brand-taupe": "#9E8F80"
+            },
+            fontFamily: {
+              "headline": ["Crimson Pro", "serif"],
+              "body": ["Inter", "sans-serif"],
+              "label": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .architectural-pattern {
+            background-image: radial-gradient(#ffffff05 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        .data-texture {
+            background-image: linear-gradient(#48626408 1px, transparent 1px), linear-gradient(90deg, #48626408 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        /* Override any forced italics in the source */
+        .not-italic { font-style: normal !important; }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-secondary-container/30 antialiased not-italic">
+<nav class="fixed top-0 w-full z-50 bg-[#fff8f4]/90 backdrop-blur-xl border-b border-brand-teal/10">
+<div class="flex justify-between items-center px-8 py-5 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-headline font-bold text-brand-teal">Editorial CA</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-brand-slate font-label font-bold text-xs uppercase tracking-wider hover:text-brand-teal transition-colors" href="#">Solutions</a>
+<a class="text-brand-slate font-label font-bold text-xs uppercase tracking-wider hover:text-brand-teal transition-colors" href="#">Methodology</a>
+<a class="text-brand-slate font-label font-bold text-xs uppercase tracking-wider hover:text-brand-teal transition-colors" href="#">Pricing</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-brand-teal font-label font-bold text-xs uppercase tracking-wider hover:opacity-80 transition-opacity">Client Portal</button>
+<button class="bg-brand-orange text-white px-7 py-2.5 rounded-sm font-label font-bold text-xs uppercase tracking-widest shadow-lg shadow-brand-orange/20 hover:shadow-brand-orange/40 transition-all">Contact Advisor</button>
+</div>
+</div>
+</nav>
+<main class="min-h-screen pt-20 flex flex-col md:flex-row">
+<!-- Practitioner Side: The Engine Room -->
+<div class="relative w-full md:w-1/2 bg-brand-teal text-white min-h-[70vh] md:min-h-screen group overflow-hidden border-r border-white/5">
+<div class="absolute inset-0 architectural-pattern opacity-20"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-brand-teal via-[#486264] to-[#2c3d3e]"></div>
+<div class="relative z-10 h-full flex flex-col justify-center px-12 lg:px-24 py-20">
+<span class="text-white/60 font-label font-black text-[10px] tracking-[0.4em] uppercase mb-8 block">Internal Practitioner Access</span>
+<h2 class="text-6xl lg:text-8xl font-headline font-medium mb-10 leading-[0.95] tracking-tight">Professional <br/>Ledger Access.</h2>
+<p class="max-w-md text-xl text-white/90 font-light leading-relaxed mb-12">
+                Enter the practice management environment for end-to-end engagement orchestration, automated compliance frameworks, and deep-cycle audit controls.
+            </p>
+<div class="grid grid-cols-1 gap-6 mb-16">
+<div class="flex items-start gap-4 p-5 rounded-sm bg-white/5 border border-white/10">
+<span class="material-symbols-outlined text-white/40">account_tree</span>
+<div>
+<h4 class="font-bold text-sm text-white uppercase tracking-wider">Regulatory Compliance Gateway</h4>
+<p class="text-xs text-white/60 mt-1">Enterprise-grade reporting and statutory alignment.</p>
+</div>
+</div>
+</div>
+<a class="inline-flex items-center group/btn" href="#">
+<div class="bg-white text-brand-teal px-10 py-5 rounded-sm font-label font-black text-xs tracking-[0.2em] uppercase flex items-center gap-4 group-hover/btn:bg-brand-orange group-hover/btn:text-white transition-all duration-300">
+                    Access Practice Suite
+                    <span class="material-symbols-outlined text-sm font-bold">arrow_forward</span>
+</div>
+</a>
+</div>
+</div>
+<!-- Client Side: Premium Transparency -->
+<div class="relative w-full md:w-1/2 bg-brand-taupe text-on-surface min-h-[70vh] md:min-h-screen group overflow-hidden">
+<div class="absolute inset-0 data-texture opacity-30"></div>
+<div class="absolute inset-0 bg-gradient-to-bl from-brand-taupe/20 via-white to-white"></div>
+<div class="relative z-10 h-full flex flex-col justify-center px-12 lg:px-24 py-20">
+<span class="text-brand-slate font-label font-black text-[10px] tracking-[0.4em] uppercase mb-8 block">Executive Client Portal</span>
+<h2 class="text-6xl lg:text-8xl font-headline font-medium mb-10 leading-[0.95] tracking-tight text-brand-teal">Strategic Financial Oversight.</h2>
+<p class="max-w-md text-xl text-brand-slate font-light leading-relaxed mb-12">
+                Secure transparency through curated executive dashboards. Monitor fiscal health, facilitate document exchange, and maintain direct advisory connectivity.
+            </p>
+<div class="grid grid-cols-1 gap-6 mb-16">
+<div class="flex items-start gap-4 p-5 rounded-sm bg-brand-teal/5 border border-brand-teal/10">
+<span class="material-symbols-outlined text-brand-teal/40">analytics</span>
+<div>
+<h4 class="font-bold text-sm text-brand-teal uppercase tracking-wider">Client Portfolio Management</h4>
+<p class="text-xs text-brand-slate mt-1">Real-time valuation and historical data analysis.</p>
+</div>
+</div>
+</div>
+<a class="inline-flex items-center group/btn" href="#">
+<div class="bg-brand-teal text-white px-10 py-5 rounded-sm font-label font-black text-xs tracking-[0.2em] uppercase flex items-center gap-4 group-hover/btn:bg-brand-orange transition-all duration-300">
+                    Enter Executive Dashboard
+                    <span class="material-symbols-outlined text-sm font-bold">arrow_forward</span>
+</div>
+</a>
+</div>
+</div>
+</main>
+<footer class="w-full py-20 px-8 bg-surface border-t border-brand-teal/10">
+<div class="max-w-screen-2xl mx-auto flex flex-col lg:flex-row justify-between items-start lg:items-center gap-16">
+<div class="space-y-6">
+<div class="font-headline font-bold text-brand-teal text-3xl">Editorial Authority</div>
+<p class="text-brand-slate text-sm max-w-xs leading-relaxed font-medium">Defining the gold standard in professional advisory and fiscal architecture since 1994.</p>
+</div>
+<div class="flex flex-wrap gap-x-20 gap-y-8">
+<div class="space-y-6">
+<h5 class="text-[10px] font-black uppercase tracking-[0.3em] text-brand-teal">Governance</h5>
+<div class="flex flex-col gap-3">
+<a class="text-brand-slate font-label font-bold text-xs uppercase tracking-wider hover:text-brand-orange transition-colors" href="#">Privacy Policy</a>
+<a class="text-brand-slate font-label font-bold text-xs uppercase tracking-wider hover:text-brand-orange transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+<div class="space-y-6">
+<h5 class="text-[10px] font-black uppercase tracking-[0.3em] text-brand-teal">Compliance</h5>
+<div class="flex flex-col gap-3">
+<a class="text-brand-slate font-label font-bold text-xs uppercase tracking-wider hover:text-brand-orange transition-colors" href="#">Regulatory Disclosure</a>
+<a class="text-brand-slate font-label font-bold text-xs uppercase tracking-wider hover:text-brand-orange transition-colors" href="#">Accessibility</a>
+</div>
+</div>
+</div>
+<div class="text-brand-slate font-label font-bold text-[10px] uppercase tracking-widest lg:text-right border-t lg:border-t-0 border-brand-teal/5 pt-8 lg:pt-0 w-full lg:w-auto leading-loose">
+            © 2024 Editorial Authority Chartered Accountants.<br/>All rights reserved. Professional Liability Protected.
+        </div>
+</div>
+</footer>
+</body></html>

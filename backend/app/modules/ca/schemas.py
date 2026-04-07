@@ -1,6 +1,6 @@
 from pydantic import BaseModel, field_validator
 from typing import List
-from .models import VerificationStatus, ConsultationMode
+from .models import VerificationStatus, ConsultationMode, SubscriptionPaymentStatus
 
 
 # ─── Onboarding Page 1 ───────────────────────────────────────────────────────
@@ -45,6 +45,13 @@ class OnboardingBookingRequest(BaseModel):
     fee_online: float | None = None
     fee_inperson: float | None = None
 
+    @field_validator("fee_online", "fee_inperson", mode="before")
+    @classmethod
+    def empty_fee_to_none(cls, v):
+        if v is None or v == "":
+            return None
+        return v
+
 
 # ─── Responses ───────────────────────────────────────────────────────────────
 
@@ -60,6 +67,8 @@ class CAProfileResponse(BaseModel):
     verification_status: VerificationStatus
     is_visible: bool
     onboarding_complete: bool
+    subscription_payment_status: SubscriptionPaymentStatus
+    active_subscription_id: str | None
 
     model_config = {"from_attributes": True}
 

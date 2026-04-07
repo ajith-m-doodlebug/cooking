@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Service Portfolio | Onboarding Portal</title>
+<!-- Google Fonts: Newsreader & Manrope -->
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,600&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-fixed": "#171d1e",
+              "on-tertiary-fixed-variant": "#42484a",
+              "outline": "#727879",
+              "primary-container": "#607b7d",
+              "outline-variant": "#c1c8c8",
+              "tertiary-fixed": "#dee3e5",
+              "background": "#fff8f4",
+              "surface-dim": "#e9d7c6",
+              "secondary": "#a53c09",
+              "on-secondary-container": "#692100",
+              "tertiary": "#585e60",
+              "primary": "#486264",
+              "surface-container-high": "#f7e5d4",
+              "on-tertiary-container": "#ffffff",
+              "surface-container-low": "#fff1e6",
+              "primary-fixed": "#cbe8ea",
+              "on-surface": "#231a10",
+              "surface-container-highest": "#f2dfce",
+              "on-secondary-fixed": "#370d00",
+              "on-primary-fixed-variant": "#314b4d",
+              "on-tertiary": "#ffffff",
+              "on-background": "#231a10",
+              "surface": "#fff8f4",
+              "primary-fixed-dim": "#afccce",
+              "surface-bright": "#fff8f4",
+              "secondary-container": "#ff7e49",
+              "on-primary-fixed": "#031f21",
+              "error": "#ba1a1a",
+              "surface-container": "#fdebd9",
+              "on-error-container": "#93000a",
+              "on-primary": "#ffffff",
+              "inverse-on-surface": "#ffeede",
+              "surface-tint": "#486365",
+              "tertiary-container": "#717779",
+              "on-secondary": "#ffffff",
+              "on-primary-container": "#ffffff",
+              "inverse-surface": "#392f23",
+              "surface-variant": "#f2dfce",
+              "secondary-fixed": "#ffdbce",
+              "on-secondary-fixed-variant": "#802a00",
+              "inverse-primary": "#afccce",
+              "error-container": "#ffdad6",
+              "tertiary-fixed-dim": "#c2c7c9",
+              "on-error": "#ffffff",
+              "secondary-fixed-dim": "#ffb59a",
+              "on-surface-variant": "#414848",
+              "surface-container-lowest": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Newsreader", "serif"],
+              "body": ["Manrope", "sans-serif"],
+              "label": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-pill {
+            font-variation-settings: 'FILL' 1;
+        }
+        /* Custom scrollbar for an editorial feel */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #fff8f4; }
+        ::-webkit-scrollbar-thumb { background: #c1c8c8; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 z-50 w-full h-16 flex justify-between items-center px-8 bg-[#fff8f4] dark:bg-slate-950 border-b border-[#486264]/10 dark:border-white/10">
+<div class="flex items-center gap-4">
+<span class="font-newsreader text-2xl italic font-semibold text-[#486264] dark:text-[#607B7D]">Onboarding Portal</span>
+</div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-[#595F61] dark:text-slate-400 hover:text-[#486264] transition-colors font-medium text-sm" href="#">Dashboard</a>
+<a class="text-[#486264] dark:text-white border-b-2 border-[#a53c09] pb-1 font-medium text-sm" href="#">Resources</a>
+<a class="text-[#595F61] dark:text-slate-400 hover:text-[#486264] transition-colors font-medium text-sm" href="#">Support</a>
+</nav>
+<div class="flex items-center space-x-4">
+<button class="p-2 text-[#486264] hover:bg-[#486264]/5 rounded-full transition-all duration-300">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-[#486264] hover:bg-[#486264]/5 rounded-full transition-all duration-300">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="User profile avatar" data-alt="Professional portrait of a male executive in a neutral grey studio background with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD93TnQytDSuj5BHt2xZrnMl0LLbzkCHV6NcttUAxOkP7HjrAn8nt0QH6OFyvmM1PlM0ougiq7wijvV7kMDOXcuOCvJmrlbPkF1EPrvvkKNWojjEQ9yvwycjXPcPzbujD5qUrOdoyolCy7bPxXLXI945j2gjWNZ8ravjCgb0ghliOYLyVhKHT32eaUV3usPbrax7kuJ5tMQczZpk_7d4r2ZT21x2r2wkXLbSW8HFggfdGjYUQs8VLkt_cxaSfAbdryO6MF2dcfk3Rg"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar (Navigation Anchor) -->
+<aside class="hidden lg:flex flex-col fixed left-0 top-0 h-screen w-72 py-8 px-6 space-y-4 bg-[#fff8f4] dark:bg-slate-950 border-r border-[#486264]/10 mt-16">
+<div class="mb-8">
+<div class="flex items-center gap-3 mb-2">
+<div class="h-10 w-10 bg-primary-container rounded flex items-center justify-center text-white">
+<span class="material-symbols-outlined">domain</span>
+</div>
+<div>
+<h2 class="font-newsreader text-xl font-bold text-[#486264]">Client Intake</h2>
+<p class="text-xs text-on-surface-variant font-medium">Onboarding Phase I</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-[#595F61] dark:text-slate-400 hover:bg-[#486264]/5 hover:pl-2 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">fingerprint</span>
+<span class="text-sm font-medium">Identity Verification</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-[#486264] text-white rounded-md shadow-sm font-semibold transition-all duration-300" href="#">
+<span class="material-symbols-outlined">domain</span>
+<span class="text-sm font-medium">Business Profile</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#595F61] dark:text-slate-400 hover:bg-[#486264]/5 hover:pl-2 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="text-sm font-medium">Financial History</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#595F61] dark:text-slate-400 hover:bg-[#486264]/5 hover:pl-2 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="text-sm font-medium">Documents</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#595F61] dark:text-slate-400 hover:bg-[#486264]/5 hover:pl-2 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">fact_check</span>
+<span class="text-sm font-medium">Final Review</span>
+</a>
+</nav>
+<div class="pt-6 border-t border-outline-variant/30 space-y-2">
+<button class="w-full py-3 bg-secondary text-on-secondary rounded-md font-bold text-sm tracking-wide shadow-sm hover:scale-[1.02] transition-transform">
+                Save Progress
+            </button>
+<a class="flex items-center gap-3 px-4 py-2 text-[#595F61] text-xs hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-[#595F61] text-xs hover:text-error transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="lg:ml-72 pt-24 pb-16 px-8 md:px-12 max-w-7xl mx-auto">
+<!-- Header Section -->
+<div class="mb-12">
+<span class="text-[#a53c09] text-xs font-bold uppercase tracking-widest mb-2 block">Step 2 of 3</span>
+<h1 class="font-headline text-4xl md:text-5xl text-primary font-bold tracking-tight mb-4">Service Portfolio</h1>
+<p class="text-on-surface-variant max-w-2xl text-lg leading-relaxed">
+                Define the scope of your professional practice. Select the core services that define your firm's expertise to help us curate your digital ledger experience.
+            </p>
+</div>
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-12">
+<!-- Service Selection Grid (Left & Center) -->
+<div class="xl:col-span-2 space-y-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Service Card: Selected -->
+<div class="group relative p-6 bg-surface-container-lowest border-2 border-primary rounded-xl cursor-pointer transition-all duration-300">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+<div class="h-6 w-6 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-xs">check</span>
+</div>
+</div>
+<h3 class="font-headline text-xl font-bold text-primary mb-2">Corporate Taxation</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Strategic planning and compliance for domestic and multinational corporate entities.</p>
+</div>
+<!-- Service Card -->
+<div class="group relative p-6 bg-surface-container-lowest border border-outline-variant/30 rounded-xl cursor-pointer hover:border-primary/50 transition-all duration-300">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary text-3xl">fact_check</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-primary mb-2">Statutory Audit</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Rigorous independent examination of financial statements to ensure absolute transparency.</p>
+</div>
+<!-- Service Card -->
+<div class="group relative p-6 bg-surface-container-lowest border border-outline-variant/30 rounded-xl cursor-pointer hover:border-primary/50 transition-all duration-300">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary text-3xl">security</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-primary mb-2">Risk Assurance</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Identification and mitigation of operational, financial, and regulatory risks.</p>
+</div>
+<!-- Service Card: Selected -->
+<div class="group relative p-6 bg-surface-container-lowest border-2 border-primary rounded-xl cursor-pointer transition-all duration-300">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">monitoring</span>
+<div class="h-6 w-6 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-xs">check</span>
+</div>
+</div>
+<h3 class="font-headline text-xl font-bold text-primary mb-2">Advisory Services</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">High-impact financial consulting focused on growth and organizational efficiency.</p>
+</div>
+<!-- Service Card -->
+<div class="group relative p-6 bg-surface-container-lowest border border-outline-variant/30 rounded-xl cursor-pointer hover:border-primary/50 transition-all duration-300">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary text-3xl">payments</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-primary mb-2">Indirect Tax</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Comprehensive management of GST, VAT, and custom duty frameworks.</p>
+</div>
+<!-- Service Card -->
+<div class="group relative p-6 bg-surface-container-lowest border border-outline-variant/30 rounded-xl cursor-pointer hover:border-primary/50 transition-all duration-300">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary text-3xl">balance</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-primary mb-2">Litigation Support</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Expert witness and technical support for financial dispute resolution.</p>
+</div>
+</div>
+</div>
+<!-- Configuration Sidebar (Right) -->
+<div class="space-y-8">
+<div class="bg-surface-container-low p-8 rounded-xl space-y-8">
+<h2 class="font-headline text-2xl font-bold text-primary">Engagement Preferences</h2>
+<!-- Toggle: Consultation Mode -->
+<div class="space-y-4">
+<label class="block font-label text-sm font-bold uppercase tracking-wider text-on-surface-variant">Consultation Mode</label>
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-lg border border-outline-variant/20">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">video_chat</span>
+<span class="text-sm font-medium">Allow Virtual Sessions</span>
+</div>
+<button class="relative inline-flex h-6 w-11 items-center rounded-full bg-secondary">
+<span class="inline-block h-4 w-4 translate-x-6 transform rounded-full bg-white transition"></span>
+</button>
+</div>
+</div>
+<!-- Experience Range Dropdown -->
+<div class="space-y-3">
+<label class="block font-label text-sm font-bold uppercase tracking-wider text-on-surface-variant">Experience Range</label>
+<div class="relative">
+<select class="w-full appearance-none bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-secondary focus:ring-0 py-3 px-4 pr-10 text-sm font-medium transition-all">
+<option>5 - 10 Years</option>
+<option>10 - 15 Years</option>
+<option>15 - 20 Years</option>
+<option>20+ Years Professional</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-3 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Multi-select: Languages -->
+<div class="space-y-3">
+<label class="block font-label text-sm font-bold uppercase tracking-wider text-on-surface-variant">Practice Languages</label>
+<div class="flex flex-wrap gap-2">
+<button class="px-4 py-2 bg-primary text-white text-xs font-bold rounded-full flex items-center gap-2">
+                                English <span class="material-symbols-outlined text-xs">close</span>
+</button>
+<button class="px-4 py-2 bg-primary text-white text-xs font-bold rounded-full flex items-center gap-2">
+                                Hindi <span class="material-symbols-outlined text-xs">close</span>
+</button>
+<button class="px-4 py-2 bg-surface-container-lowest border border-outline-variant text-primary text-xs font-bold rounded-full hover:bg-primary-container hover:text-white transition-colors">
+                                + Add Language
+                            </button>
+</div>
+</div>
+<!-- Visual Accent Card -->
+<div class="relative overflow-hidden rounded-lg aspect-video mt-4 group">
+<img alt="Modern office architectural detail" class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110" data-alt="Interior of a modern high-end office with sleek minimalist furniture, large windows, and premium materials under soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCddJzKBt1A5Q1-mGrIdFNQs9xzrXgfGyDJQ04bdS-phlAahBXdSfHrIz2iJi2ZO2fY7Nq3mo-SloLWP4gxwaen7Nkdur45XHngnF0zsaUUO0GJC9ERqXxbif3tV9z1yf0hpcFXmwfnd7iiSV17uIRD21CaHvrguQAbN7dikSRTwgTt__-c07n0CvPCqjjDzjmOFBa-hjpLCL9O5O5qjurFS2NPIfBDxp-tm5L9V5Gp7UPvo7hYTYkzyoPB1FGnU_MCg9pr0G-6aCM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex items-end p-6">
+<p class="text-white text-xs italic font-newsreader">"Precision in practice, authority in advice."</p>
+</div>
+</div>
+</div>
+<!-- Footer CTAs -->
+<div class="flex flex-col gap-3">
+<button class="w-full py-4 bg-secondary text-white rounded-md font-bold tracking-widest text-sm hover:brightness-110 transition-all flex items-center justify-center gap-2">
+                        CONTINUE TO FINANCIALS
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="w-full py-3 bg-transparent text-primary font-bold text-sm border-b-2 border-secondary/50 w-max mx-auto hover:border-secondary transition-all">
+                        Skip for now
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual Footer (Mobile only fallback) -->
+<nav class="md:hidden fixed bottom-0 w-full h-16 bg-surface-container-high flex justify-around items-center border-t border-outline-variant/20 z-50">
+<button class="flex flex-col items-center text-[#595F61]">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-bold">DASHBOARD</span>
+</button>
+<button class="flex flex-col items-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">domain</span>
+<span class="text-[10px] font-bold">PORTFOLIO</span>
+</button>
+<button class="flex flex-col items-center text-[#595F61]">
+<span class="material-symbols-outlined">help</span>
+<span class="text-[10px] font-bold">SUPPORT</span>
+</button>
+</nav>
+</body></html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Verification Pending | The Archivist</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;500;600;700&amp;family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-on-surface": "#ffeede",
+                        "on-secondary-fixed": "#171d1e",
+                        "on-primary-fixed-variant": "#314b4d",
+                        "secondary-container": "#dbe1e3",
+                        "on-surface-variant": "#414848",
+                        "error-container": "#ffdad6",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#595f61",
+                        "secondary-fixed-dim": "#c2c7c9",
+                        "primary-container": "#607b7d",
+                        "on-primary-container": "#ffffff",
+                        "on-surface": "#231a10",
+                        "on-primary-fixed": "#031f21",
+                        "outline": "#727879",
+                        "primary-fixed-dim": "#afccce",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#f7e5d4",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#392f23",
+                        "surface-container-highest": "#f2dfce",
+                        "tertiary": "#a43b08",
+                        "on-background": "#231a10",
+                        "surface-variant": "#f2dfce",
+                        "surface-container-low": "#fff1e6",
+                        "tertiary-container": "#c55322",
+                        "surface": "#fff8f4",
+                        "on-secondary-container": "#5e6466",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#dee3e5",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "on-tertiary-fixed": "#370d00",
+                        "on-tertiary-container": "#ffffff",
+                        "tertiary-fixed": "#ffdbce",
+                        "surface-dim": "#e9d7c6",
+                        "primary": "#486264",
+                        "primary-fixed": "#cbe8ea",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#fdebd9",
+                        "on-secondary-fixed-variant": "#42484a",
+                        "inverse-primary": "#afccce",
+                        "background": "#fff8f4",
+                        "outline-variant": "#c1c8c8",
+                        "on-tertiary-fixed-variant": "#802a00",
+                        "surface-tint": "#486365",
+                        "surface-bright": "#fff8f4"
+                    },
+                    fontFamily: {
+                        "headline": ["Newsreader", "serif"],
+                        "body": ["Manrope", "sans-serif"],
+                        "label": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        h1, h2, h3 {
+            font-family: 'Newsreader', serif;
+        }
+        .tonal-gradient {
+            background: linear-gradient(135deg, #486264 0%, #607B7D 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface min-h-screen flex flex-col">
+<!-- TopNavBar (Shared Component) -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm opacity-4 shadow-slate-900/5">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold font-serif text-slate-800 dark:text-slate-100">The Archivist</span>
+<!-- Navigation hidden for transactional/focus state as per filter rules -->
+</div>
+<div class="flex items-center gap-4">
+<button class="text-slate-500 dark:text-slate-400 font-medium hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors p-2 rounded">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<button class="text-slate-500 dark:text-slate-400 font-medium hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors px-3 py-1 text-sm">Support</button>
+<div class="w-8 h-8 rounded-full bg-surface-container overflow-hidden">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="close-up professional headshot of a senior accountant with a kind expression and neutral grey background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2uw17SYBz_VwaaDBKbnJ5_6l_vdViEkeBccx09c1NPCfkdySxYRjDRbS7_Eio66P8U7MvVVMRnoyAnGrqhm0nEV4-yHlfASW9FRtEyd8enOCHw90NyJ_rK8YAQOBjSTRYKBAFtD2iyeNDBI8s-tj64jQmt3YcxqzTS8p9uJeg3WgaBd0RIlyDfzpKJck5Bxh_lw45tddsdVnVjFzsE8JKX-WxH-tdWhhYe-byYEtgMw-nqx5RQ_QgmSQQRjwHb1s2jEtH4tjBweI"/>
+</div>
+</div>
+</header>
+<main class="flex-grow flex items-center justify-center px-6 pt-24 pb-12">
+<div class="max-w-4xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<!-- Illustration Column -->
+<div class="flex flex-col items-center justify-center space-y-8 order-2 md:order-1">
+<div class="relative w-full aspect-square max-w-sm">
+<!-- Glassmorphism Illustration Container -->
+<div class="absolute inset-0 bg-surface-container-low rounded-xl opacity-50"></div>
+<div class="absolute inset-4 bg-white/40 backdrop-blur-md rounded-xl shadow-sm flex items-center justify-center p-8">
+<div class="text-center">
+<div class="mb-6 inline-flex items-center justify-center w-24 h-24 rounded-full bg-surface-container-high text-tertiary ring-8 ring-surface-container">
+<span class="material-symbols-outlined !text-5xl" style="font-variation-settings: 'FILL' 1;">history</span>
+</div>
+<h2 class="text-2xl font-medium text-on-surface mb-2">Verification in Progress</h2>
+<p class="text-secondary text-sm font-body">Ref: #CA-99203-AUDIT</p>
+</div>
+</div>
+<!-- Decorative Floating Elements -->
+<div class="absolute -top-4 -right-4 w-20 h-20 bg-primary/10 rounded-full blur-2xl"></div>
+<div class="absolute -bottom-8 -left-8 w-32 h-32 bg-tertiary/10 rounded-full blur-3xl"></div>
+</div>
+<div class="text-center max-w-xs">
+<p class="text-on-surface-variant font-body leading-relaxed">
+                        Our compliance team is manually reviewing your professional credentials and identity documents.
+                    </p>
+</div>
+</div>
+<!-- Content Column -->
+<div class="order-1 md:order-2 space-y-10">
+<header class="space-y-4">
+<span class="text-on-tertiary-fixed-variant font-label text-[0.6875rem] tracking-widest bg-tertiary-fixed px-3 py-1 rounded-full uppercase">Review Phase</span>
+<h1 class="text-4xl md:text-5xl font-semibold text-on-surface tracking-tight leading-tight">Your profile is being reviewed.</h1>
+<p class="text-secondary font-body text-lg">This process typically takes between 24–48 hours. We will notify you once your status changes.</p>
+</header>
+<!-- Timeline / Checklist -->
+<div class="space-y-1">
+<div class="relative pl-8 pb-6 border-l-2 border-primary">
+<div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-primary ring-4 ring-surface"></div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-bold font-body text-on-surface">Application Submitted</h4>
+<p class="text-sm text-secondary">Phase completed on Oct 24, 14:20</p>
+</div>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<div class="relative pl-8 pb-6 border-l-2 border-primary">
+<div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-primary ring-4 ring-surface"></div>
+<div class="space-y-4">
+<div>
+<h4 class="font-bold font-body text-on-surface">Compliance Checklist</h4>
+<p class="text-sm text-secondary">Current status of your verification items:</p>
+</div>
+<div class="grid grid-cols-1 gap-3">
+<!-- Identity -->
+<div class="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="fingerprint">fingerprint</span>
+<span class="font-bold font-label text-[0.75rem] text-on-surface">IDENTITY</span>
+</div>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant text-[0.65rem] font-black uppercase rounded-full">In Review</span>
+</div>
+<!-- Credentials -->
+<div class="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="workspace_premium">workspace_premium</span>
+<span class="font-bold font-label text-[0.75rem] text-on-surface">CREDENTIALS</span>
+</div>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant text-[0.65rem] font-black uppercase rounded-full">In Review</span>
+</div>
+<!-- Services -->
+<div class="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="account_balance">account_balance</span>
+<span class="font-bold font-label text-[0.75rem] text-on-surface">SERVICES</span>
+</div>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant text-[0.65rem] font-black uppercase rounded-full">In Review</span>
+</div>
+<!-- Payment -->
+<div class="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="payments">payments</span>
+<span class="font-bold font-label text-[0.75rem] text-on-surface">PAYMENT</span>
+</div>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant text-[0.65rem] font-black uppercase rounded-full">In Review</span>
+</div>
+</div>
+</div>
+</div>
+<div class="relative pl-8 border-l-2 border-outline-variant opacity-40">
+<div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-outline-variant ring-4 ring-surface"></div>
+<h4 class="font-bold font-body text-on-surface">Activation</h4>
+<p class="text-sm text-secondary">Full platform access</p>
+</div>
+</div>
+<!-- CTA Section -->
+<div class="pt-6 flex flex-col sm:flex-row items-center gap-4">
+<button class="w-full sm:w-auto px-8 py-4 bg-primary text-on-primary font-bold rounded shadow-[0_4px_0_0_rgba(49,75,77,1)] active:translate-y-[2px] active:shadow-none transition-all duration-150">
+                        Go to Dashboard
+                    </button>
+<button class="w-full sm:w-auto px-8 py-4 bg-surface-container-high text-primary font-bold rounded hover:bg-surface-container-highest transition-colors">
+                        Edit Application
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<footer class="mt-auto py-12 px-6 border-t border-outline-variant/10">
+<div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-center gap-4 text-secondary text-sm">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span>Regulated by the Institute of Chartered Accountants</span>
+</div>
+<div class="flex gap-8 text-secondary font-label text-[0.6875rem] font-bold tracking-widest uppercase">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Security Standards</a>
+</div>
+</div>
+</footer>
+<!-- SideNavBar Logic: Only visible on desktop if top-level, but suppressed here for focus -->
+</body></html>

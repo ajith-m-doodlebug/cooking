@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Archivist | Role Selection</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-low": "#fff1e6",
+                        "surface-container-highest": "#f2dfce",
+                        "inverse-surface": "#392f23",
+                        "inverse-on-surface": "#ffeede",
+                        "primary-container": "#607b7d",
+                        "surface-dim": "#e9d7c6",
+                        "outline": "#727879",
+                        "on-secondary-fixed": "#171d1e",
+                        "on-background": "#231a10",
+                        "surface-tint": "#486365",
+                        "surface-variant": "#f2dfce",
+                        "on-secondary-fixed-variant": "#42484a",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "background": "#fff8f4",
+                        "secondary-fixed": "#dee3e5",
+                        "primary": "#486264",
+                        "secondary-container": "#dbe1e3",
+                        "on-secondary-container": "#5e6466",
+                        "on-tertiary-fixed": "#370d00",
+                        "on-tertiary-container": "#ffffff",
+                        "tertiary-fixed": "#ffdbce",
+                        "on-tertiary-fixed-variant": "#802a00",
+                        "on-surface": "#231a10",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#fdebd9",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#fff8f4",
+                        "outline-variant": "#c1c8c8",
+                        "tertiary-container": "#c55322",
+                        "surface": "#fff8f4",
+                        "on-surface-variant": "#414848",
+                        "tertiary": "#a43b08",
+                        "secondary": "#595f61",
+                        "on-primary-container": "#ffffff",
+                        "primary-fixed": "#cbe8ea",
+                        "primary-fixed-dim": "#afccce",
+                        "secondary-fixed-dim": "#c2c7c9",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "on-primary-fixed-variant": "#314b4d",
+                        "inverse-primary": "#afccce",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#f7e5d4",
+                        "on-primary-fixed": "#031f21",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff"
+                    },
+                    fontFamily: {
+                        "headline": ["Newsreader", "serif"],
+                        "body": ["Manrope", "sans-serif"],
+                        "label": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Manrope', sans-serif; }
+        h1, h2, h3 { font-family: 'Newsreader', serif; }
+    </style>
+</head>
+<body class="bg-surface selection:bg-primary-container/30">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center px-8 h-20 max-w-full mx-auto">
+<div class="text-xl font-bold tracking-tight text-slate-700 dark:text-slate-100 uppercase">The Archivist</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors font-body text-sm font-semibold tracking-wide" href="#">Compliance</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors font-body text-sm font-semibold tracking-wide" href="#">Audit</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors font-body text-sm font-semibold tracking-wide" href="#">Advisory</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors font-body text-sm font-semibold tracking-wide" href="#">Firm Profile</a>
+</nav>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-md font-body text-xs font-extrabold uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all">
+                Secure Portal
+            </button>
+</div>
+</header>
+<main class="min-h-screen pt-20 flex flex-col md:flex-row bg-white">
+<!-- Left Side: Professional Ledger Access -->
+<section class="flex-1 flex flex-col items-center justify-center p-8 md:p-16 lg:p-24 border-r border-outline-variant/10 relative overflow-hidden">
+<!-- Background Accent Tonal Layer -->
+<div class="absolute inset-0 bg-surface-container-low/20 pointer-events-none"></div>
+<div class="max-w-md w-full relative z-10">
+<div class="mb-12">
+<div class="w-16 h-16 bg-primary-container/10 flex items-center justify-center rounded-lg mb-8">
+<span class="material-symbols-outlined text-primary-container text-4xl" data-icon="account_balance">account_balance</span>
+</div>
+<h1 class="text-5xl font-semibold text-on-background leading-tight mb-6">Professional Ledger Access</h1>
+<p class="text-secondary text-lg font-body leading-relaxed mb-10">
+                        Secure entry for certified practitioners. Access advanced audit tools, tax management modules, and institutional compliance frameworks with precision.
+                    </p>
+</div>
+<div class="space-y-6">
+<button class="w-full bg-primary text-on-primary py-5 px-8 rounded-lg flex items-center justify-between group hover:brightness-105 transition-all shadow-md shadow-primary/5">
+<span class="font-body font-extrabold uppercase tracking-widest text-sm">Authenticate as Practitioner</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<div class="flex items-center gap-2 text-outline font-label text-[10px] tracking-[0.2em] font-extrabold px-1">
+<span class="material-symbols-outlined text-xs" data-icon="verified_user">verified_user</span>
+                        CERTIFIED ACCOUNTANT CLEARANCE REQUIRED
+                    </div>
+</div>
+</div>
+<!-- Context Image (Subtle Glass Layer) -->
+<div class="absolute bottom-[-10%] left-[-10%] w-2/3 opacity-5 pointer-events-none">
+<img class="w-full grayscale" data-alt="close-up of a high-end luxury mechanical watch and fountain pen on a leather desk mat, conveying precision and craftsmanship" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAd043ZHxB6Kaxf0Ky8K6K6IUDO389J70aIIESvwq1XrozttQNByLISWNWDmVs9PD8PA4HX1UXlmtEmNZsSRqhiHq8wGJVWBkRmcOcsmI-pfOjo7mBEkeFrrPWpgsP9lCZzasJvVM2wIxKPtKc8EZt0zkkOe6oYF-BkovLpGTZFmZslSy6tbQdDb8nK1HvBpo42mq5L6GbMs7t7v4uNsvu-9grABXbfikYFk40Wqua8iPhSAbRzUOErvvN6VNOjrcQvRH-_qgsb7sk"/>
+</div>
+</section>
+<!-- Right Side: Strategic Financial Oversight -->
+<section class="flex-1 flex flex-col items-center justify-center p-8 md:p-16 lg:p-24 relative overflow-hidden">
+<div class="max-w-md w-full relative z-10">
+<div class="mb-12">
+<div class="w-16 h-16 bg-tertiary/5 flex items-center justify-center rounded-lg mb-8">
+<span class="material-symbols-outlined text-tertiary text-4xl" data-icon="analytics">analytics</span>
+</div>
+<h2 class="text-5xl font-semibold text-on-background leading-tight mb-6">Strategic Financial Oversight</h2>
+<p class="text-secondary text-lg font-body leading-relaxed mb-10">
+                        Premium visibility for organization leaders and stakeholders. Monitor real-time fiscal performance, strategic reporting, and long-term advisory insights.
+                    </p>
+</div>
+<div class="space-y-6">
+<button class="w-full bg-surface-container-high text-primary py-5 px-8 rounded-lg flex items-center justify-between group hover:bg-surface-container-highest transition-all">
+<span class="font-body font-extrabold uppercase tracking-widest text-sm">Enter Strategic Portal</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="corporate_fare">corporate_fare</span>
+</button>
+<div class="flex items-center gap-2 text-tertiary/60 font-label text-[10px] tracking-[0.2em] font-extrabold px-1">
+<span class="material-symbols-outlined text-xs" data-icon="lock">lock</span>
+                        ENTERPRISE GRADE DATA ENCRYPTION
+                    </div>
+</div>
+</div>
+<!-- Context Image (Subtle Glass Layer) -->
+<div class="absolute top-[-10%] right-[-10%] w-2/3 opacity-5 pointer-events-none">
+<img class="w-full grayscale" data-alt="wide shot of a minimalist modern boardroom with large windows overlooking a city skyline at dawn, signifying vision and strategy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFAeR_7LMiVTOsiYR9sSHjUaAKVzYYHfSS4zguMFOGYUjBq6nCTk9jzyJS6QwW3JNIfMq3PdoWnZVQvnYwmG8YZ563ZIOMAi6LmPSAlG8bqUJ0Oxr3NAr0q941tb0zJ4uSsiWVaSD9UN3ATr7XRb2XaBImUjksVxKoU-jV0cjufMfCYvfeINuwJPI7c2HVlnayn6NMnjcgvQGw0GAcyKXJMPIAkjznXRGxl6reRFPsixIqToE3KzIYspxkCWJUNAzvIMvqpMuLMxg"/>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-slate-950 w-full py-12 px-8">
+<div class="bg-slate-100 dark:bg-slate-800 h-px w-full mb-8"></div>
+<div class="flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="text-lg font-bold text-slate-700 dark:text-slate-200 uppercase">The Archivist</div>
+<div class="text-slate-600 dark:text-slate-400 text-sm font-body">
+                © 2024 The Archivist Chartered Accountants. All rights reserved.
+            </div>
+<div class="flex gap-8">
+<a class="text-slate-500 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 text-sm font-body transition-colors" href="#">Legal Notice</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 text-sm font-body transition-colors" href="#">Privacy Policy</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 text-sm font-body transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+</body></html>

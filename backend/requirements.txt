@@ -37,6 +37,7 @@ python-Levenshtein==0.26.1
 
 # Payment gateway
 razorpay==1.4.2
+setuptools==80.9.0
 
 # PDF generation (invoices)
 reportlab==4.2.5

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .editorial-shadow {
+            box-shadow: 0 20px 40px rgba(35, 26, 16, 0.06);
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "outline-variant": "#c1c8c8",
+              "on-secondary-container": "#692100",
+              "outline": "#727879",
+              "on-secondary-fixed": "#370d00",
+              "error-container": "#ffdad6",
+              "inverse-surface": "#392f23",
+              "surface-container": "#fdebd9",
+              "on-primary-container": "#ffffff",
+              "inverse-primary": "#afccce",
+              "on-tertiary-fixed": "#171d1e",
+              "primary-fixed-dim": "#afccce",
+              "on-primary": "#ffffff",
+              "on-surface": "#231a10",
+              "surface-container-low": "#fff1e6",
+              "secondary-container": "#ff7e49",
+              "primary-fixed": "#cbe8ea",
+              "error": "#ba1a1a",
+              "on-primary-fixed": "#031f21",
+              "background": "#fff8f4",
+              "surface-container-highest": "#f2dfce",
+              "surface-container-high": "#f7e5d4",
+              "surface": "#fff8f4",
+              "on-secondary-fixed-variant": "#802a00",
+              "on-primary-fixed-variant": "#314b4d",
+              "primary": "#486264",
+              "tertiary": "#585e60",
+              "surface-dim": "#e9d7c6",
+              "on-secondary": "#ffffff",
+              "on-error-container": "#93000a",
+              "tertiary-fixed": "#dee3e5",
+              "secondary": "#a53c09",
+              "surface-variant": "#f2dfce",
+              "surface-tint": "#486365",
+              "secondary-fixed-dim": "#ffb59a",
+              "on-error": "#ffffff",
+              "surface-bright": "#fff8f4",
+              "primary-container": "#607b7d",
+              "secondary-fixed": "#ffdbce",
+              "on-background": "#231a10",
+              "on-tertiary": "#ffffff",
+              "on-surface-variant": "#414848",
+              "tertiary-container": "#717779",
+              "on-tertiary-fixed-variant": "#42484a",
+              "inverse-on-surface": "#ffeede",
+              "surface-container-lowest": "#ffffff",
+              "tertiary-fixed-dim": "#c2c7c9",
+              "on-tertiary-container": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Newsreader", "serif"],
+              "body": ["Manrope", "sans-serif"],
+              "label": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-surface-container-high">
+<!-- Top Navigation Anchor -->
+<header class="bg-white/80 dark:bg-zinc-950/80 backdrop-blur-xl docked full-width top-0 sticky z-50 no-line tonal-transition bg-slate-50/50 flat no-shadows">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+<div class="text-xl font-serif italic tracking-tight text-[#607B7D]">
+                Architectural Ledger
+            </div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-zinc-500 hover:text-[#607B7D] transition-colors" href="#">Verification</a>
+<a class="text-zinc-500 hover:text-[#607B7D] transition-colors" href="#">Services</a>
+<a class="text-zinc-500 hover:text-[#607B7D] transition-colors" href="#">Availability</a>
+<a class="text-[#607B7D] font-semibold border-b-2 border-[#E76C39] pb-1" href="#">Payment</a>
+</nav>
+<div class="flex items-center gap-4 text-[#607B7D]">
+<span class="material-symbols-outlined text-2xl">account_circle</span>
+</div>
+</div>
+</header>
+<main class="min-h-[calc(100vh-80px)] flex items-center justify-center px-4 py-12 lg:py-24 relative overflow-hidden">
+<!-- Abstract Architectural Background Elements -->
+<div class="absolute inset-0 pointer-events-none overflow-hidden opacity-20">
+<svg class="absolute top-0 right-0 w-1/2 h-full text-outline-variant/30" preserveaspectratio="none" viewbox="0 0 100 100">
+<path d="M0,0 L100,0 L100,100 Z" fill="currentColor"></path>
+</svg>
+<div class="absolute left-10 top-20 w-64 h-64 border border-outline-variant/20 rounded-full"></div>
+<div class="absolute right-20 bottom-10 w-96 h-96 border-l border-t border-outline-variant/10"></div>
+</div>
+<div class="max-w-4xl w-full grid lg:grid-cols-12 gap-12 items-start relative z-10">
+<!-- Context & Identity Section -->
+<div class="lg:col-span-5 space-y-8">
+<div class="space-y-4">
+<span class="text-secondary font-label text-sm font-semibold tracking-widest uppercase">Identity Verification</span>
+<h1 class="font-headline text-5xl lg:text-6xl text-primary leading-tight font-bold italic">
+                        Activate your <br/>Professional Portal.
+                    </h1>
+<p class="text-tertiary text-lg leading-relaxed max-w-sm">
+                        To go live on the Architectural Ledger platform and begin accepting clients, a primary subscription activation is required.
+                    </p>
+</div>
+<div class="space-y-6 pt-4">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<div>
+<h3 class="font-semibold text-primary">Chartered Credentials</h3>
+<p class="text-sm text-tertiary">Verified status visible on global search results.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<div>
+<h3 class="font-semibold text-primary">Automated Ledger</h3>
+<p class="text-sm text-tertiary">Real-time payment tracking and GST filing assistance.</p>
+</div>
+</div>
+</div>
+<!-- Trust Badges -->
+<div class="pt-8 flex flex-wrap gap-6 items-center opacity-60 grayscale hover:grayscale-0 transition-all">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">security</span>
+<span class="text-xs font-label uppercase tracking-tighter">PCI-DSS Compliant</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">encrypted</span>
+<span class="text-xs font-label uppercase tracking-tighter">256-bit Encryption</span>
+</div>
+</div>
+</div>
+<!-- Payment Card Section -->
+<div class="lg:col-span-7">
+<div class="surface-container-lowest editorial-shadow rounded-xl p-8 lg:p-12 relative">
+<!-- Required Badge -->
+<div class="absolute -top-4 right-8 bg-secondary text-on-secondary px-4 py-1 text-xs font-label font-bold uppercase tracking-widest rounded-full shadow-lg">
+                        Required to go live
+                    </div>
+<div class="mb-10">
+<h2 class="font-headline text-3xl text-primary mb-2">Subscription Details</h2>
+<div class="h-1 w-12 bg-secondary/30"></div>
+</div>
+<div class="space-y-6">
+<!-- Plan Summary -->
+<div class="flex justify-between items-end pb-6 border-b border-outline-variant/15">
+<div>
+<p class="text-sm font-label text-tertiary uppercase tracking-wider mb-1">Standard Plan</p>
+<p class="text-2xl font-headline italic text-primary">Annual Professional Access</p>
+</div>
+<div class="text-right">
+<p class="text-3xl font-headline text-primary">₹12,499</p>
+<p class="text-xs text-tertiary">per annum</p>
+</div>
+</div>
+<!-- Price Breakdown Ledger Style -->
+<div class="space-y-4 pt-4">
+<div class="flex justify-between text-sm">
+<span class="text-tertiary">Platform Service Fee</span>
+<span class="text-on-surface font-medium">₹12,499.00</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-tertiary">Goods &amp; Services Tax (GST 18%)</span>
+<span class="text-on-surface font-medium">₹2,249.82</span>
+</div>
+<div class="flex justify-between text-sm italic">
+<span class="text-tertiary">Processing Charges</span>
+<span class="text-on-surface font-medium">₹0.00</span>
+</div>
+<!-- Total Row -->
+<div class="mt-8 p-6 bg-surface-container-low rounded-lg">
+<div class="flex justify-between items-center">
+<div>
+<p class="font-headline text-xl text-primary">Total Payable</p>
+<p class="text-[10px] font-label uppercase text-tertiary tracking-tighter">Inclusive of all local taxes</p>
+</div>
+<div class="text-right">
+<p class="text-3xl font-headline font-bold text-secondary">₹14,748.82</p>
+</div>
+</div>
+</div>
+</div>
+<!-- CTA Section -->
+<div class="pt-8 space-y-4">
+<button class="w-full bg-secondary text-on-secondary py-5 rounded-lg font-bold text-lg hover:scale-[1.02] transition-transform flex items-center justify-center gap-3 editorial-shadow">
+<span>Proceed to Payment</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<p class="text-center text-[11px] text-tertiary px-6 leading-relaxed">
+                                By proceeding, you agree to the Architectural Ledger 
+                                <a class="underline text-primary" href="#">Terms of Service</a> and 
+                                <a class="underline text-primary" href="#">Billing Policy</a>. 
+                                Your subscription will renew annually unless cancelled.
+                            </p>
+</div>
+</div>
+<!-- Fintech Card Visuals -->
+<div class="mt-12 flex justify-center gap-8 opacity-40 grayscale">
+<img alt="Visa card network logo" class="h-6" data-alt="visa credit card network logo in minimalist monochrome style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaVMQuPtPTyIBuNu03DNwiyWanXouCiy18fI2F47tghy_jxpqvgkMRTBcLbuT4MEQkM3CezvxeiCvltyrEUiB6kwNyWuKaeRQBAMhdPtJSoiWLcg2vgGlBJUUpzKLLh76-zVgNyzS5ZlJV6cXN8-I7vqBBMeQHGCPs0E70yu-T5jreb-aZkHCAqb4OxvhFs-r_lNR08tV-1QRgroIwjGSn62U1DHbnTx7HaiHRk6N3uir_ERd79b71xwb5FESv1QoK5bAOv2FBynA"/>
+<img alt="Mastercard logo" class="h-8" data-alt="mastercard payment system logo simplified for professional UI" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtc91m3kMlxGM1kkWJiQTWbirOfVvh9B4ILYrwSaosOv72abuSCpxonj-Cg6W4uhA2g3aOkF6K0oLyLTcRmogKVvgg-gxg8t5U8R3a1CxwIqvWkiJpgln0u-k8TtMqnL3qZc30gRgUwukwC9XkKGhM9PHaofEXS81-CzDPleaXpVy-nyuBbLqZwVBvc14IZOt7gSLWCPVnjgcrKD7-nlD1CHTymk2_0OOpGJFqM1LHp0-flFYHdfjJculMD5ybil7IcNWPx_kyaJc"/>
+<img alt="UPI interface logo" class="h-5" data-alt="unified payments interface logo clean vector style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQF73s8lUqQovcS4wCjgyMeov5AbF-zM5DUyhXzkm3YbCgv03basP-HCyJzD_0U7-yh5P_xMR9w-ossoyFr9DN_CFghzFKlBzGE-elCni1Zfw8PzRm9KDXQRVFXSWVS8O5AqH9TMJVTTUhNP4WxDUn2nEbAzDH5LmwgknHNmsC0hBYy4Fp7wn5P0iXOcmvwDGbznmqUZdiw7A6mnFvlVYduh9nDdSNTJg3KgvjJOqQRVAuC2U507yJGPe_4rJ_bImUJRG-F6nn7mc"/>
+<img alt="RuPay logo" class="h-5" data-alt="rupay payment network logo in neutral tone" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFqUVKuzOLK05vJRtbiAFzDZuTUE4WoTM5AEFApjxBUPat7rlw_yy-dR5KkqVhsZxcF9wHGQt-nVgtQnud2BOMBl7Vyyqfw70Bx883KRIbNMN4RGL6BiCt2p3rkhJ2GoVLRfzxUrxoxlyHxfQkn6Bqg5uY2xtbBhbKui7gsDQ0Xmss2p7BXoEsMHXJ7XgGtuSvnNIWvHhcGHuG4xdTLItRgYL9HZwvBdSdAekgM3LuvexEA74mmnHbZf61AkJqYRvEg67Z7QWGcSs"/>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Side Navigation Shell (Hidden as per Transactional rule in prompt, but defined in JSON) -->
+<!-- Suppressed: The navigation shell is excluded for Transactional/Focused Payment screens -->
+<!-- Secondary Background Accent -->
+<div class="fixed bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-surface-container-low to-transparent -z-10 opacity-50"></div>
+</body></html>

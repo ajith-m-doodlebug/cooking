@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed-dim": "#c2c7c9",
+              "surface-variant": "#f2dfce",
+              "primary-fixed-dim": "#afccce",
+              "on-primary-fixed-variant": "#314b4d",
+              "on-primary-container": "#ffffff",
+              "surface": "#fff8f4",
+              "secondary-fixed": "#ffdbce",
+              "secondary": "#a53c09",
+              "primary-container": "#607b7d",
+              "error": "#ba1a1a",
+              "surface-bright": "#fff8f4",
+              "secondary-container": "#ff7e49",
+              "on-background": "#231a10",
+              "surface-container-highest": "#f2dfce",
+              "primary": "#486264",
+              "surface-dim": "#e9d7c6",
+              "inverse-surface": "#392f23",
+              "surface-container-lowest": "#ffffff",
+              "on-error-container": "#93000a",
+              "surface-container-high": "#f7e5d4",
+              "on-surface-variant": "#414848",
+              "on-secondary-fixed-variant": "#802a00",
+              "primary-fixed": "#cbe8ea",
+              "tertiary": "#585e60",
+              "on-tertiary-container": "#ffffff",
+              "on-primary-fixed": "#031f21",
+              "inverse-primary": "#afccce",
+              "background": "#fff8f4",
+              "surface-tint": "#486365",
+              "secondary-fixed-dim": "#ffb59a",
+              "surface-container-low": "#fff1e6",
+              "on-tertiary-fixed-variant": "#42484a",
+              "on-surface": "#231a10",
+              "outline": "#727879",
+              "on-tertiary-fixed": "#171d1e",
+              "surface-container": "#fdebd9",
+              "on-secondary-container": "#692100",
+              "tertiary-container": "#717779",
+              "on-secondary": "#ffffff",
+              "inverse-on-surface": "#ffeede",
+              "on-error": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-tertiary": "#ffffff",
+              "on-primary": "#ffffff",
+              "tertiary-fixed": "#dee3e5",
+              "outline-variant": "#c1c8c8",
+              "on-secondary-fixed": "#370d00"
+            },
+            fontFamily: {
+              "headline": ["Newsreader", "serif"],
+              "body": ["Manrope", "sans-serif"],
+              "label": ["Manrope", "sans-serif"],
+              "legal": ["Newsreader", "serif"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #c1c8c8;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #486264;
+        }
+        /* Ensure no italics globally */
+        * {
+            font-style: normal !important;
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-background selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- TopNavBar (Shared Component) -->
+<nav class="fixed top-0 w-full z-50 bg-[#fff8f4]/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(35,26,16,0.06)]">
+<div class="flex justify-between items-center px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-headline font-semibold text-primary">Editorial CA</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-[#595F61] hover:text-[#486264] transition-opacity duration-300 font-medium" href="#">Solutions</a>
+<a class="text-[#595F61] hover:text-[#486264] transition-opacity duration-300 font-medium" href="#">Methodology</a>
+<a class="text-[#595F61] hover:text-[#486264] transition-opacity duration-300 font-medium" href="#">Pricing</a>
+</div>
+<div class="flex items-center space-x-6">
+<button class="text-primary font-bold hover:opacity-80 transition-opacity">Client Portal</button>
+<button class="bg-secondary text-on-secondary px-6 py-2 rounded-lg font-bold hover:opacity-90 transition-opacity">Contact</button>
+</div>
+</div>
+</nav>
+<!-- Sticky Header with Page Title -->
+<header class="sticky top-[72px] z-40 bg-background/95 backdrop-blur-sm pt-20 pb-8">
+<div class="max-w-3xl mx-auto px-6">
+<span class="text-secondary font-label font-bold tracking-widest text-xs uppercase mb-2 block">Legal Documentation</span>
+<h1 class="text-5xl md:text-6xl font-headline font-extrabold text-primary tracking-tight leading-none">Terms &amp; Conditions</h1>
+<p class="mt-4 text-on-surface-variant font-medium">Last updated: October 24, 2024</p>
+</div>
+</header>
+<main class="max-w-3xl mx-auto px-6 py-12">
+<!-- Tonal Layering: The Ledger Container -->
+<div class="bg-surface-container-low rounded-xl p-1 overflow-hidden shadow-[0_20px_40px_rgba(35,26,16,0.06)]">
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant/15 p-8">
+<!-- Scrollable Terms Section - Using Professional Legal Serif -->
+<div class="h-[600px] overflow-y-auto custom-scrollbar pr-6 text-on-surface-variant leading-relaxed text-base font-legal">
+<section class="mb-10">
+<h2 class="text-xl font-headline font-bold text-primary mb-4 border-b border-outline-variant/20 pb-2">1. Engagement of Services</h2>
+<p class="mb-4">Editorial Authority Chartered Accountants (the "Firm") provides professional accounting, auditing, and financial advisory services. By engaging with our digital platform, you acknowledge that these services are governed by the specific engagement letters issued upon client onboarding.</p>
+<p>The relationship between the Firm and the Client is one of professional trust. All data processed through this interface is handled with architectural precision and regulatory compliance under relevant jurisdictional frameworks.</p>
+</section>
+<section class="mb-10">
+<h2 class="text-xl font-headline font-bold text-primary mb-4 border-b border-outline-variant/20 pb-2">2. Digital Governance &amp; Access</h2>
+<p class="mb-4">Access to the Client Portal is a privilege granted to active clients. You are responsible for maintaining the confidentiality of your credentials. Any unauthorized access detected will result in immediate suspension of digital privileges for the protection of the firm's ledger integrity.</p>
+<ul class="list-disc pl-5 space-y-3 font-legal">
+<li>Multi-factor authentication is mandatory for all access attempts.</li>
+<li>IP logging is active for all administrative sessions and security audits.</li>
+<li>Session timeouts are strictly enforced after 15 minutes of inactivity.</li>
+</ul>
+</section>
+<section class="mb-10">
+<h2 class="text-xl font-headline font-bold text-primary mb-4 border-b border-outline-variant/20 pb-2">3. Professional Liability</h2>
+<p class="mb-4">The Firm maintains professional indemnity insurance in accordance with regulatory requirements. Our liability is limited to the fees paid for the specific service period as outlined in the Service Level Agreement (SLA).</p>
+<p>We do not warrant that the digital portal will be uninterrupted or error-free, though we strive for 99.9% uptime for business-critical functions.</p>
+</section>
+<section class="mb-10">
+<h2 class="text-xl font-headline font-bold text-primary mb-4 border-b border-outline-variant/20 pb-2">4. Intellectual Property</h2>
+<p>The "Architectural Ledger" design system, custom reporting templates, and the Editorial CA branding are the exclusive intellectual property of Editorial Authority. No reproduction or unauthorized use is permitted under any circumstances.</p>
+</section>
+<section class="mb-10">
+<h2 class="text-xl font-headline font-bold text-primary mb-4 border-b border-outline-variant/20 pb-2">5. Data Privacy &amp; Sovereignty</h2>
+<p>We treat your financial data as a formal ledger of record. Our privacy policy, which is incorporated here by reference, details the encryption standards and data residency protocols we employ to ensure your information remains sovereign and secure.</p>
+</section>
+</div>
+<!-- Action Section -->
+<div class="mt-12 pt-8 border-t border-outline-variant/15">
+<div class="flex items-start gap-4 group cursor-pointer">
+<div class="relative flex items-center">
+<input class="peer h-6 w-6 rounded border-outline-variant text-secondary focus:ring-secondary cursor-pointer transition-all" id="terms-checkbox" type="checkbox"/>
+</div>
+<label class="text-on-surface font-medium cursor-pointer select-none group-hover:text-primary transition-colors" for="terms-checkbox">
+                            I agree to the Terms &amp; Conditions and understand my obligations under the professional engagement framework.
+                        </label>
+</div>
+<div class="mt-10 flex flex-col md:flex-row items-center gap-6">
+<!-- Primary CTA - Initially Visually Disabled -->
+<button class="w-full md:w-auto px-10 py-4 bg-tertiary-fixed-dim text-on-surface-variant cursor-not-allowed rounded-lg font-extrabold text-lg tracking-wide transition-all duration-300">
+                            Agree &amp; Continue
+                        </button>
+<button class="text-primary font-bold hover:text-secondary transition-colors underline decoration-2 underline-offset-8">
+                            Download PDF Version
+                        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative Background Element -->
+<div class="fixed top-0 right-0 -z-10 opacity-5 pointer-events-none">
+<svg fill="none" height="800" viewbox="0 0 600 800" width="600" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 100H600M0 200H600M0 300H600M0 400H600M0 500H600M0 600H600M0 700H600" stroke="#486264" stroke-width="1"></path>
+<path d="M100 0V800M200 0V800M300 0V800M400 0V800M500 0V800" stroke="#486264" stroke-width="0.5"></path>
+</svg>
+</div>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="w-full py-12 px-8 mt-20 bg-[#fff8f4] border-t border-[#486264]/10">
+<div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="font-headline text-[#486264] text-xl font-semibold">Editorial CA</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-[#9E8F80] hover:text-[#a53c09] underline decoration-2 underline-offset-4 transition-all font-label text-sm tracking-wide" href="#">Privacy Policy</a>
+<a class="text-[#9E8F80] hover:text-[#a53c09] underline decoration-2 underline-offset-4 transition-all font-label text-sm tracking-wide" href="#">Terms of Service</a>
+<a class="text-[#9E8F80] hover:text-[#a53c09] underline decoration-2 underline-offset-4 transition-all font-label text-sm tracking-wide" href="#">Regulatory Disclosure</a>
+<a class="text-[#9E8F80] hover:text-[#a53c09] underline decoration-2 underline-offset-4 transition-all font-label text-sm tracking-wide" href="#">Accessibility</a>
+</div>
+<p class="text-[#9E8F80] font-label text-sm tracking-wide">© 2024 Editorial Authority Chartered Accountants. All rights reserved.</p>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Service Details | Architectural Ledger</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed": "#cbe8ea",
+              "outline-variant": "#c1c8c8",
+              "on-surface": "#231a10",
+              "surface-container": "#fdebd9",
+              "on-primary-fixed": "#031f21",
+              "on-tertiary": "#ffffff",
+              "on-primary-fixed-variant": "#314b4d",
+              "error": "#ba1a1a",
+              "surface": "#fff8f4",
+              "secondary": "#a53c09",
+              "primary-fixed-dim": "#afccce",
+              "background": "#fff8f4",
+              "error-container": "#ffdad6",
+              "on-tertiary-container": "#ffffff",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-fixed-variant": "#42484a",
+              "on-secondary-fixed": "#370d00",
+              "secondary-container": "#ff7e49",
+              "on-error": "#ffffff",
+              "tertiary-fixed": "#dee3e5",
+              "on-secondary-container": "#692100",
+              "on-error-container": "#93000a",
+              "inverse-on-surface": "#ffeede",
+              "surface-tint": "#486365",
+              "outline": "#727879",
+              "surface-variant": "#f2dfce",
+              "primary-container": "#607b7d",
+              "inverse-primary": "#afccce",
+              "on-secondary": "#ffffff",
+              "surface-container-highest": "#f2dfce",
+              "surface-dim": "#e9d7c6",
+              "on-tertiary-fixed": "#171d1e",
+              "tertiary-fixed-dim": "#c2c7c9",
+              "on-secondary-fixed-variant": "#802a00",
+              "primary": "#486264",
+              "on-primary": "#ffffff",
+              "secondary-fixed-dim": "#ffb59a",
+              "on-surface-variant": "#414848",
+              "tertiary": "#585e60",
+              "secondary-fixed": "#ffdbce",
+              "surface-container-high": "#f7e5d4",
+              "on-background": "#231a10",
+              "inverse-surface": "#392f23",
+              "tertiary-container": "#717779",
+              "surface-container-low": "#fff1e6",
+              "surface-bright": "#fff8f4",
+              "on-primary-container": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Newsreader", "serif"],
+              "body": ["Manrope", "sans-serif"],
+              "label": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .font-serif { font-family: 'Newsreader', serif; }
+      .font-sans { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-sans selection:bg-secondary-container">
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-full sticky top-0 w-64 bg-[#fff8f4] border-r border-stone-200/15 shrink-0">
+<div class="p-8">
+<div class="text-lg font-serif italic text-[#607B7D] mb-2">Architectural Ledger</div>
+<div class="mt-8">
+<h2 class="text-[#607B7D] font-serif text-xl">Onboarding</h2>
+<p class="text-[#595F61] text-xs opacity-60">Step 6 of 10</p>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-2 mt-4">
+<a class="flex items-center gap-3 px-4 py-3 text-[#595F61] opacity-60 hover:opacity-100 hover:bg-stone-100 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-sm font-medium">Identity</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#595F61] opacity-60 hover:opacity-100 hover:bg-stone-100 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+<span class="text-sm font-medium">Verification</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#607B7D] font-bold bg-[#fff8f4] shadow-sm transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="layers">layers</span>
+<span class="text-sm font-medium">Portfolio</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#595F61] opacity-60 hover:opacity-100 hover:bg-stone-100 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="text-sm font-medium">Availability</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#595F61] opacity-60 hover:opacity-100 hover:bg-stone-100 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="text-sm font-medium">Payment</span>
+</a>
+</nav>
+<div class="p-6 mt-auto">
+<div class="flex items-center gap-3 p-3 bg-surface-container-low rounded-xl">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</div>
+<div>
+<p class="text-xs font-bold text-primary">Julian Thorne</p>
+<p class="text-[10px] text-tertiary">Senior Auditor</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="flex-1 bg-white min-h-screen">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-8 py-4 bg-[#fff8f4] transition-all duration-300">
+<div class="flex items-center gap-6">
+<span class="text-xl font-serif italic text-[#607B7D]">Architectural Ledger</span>
+<nav class="hidden md:flex gap-8 ml-8">
+<a class="text-sm text-[#a53c09] font-bold border-b-2 border-[#a53c09] transition-colors duration-300" href="#">Progress</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-[#595F61] hover:text-[#a53c09] transition-colors duration-300 active:scale-95">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+</header>
+<!-- Page Content -->
+<div class="max-w-5xl mx-auto px-8 py-16">
+<!-- Header Section -->
+<div class="mb-12">
+<span class="text-secondary font-sans text-xs font-bold uppercase tracking-widest mb-2 block">Step 2 of 3</span>
+<h1 class="text-5xl font-serif text-primary leading-tight max-w-2xl">Refining your professional service catalog.</h1>
+<p class="text-tertiary mt-4 text-lg font-light max-w-xl">Define the specialized pillars of your practice. This curation ensures you are matched with the appropriate corporate portfolios.</p>
+</div>
+<!-- Service Selection Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+<!-- Corporate Taxation -->
+<div class="group relative bg-surface-container-low p-8 rounded-xl cursor-pointer hover:bg-primary-container transition-all duration-300 ring-2 ring-transparent hover:ring-secondary/20">
+<div class="mb-12">
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary text-3xl" data-icon="account_balance">account_balance</span>
+</div>
+<h3 class="text-xl font-serif text-primary group-hover:text-on-primary mb-2">Corporate Taxation</h3>
+<p class="text-sm text-tertiary group-hover:text-primary-fixed leading-relaxed">Strategic tax planning and compliance for mid-to-large entities.</p>
+<div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<!-- Statutory Audit -->
+<div class="group relative bg-surface-container-low p-8 rounded-xl cursor-pointer hover:bg-primary-container transition-all duration-300 ring-2 ring-transparent hover:ring-secondary/20">
+<div class="mb-12">
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary text-3xl" data-icon="fact_check">fact_check</span>
+</div>
+<h3 class="text-xl font-serif text-primary group-hover:text-on-primary mb-2">Statutory Audit</h3>
+<p class="text-sm text-tertiary group-hover:text-primary-fixed leading-relaxed">Official examination of entity financial records and reports.</p>
+<div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<!-- Risk Assurance -->
+<div class="group relative bg-surface-container-lowest border border-primary/10 p-8 rounded-xl cursor-pointer hover:bg-primary-container transition-all duration-300 shadow-sm">
+<div class="mb-12">
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary text-3xl" data-icon="security">security</span>
+</div>
+<h3 class="text-xl font-serif text-primary group-hover:text-on-primary mb-2">Risk Assurance</h3>
+<p class="text-sm text-tertiary group-hover:text-primary-fixed leading-relaxed">Internal controls, IT risk assessments, and governance protocols.</p>
+<div class="absolute top-4 right-4">
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<!-- Wealth Strategy -->
+<div class="group relative bg-surface-container-low p-8 rounded-xl cursor-pointer hover:bg-primary-container transition-all duration-300 ring-2 ring-transparent hover:ring-secondary/20">
+<div class="mb-12">
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary text-3xl" data-icon="insights">insights</span>
+</div>
+<h3 class="text-xl font-serif text-primary group-hover:text-on-primary mb-2">Wealth Strategy</h3>
+<p class="text-sm text-tertiary group-hover:text-primary-fixed leading-relaxed">High-net-worth portfolio management and estate planning.</p>
+<div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+</section>
+<!-- Configuration Section -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+<!-- Left: Details -->
+<div class="lg:col-span-2 space-y-10">
+<!-- Languages -->
+<div>
+<label class="block text-primary font-serif text-xl mb-4">Communication Languages</label>
+<div class="flex flex-wrap gap-3">
+<span class="px-4 py-2 bg-primary text-on-primary rounded-full text-sm font-medium flex items-center gap-2">
+                                    English <button class="material-symbols-outlined text-xs" data-icon="close">close</button>
+</span>
+<span class="px-4 py-2 bg-primary text-on-primary rounded-full text-sm font-medium flex items-center gap-2">
+                                    German <button class="material-symbols-outlined text-xs" data-icon="close">close</button>
+</span>
+<button class="px-4 py-2 border border-outline-variant text-tertiary rounded-full text-sm font-medium hover:border-secondary hover:text-secondary transition-colors">
+                                    + Add Language
+                                </button>
+</div>
+</div>
+<!-- Experience Range -->
+<div>
+<label class="block text-primary font-serif text-xl mb-4">Professional Experience Range</label>
+<div class="relative pt-6 pb-2">
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-secondary" max="30" min="0" type="range" value="12"/>
+<div class="flex justify-between text-xs text-tertiary mt-4 font-mono">
+<span>0 YEARS</span>
+<span class="text-secondary font-bold text-sm">12 YEARS</span>
+<span>30+ YEARS</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Engagement Settings -->
+<div class="bg-surface-container-low p-8 rounded-xl border-l-4 border-secondary">
+<h4 class="text-primary font-serif text-lg mb-6">Engagement Mode</h4>
+<div class="flex items-center justify-between mb-8">
+<div>
+<p class="text-primary font-bold text-sm">Remote Consultation</p>
+<p class="text-tertiary text-xs">Allow virtual audit sessions via LedgerLink</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-stone-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+<div class="space-y-4 pt-6 border-t border-outline-variant/30">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-lg" data-icon="info">info</span>
+<p class="text-xs text-tertiary leading-relaxed">Remote-enabled practitioners typically receive 24% more international leads within the Ledger ecosystem.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="mt-20 flex justify-between items-center pt-8 border-t border-outline-variant/20">
+<button class="text-primary font-bold flex items-center gap-2 hover:translate-x-[-4px] transition-transform">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+                        Back to Identity
+                    </button>
+<button class="bg-secondary text-on-secondary px-10 py-4 rounded-md font-bold text-sm hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-secondary/20">
+                        Confirm &amp; Continue
+                    </button>
+</div>
+</div>
+</main>
+</div>
+<!-- Decorative Geometry Background Elements -->
+<div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
+<svg class="absolute top-0 right-0 w-1/3 opacity-[0.03] text-primary" viewbox="0 0 100 100">
+<line stroke="currentColor" stroke-width="0.1" x1="0" x2="100" y1="0" y2="100"></line>
+<line stroke="currentColor" stroke-width="0.1" x1="20" x2="120" y1="0" y2="100"></line>
+<line stroke="currentColor" stroke-width="0.1" x1="40" x2="140" y1="0" y2="100"></line>
+<line stroke="currentColor" stroke-width="0.1" x1="60" x2="160" y1="0" y2="100"></line>
+</svg>
+</div>
+</body></html>

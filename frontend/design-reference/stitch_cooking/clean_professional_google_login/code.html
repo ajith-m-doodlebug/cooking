@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;600;700&amp;family=Manrope:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#486264",
+              "secondary-container": "#f1f5f9",
+              "surface-container-low": "#ffffff",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed": "#cbe8ea",
+              "on-background": "#0f172a",
+              "on-error": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "on-primary-container": "#ffffff",
+              "primary-fixed-dim": "#afccce",
+              "on-secondary-fixed": "#1e293b",
+              "inverse-on-surface": "#f8fafc",
+              "on-tertiary-container": "#ffffff",
+              "tertiary-fixed-dim": "#cbd5e1",
+              "surface-container": "#f8fafc",
+              "on-secondary-container": "#475569",
+              "on-tertiary-fixed-variant": "#334155",
+              "secondary-fixed": "#e2e8f0",
+              "error-container": "#fee2e2",
+              "tertiary-container": "#f1f5f9",
+              "surface-container-high": "#ffffff",
+              "on-surface-variant": "#64748b",
+              "tertiary": "#486264",
+              "surface": "#ffffff",
+              "secondary": "#64748b",
+              "outline": "#94a3b8",
+              "on-error-container": "#991b1b",
+              "background": "#ffffff",
+              "on-primary-fixed-variant": "#314b4d",
+              "surface-dim": "#f1f5f9",
+              "inverse-primary": "#afccce",
+              "on-primary-fixed": "#031f21",
+              "secondary-fixed-dim": "#cbd5e1",
+              "on-tertiary-fixed": "#1e293b",
+              "on-secondary-fixed-variant": "#475569",
+              "outline-variant": "#e2e8f0",
+              "inverse-surface": "#1e293b",
+              "tertiary-fixed": "#f1f5f9",
+              "surface-bright": "#ffffff",
+              "on-surface": "#0f172a",
+              "primary-container": "#607b7d",
+              "surface-variant": "#f8fafc",
+              "surface-tint": "#486365",
+              "surface-container-highest": "#f1f5f9",
+              "error": "#ef4444",
+              "on-primary": "#ffffff",
+              "on-secondary": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Newsreader"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Manrope', sans-serif; font-style: normal; }
+        h1, h2, h3 { font-family: 'Newsreader', serif; font-style: normal; }
+        /* Prevent any italics site-wide */
+        * { font-style: normal !important; }
+    </style>
+</head>
+<body class="bg-white text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-white/90 backdrop-blur-xl border-b border-outline-variant top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="text-xl font-bold tracking-tight text-primary">The Modern Archivist</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-secondary hover:text-primary transition-colors font-body text-sm" href="#">Compliance</a>
+<a class="text-secondary hover:text-primary transition-colors font-body text-sm" href="#">Audit</a>
+<a class="text-secondary hover:text-primary transition-colors font-body text-sm" href="#">Advisory</a>
+<a class="text-secondary hover:text-primary transition-colors font-body text-sm" href="#">Firm Profile</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-secondary hover:text-primary transition-all">help_outline</button>
+<button class="material-symbols-outlined text-secondary hover:text-primary transition-all">notifications_none</button>
+<button class="bg-primary text-white px-5 py-2 rounded font-body text-sm font-bold active:opacity-80 transition-opacity">Secure Portal</button>
+</div>
+</div>
+</header>
+<main class="flex-grow flex flex-col md:flex-row min-h-[calc(100vh-160px)]">
+<!-- Left Side: Visual Anchor -->
+<section class="hidden md:flex md:w-1/2 relative overflow-hidden bg-[#2D3E40] items-center justify-center p-12">
+<div class="absolute inset-0 opacity-25 grayscale">
+<img class="w-full h-full object-cover" data-alt="Monochromatic low-angle view of a modern glass skyscraper reflecting geometric sky patterns with sharp architectural lines and professional mood" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCA96FkBFIG3eC37yU0tAdL46Uj2KrT6EzrTA5TLkpm2DiVkGS8lX5j7zVpGtlLqBw0_givo63h7QzCK8BDJLNYL3POT0fFl1P6BsgwqAVPQJ5JwOmY5naB-E4LSrXA9TC-Ioqqn8kp79LBFUHNoWebPJBZZ_IIP0uVST5dvw_QoW7-NQn6Zv6rV25jwDKLWDXytLtp4wA84sK8gOh9mu5BdfERGNmAJn2C6ALHk7_IBXvRr-CKxweTvEp7wWWPUTlPuoTq-sK3Zhc"/>
+</div>
+<div class="relative z-10 max-w-lg text-white">
+<div class="mb-6 inline-block bg-white/10 backdrop-blur-md px-3 py-1 rounded-sm border border-white/20">
+<span class="font-label text-[10px] tracking-widest text-white uppercase font-extrabold">Enterprise Standard</span>
+</div>
+<h2 class="text-5xl md:text-6xl font-headline font-semibold leading-tight mb-8">Architecting Financial Legacies.</h2>
+<p class="text-lg font-body leading-relaxed text-white/70">
+                Precision is not a metric, it is our philosophy. Access your secure archival suite through our unified authentication gateway.
+            </p>
+<div class="mt-12 flex gap-12 border-t border-white/20 pt-12">
+<div>
+<div class="text-3xl font-headline font-bold">256-bit</div>
+<div class="font-label text-[10px] text-white/50 tracking-widest font-extrabold uppercase">Encryption</div>
+</div>
+<div>
+<div class="text-3xl font-headline font-bold">Tier 4</div>
+<div class="font-label text-[10px] text-white/50 tracking-widest font-extrabold uppercase">Data Centers</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Side: Authentication Canvas -->
+<section class="w-full md:w-1/2 bg-white flex items-center justify-center p-8 md:p-24">
+<div class="w-full max-w-md">
+<div class="mb-12">
+<h1 class="text-4xl font-headline font-semibold text-on-surface mb-4">Client Access</h1>
+<p class="text-secondary font-body text-sm leading-relaxed">
+                    Welcome back to <span class="text-primary font-bold">The Modern Archivist</span> portal. Please verify your credentials to continue.
+                </p>
+</div>
+<!-- Google Auth Component -->
+<div class="space-y-8">
+<div class="group">
+<button class="w-full flex items-center justify-center gap-4 bg-white border border-outline-variant hover:border-primary transition-all duration-300 py-4 px-6 rounded shadow-sm hover:shadow-md active:scale-[0.98]">
+<svg class="w-6 h-6" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+<span class="font-body font-bold text-on-surface text-base">Sign in with Google</span>
+</button>
+</div>
+<div class="relative flex items-center justify-center">
+<div class="bg-outline-variant h-[1px] w-full opacity-50"></div>
+<span class="absolute bg-white px-4 font-label text-[10px] text-outline font-extrabold uppercase tracking-widest">Verification Protocol</span>
+</div>
+<div class="bg-surface-container p-6 rounded border-l-4 border-primary">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+<div>
+<p class="text-on-surface font-body text-xs font-semibold leading-relaxed">
+                                Secure login using your Google account via enterprise-grade OAuth 2.0. 
+                            </p>
+<p class="text-secondary font-body text-[11px] mt-1">
+                                Your data remains siloed within our encrypted architecture.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-16 pt-8 border-t border-outline-variant">
+<p class="text-secondary font-body text-xs text-center">
+                    Problems signing in? <a class="text-primary font-bold hover:underline underline-offset-4" href="#">Contact Administrative Support</a>
+</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-white w-full py-12 px-8 border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:flex lg:justify-between items-center w-full max-w-screen-2xl mx-auto gap-8">
+<div class="space-y-2">
+<div class="text-lg font-bold text-primary">The Modern Archivist</div>
+<p class="text-secondary font-body text-xs">© 2024 The Modern Archivist. Professional Rigor Guaranteed.</p>
+</div>
+<div class="flex flex-wrap gap-x-8 gap-y-4">
+<a class="text-outline hover:text-primary transition-colors font-label text-[10px] font-extrabold uppercase tracking-widest hover:underline decoration-primary decoration-2 underline-offset-4" href="#">Legal Terms</a>
+<a class="text-outline hover:text-primary transition-colors font-label text-[10px] font-extrabold uppercase tracking-widest hover:underline decoration-primary decoration-2 underline-offset-4" href="#">Privacy Policy</a>
+<a class="text-outline hover:text-primary transition-colors font-label text-[10px] font-extrabold uppercase tracking-widest hover:underline decoration-primary decoration-2 underline-offset-4" href="#">Regulatory Disclosure</a>
+<a class="text-outline hover:text-primary transition-colors font-label text-[10px] font-extrabold uppercase tracking-widest hover:underline decoration-primary decoration-2 underline-offset-4" href="#">Contact Support</a>
+</div>
+</div>
+</footer>
+</body></html>

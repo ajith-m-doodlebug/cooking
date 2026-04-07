@@ -1,4 +1,6 @@
 import math
+from datetime import datetime, timezone
+
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, func, and_, or_
 
@@ -26,7 +28,8 @@ class SearchService:
         page: int = 1,
         size: int = 20,
     ) -> CASearchResponse:
-        # Base: only verified, visible, and actively subscribed CAs
+        # Base: verified, visible, paid subscription still within validity (no ranking / promos)
+        now = datetime.now(timezone.utc)
         base_query = (
             select(CAProfile, CAServiceDetails, CABookingDetails)
             .join(CAServiceDetails, CAServiceDetails.ca_id == CAProfile.id, isouter=True)
@@ -36,6 +39,8 @@ class SearchService:
                 and_(
                     Subscription.ca_id == CAProfile.id,
                     Subscription.is_active == True,
+                    Subscription.end_date.isnot(None),
+                    Subscription.end_date > now,
                 ),
                 isouter=False,
             )

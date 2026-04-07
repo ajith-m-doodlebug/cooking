@@ -20,6 +20,15 @@ class ConsultationMode(str, enum.Enum):
     BOTH = "BOTH"
 
 
+class SubscriptionPaymentStatus(str, enum.Enum):
+    """Mirrors subscription checkout / billing state on the CA profile for quick lookups."""
+
+    NONE = "NONE"
+    PENDING = "PENDING"  # checkout initiated, awaiting payment
+    ACTIVE = "ACTIVE"  # paid, within validity
+    EXPIRED = "EXPIRED"  # was paid, validity ended
+
+
 class CAProfile(Base, TimestampMixin):
     """Page 1 — Verification Details (locked after approval)."""
     __tablename__ = "ca_profiles"
@@ -42,6 +51,17 @@ class CAProfile(Base, TimestampMixin):
     )
     is_visible: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
     onboarding_complete: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
+    subscription_payment_status: Mapped[SubscriptionPaymentStatus] = mapped_column(
+        SAEnum(SubscriptionPaymentStatus),
+        default=SubscriptionPaymentStatus.NONE,
+        nullable=False,
+    )
+    active_subscription_id: Mapped[str | None] = mapped_column(
+        String(36),
+        ForeignKey("subscriptions.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
 
 
 class CAServiceDetails(Base, TimestampMixin):

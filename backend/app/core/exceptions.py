@@ -1,5 +1,11 @@
+import logging
+
 from fastapi import HTTPException, Request, status
 from fastapi.responses import JSONResponse
+
+from app.config import settings
+
+logger = logging.getLogger(__name__)
 
 
 class AppException(HTTPException):
@@ -79,6 +85,19 @@ async def app_exception_handler(request: Request, exc: AppException) -> JSONResp
 
 
 async def generic_exception_handler(request: Request, exc: Exception) -> JSONResponse:
+    if settings.APP_ENV == "development":
+        logger.exception("Unhandled error on %s %s", request.method, request.url.path)
+        return JSONResponse(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            content={
+                "error": {
+                    "code": "INTERNAL_ERROR",
+                    "message": str(exc) or "An unexpected error occurred",
+                    "exception_type": type(exc).__name__,
+                }
+            },
+        )
+    logger.error("Unhandled error on %s %s: %s", request.method, request.url.path, exc)
     return JSONResponse(
         status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
         content={"error": {"code": "INTERNAL_ERROR", "message": "An unexpected error occurred"}},

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary": "#a43b08",
+              "primary-fixed": "#cbe8ea",
+              "primary-container": "#607b7d",
+              "background": "#fff8f4",
+              "on-tertiary-container": "#ffffff",
+              "on-secondary": "#ffffff",
+              "inverse-on-surface": "#ffeede",
+              "secondary": "#595f61",
+              "tertiary-fixed": "#ffdbce",
+              "surface-tint": "#486365",
+              "on-primary-container": "#ffffff",
+              "surface-container-high": "#f7e5d4",
+              "inverse-primary": "#afccce",
+              "error": "#ba1a1a",
+              "surface-container": "#fdebd9",
+              "on-secondary-container": "#5e6466",
+              "on-secondary-fixed": "#171d1e",
+              "secondary-fixed": "#dee3e5",
+              "primary-fixed-dim": "#afccce",
+              "secondary-container": "#dbe1e3",
+              "surface-container-highest": "#f2dfce",
+              "on-error-container": "#93000a",
+              "tertiary-container": "#c55322",
+              "outline": "#727879",
+              "on-primary-fixed-variant": "#314b4d",
+              "error-container": "#ffdad6",
+              "on-surface-variant": "#414848",
+              "on-primary": "#ffffff",
+              "surface-bright": "#fff8f4",
+              "on-secondary-fixed-variant": "#42484a",
+              "on-error": "#ffffff",
+              "surface-dim": "#e9d7c6",
+              "on-tertiary-fixed-variant": "#802a00",
+              "surface-variant": "#f2dfce",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-fixed": "#370d00",
+              "on-primary-fixed": "#031f21",
+              "on-tertiary": "#ffffff",
+              "surface": "#fff8f4",
+              "on-surface": "#231a10",
+              "surface-container-low": "#fff1e6",
+              "secondary-fixed-dim": "#c2c7c9",
+              "outline-variant": "#c1c8c8",
+              "on-background": "#231a10",
+              "tertiary-fixed-dim": "#ffb59a",
+              "primary": "#486264",
+              "inverse-surface": "#392f23"
+            },
+            fontFamily: {
+              "headline": ["Newsreader"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      body { font-family: 'Manrope', sans-serif; }
+      .font-serif { font-family: 'Newsreader', serif; }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .tonal-shift { transition: background-color 0.2s ease; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar (Shared Component) -->
+<aside class="h-screen w-64 fixed left-0 top-0 border-r-0 bg-slate-100 dark:bg-slate-900 flex flex-col py-6 px-4 shadow-[40px_0_40px_-20px_rgba(35,26,16,0.04)] z-50">
+<div class="mb-10 px-2">
+<h1 class="text-xl font-bold font-serif text-slate-700 dark:text-slate-200">The Archivist</h1>
+<p class="text-[10px] font-extrabold uppercase tracking-widest text-slate-500 mt-1">Chartered Accountants</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined text-lg">dashboard</span>
+<span class="text-sm font-semibold">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined text-lg">person</span>
+<span class="text-sm font-semibold">Profile</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined text-lg">event</span>
+<span class="text-sm font-semibold">Bookings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined text-lg">notifications</span>
+<span class="text-sm font-semibold">Notifications</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined text-lg">payments</span>
+<span class="text-sm font-semibold">Earnings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-800 dark:text-white font-bold border-r-4 border-slate-600 dark:border-slate-400 bg-white/50 dark:bg-slate-800/50 rounded-lg" href="#">
+<span class="material-symbols-outlined text-lg">description</span>
+<span class="text-sm font-semibold">Documents</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 space-y-1">
+<button class="w-full bg-primary text-white py-3 px-4 rounded-lg font-bold text-sm mb-6 shadow-[0_2px_0_0_#314b4d]">
+                New Audit
+            </button>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:text-slate-700 transition-all" href="#">
+<span class="material-symbols-outlined text-lg">settings</span>
+<span class="text-sm font-semibold">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:text-slate-700 transition-all" href="#">
+<span class="material-symbols-outlined text-lg">help</span>
+<span class="text-sm font-semibold">Support</span>
+</a>
+</div>
+</aside>
+<!-- TopAppBar (Shared Component) -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] z-40 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md flex justify-between items-center h-20 px-8 ml-64 border-b-2 border-slate-100 dark:border-slate-900">
+<div class="flex items-center gap-4 bg-slate-100/50 px-4 py-2 rounded-lg focus-within:ring-2 focus-within:ring-slate-400 transition-all w-96">
+<span class="material-symbols-outlined text-slate-400">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full" placeholder="Search archives..." type="text"/>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 border-r border-slate-200 pr-6">
+<button class="text-slate-500 hover:text-slate-900 transition-all relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-tertiary rounded-full border-2 border-white"></span>
+</button>
+<button class="text-slate-500 hover:text-slate-900 transition-all">
+<span class="material-symbols-outlined">mail</span>
+</button>
+</div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="text-xs font-extrabold uppercase tracking-tight text-slate-400 leading-none mb-1">Accountant</p>
+<p class="text-sm font-bold text-slate-800">S. Richardson</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-slate-200 overflow-hidden">
+<img alt="Accountant Profile" class="w-full h-full object-cover" data-alt="Professional portrait of a male accountant in a sharp grey suit with a neutral studio background and soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvfb8CVzmMpVdcHhEAG6z0fDBOczrC3Nopq8Xmle_n0U9cTyiDNj7eJNKxpM59PikMusTaz7B54nBO0lkbMRppl7roZ6_Az2ti6yUC5Zr7sbtHayb1AKvIUJ5-o0n0bs6KIGvClflDnVXrwPVO7W5wyEzJX8L9vI8BRUSDRw8czqaGxguFSsU6WOkmK1T8eu5h4wGXWQm4Prr-bPlyG1oLaeKKEPafO1PpiMSNCCLJO19COuoBDLoRpVpBsEvR51i5Ilqqb7Ugpkw"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-20 min-h-screen">
+<div class="p-12 max-w-7xl mx-auto">
+<!-- Page Header -->
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="font-serif text-5xl font-semibold tracking-tight text-primary">Subscription Management</h2>
+<p class="mt-4 text-secondary max-w-md font-body leading-relaxed">
+                        Manage your professional licensure access and institutional audit toolkits from one central ledger.
+                    </p>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full">
+<span class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></span>
+<span class="text-[10px] font-extrabold font-label uppercase text-green-700 tracking-widest">Active Status</span>
+</div>
+</div>
+<!-- Bento Layout for Subscription Info -->
+<div class="grid grid-cols-12 gap-8 mb-12">
+<!-- Active Plan Card -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest p-8 rounded-xl shadow-[40px_0_40px_-20px_rgba(35,26,16,0.04)] relative overflow-hidden flex flex-col justify-between">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -mr-20 -mt-20 blur-3xl"></div>
+<div>
+<span class="text-[10px] font-extrabold font-label uppercase text-outline tracking-widest mb-2 block">Current Plan</span>
+<h3 class="font-serif text-3xl font-medium text-on-surface">Institutional Audit Pro</h3>
+<p class="text-secondary mt-2 max-w-md">Comprehensive suite including forensic analytics, multi-entity reporting, and direct tax-portal integration.</p>
+</div>
+<div class="grid grid-cols-3 gap-8 mt-12 border-t-2 border-slate-50 pt-8">
+<div>
+<p class="text-[10px] font-extrabold font-label uppercase text-outline tracking-widest">Next Billing</p>
+<p class="text-xl font-bold font-body text-primary mt-1">Oct 24, 2024</p>
+</div>
+<div>
+<p class="text-[10px] font-extrabold font-label uppercase text-outline tracking-widest">Billing Cycle</p>
+<p class="text-xl font-bold font-body text-primary mt-1">Annual</p>
+</div>
+<div>
+<p class="text-[10px] font-extrabold font-label uppercase text-outline tracking-widest">License Count</p>
+<p class="text-xl font-bold font-body text-primary mt-1">12 / 15 Seats</p>
+</div>
+</div>
+</div>
+<!-- Renewal CTA Card -->
+<div class="col-span-12 lg:col-span-4 bg-primary text-white p-8 rounded-xl flex flex-col justify-between shadow-[0_12px_40px_-12px_rgba(72,98,100,0.3)]">
+<div>
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-tertiary-fixed">autorenew</span>
+<span class="text-[10px] font-extrabold font-label uppercase tracking-widest text-primary-fixed">Renew Early</span>
+</div>
+<h4 class="font-serif text-2xl">Extend your professional legacy.</h4>
+<p class="text-sm mt-3 text-primary-fixed-dim leading-relaxed">Secure current rates and lock in Institutional Pro features for another 12-month cycle.</p>
+</div>
+<div class="mt-8">
+<div class="text-3xl font-bold font-body mb-6">$2,499<span class="text-sm font-normal text-primary-fixed-dim">/year</span></div>
+<button class="w-full bg-tertiary hover:bg-tertiary-container text-white py-4 rounded-lg font-bold transition-all shadow-[0_4px_0_0_#802a00] active:translate-y-[2px] active:shadow-none">
+                            Renew Subscription
+                        </button>
+</div>
+</div>
+</div>
+<!-- Billing History & Management Tabs -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Billing History Table -->
+<div class="col-span-12 lg:col-span-7">
+<div class="flex items-center justify-between mb-6">
+<h5 class="font-serif text-xl font-medium">Billing Ledger</h5>
+<button class="text-[10px] font-extrabold font-label uppercase text-primary tracking-widest hover:underline">Download All</button>
+</div>
+<div class="bg-surface-container-low rounded-xl overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-high">
+<tr>
+<th class="px-6 py-4 text-[10px] font-extrabold font-label uppercase text-outline tracking-widest">Invoice ID</th>
+<th class="px-6 py-4 text-[10px] font-extrabold font-label uppercase text-outline tracking-widest">Date</th>
+<th class="px-6 py-4 text-[10px] font-extrabold font-label uppercase text-outline tracking-widest">Amount</th>
+<th class="px-6 py-4 text-[10px] font-extrabold font-label uppercase text-outline tracking-widest">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-200/50">
+<tr class="hover:bg-surface-container transition-colors duration-200">
+<td class="px-6 py-4 font-bold text-sm text-secondary">INV-2023-004</td>
+<td class="px-6 py-4 text-sm text-outline">Oct 24, 2023</td>
+<td class="px-6 py-4 text-sm font-bold">$2,499.00</td>
+<td class="px-6 py-4">
+<button class="material-symbols-outlined text-primary hover:text-tertiary transition-colors">download</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors duration-200">
+<td class="px-6 py-4 font-bold text-sm text-secondary">INV-2022-012</td>
+<td class="px-6 py-4 text-sm text-outline">Oct 24, 2022</td>
+<td class="px-6 py-4 text-sm font-bold">$2,499.00</td>
+<td class="px-6 py-4">
+<button class="material-symbols-outlined text-primary hover:text-tertiary transition-colors">download</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors duration-200">
+<td class="px-6 py-4 font-bold text-sm text-secondary">INV-2021-089</td>
+<td class="px-6 py-4 text-sm text-outline">Oct 26, 2021</td>
+<td class="px-6 py-4 text-sm font-bold">$2,250.00</td>
+<td class="px-6 py-4">
+<button class="material-symbols-outlined text-primary hover:text-tertiary transition-colors">download</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Payment Methods Card -->
+<div class="col-span-12 lg:col-span-5 flex flex-col gap-6">
+<div class="bg-surface-container-highest p-8 rounded-xl border-l-4 border-primary">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h5 class="font-serif text-lg font-medium">Payment Method</h5>
+<p class="text-[10px] font-extrabold font-label uppercase text-outline tracking-widest mt-1">Default instrument</p>
+</div>
+<span class="material-symbols-outlined text-primary">credit_card</span>
+</div>
+<div class="flex items-center gap-4 bg-white/50 p-4 rounded-lg">
+<div class="w-12 h-8 bg-secondary rounded flex items-center justify-center text-[10px] font-bold text-white uppercase italic">Visa</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-on-surface">•••• •••• •••• 9012</p>
+<p class="text-[10px] text-outline uppercase font-extrabold tracking-tighter">Expires 12/26</p>
+</div>
+<button class="text-xs font-bold text-primary hover:text-tertiary">Edit</button>
+</div>
+</div>
+<div class="bg-surface-dim p-8 rounded-xl">
+<h5 class="font-serif text-lg font-medium mb-4">Institutional Add-ons</h5>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-3 bg-white/30 rounded-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-sm text-primary">storage</span>
+<span class="text-xs font-bold">Priority Archival Storage</span>
+</div>
+<span class="text-xs font-extrabold text-green-700">INCLUDED</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-white/30 rounded-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-sm text-primary">support_agent</span>
+<span class="text-xs font-bold">24/7 Dedicated Partner Support</span>
+</div>
+<span class="text-xs font-extrabold text-green-700">INCLUDED</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Feedback (Optional/Visual Only) -->
+<div class="fixed bottom-8 right-8">
+<button class="bg-secondary text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl hover:scale-105 transition-transform">
+<span class="material-symbols-outlined" data-weight="fill">chat_bubble</span>
+</button>
+</div>
+</body></html>

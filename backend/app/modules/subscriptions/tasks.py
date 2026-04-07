@@ -19,9 +19,9 @@ def check_subscription_expiry():
     async def _execute():
         from app.database import AsyncSessionLocal
         from app.modules.subscriptions.models import Subscription
-        from app.modules.ca.models import CAProfile
+        from app.modules.ca.models import CAProfile, SubscriptionPaymentStatus
         from app.modules.notifications.service import NotificationService
-        from sqlalchemy import select, update
+        from sqlalchemy import select
 
         async with AsyncSessionLocal() as db:
             now = datetime.now(timezone.utc)
@@ -44,6 +44,11 @@ def check_subscription_expiry():
                 profile = ca_result.scalar_one_or_none()
                 if profile:
                     profile.is_visible = False
+                    if profile.active_subscription_id == sub.id:
+                        profile.subscription_payment_status = (
+                            SubscriptionPaymentStatus.EXPIRED
+                        )
+                        profile.active_subscription_id = None
 
                     await NotificationService.create(
                         db=db,
